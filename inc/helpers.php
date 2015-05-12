@@ -1,6 +1,41 @@
 <?php
-/**
- * Our own after setup function:
+/* --------------------------------------------------------------
+  >>> TABLE OF CONTENTS:
+  ----------------------------------------------------------------
+ * - Define Globals
+ * - Init and setup functions
+ * --   Define Constants
+ * --   Enqueue scripts
+ * --   Create custom post type for newsflashe on sidebar
+ * --   Add to extended_valid_elements for TinyMCE 
+ * - Admin functions
+ * --   Thumbnail column in the admin posts list
+ * --   TGM_Plugin_Activation function
+ * --   Put excerpt meta-box before editor
+ * --   Add second featured image box to posts
+ * --   Gallery link should lead to file
+ * --   Theme Customizer for holidays
+ * - Menu and pre_get_posts functions
+ * --   Menu function - adds child categories to menu items
+ * --   pre_get_posts function
+ * --   posts_where hook for events category
+ * - Post content, image & excerpt functions
+ * --   Get short excerpt
+ * --   Get thumbnail 
+ * --   Show video or audio icon
+ * - Sidebar & Widget functions
+ * --   Newsflash
+ * --   Jewish Calendar
+ * --   Event List
+ * --   Tag cloud
+ * --   latest comments
+ * - Homepage functions - show categories in homepage
+ * - Comments functions
+ * - Facebook header info functions
+ * -------------------------------------------------------------- */
+
+
+/* Our own after setup function:
  * Define the blogs category,
  * Override the default image sizes so that the image is cropped exactly to the size
  * */
@@ -164,7 +199,7 @@ function kamoha_enqueu_scripts(){
 add_action( 'wp_enqueue_scripts', 'kamoha_enqueu_scripts' );
 
 /**
- * Create custom post type for newsflasher on sidebar
+ * Create custom post type for newsflashe on sidebar
  */
 function kamoha_init_theme(){
     /* Create News Flash post type */
@@ -182,52 +217,11 @@ function kamoha_init_theme(){
     /* Add admin editor style, but only on post page.
      * The init hool, however, only works on new post page.
      * In order to load editor style on edit post page, we need to hook onto pre_get_posts.
-     * As per the explenation here: http://codex.wordpress.org/Function_Reference/add_editor_style
-     * "Note that the pre_get_posts action hook is used to ensure that the post type is already
-     * determined but, at the same time, that TinyMCE has not been configured yet.
-     * That hook is not run when creating new posts, that is why we need to use it in combination
-     * with the init hook to achieve a consistent result.  */
-    if ( stristr( $_SERVER['REQUEST_URI'], 'post-new.php' ) !== false ) {
-        add_editor_style();
-    }
+     * As per the explenation here: http://codex.wordpress.org/Function_Reference/add_editor_style  */
+    add_editor_style();
 }
 
 add_action( 'init', 'kamoha_init_theme' );
-
-/**
- * Create shortcode for pelepay form
- */
-function register_shortcodes(){
-    add_shortcode( 'kamoha_pelepay_form', 'kamoha_insert_pelepay_form' );
-
-    /**
-     * Register a UI for the Shortcode.
-     * Pass the shortcode tag (string)
-     * and an array or args.
-     */
-//    shortcode_ui_register_for_shortcode(
-//            'kamoha_pelepay_form', array(
-//        // Display label. String. Required.
-//        'label' => 'kamoha_pelepay_form',
-//        // Icon/image for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
-//        'listItemImage' => 'dashicons-editor-quote',
-//        // Available shortcode attributes and default values. Required. Array.
-//        // Attribute model expects 'attr', 'type' and 'label'
-//        // Supported field types:** text, checkbox, textarea, radio, select, email, url, number, and date.  
-//        'attrs' => array(
-//            array(
-//                'label' => 'first_option',
-//                'attr' => 'first_option',
-//                'type' => 'text',
-//                'placeholder' => 'Firstname Lastname',
-//                'description' => 'Optional',
-//            ),
-//        ),
-//            )
-//    );
-}
-
-add_action( 'init', 'register_shortcodes' );
 
 /**
  * Add to extended_valid_elements for TinyMCE 
@@ -792,7 +786,7 @@ function kamoha_the_short_excerpt( $limit ){
                 $ret = mb_substr( $content, 0, $space_pos_in_substr );
             }
         }
-        $ret .= '...';
+        $ret .= '&hellip;';
     }
     return $ret;
 }
@@ -1042,10 +1036,9 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
     /* Let's figure out what the relevant month and year are */
     if ( strpos( $cur_url, 'month=' ) === false ) { // this is the current month
 // Get first get the gregorian date of today
-        $thisGdate = explode( "/", date( 'Y/m/d' ) );
-        $thisGyear = $thisGdate[0];
-        $thisGmonth = $thisGdate[1];
-        $thisGday = $thisGdate[2];
+        $thisGyear = date( 'Y' );
+        $thisGmonth = date( 'm' );
+        $thisGday = date( 'd' );
 // and then we derive the hebrew date
         $thisJdate = gregoriantojd( $thisGmonth, $thisGday, $thisGyear ); // first convert gregorian date to julian
         $thisHDateNUm = explode( "/", jdtojewish( $thisJdate ) ); // get the jewish date in numbers (i.e., 11/19/5774), and separate them into an array, so can be passed to jewishtojd
@@ -1086,10 +1079,10 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
                 }
             }
         }
-        $thisGdate = explode( "/", jdtogregorian( jewishtojd( $thisHmonthNum, 1, $thisHyearNum ) ) );
-        $thisGmonth = zeroise( $thisGdate[0], 2 );
-        $thisGyear = zeroise( $thisGdate[2], 2 );
-        $thisGday = zeroise( $thisGdate[1], 2 );
+        $thisGdateTime = strtotime( jdtogregorian( jewishtojd( $thisHmonthNum, 1, $thisHyearNum ) ) ); // get gregorian date, and turn it into time with strtotime, to use in date function
+        $thisGyear = date( 'Y', $thisGdateTime );
+        $thisGmonth = date( 'm', $thisGdateTime );
+        $thisGday = date( 'd', $thisGdateTime );
         $firstOfMonthJdate = gregoriantojd( $thisGmonth, $thisGday, $thisGyear ); // we need julian date of first of month for later use
     }
 
@@ -1219,10 +1212,10 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
 
 // get current gregorian date
         $currGdate = jdtogregorian( jewishtojd( $thisHmonthNum, $day + 1, $thisHyearNum ) );
-        $curGdateArr = explode( "/", $currGdate );
-        $currGday = $curGdateArr[1];
-        $currGmonth = $curGdateArr[0];
-        $currGyear = $curGdateArr[2];
+        $currGdateTime = strtotime( $currGdate );
+        $currGday = date( 'd', $currGdateTime );
+        $currGmonth = date( 'm', $currGdateTime );
+        $currGyear = date( 'Y', $currGdateTime );
 
 // table cell with indication the current date (today)
         /* gmdate is like date, except return time is GMT
@@ -1323,15 +1316,15 @@ function kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHm
 // get the range of gregorian months the this hebrew month elapses
     $first_of_jewish_month_julian = jewishtojd( $thisHmonthNum, 01, $thisHyearNum );
     $first_of_jewish_month_gregorian = jdtogregorian( $first_of_jewish_month_julian );
-    $gregorian_date_start = explode( "/", $first_of_jewish_month_gregorian ); // get gregorian date in numbers (i.e., 6/29/2014) and separate them into an array
-    $startyear = $gregorian_date_start[2];
-    $startmonth = $gregorian_date_start[0];
+    $gregorian_date_start = strtotime( $first_of_jewish_month_gregorian ); // get gregorian date in numbers (i.e., 6/29/2014) and convert to datetime in order to use date function on
+    $startyear = date( 'Y', $gregorian_date_start );
+    $startmonth = date( 'm', $gregorian_date_start );
 
     /* get days in month to know the last date in current jewish month */
     $daysinmonth = cal_days_in_month( CAL_JEWISH, $thisHmonthNum, $thisHyearNum );
-    $gregorian_date_end = explode( "/", jdtogregorian( jewishtojd( $thisHmonthNum, $daysinmonth, $thisHyearNum ) ) );
-    $endyear = $gregorian_date_end[2];
-    $endmonth = $gregorian_date_end[0];
+    $gregorian_date_end = strtotime( jdtogregorian( jewishtojd( $thisHmonthNum, $daysinmonth, $thisHyearNum ) ) );
+    $endyear = date( 'Y', $gregorian_date_end );
+    $endmonth = date( 'm', $gregorian_date_end );
 
     /* Print the name of the hebrew and gregorian month / months before calendar */
     /* log error if exists */
@@ -1598,7 +1591,7 @@ function kamoha_event_list(){
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for laoding more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                              ?>
+    <?php // add a button for laoding more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                               ?>
     <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
 
     <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
