@@ -1026,7 +1026,7 @@ function kamoha_get_custom_post_type( $post_type ){
 function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
 
     global $wp_locale;
-    $thisHmonthNum = $thisHyearNum = '';
+    $this_H_month_num = $this_H_year_num = '';
 
     $cur_url = (empty( $page_url )) ? curPageURL() : $page_url;
 
@@ -1036,68 +1036,68 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
     /* Let's figure out what the relevant month and year are */
     if ( strpos( $cur_url, 'month=' ) === false ) { // this is the current month
 // Get first get the gregorian date of today
-        $thisGyear = date( 'Y' );
-        $thisGmonth = date( 'm' );
-        $thisGday = date( 'd' );
+        $this_G_year = date( 'Y' );
+        $this_G_month = date( 'm' );
+        $this_G_day = date( 'd' );
 // and then we derive the hebrew date
-        $thisJdate = gregoriantojd( $thisGmonth, $thisGday, $thisGyear ); // first convert gregorian date to julian
-        $thisHDateNUm = explode( "/", jdtojewish( $thisJdate ) ); // get the jewish date in numbers (i.e., 11/19/5774), and separate them into an array, so can be passed to jewishtojd
-        $thisHmonthNum = $thisHDateNUm[0];
-        $thisHyearNum = $thisHDateNUm[2];
+        $this_J_date = gregoriantojd( $this_G_month, $this_G_day, $this_G_year ); // first convert gregorian date to julian
+        $this_H_date_num = explode( "/", jdtojewish( $this_J_date ) ); // get the jewish date in numbers (i.e., 11/19/5774), and separate them into an array, so can be passed to jewishtojd
+        $this_H_month_num = $this_H_date_num[0];
+        $this_H_year_num = $this_H_date_num[2];
         // in non-leap year, there isn't a 6th month. So in case of Adar (6), turn in into 7
-        if ( $thisHmonthNum == 6 && !isJewishLeapYear( $thisHyearNum ) ) {
-            $thisHmonthNum = 7;
+        if ( $this_H_month_num == 6 && !isJewishLeapYear( $this_H_year_num ) ) {
+            $this_H_month_num = 7;
         }
-        $firstOfMonthJdate = jewishtojd( $thisHmonthNum, 1, $thisHyearNum ); // we need julian date of first of month for later use
+        $firstOfMonthJdate = jewishtojd( $this_H_month_num, 1, $this_H_year_num ); // we need julian date of first of month for later use
     } else { // this is a different month, gotten to by the prev or next link
         /* here we start with the Jewish date - which is given in the url, and then convert it to the Gregorian date */
         /* We either get here by ajax - and this is what the condition checks - or by explicit url of type http://dev.linux.ort.org.il/kamoha/?month=577412#events_box */
         if ( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' ) {
-            $thisHmonthNum = substr( $cur_url, strpos( $cur_url, 'month' ) + 10, 2 );
-            $thisHyearNum = substr( $cur_url, strpos( $cur_url, 'month' ) + 6, 4 );
+            $this_H_month_num = substr( $cur_url, strpos( $cur_url, 'month' ) + 10, 2 );
+            $this_H_year_num = substr( $cur_url, strpos( $cur_url, 'month' ) + 6, 4 );
         } else {
             // Some urls are with old calendar parameters, like http://www.kamoha.org.il/?p=13017&month=201304
-            $thisHmonthNum = substr( filter_input( INPUT_GET, 'month' ), 4, 2 );
-            $thisHyearNum = substr( filter_input( INPUT_GET, 'month' ), 0, 4 );
+            $this_H_month_num = substr( filter_input( INPUT_GET, 'month' ), 4, 2 );
+            $this_H_year_num = substr( filter_input( INPUT_GET, 'month' ), 0, 4 );
             // check if gregorian date:
-            if ( substr( $thisHyearNum, 0, 2 ) != '57' ) {
+            if ( substr( $this_H_year_num, 0, 2 ) != '57' ) {
                 //error_log($cur_url);
-                if ( $thisHmonthNum == 13 ) { // can't be in gregorian year 
-                    $thisHmonthNum = 12;
+                if ( $this_H_month_num == 13 ) { // can't be in gregorian year 
+                    $this_H_month_num = 12;
                 }
-                $thisJdate = gregoriantojd( $thisHmonthNum, 1, $thisHyearNum );
-                $thisHDateNUm = explode( "/", jdtojewish( $thisJdate ) ); // get the jewish date in numbers (i.e., 11/19/5774), and separate them into an array, so can be passed to jewishtojd
-                $thisHmonthNum = $thisHDateNUm[0];
-                $thisHyearNum = $thisHDateNUm[2];
+                $this_J_date = gregoriantojd( $this_H_month_num, 1, $this_H_year_num );
+                $this_H_date_num = explode( "/", jdtojewish( $this_J_date ) ); // get the jewish date in numbers (i.e., 11/19/5774), and separate them into an array, so can be passed to jewishtojd
+                $this_H_month_num = $this_H_date_num[0];
+                $this_H_year_num = $this_H_date_num[2];
                 //error_log($cur_url. ' ' . $thisHmonthNum . ' ' . $thisHyearNum);
                 // take care of month 6 in non-leap year - turn it to 7
-                if ( $thisHmonthNum == '6' && !isJewishLeapYear( $thisHyearNum ) ) {
-                    $thisHmonthNum = 7;
+                if ( $this_H_month_num == '6' && !isJewishLeapYear( $this_H_year_num ) ) {
+                    $this_H_month_num = 7;
                 }
-                if ( $thisHmonthNum == '13' && !isJewishLeapYear( $thisHyearNum ) ) {
-                    $thisHmonthNum = 12;
+                if ( $this_H_month_num == '13' && !isJewishLeapYear( $this_H_year_num ) ) {
+                    $this_H_month_num = 12;
                 }
             }
         }
-        $thisGdateTime = strtotime( jdtogregorian( jewishtojd( $thisHmonthNum, 1, $thisHyearNum ) ) ); // get gregorian date, and turn it into time with strtotime, to use in date function
-        $thisGyear = date( 'Y', $thisGdateTime );
-        $thisGmonth = date( 'm', $thisGdateTime );
-        $thisGday = date( 'd', $thisGdateTime );
-        $firstOfMonthJdate = gregoriantojd( $thisGmonth, $thisGday, $thisGyear ); // we need julian date of first of month for later use
+        $this_G_date_time = strtotime( jdtogregorian( jewishtojd( $this_H_month_num, 1, $this_H_year_num ) ) ); // get gregorian date, and turn it into time with strtotime, to use in date function
+        $this_G_year = date( 'Y', $this_G_date_time );
+        $this_G_month = date( 'm', $this_G_date_time );
+        $this_G_day = date( 'd', $this_G_date_time );
+        $firstOfMonthJdate = gregoriantojd( $this_G_month, $this_G_day, $this_G_year ); // we need julian date of first of month for later use
     }
 
     /* ----------------------------------------------------
      * Print the month title
      * ---------------------------------------------------- */
-    kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHmonthNum, $thisHyearNum );
+    kamoha_display_month_title( $this_G_month, $this_G_day, $this_G_year, $this_H_month_num, $this_H_year_num );
 
     /* ----------------------------------------------------
      * Query DB for events posts, that happened in relevant month/year
      * ---------------------------------------------------- */
 
 // Get hebrew month and year in string, for getting the events that happened in this month
-    $thisHmonthStr = $thisHYearStr = '';
-    kamoha_get_hebrew_date_str( $thisGmonth, $thisGday, $thisGyear, $thisHmonthStr, $thisHYearStr );
+    $this_H_month_str = $this_H_year_str = '';
+    kamoha_get_hebrew_date_str( $this_G_month, $this_G_day, $this_G_year, $this_H_month_str, $this_H_year_str );
 // Get the posts from the category that have dates that match the relevant month and year
     $events = new WP_Query( array(
         'meta_key' => 'date', // bring only posts that have a custom fiels called date
@@ -1107,12 +1107,12 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
             'relation' => 'AND', // both conditions have to be met
             array(// the date has to have the current year in it
                 'key' => 'date',
-                'value' => stripslashes( mb_substr( $thisHYearStr, 1 ) ), /* substr is to remove the leading ה in the year */
+                'value' => stripslashes( mb_substr( $this_H_year_str, 1 ) ), /* substr is to remove the leading ה in the year */
                 'compare' => 'LIKE',
             ),
             array(// the date has to have the current month in it, between slashes
                 'key' => 'date',
-                'value' => $thisHmonthStr,
+                'value' => $this_H_month_str,
                 'compare' => 'LIKE',
             )
         ),
@@ -1197,7 +1197,7 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
     $hebrew_days_dates = array('א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'י"א', 'י"ב', 'י"ג', 'י"ד', 'ט"ו', 'ט"ז', 'י"ז', 'י"ח', 'י"ט', 'כ', 'כ"א', 'כ"ב', 'כ"ג', 'כ"ד', 'כ"ה', 'כ"ו', 'כ"ז', 'כ"ח', 'כ"ט', 'ל');
 
     /* get days in month to know the last date in current jewish month */
-    $daysinmonth = cal_days_in_month( CAL_JEWISH, $thisHmonthNum, $thisHyearNum );
+    $daysinmonth = cal_days_in_month( CAL_JEWISH, $this_H_month_num, $this_H_year_num );
 
     $today = date( 'n/j/Y' );
 
@@ -1211,7 +1211,7 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
         $newrow = false;
 
 // get current gregorian date
-        $currGdate = jdtogregorian( jewishtojd( $thisHmonthNum, $day + 1, $thisHyearNum ) );
+        $currGdate = jdtogregorian( jewishtojd( $this_H_month_num, $day + 1, $this_H_year_num ) );
         $currGdateTime = strtotime( $currGdate );
         $currGday = date( 'd', $currGdateTime );
         $currGmonth = date( 'm', $currGdateTime );
@@ -1278,7 +1278,7 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
 
     echo '</div>';
 
-    kamoha_display_next_prev_links( $thisHmonthNum, $thisHyearNum, $cur_url );
+    kamoha_display_next_prev_links( $this_H_month_num, $this_H_year_num, $cur_url );
 }
 
 /**
@@ -1301,28 +1301,28 @@ function curPageURL(){
 
 /**
  * Display the current hebrew and gregorian months and year
- * @param type $thisGmonth - current gregorian month
- * @param type $thisGday - current gregorian day
- * @param type $thisGyear - current gregorian year
- * @param type $thisHmonthNum - current hebrew month as int
- * @param type $thisHyearNum - current hebrew year as int
+ * @param type $this_G_month - current gregorian month
+ * @param type $this_G_day - current gregorian day
+ * @param type $this_G_year - current gregorian year
+ * @param type $this_H_month_num - current hebrew month as int
+ * @param type $this_H_year_num - current hebrew year as int
  */
-function kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHmonthNum, $thisHyearNum ){
+function kamoha_display_month_title( $this_G_month, $this_G_day, $this_G_year, $this_H_month_num, $this_H_year_num ){
     global $wp_locale;
 // Get hebrew month and year in string
-    $thisHmonthStr = $thisHYearStr = '';
-    kamoha_get_hebrew_date_str( $thisGmonth, $thisGday, $thisGyear, $thisHmonthStr, $thisHYearStr );
+    $this_H_month_str = $this_H_year_str = '';
+    kamoha_get_hebrew_date_str( $this_G_month, $this_G_day, $this_G_year, $this_H_month_str, $this_H_year_str );
 
 // get the range of gregorian months the this hebrew month elapses
-    $first_of_jewish_month_julian = jewishtojd( $thisHmonthNum, 01, $thisHyearNum );
+    $first_of_jewish_month_julian = jewishtojd( $this_H_month_num, 01, $this_H_year_num );
     $first_of_jewish_month_gregorian = jdtogregorian( $first_of_jewish_month_julian );
     $gregorian_date_start = strtotime( $first_of_jewish_month_gregorian ); // get gregorian date in numbers (i.e., 6/29/2014) and convert to datetime in order to use date function on
     $startyear = date( 'Y', $gregorian_date_start );
     $startmonth = date( 'm', $gregorian_date_start );
 
     /* get days in month to know the last date in current jewish month */
-    $daysinmonth = cal_days_in_month( CAL_JEWISH, $thisHmonthNum, $thisHyearNum );
-    $gregorian_date_end = strtotime( jdtogregorian( jewishtojd( $thisHmonthNum, $daysinmonth, $thisHyearNum ) ) );
+    $daysinmonth = cal_days_in_month( CAL_JEWISH, $this_H_month_num, $this_H_year_num );
+    $gregorian_date_end = strtotime( jdtogregorian( jewishtojd( $this_H_month_num, $daysinmonth, $this_H_year_num ) ) );
     $endyear = date( 'Y', $gregorian_date_end );
     $endmonth = date( 'm', $gregorian_date_end );
 
@@ -1330,16 +1330,16 @@ function kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHm
     /* log error if exists */
     if ( $startmonth == '0' ) {
         error_log( '$startmonth == 00' );
-        error_log( $thisHmonthNum . ' ' . $thisHyearNum . ' ' . curPageURL() );
+        error_log( $this_H_month_num . ' ' . $this_H_year_num . ' ' . curPageURL() );
     }
     if ( $endmonth == '0' ) {
         error_log( '$endmonth == 00' );
-        error_log( $thisHmonthNum . ' ' . $thisHyearNum . ' ' . curPageURL() );
+        error_log( $this_H_month_num . ' ' . $this_H_year_num . ' ' . curPageURL() );
     }
 
     if ( $startyear == $endyear ) {
         $calendar_output = '<h3 class="clear">'
-                . '<span class="month_name_jew">' . $thisHmonthStr . ' ' . $thisHYearStr . '</span> \ '
+                . '<span class="month_name_jew">' . $this_H_month_str . ' ' . $this_H_year_str . '</span> \ '
                 . '<span class="month_name_greg">' . $wp_locale->get_month( $startmonth );
         if ( $startmonth != $endmonth ) {
             $calendar_output.= ' - ' . $wp_locale->get_month( $endmonth );
@@ -1348,7 +1348,7 @@ function kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHm
                 . '</h3>';
     } else {
         $calendar_output = '<h3 class="clear">'
-                . '<span class="month_name_jew">' . $thisHmonthStr . ' ' . $thisHYearStr . '</span> \ '
+                . '<span class="month_name_jew">' . $this_H_month_str . ' ' . $this_H_year_str . '</span> \ '
                 . '<span class="month_name_greg">' . $wp_locale->get_month( $startmonth ) . ' ' . $startyear . ' - ' . $wp_locale->get_month( $endmonth ) . ' ' . $endyear . '</span>'
                 . '</h3>';
     }
@@ -1357,18 +1357,18 @@ function kamoha_display_month_title( $thisGmonth, $thisGday, $thisGyear, $thisHm
 
 /**
  * Fill the value of $thisHmonthStr (for example תשרי), and $thisHYearStr (for example תשע"ד) according to given gregorian date
- * @param type $thisGmonth - gregorian month
- * @param type $thisGday - gregorian day
- * @param type $thisGyear - gregorian year
- * @param type $thisHmonthStr - passed by reference, get a value of hebrew month name  (כסלו)
- * @param type $thisHYearStr - passed by reference, get a value of hebrew year name  (תשנ"ו)
+ * @param type $this_G_month - gregorian month
+ * @param type $this_G_day - gregorian day
+ * @param type $this_G_year - gregorian year
+ * @param type $this_H_month_str - passed by reference, get a value of hebrew month name  (כסלו)
+ * @param type $this_H_year_str - passed by reference, get a value of hebrew year name  (תשנ"ו)
  */
-function kamoha_get_hebrew_date_str( $thisGmonth, $thisGday, $thisGyear, &$thisHmonthStr, &$thisHYearStr ){
-    $thisJdate = gregoriantojd( $thisGmonth, $thisGday, $thisGyear ); // first convert gregorian date to julian
-    $thisHdateStr = explode( " ", iconv( 'WINDOWS-1255', 'UTF-8', jdtojewish( $thisJdate, true, CAL_JEWISH_ADD_GERESHAYIM ) ) ); // and then convert it to jewish
-    $jewish_date_length = count( $thisHdateStr );
-    $thisHYearStr = $thisHdateStr[$jewish_date_length - 1]; // the last item is the year. It's not always the 3rd item, because in Adar b' the 3rd item is the b'
-    $thisHmonthStr = kamoha_get_heb_month_name( $thisHdateStr );
+function kamoha_get_hebrew_date_str( $this_G_month, $this_G_day, $this_G_year, &$this_H_month_str, &$this_H_year_str ){
+    $this_J_date = gregoriantojd( $this_G_month, $this_G_day, $this_G_year ); // first convert gregorian date to julian
+    $this_H_date_str = explode( " ", iconv( 'WINDOWS-1255', 'UTF-8', jdtojewish( $this_J_date, true, CAL_JEWISH_ADD_GERESHAYIM ) ) ); // and then convert it to jewish
+    $jewish_date_length = count( $this_H_date_str );
+    $this_H_year_str = $this_H_date_str[$jewish_date_length - 1]; // the last item is the year. It's not always the 3rd item, because in Adar b' the 3rd item is the b'
+    $this_H_month_str = kamoha_get_heb_month_name( $this_H_date_str );
 }
 
 /**
