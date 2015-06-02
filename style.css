@@ -46,14 +46,14 @@ and Blueprint http://www.blueprintcss.org/
 14.0 - Media queries
 --------------------------------------------------------------*/
 /* @font-face {
-    font-family: 'Alef Hebrew';
-    src: url('fonts/Alef-Regular.eot');
-    src: url('fonts/Alef-Regular.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Alef-Regular.woff') format('woff'),
-        url('fonts/Alef-Regular.ttf') format('truetype'),
-        url('fonts/Alef-Regular.svg#alefregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+   font-family: 'Alef';
+   src: url('fonts/Alef-Regular.eot');
+   src: url('fonts/Alef-Regular.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Alef-Regular.woff') format('woff'),
+       url('fonts/Alef-Regular.ttf') format('truetype'),
+       url('fonts/Alef-Regular.svg#alefregular') format('svg');
+   font-weight: normal;
+   font-style: normal;
 } */
 /*--------------------------------------------------------------
 1.0 - Reset
@@ -67,7 +67,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0;
-    font-family: 'Alef Hebrew',Arial,sans-serif;
+    font-family: 'Alef',Arial,sans-serif;
     font-size: 100%;
     font-style: inherit;
     font-weight: inherit;
@@ -151,7 +151,7 @@ input,
 select,
 textarea {
     color: #404040;
-    font-family: 'Alef Hebrew',Arial,sans-serif;
+    font-family: 'Alef',Arial,sans-serif;
     font-size: 16px;
     font-size: 1.6rem;
     line-height: 1.2;
@@ -521,20 +521,56 @@ a:active {
 .site-header {
     padding-top: 2rem; /* Give the padding to the header, because the header needs to reach the top of the page*/
 }
+.special .site-header{
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
 .birthday .site-header {
     /*    background: url("images/header_baloons.jpg") no-repeat 0 0px transparent; */
 }
-.trip .site-header {
-    background: url("images/header_trip.jpg") no-repeat 0 0px transparent;
+.trip_before_close .site-header {
+    background-image: url("images/header_trip_before_close.jpg");
+}
+.trip_after_close .site-header {
+    background-image: url("images/header_trip_after_close.jpg");
+}
+.shabbat_early .site-header {
+    background-image: url("images/header_shabbat_early.jpg");
+}
+.shabbat_before_close .site-header {
+    background-image: url("images/header_shabbat_before_close.jpg?1=1");
+}
+.shabbat_before_close_urban .site-header {
+    background-image: url("images/header_shabbat_before_close_urban.jpg");
+}
+.shabbat_after_close .site-header {
+    background-image: url("images/header_shabbat_after_close.jpg");
 }
 .hanuka .site-header {
-    background: url("images/header_hanuka.jpg") no-repeat 0 0px transparent;
+    background-image: url("images/header_hanuka.jpg");
 }
 .purim .site-header {
-    background: url("images/header_purim.jpg") no-repeat 0 0px transparent;
+    background-image: url("images/header_purim.jpg");
 }
 .pesah .site-header {
-    background: url("images/header_pesah.jpg") no-repeat 0 0px transparent;
+    background-image: url("images/header_pesah.jpg");
+}
+.memorial .site-header {
+    background-image: url("images/header_memorial.jpg");
+}
+.independence .site-header {
+    background-image: url("images/header_independence.jpg");
+}
+.jerusalem .site-header {
+    background-image: url("images/header_jerusalem.jpg");
+}
+.shavuot .site-header {
+    background-image: url("images/header_shavuot.jpg?1=1");
+}
+.tishabeav .site-header {
+    background-image: url("images/header_tishabeav.jpg");
+    background-position: right 0;
 }
 /* ---------->>> TOP SITE MENU  <<<-----------*/
 
@@ -599,7 +635,7 @@ a:active {
 
 [class^="icon-"], [class*=" icon-"] {
     color: #ffffff;
-    font-family: 'Alef Hebrew',Arial,sans-serif;
+    font-family: 'Alef',Arial,sans-serif;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -843,9 +879,18 @@ a:active {
 .birthday .site-title a{
     background-image: url(images/logo_birthday_h.png);
 }
-.trip .site-title a{
+.trip_before_close .site-title a,
+.trip_after_close .site-title a{
     background-image: url(images/logo_trip.png);
 }
+
+.shabbat_early .site-title a,
+.shabbat_before_close .site-title a,
+.shabbat_before_close_urban .site-title a,
+.shabbat_after_close .site-title a{
+    background-image: url(images/logo_shabbat.png);
+}
+
 .hanuka .site-title a{
     background-image: url(images/logo_hanuka.png);
 }
@@ -854,6 +899,21 @@ a:active {
 }
 .pesah .site-title a{
     background-image: url(images/logo_pesah.png);
+}
+.memorial .site-title a{
+    background-image: url(images/logo_memorial.png);
+}
+.independence .site-title a{
+    background-image: url(images/logo_independence.png);
+}
+.jerusalem .site-title a{
+    background-image: url(images/logo_jerusalem.png);
+}
+.shavuot .site-title a{
+    background-image: url(images/logo_shavuot.png);
+}
+.tishabeav .site-title a{
+    background-image: url(images/logo_tishabeav.png);
 }
 .search-form {
     background-color: #ffffff;
@@ -1081,7 +1141,7 @@ a:hover .entry-title,
     font-size: 1.3rem;
     width: 3rem;
     height: 3rem;
-    font-family: 'Alef Hebrew',Arial,sans-serif;
+    font-family: 'Alef',Arial,sans-serif;
     text-align: center;
 }
 .cat-issues:before{
@@ -1383,10 +1443,6 @@ a:hover .entry-title,
 /*since we don't have a speciel style for links in news flash, underline them*/
 .news_flash .news_content a{
     text-decoration: underline;
-}
-.news_flash a.control_prev,
-.news_flash a.control_next{
-    display: none;
 }
 
 /*********** CountdownTimer  ****************/
@@ -1807,7 +1863,7 @@ body.category-francais .site-main,
 .single .content-area,
 .page .content-area,
 .error404 .content-area{
-    font:  2rem / 1.5 'Alef Hebrew',Arial,sans-serif;
+    font:  2rem / 1.5 'Alef',Arial,sans-serif;
 }
 .error404 .site-main{
     margin:0;
@@ -1893,8 +1949,12 @@ body:not(.page-id-15263) .entry-content {
 }
 .page-content img,
 .entry-content img{
-    max-width: 100%;
+    border: 1px solid #c5c5c5;
+    box-sizing: content-box;
+    display: inline-block;
     height: auto;
+    max-width: 100%;
+    padding: 0.6%;
 }
 .page-content .alignnone.size-full,
 .entry-content .alignnone.size-full {
@@ -1939,7 +1999,7 @@ body:not(.page-id-15263) .entry-content {
     color:#73026e;
 }
 .entry-meta{
-    font:  1.4rem / 1.2 'Alef Hebrew',Arial,sans-serif;
+    font:  1.4rem / 1.2 'Alef',Arial,sans-serif;
     margin-top: 0.5rem;
 }
 .single footer.entry-meta {
@@ -2435,18 +2495,21 @@ div.wp-pagenavi span.extend  {
 }
 .wp-caption {
     border: 1px solid #c5c5c5;
-    margin-bottom: 1.5em;
+    /* margin-bottom: 1.5em; */
     max-width: 100%;
 }
 .wp-caption img[class*="wp-image-"] {
+    border: none;
     display: block;
     margin: 1.2% auto 0;
     max-width: 98%;
+    padding: 0;
 }
 .wp-caption-text {
     text-align: center;
     word-wrap: break-word;
     overflow: hidden;
+    font-size: 1.6rem;
 }
 .wp-caption .wp-caption-text {
     margin: 0.8075em 0;
@@ -2621,9 +2684,6 @@ object {
         border-left: none;
         padding-right: 2.5rem;
     }
-    .content-area{
-        float: none;
-    }
     /* In this resolution we hide the show more button, because in JS we prevent the hiding of the 2 last posts in newest block*/
     .content-area .showMore{
         display: none;
@@ -2652,79 +2712,6 @@ object {
     /* hide tabs block*/
     .block-tabs {
         display: none;
-    }
-    /*news_flash gets special design*/
-    .news_flash.news_flash {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-    }
-    .news_flash .aside_title{
-        /*        margin-bottom: 0;
-                        padding: 0.5rem;*/
-        display: none;
-    }
-    .news_flash .aside_content{
-        position: relative;
-        overflow: hidden;
-        margin: 1rem auto 0 auto;
-        padding: 0;
-        border-radius: 4px;
-        transition: all 1s ease-in;
-        min-height: calc(3rem + 60%);
-    }
-    .news_flash ul {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .news_flash ul li {
-        position: relative;
-        display: block;
-        float: right;
-        margin: 0;
-        padding: 0;
-        background: #efefef;
-        font-size: 1.8rem;
-    }
-    .news_flash .aside_content li{ /*special definition needed for specicifity*/
-        margin-bottom: 1rem;
-    }
-
-    .news_content{
-        padding: 1rem 4rem;
-    }
-    .news_flash a.control_prev,
-    .news_flash a.control_next{
-        position: absolute;
-        top: 30%;
-        z-index: 999;
-        display: block;
-        padding: 0.5rem 1rem;
-        width: auto;
-        height: auto;
-        background: #73026e;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 18px;
-        opacity: 0.6;
-        cursor: pointer;
-        font-family: 'Zapf Dingbats';
-    }
-    .news_flash a.control_prev:hover,
-    .news_flash a.control_next:hover {
-        opacity: 1;
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease;
-    }
-    .news_flash a.control_prev {
-        border-radius: 2px 0 0 2px;
-    }
-    .news_flash a.control_next {
-        left: 0;
-        border-radius: 0 2px 2px 0;
     }
     .single .entry-title, .page .entry-title{
         font-size: 2.8rem;
@@ -2880,8 +2867,26 @@ object {
     .special .site-header{
         background-size:140% 100%; /*100% looks too narrow */
     }
-    .trip .site-header {
-        background-image: url("images/header_trip_600.jpg");
+    .trip_before_close .site-header {
+        background-image: url("images/header_trip_before_close_600.jpg?1=1");
+    }
+    .trip_after_close .site-header {
+        background-image: url("images/header_trip_after_close_600.jpg");
+    }	
+    .shabbat_early .site-header {
+        background-image: url("images/header_shabbat_early_600.jpg?1=1");
+    }	
+    .shabbat_before_close .site-header {
+        background-image: url("images/header_shabbat_before_close_600.jpg?1=1");
+    }
+    .shabbat_before_close_urban .site-header {
+        background-image: url("images/header_shabbat_before_close__urban_600.jpg");
+    }
+    .shabbat_after_close .site-header {
+        background-image: url("images/header_shabbat_after_close_600.jpg?1=1");
+    }
+    .tishabeav .site-header{
+        background-position: center 0;
     }
     .site-branding{
         clear: none;
@@ -2908,6 +2913,9 @@ object {
         width: 100%;
         padding-bottom: 78%;
     }
+    .tishabeav .site-title a{
+        background-image: url("images/logo_tishabeav_600.png");
+    }    
     .main-navigation{
         background-color: transparent;
         float: none;
@@ -3023,7 +3031,7 @@ object {
         font-size: 2.5rem;
     }
     .single .content-area, .page .content-area, .error404 .content-area {
-        font: 1.5rem/1.2 'Alef Hebrew',Arial,sans-serif;
+        font: 1.5rem/1.2 'Alef',Arial,sans-serif;
     }
     /* comments - less padding and smaller font-size*/
     .comment-respond{

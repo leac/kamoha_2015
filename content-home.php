@@ -62,7 +62,7 @@ $blog_post_index, $issue_post_index, $sticky_exists, $latest_post_index;
 
                 <?php
                 // if there are comments, show number
-                $comm_num = number_format_i18n( get_post_field( 'comment_count', get_the_ID() ) );
+                $comm_num = number_format_i18n( get_comments_number() );
                 if ( $comm_num > 0 && $homepage_part != HomepagePart::Tabs ) {
                     ?>
                     <span class="icon-bubble"><?php echo $comm_num; ?></span>

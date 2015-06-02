@@ -169,7 +169,7 @@ function kamoha_enqueu_scripts(){
 add_action( 'wp_enqueue_scripts', 'kamoha_enqueu_scripts' );
 
 /**
- * Create custom post type for newsflashe on sidebar
+ * Create custom post type for newsflash on sidebar
  */
 function kamoha_init_theme(){
     /* Create News Flash post type */
@@ -317,7 +317,7 @@ function kamoha_register_required_plugins(){
             'slug' => 'bainternet-Tax-Meta-Class',
             'source' => get_stylesheet_directory() . '/inc/plugins/bainternet-Tax-Meta-Class.zip', // The plugin source.
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'CodeStyling Localization',
@@ -334,25 +334,25 @@ function kamoha_register_required_plugins(){
             'name' => 'My Category Order',
             'slug' => 'my-category-order',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'Simple Share Buttons Adder',
             'slug' => 'simple-share-buttons-adder',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'Responsive Menu',
             'slug' => 'responsive-menu',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'WP-PageNavi',
             'slug' => 'wp-pagenavi',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'T(-) Countdown',
@@ -369,7 +369,7 @@ function kamoha_register_required_plugins(){
             'name' => 'WordPress Related Posts',
             'slug' => 'wordpress-23-related-posts-plugin',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
         array(
             'name' => 'WordPress Popular Posts',
@@ -380,7 +380,7 @@ function kamoha_register_required_plugins(){
             'name' => 'Regenerate Thumbnails',
             'slug' => 'regenerate-thumbnails',
             'required' => false,
-            'force_deactivation' => true,
+            'force_deactivation' => false,
         ),
     );
 
@@ -512,13 +512,18 @@ function kamoha_customize_register_func( $wp_customize ){
             'birthday' => __( 'birthday', 'kamoha' ),
             'trip_before_close' => __( 'trip before close', 'kamoha' ),
             'trip_after_close' => __( 'trip after close', 'kamoha' ),
-            'shabbat_before_close' => __( 'shabbat before close', 'kamoha' ),
             'shabbat_early' => __( 'shabbat early', 'kamoha' ),
+            'shabbat_before_close' => __( 'shabbat before close', 'kamoha' ),
+            'shabbat_before_close_urban' => __( 'shabbat before close urban', 'kamoha' ),
+            'shabbat_after_close' => __( 'shabbat after close', 'kamoha' ),
+            'hanuka' => __( 'hanuka', 'kamoha' ),
             'purim' => __( 'purim', 'kamoha' ),
             'pesah' => __( 'pesah', 'kamoha' ),
             'memorial' => __( 'memorial', 'kamoha' ),
             'independence' => __( 'independence', 'kamoha' ),
-            'hanuka' => __( 'hanuka', 'kamoha' ),
+            'jerusalem' => __( 'jerusalem', 'kamoha' ),
+            'shavuot' => __( 'shavuot', 'kamoha' ),
+            'tishabeav' => __( 'tishabeav', 'kamoha' ),
         ),
     ) );
 }
@@ -544,7 +549,7 @@ function kamoha_customizer_live_preview(){
             'kamoha-themecustomizer', //Give the script an ID
             get_template_directory_uri() . '/js/customize-themes.js', //Point to file
             array('jquery', 'customize-preview'), //Define dependencies
-            '0.7.1', //Define a version (optional)
+            '0.7.5', //Define a version (optional)
             true   //Put script in footer?
     );
 }
@@ -677,12 +682,15 @@ function kamoha_posts_where( $where, &$query ){
     if ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query()  // condition for events category
             || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT && !$query->is_main_query()) // condition for event list in sidebar
     ) {
+        $datedir = '';
         if ( filter_input( INPUT_GET, 'pastposts' ) != NULL ) {
             $datedir = '<'; // get past events
         } elseif ( filter_input( INPUT_GET, 'futureposts' ) != NULL || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT) ) {
             $datedir = '>'; //get future events - in category page or in sidebar
         }
-        $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
+        if ( !empty( $datedir ) ) {
+			$where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
+        }
     }
     return $where;
 }
@@ -793,12 +801,11 @@ function kamoha_get_custom_post_type( $post_type ){
     $args = array('post_type' => $post_type);
     $posts_secondary = new WP_Query( $args );
     if ( $posts_secondary->have_posts() ) {
-        $ret .= '<ul class="clear">'; // clear class is needed for lower resolutions, where the list items are floated
-        $i = 1;
+        $ret .= '<ul>';
         while ( $posts_secondary->have_posts() ) {
             $posts_secondary->the_post();
             $post_format = get_post_type();
-            $ret .= '<li class="news_' . $post_format . '" id=nf_' . $i++ . '>';
+            $ret .= '<li class="news_' . $post_format . '">';
             $ret .= '<div class="news_content">';
             $ret .= wpautop( get_the_content() );
             $ret .= '</div>';
@@ -903,7 +910,7 @@ function kamoha_event_list(){
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for laoding more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                               ?>
+    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                               ?>
     <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
 
     <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
@@ -1034,7 +1041,7 @@ function kamoha_order_categories_by( $order_by = 'ID' ){
 /* * *********************************************************** */
 
 /**
- * Get the excerpt - for homepage and for single page
+ * Get the excerpt as page description - for homepage and for single page
  * @return string
  */
 function kamoha_get_facebook_page_description(){

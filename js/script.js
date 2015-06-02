@@ -2,9 +2,9 @@
  * This code checks the width of the window. 
  * If it's wider that 800px, hide the 2 latest posts in the newest-posts block. Else don't hide.
  * In CSS, when width is less that 800px, we hide the showMore button of newest posts, and all 7 posts are shown.*/
-var mql_min_800 = window.matchMedia("screen and (min-width: 800px)");
-mql_min_800.addListener(handleResizeChange);
-handleResizeChange(mql_min_800);
+var mql = window.matchMedia("screen and (min-width: 800px)");
+mql.addListener(handleResizeChange);
+handleResizeChange(mql);
 function handleResizeChange(mql) {
     if (mql.matches) {
         /* the view port is at least 800 pixels wide */
@@ -145,71 +145,7 @@ jQuery(document).ready(function ($) {
     $('#pelepay_submit').click(function () {
         document.pelepayform.amount.value = document.getElementById("amount").value;
     });
-
-    /***********************************************
-     * New Flash in lower resolutions
-     ***********************************************/
-    if ($('a.control_prev').css('display') === 'block') {
-        // make the slider work automatically
-        var interval_id = window.setInterval(function () {
-            moveLeft();
-        }, 3000);
-        /* This part applies to the news flash, and happens in lower resolutions. 
-         * The condition that has to be met is that the a elements which hold the arrows, are displayed*/
-        var slideCount = $('.news_flash ul li').length;
-        var slideWidth = $('.news_flash').width();
-        /* set fixed width to all li's. Has to be done in JS, 
-         * because if done in CSS it will either be fixed (not good for reponsive)
-         * or 100%, but that doesn't work well with the slider. */
-        /* after width was given, we can use the height*/
-        $('.news_flash li').css({width: slideWidth});
-        //var slideHeight = $('.news_flash ul li').height();
-        var sliderUlWidth = slideCount * slideWidth;
-
-        $('.news_flash .aside_content').css({width: slideWidth}); //, height: slideHeight
-
-        $('.news_flash ul').css({width: sliderUlWidth, marginRight: -slideWidth});
-
-        $('.news_flash ul li:last-child').prependTo('.news_flash ul');
-
-        function moveRight() {
-            $('.news_flash ul').animate({
-                right: +slideWidth
-            }, 500, function () {
-                $('.news_flash ul li:last-child').prependTo('.news_flash ul');
-                $('.news_flash ul').css('right', '');
-            });
-            slideHeight = $('.news_flash ul li:first-child').height();
-            $('.news_flash .aside_content').height(slideHeight);
-        }
-        ;
-
-        function moveLeft() {
-            $('.news_flash ul').animate({
-                right: -slideWidth
-            }, 500, function () {
-                $('.news_flash ul li:first-child').appendTo('.news_flash ul');
-                $('.news_flash ul').css('right', '');
-            });
-            /* the next slide is the 3rd, or the last if there are 3 or less*/
-            var $liChildNum = slideCount <= 2 ? 1 : 3;
-            slideHeight = $('.news_flash ul li:nth-child(' + $liChildNum + ')').height();
-                    $('.news_flash .aside_content').css({height: slideHeight});
-        }
-
-        $('a.control_prev').click(function () {
-            window.clearInterval(interval_id);
-            moveRight();
-        });
-
-        $('a.control_next').click(function () {
-            window.clearInterval(interval_id);
-            moveLeft();
-        });
-        $('.news_flash').prependTo('.site-main');
-    }
 });
-
 
 /********* These functions are needed for signing on joining the organization. Copied from old theme ***************/
 function colorinput(trigger)
@@ -498,14 +434,4 @@ function post_canvas()
     var dataurl = canvas.toDataURL('image/jpg');
     var hiddencanvas = document.getElementById("hidden_canvas");
     hiddencanvas.value = dataurl;
-}
-/* this function is still needed, for the old forms that use it*/
-function onPay()
-{
-    document.pelepayform.amount.value = document.getElementById("amount").value;
-    // in donation page, let the user write what the donation is for
-    var amnt_desc = document.getElementById("amount-description");
-    if (typeof (amnt_desc) != 'undefined' && amnt_desc != null && amnt_desc.value != "") {
-        document.pelepayform.description.value = amnt_desc.value;
-    }
 }

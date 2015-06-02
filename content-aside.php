@@ -7,7 +7,6 @@
  * @since Twenty Fourteen 1.0
  */
 ?>
-ggg
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php twentyfourteen_post_thumbnail(); ?>
 
