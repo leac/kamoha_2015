@@ -38,9 +38,9 @@
                 font-weight: bold;
                 color: #3d6998;
             }
-			.section img {
-			  max-width: 100%;
-			}
+            .section img {
+                max-width: 100%;
+            }
             .key {
                 font-weight: bold;
                 margin-top: 29px;
@@ -49,11 +49,11 @@
     </head>
     <body>
         <div class="content">
-		<?php while ( have_posts() ) : the_post(); ?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'content', 'page' ); ?>
+                <?php get_template_part( 'content', 'page' ); ?>
 
-		<?php endwhile; // end of the loop. ?>
+            <?php endwhile; // end of the loop. ?>
             <!-- image mapster taken from here: http://www.outsharked.com/imagemapster-->
             <script src="<?php echo get_template_directory_uri(); ?>/site_documentation/jquery-2.1.1.min.js"></script> 
             <script src="<?php echo get_template_directory_uri(); ?>/site_documentation/jquery.imagemapster.min.js"></script> 

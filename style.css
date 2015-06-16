@@ -1916,6 +1916,11 @@ body:not(.page-id-15263) .entry-content {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+.page-id-68 h3:not(:first-child){ /* titles in Kmoha in Media page*/
+    padding-top: 5rem;
+    margin-top: 5rem;
+    border-top: 1px solid #c5c5c5;
+}
 .page-content h4,
 .entry-content h4{
     color: #404040;

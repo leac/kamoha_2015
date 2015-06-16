@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom functions that act independently of the theme templates
  *
@@ -13,10 +14,11 @@
  * @param array $args Configuration arguments.
  * @return array
  */
-function kamoha_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+function kamoha_page_menu_args( $args ){
+    $args['show_home'] = true;
+    return $args;
 }
+
 add_filter( 'wp_page_menu_args', 'kamoha_page_menu_args' );
 
 /**
@@ -25,14 +27,15 @@ add_filter( 'wp_page_menu_args', 'kamoha_page_menu_args' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function kamoha_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
+function kamoha_body_classes( $classes ){
+    // Adds a class of group-blog to blogs with more than 1 published author.
+    if ( is_multi_author() ) {
+        $classes[] = 'group-blog';
+    }
 
-	return $classes;
+    return $classes;
 }
+
 add_filter( 'body_class', 'kamoha_body_classes' );
 
 /**
@@ -42,29 +45,30 @@ add_filter( 'body_class', 'kamoha_body_classes' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function kamoha_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
-		return $title;
-	}
-	
-	global $page, $paged;
+function kamoha_wp_title( $title, $sep ){
+    if ( is_feed() ) {
+        return $title;
+    }
 
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
+    global $page, $paged;
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
+    // Add the blog name
+    $title .= get_bloginfo( 'name', 'display' );
 
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'kamoha' ), max( $paged, $page ) );
-	}
+    // Add the blog description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) ) {
+        $title .= " $sep $site_description";
+    }
 
-	return $title;
+    // Add a page number if necessary:
+    if ( $paged >= 2 || $page >= 2 ) {
+        $title .= " $sep " . sprintf( __( 'Page %s', 'kamoha' ), max( $paged, $page ) );
+    }
+
+    return $title;
 }
+
 add_filter( 'wp_title', 'kamoha_wp_title', 10, 2 );
 
 /**
@@ -79,11 +83,12 @@ add_filter( 'wp_title', 'kamoha_wp_title', 10, 2 );
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function kamoha_setup_author() {
-	global $wp_query;
+function kamoha_setup_author(){
+    global $wp_query;
 
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
+    if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
+        $GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
+    }
 }
+
 add_action( 'wp', 'kamoha_setup_author' );

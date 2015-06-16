@@ -1071,5 +1071,5 @@ function kamoha_write_to_log( $data ){
     var_dump( $data );
     $contents = ob_get_contents();
     ob_end_clean();
-    error_log( $contents, 3 );
+    error_log( $contents );
 }

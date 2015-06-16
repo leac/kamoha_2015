@@ -99,6 +99,11 @@ body#tinymce.wp-editor h4{
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+body#tinymce.wp-editor .page-id-68 h3{ /* titles in Kmoha in Media page*/
+    padding-top: 4rem;
+    margin-top: 4rem;
+    border-top: 1px solid #c5c5c5;
+}
 body#tinymce.wp-editor h4{
     color: #404040;
 }

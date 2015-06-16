@@ -60,6 +60,6 @@
 <?php // after post, show related articles ?>
 <?php
 if ( function_exists( 'wp_related_posts' ) ) {
-    wp_related_posts ();
+    wp_related_posts();
 }
 

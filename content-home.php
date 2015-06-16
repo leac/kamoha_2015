@@ -13,7 +13,7 @@ $blog_post_index, $issue_post_index, $sticky_exists, $latest_post_index;
 
 
 <?php $article_class = 'clear'; ?>
-<article  <?php post_class( $article_class ); ?>><!-- Lea 2014/12 - the id invalidates the html when the same posts appears twice. No need for id on homepage. id="post-<?php //the_ID(); ?>" -->
+<article  <?php post_class( $article_class ); ?>><!-- Lea 2014/12 - the id invalidates the html when the same posts appears twice. No need for id on homepage. id="post-<?php //the_ID();    ?>" -->
     <?php
     if ( $homepage_part == HomepagePart::Sticky || $homepage_part == HomepagePart::Newest ) { //show the film icon only in newest posts
         kamoha_show_movie_icon();
@@ -27,7 +27,7 @@ $blog_post_index, $issue_post_index, $sticky_exists, $latest_post_index;
             ($homepage_part == HomepagePart::Blogs && $blog_post_index == 1 ) ||
             ($homepage_part == HomepagePart::Issues && $issue_post_index == 1 ) ) {
         $thumb_size = ($homepage_part == HomepagePart::Tabs) ? 'teeny' :
-                ((is_sticky() || ( ! $sticky_exists && $latest_post_index == 1)) ? 'medium' : 'small');
+                ((is_sticky() || (!$sticky_exists && $latest_post_index == 1)) ? 'medium' : 'small');
         ?>
         <a href="<?php the_permalink(); ?>" rel="bookmark" class="image-wrapper">
             <?php kamoha_show_homepage_thumbnail( $thumb_size ); ?>
