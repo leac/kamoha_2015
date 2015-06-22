@@ -663,16 +663,25 @@ a:active {
     font-size: 1.6rem;
     content: "\e600";
     background-color: #73026e;
-    padding: 0.5rem;
     border-radius:50%;
     position: relative;
     transition: all 0.5s ease;
+    /*padding: 0.5rem;*/
+    /* all icons have to be the same width and height. It's easier to control that via width, height, line-height and text-align properties, than via padding*/
+    height: 2.6rem;
+    width: 2.6rem;
+    line-height: 2.6rem;
+    text-align: center;
 }
 .main-navigation li.contact a:before {
     content: "\e600";
 }
 .main-navigation li.who_we_are a:before {
-    content: "\e607";
+    /*content: "\e607";*/
+    content: "i";
+    font-family: Georgia;
+    font-size: 2rem;
+    font-weight: bold;
 }
 .main-navigation li.kamoha_media a:before {
     content: "\e605";
@@ -2943,7 +2952,10 @@ object {
     .main-navigation li a:before{
         margin-left: 0; /* save space*/
     }
-    .main-navigation li.who_we_are a:before,.main-navigation li.rabbies_support a:before, .main-navigation li.contact a:before{
+    .main-navigation li.who_we_are a:before{ /* in lower resolutions, let the color be purple and the background #fff */
+        background-color: #fff;
+        border: 1px solid;
+        color: #73026e;
     }
     .search-form{
         display: none; /* no room for search in lower resolutions*/
