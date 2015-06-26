@@ -8,9 +8,8 @@
  * Countdown (dynamic sidebar widget), 
  * Events (events and meetings category)
  * Tags
- * Before the sidebar is a menu toggle elemnt, that only shows up in lower resolutions
- *
- * In single, show only the events, and add widget area for related posts
+ * In lower resolutions, the sidebar appears on the bottom, under the primary area, and only shows latest comments, and events.
+ * In single show only the events
  * @package kamoha
  */
 ?>

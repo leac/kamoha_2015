@@ -23,7 +23,6 @@ get_header();
 
             <?php endwhile; ?>
 
-            <?php //kamoha_paging_nav(); ?>
             <?php /* Display navigation to next/previous pages when applicable */ ?>
             <?php if ( $wp_query->max_num_pages > 1 && function_exists( 'wp_pagenavi' ) ) : ?>
                 <?php wp_pagenavi(); ?>

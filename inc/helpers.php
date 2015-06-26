@@ -5,7 +5,6 @@
  * - Define Globals
  * - Init and setup functions
  * --   Define Constants
- * --   Enqueue scripts
  * --   Create custom post type for newsflashe on sidebar
  * --   Add to extended_valid_elements for TinyMCE 
  * - Admin functions
@@ -38,14 +37,15 @@
 /* * **************  Globals *********************** */
 /* * *********************************************** */
 
-global $blog_post_index; /* in blog posts, show only the image of the first post. So keep track of what post number we're showing */
-global $latest_post_index; /* if latest posts are shown when there is no sticky, then the first post gets larger image. So keep track of what post number we're showing */
-global $sticky_exists;
+global $kamoha_blog_post_index; /* in blog posts, show only the image of the first post. So keep track of what post number we're showing */
+global $kamoha_latest_post_index; /* if latest posts are shown when there is no sticky, then the first post gets larger image. So keep track of what post number we're showing */
+global $kamoha_sticky_exists;
+global $kamoha_homepage_part;
 
 /**
  * Class as enum, for determiing what part of the homepage is being displayed
  */
-abstract class HomepagePart{
+abstract class KamohaHomepagePart{
 
     const Sticky = 0;
     const Newest = 1;
@@ -55,9 +55,6 @@ abstract class HomepagePart{
     const Tabs = 5;
 
 }
-
-global $homepage_part;
-
 
 /* * *********************************************** */
 /* * *********  Init and setup functions *********** */
@@ -95,78 +92,13 @@ function kamoha_setup_more(){
     define( 'TEENY_WIDTH', 100 ); /* tabs posts */
     define( 'TEENY_HEIGHT', 90 );
 
-    add_image_size( 'medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
-    add_image_size( 'small', SMALL_WIDTH, SMALL_HEIGHT, true );
-    add_image_size( 'medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT );
-    add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
+    add_image_size( 'kamoha_medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
+    add_image_size( 'kamoha_small', SMALL_WIDTH, SMALL_HEIGHT, true );
+    add_image_size( 'kamoha_medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT );
+    add_image_size( 'kamoha_teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
 }
 
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
-
-/* -----------------------------------------
- * Enqueue scripts
- * ----------------------------------------- */
-
-/**
- * Enqueu scripts on front end
- */
-function kamoha_enqueu_scripts(){
-    if ( !is_admin() ) {
-        //add css and js
-        wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array('jquery'), 1, TRUE );
-
-        /* remove scripts from homepage */
-        if ( is_home() ) {
-            wp_deregister_script( 'jquery-form' );
-            wp_dequeue_script( 'jquery-form' );
-            wp_deregister_script( 'contact-form-7' );
-            wp_dequeue_script( 'contact-form-7' );
-            wp_deregister_script( 'wp_rp_edit_related_posts_js' );
-            wp_dequeue_script( 'wp_rp_edit_related_posts_js' );
-
-            wp_deregister_style( 'contact-form-7' );
-            wp_dequeue_style( 'contact-form-7' );
-            wp_deregister_style( 'contact-form-7-rtl' );
-            wp_dequeue_style( 'contact-form-7-rtl' );
-            wp_deregister_style( 'wp_rp_edit_related_posts_css' );
-            wp_dequeue_style( 'wp_rp_edit_related_posts_css' );
-            wp_deregister_style( 'wp-pagenavi' );
-            wp_dequeue_style( 'wp-pagenavi' );
-
-            // don't include facebook script on front page
-            remove_action( 'wp_footer', 'fbmlsetup', 100 );
-
-
-            remove_action( 'wp_head', 'wp_rp_head_resources' );
-        }
-        // show tffaq css only on ask rabbi page
-        if ( !is_page( ASK_RABBI_PAGE ) ) {
-            wp_deregister_style( 'tffaq_jquery_custom' );
-            wp_dequeue_style( 'tffaq_jquery_custom' );
-            wp_deregister_style( 'tffaq_frontend' );
-            wp_dequeue_style( 'tffaq_frontend' );
-        }
-
-
-        // get strings from language files, adn put them into javascript variables
-        $params = array(
-            'sLoadPosts' => __( "Load more", "kamoha" ),
-            'sUnloadPosts' => __( 'Unload more', 'kamoha' ),
-        );
-
-// create inline definitions of these vars, for use in the script.js file
-        wp_localize_script( 'script', 'MyScriptParams', $params );
-        /* category page is designed like pinterest, so in those pages enqueue masonry */
-        if ( is_archive() && !is_search() ) {
-            wp_enqueue_script( 'masonry' );
-        }
-
-// make the ajaxurl var available to the script
-        wp_localize_script( 'script', 'the_ajax_script', array('ajaxurl' => admin_url( 'admin-ajax.php' )) );
-    }
-}
-
-add_action( 'wp_enqueue_scripts', 'kamoha_enqueu_scripts' );
 
 /**
  * Create custom post type for newsflash on sidebar
@@ -195,7 +127,7 @@ add_action( 'init', 'kamoha_init_theme' );
 
 /**
  * Add to extended_valid_elements for TinyMCE 
- * 
+ * Prevents TinyMCE from stripping some attribute (such as the onclick) from the input element
  * @param $init assoc. array of TinyMCE options 
  * @return $init the changed assoc. array 
  */
@@ -215,7 +147,9 @@ function change_mce_options( $init ){
     return $init;
 }
 
-// Lea 2014/09 - This filter is needed in order to prevent TinyMCE from stripping the onclick attribute from the input element
+/*
+ * Grants access to the TinyMCE settings array
+ *  */
 add_filter( 'tiny_mce_before_init', 'change_mce_options' );
 
 
@@ -285,6 +219,7 @@ if ( !function_exists( 'admin_thumb_column' ) ) {
 /* -----------------------------------------
  * TGM_Plugin_Activation function
  * ----------------------------------------- */
+
 /**
  * Include the TGM_Plugin_Activation class.
  */
@@ -430,6 +365,10 @@ function kamoha_register_required_plugins(){
 
 /* adapted from here: http://wordpress.stackexchange.com/a/158485/373 */
 
+/**
+ * Place the excerpt meta_box above the post editor
+ * @param type $post_type
+ */
 function kamoha_add_excerpt_meta_box( $post_type ){
     if ( in_array( $post_type, array('post', 'page') ) ) {
         add_meta_box(
@@ -439,8 +378,16 @@ function kamoha_add_excerpt_meta_box( $post_type ){
     }
 }
 
+/*
+ * The hook allows meta box registration for any post type. 
+ */
 add_action( 'add_meta_boxes', 'kamoha_add_excerpt_meta_box' );
 
+/**
+ * Place the excerpt meta_box above the post editor
+ * @global type $post
+ * @global type $wp_meta_boxes
+ */
 function kamoha_run_excerpt_meta_box(){
 # Get the globals:
     global $post, $wp_meta_boxes;
@@ -454,6 +401,9 @@ function kamoha_run_excerpt_meta_box(){
 
 add_action( 'edit_form_after_title', 'kamoha_run_excerpt_meta_box' );
 
+/**
+ * Remove the excerpt meta_box from its original position, under the post editor
+ */
 function kamoha_remove_normal_excerpt(){ /* this added on my own */
     remove_meta_box( 'postexcerpt', 'post', 'normal' );
 }
@@ -478,8 +428,16 @@ if ( class_exists( 'MultiPostThumbnails' ) ) {
  * Gallery link should lead to file
  * ----------------------------------------- */
 
+/*
+ * Add a function to run when the gallery shortcode is run 
+ */
 add_shortcode( 'gallery', 'kamoha_gallery_shortcode' );
 
+/**
+ * Make all images in the gallery link to the media file
+ * @param array $atts
+ * @return string
+ */
 function kamoha_gallery_shortcode( $atts ){
     $atts['link'] = 'file';
     return gallery_shortcode( $atts );
@@ -489,8 +447,11 @@ function kamoha_gallery_shortcode( $atts ){
  * Theme Customizer for holidays
  * ----------------------------------------- */
 /* ---------------------------------------- */
-add_action( 'customize_register', 'kamoha_customize_register_func' );
 
+/**
+ * Let the admin user change the header background image & logo on special events such as holidays, the site birthday, etc.
+ * @param type $wp_customize
+ */
 function kamoha_customize_register_func( $wp_customize ){
     /* Create a section - holiday header */
     $wp_customize->add_section( 'holiday_header_changer', array(
@@ -501,6 +462,7 @@ function kamoha_customize_register_func( $wp_customize ){
     $wp_customize->add_setting( 'holiday_header', array(
         'default' => '',
         'transport' => 'postMessage',
+		'sanitize_callback' => 'kamoha_sanitize_choices',
     ) );
 
     $wp_customize->add_control( 'holiday_header', array(
@@ -527,10 +489,37 @@ function kamoha_customize_register_func( $wp_customize ){
         ),
     ) );
 }
+/*http://cachingandburning.com/wordpress-theme-customizer-sanitizing-radio-buttons-and-select-lists*/
+/**
+ * Sanitize the choice by comparing to the array of radio button options
+ * @global type $wp_customize
+ * @param type $input
+ * @param object $setting
+ * @return string
+ */
+function kamoha_sanitize_choices( $input, $setting ) {
+    global $wp_customize;
+ 
+    $control = $wp_customize->get_control( $setting->id );
+ 
+    if ( array_key_exists( $input, $control->choices ) ) {
+        return $input;
+    } else {
+        return $setting->default;
+    }
+}
 
-add_filter( 'body_class', 'mop_add_body_class' );
+/**
+ * Used to customize and manipulate the Theme Customization admin screen 
+ */
+add_action( 'customize_register', 'kamoha_customize_register_func' );
 
-function mop_add_body_class( $classes ){
+/**
+ * Add body class based on the theme options which were chosen in the Theme Customizer
+ * @param type $classes
+ * @return type
+ */
+function kamoha_add_body_class( $classes ){
     $color = strtolower( get_theme_mod( 'holiday_header' ) );
     if ( $color != 'regular' ) {
         $classes[] = 'special';
@@ -540,7 +529,12 @@ function mop_add_body_class( $classes ){
 }
 
 /**
- * Used by hook: 'customize_preview_init'
+ * The "body_class" filter is used to filter the classes that are assigned to the body HTML element on the current page. 
+ */
+add_filter( 'body_class', 'kamoha_add_body_class' );
+
+/**
+ * Enqueue the JS file adds some LIVE to the Theme Customizer live preview
  *
  * @see add_action('customize_preview_init',$func)
  */
@@ -554,6 +548,9 @@ function kamoha_customizer_live_preview(){
     );
 }
 
+/**
+ * This action hook allows you to enqueue assets (such as javascript files) directly in the Theme Customizer
+ */
 add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
 
 /* * *********************************************** */
@@ -641,9 +638,9 @@ add_filter( 'wp_get_nav_menu_items', 'kamoha_menu_cat_subnav', 10, 3 );
 function kamoha_modify_query( $query ){
     /* In homepage, get sticky post, or - if no sticky post exists - get the 7 newest posts */
     if ( $query->is_home() && $query->is_main_query() ) {
-        global $sticky_exists;
-        $sticky_exists = count( get_option( 'sticky_posts' ) ) > 0 ? true : false;
-        if ( $sticky_exists ) {
+        global $kamoha_sticky_exists;
+        $kamoha_sticky_exists = count( get_option( 'sticky_posts' ) ) > 0 ? true : false;
+        if ( $kamoha_sticky_exists ) {
             $query->set( 'posts_per_page', 1 );
             $query->set( 'post__in', array(get_option( 'sticky_posts' ), 'posts') );
             $query->set( 'ignore_sticky_posts', 0 );
@@ -670,13 +667,22 @@ function kamoha_modify_query( $query ){
     }
 }
 
-// in homepage show 6 posts
+/**
+ * This hook is called after the query variable object is created, but before the actual query is run
+ */
 add_filter( 'pre_get_posts', 'kamoha_modify_query' );
 
 /* -----------------------------------------
  * posts_where function for events category
  * ----------------------------------------- */
 
+/**
+ * In MEETINGS_CAT category, analyze whther we're showing past or future events, 
+ * and add a WHERE cluase which will filter the posts acording the the date meta_field
+ * @param string $where
+ * @param type $query
+ * @return string
+ */
 function kamoha_posts_where( $where, &$query ){
     /* Add where clause to query in events category, and to event list in sidebar */
     if ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query()  // condition for events category
@@ -695,6 +701,9 @@ function kamoha_posts_where( $where, &$query ){
     return $where;
 }
 
+/**
+ * This filter applies to the posts where clause and allows you to restrict which posts will show up in various areas of the site.
+ */
 add_filter( 'posts_where', 'kamoha_posts_where', 2, 10 );
 
 /**
@@ -932,6 +941,9 @@ function kamoha_tag_cloud_widget( $args ){
     return $args;
 }
 
+/**
+ * Filter the taxonomy used in the Tag Cloud widget.
+ */
 add_filter( 'widget_tag_cloud_args', 'kamoha_tag_cloud_widget' );
 
 
@@ -1065,6 +1077,10 @@ function kamoha_get_facebook_page_description(){
  * AUXILIARY FUNCTIONS
  * ******************************* */
 
+/**
+ * Write any type of object to debug.log
+ * @param type $data
+ */
 function kamoha_write_to_log( $data ){
     // Dump data
     ob_start();

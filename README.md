@@ -1,66 +1,41 @@
-The post content of 404 page:
- <img class="alignleft size-full wp-image-26126" src="http://dev.linux.ort.org.il/kamoha/wp-content/themes/kamoha/images/cleaner.gif" alt="" width="500" height="396" />
+This theme is based on the underscores theme
+Interesting in this theme:
 
-        ���, ��� ����� �� ����� ������'�. ��� ������� ��� ���� ����� ��� ���? ��� �� ����. ������. ����. �������.
+* **fonts folder**:
+  * **Alef** - site fonts (for backup. I actually use Google's Alef).
+  * **icomoon** - icon fonts for top menu.
 
-        ������� ��� �� ��� ����. ��� ���� ����? �� ����� �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=1147">�����</a> ����� �� �������������  (���� ����� ���� �� ����? �� ���� �����...).  �� <a href="http://dev.linux.ort.org.il/kamoha/?page_id=15263">��� �����</a> (�� ���� �����. ����, ��� ��� ����� �� ������ �� <a href="http://www.imdb.com/title/tt1764651/?ref_=nv_sr_2">����� ������ 2</a>. ���� ���). �� ���� ��� ���� <a href="http://dev.linux.ort.org.il/kamoha/?cat=343">����� �����</a> (��� ���� ����� ���� ����� ��� ���� ����? ��� ����� <a href="http://dev.linux.ort.org.il/kamoha/?page_id=642">����� ���</a> ���"� ������, <a href="http://dev.linux.ort.org.il/kamoha/?tag=%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%95%d7%99">���� ���</a>. ��� ���� ���� ���� ������).
+* **images folder**:
+The site admin can customize the theme for holidays and special events. The customization changes the header background and the logo, to specific logos and backgrounds included in this folder.
 
-        ��� �� ����? �� ���� ��� ��������� �<a href="http://dev.linux.ort.org.il/kamoha/?cat=50">������ ������</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=123">��������� �������</a> (����, ������ ������� �� �� ��� - <a href="http://dev.linux.ort.org.il/kamoha/?p=5327">�� �� ������</a>, <a href="http://dev.linux.ort.org.il/kamoha/?p=5304">���� �� ����</a> - ��� ����� �����. ��� <a href="http://en.wikipedia.org/wiki/List_of_races_and_species_in_The_Hitchhiker%27s_Guide_to_the_Galaxy#Mice">�����</a>). �� ��� �� ���� ������� �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=122">������ ���� ������</a> �� ����� ��� ���� ������� �� <strong>�</strong>���� ������...
+* **inc folder**:
+  * **class-tgm-plugin-activation.php** - recommends plugins, and includes 2 plugins which aren't in the WP repository: Demo Tax meta class (adds user-field in category), tf-faq (enables users to submit questios to a set of proffesionals)
+  * **featured-image.php** - This theme is intended for a site that's already up and running, and hasn't used the featured image. Instead, it either used a user-field, or the first image in the post.
+The functions in this file use either of those methods, and turn that image into  a featured image.
+  * **helpers.php** - Main functions file.
+  * **jewish-calendar.php** - Based on the WP calendar widget, this file creates a Hebrew calendar which features events from the MEETINGS category.
+  * **short-excerpt.php** - Cuts the excerpt by character (i.s.o word, like the usual excerpt does), but makes sure not to cut a word in its middle.
+  * **extras.php** - Came with the _s theme. I removed the functions we didn't use.
+  * **template-tags.php** - Came with the _s theme. I removed the functions we didn't use and added showing the Hebrew date in addition to the Gregorian date, in kamoha_posted_on.
+  
+* **js folder**:
+  * **customize-themes.js***: Used in Theme Customization.
+  * **navigation.js**: Came with _s theme.
+  * **script.js**: Scripts needed by this theme.
+  * **skip-link-focus-fix.js**: Came with _s theme.
+  
+* **languages**:
+  This theme is for a Hebrew site, so it has a Hebrew translation file.
 
-        ������, ��� ���� ����� ��? ���� ���� �� ����� ����� ���, ��� ���� ���� ���� ���� �� ���� (���� �����, ��� ��� ���� ����� ���� ���...). ��� ����, �� �� �� ���� ����� �� �<a href="http://dev.linux.ort.org.il/kamoha/?cat=71">���� ����</a>. �� �<a href="http://dev.linux.ort.org.il/kamoha/?cat=127">��� ��� ����</a>. �� ����� (����� ��� - �������). ���� �� ���� ����� ��� ����� �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=69">���</a> (����� ��"��� [<b>�</b>���� <b>�</b>���� <b>�</b>����] ���� �����).
-
-        �����. ��� �� ����. �� ����� �� ���� �� ������'� ���. ���, ����� �����. ���� ��� �"� (�� ���� ������ �� ���� �����...). ���� ��� <a href="http://dev.linux.ort.org.il/kamoha/?cat=128">���� ���</a> �� ���� ������ ����� ���� ������ ������ ���. ���� ��� ����� ����� ��� �����, ��� ���� <a href="http://dev.linux.ort.org.il/kamoha/?cat=65">�� ����� ��� ����</a> ��� ����� ����� ���� ����� �� ����� ����. ���� ��� ��� ���� ���� �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=48">������������� �����</a> (�� ����? �� �����. �"�, ���� - ��� ������ ���? ).
-
-        ���� �� �� ����� <a href="http://dev.linux.ort.org.il/kamoha/?cat=145">��� �� ����� ���� ���</a>. ���� ��� ��� ���� �� �� ����, �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=421">��</a> <a href="http://dev.linux.ort.org.il/kamoha/?cat=61">��</a> �� <a href="http://dev.linux.ort.org.il/kamoha/?cat=36">���</a> <a href="http://dev.linux.ort.org.il/kamoha/?cat=72">���'�</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=89">������</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=330">����</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=331">����</a> <a href="http://dev.linux.ort.org.il/kamoha/?cat=635">���</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=708">�����</a> �<a href="http://dev.linux.ort.org.il/kamoha/?cat=32">����</a>. ��� �� ��� ��� ��� ������ ������, ��� <a href="http://dev.linux.ort.org.il/kamoha/?cat=33">������ �����</a> ���� ������.
-
-        ��� �� ��� �������� ��"� �� ������ ����, �� ��� ����� ��� ���� ���� ����. ��� ��, �� ���� �-�-�-�, ��� ���� ������ �����, ����� ���� ���� ���� ���   �-�-�-�-�-�  ���� �� ���� ��. ��� ����? ��� �� ��:
-        <a href="http://dev.linux.ort.org.il/kamoha/?cat=21">�� ����</a>.
-        ���� ��� �� �����? ��� ���� ���� �� ������ ����� ����� ���. �� �� ��� ���� �� ��� ���, ��� ���� <a href="http://dev.linux.ort.org.il/kamoha/?page_id=642">����� </a>����� ����� �� ��������� ������� ���. ����� ��� ���� ���� ���� ������.
-
-        ����� �����. ����� �����: �� ��� ������� ������� (��, �� ����� �����. ����� �� �� �� ���  - ��� �� �� ����� ��� <a href="http://dev.linux.ort.org.il/kamoha/?p=9402">����� ���</a>...). ���� ����?
-
-        ���, ��� �� ���� �� ���� ��, ���� ��� ��� ����� �� �� �� �� ���� ��� �����, ���� �� ���. �� �� �� �� ��� �����, ��� ����� ����� <a href="http://dev.linux.ort.org.il/kamoha/?page_id=3845">����� </a>���� �����. ��� �� ��� ������ ������ ������� �� ���� �����, ��� ���� �<a href="http://dev.linux.ort.org.il/kamoha/?page_id=642">���� ���</a> �� ���� ������ �� ����� ����� �����. �����, ��� ����� ���� �� ������ ������. ����. ����� ��� ���� (����) �����...
-
-        �����,
-
-        �����
-		=========================================================
-		
-		Advanced settings for wordpress related posts:
-div.wp_rp_content {
-  border-top: 2px solid #e5e5e5;
-  display: block !important;
-  margin-top: 5rem;
-  padding-top: 2.5rem;
-}
-.wp_rp_wrap .related_post_title {
-  font-size: 2.4rem;
-  margin-bottom: 1.5rem !important;
-}
-ul.related_post {
-}
-ul.related_post li {
-  margin-right: 4% !important;
-  width: 22% !important;
-}
-ul.related_post li:first-child {
-  margin-right: 0 !important;
-}
-ul.related_post li a {
-  font-size:1.6rem !important;
-  margin-bottom: 0.5rem !important;
-  line-height:1.1 !important;
-}
-ul.related_post li img {
-    height: auto !important;
-    width: 100% !important;
-}
-@media  (max-width: 640px){
-ul.related_post li:first-child {
-  margin-right: 4% !important;
-}
-ul.related_post li {
-  margin-right: 4% !important;
-  width: 44% !important;
-}
-}
+* **site_documentation folder**:
+  Screenshots used in site documentation. The site documentation is a page in the site with a dedicated page template, page-site_documentation.php.
+  
+* **root folder**:
+  * Removed all post-format files because we don;y use them in this theme.  
+  * Files added or especially modified:
+    * **404.php**: Calls a special page made for this. 
+    * **archive.php**: Only used for categories and tags (we don't have author and date archives).
+    * **front-page1.php**: Has a maintenance message. Was used when we uploaded the theme, where we needed the theme to be active, but still couldn't show the homepage.
+    * **functions.php**: Came with _s theme, and I just modified a few functions. Any new functions, were added in the inc folder.
+    * **page-links_and_emergency.php**: Page template for links regarding the site content, and emergency numbers.
+  

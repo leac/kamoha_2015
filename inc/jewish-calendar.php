@@ -490,5 +490,12 @@ function kamoha_calendar_ajax_process_request(){
     }
 }
 
+/**
+ * This hook allows you to create custom handlers for your own custom AJAX requests for logged in users
+ */
 add_action( 'wp_ajax_calendar_response', 'kamoha_calendar_ajax_process_request' );
+
+/**
+* This hook allows you to create custom handlers for your own custom AJAX requests for users who aren't logged in
+ *  */
 add_action( 'wp_ajax_nopriv_calendar_response', 'kamoha_calendar_ajax_process_request' );

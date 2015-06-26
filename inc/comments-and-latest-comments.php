@@ -125,7 +125,7 @@ function kamoha_comment( $comment, $args, $depth ){
  * This function also altered the label and input fields of name and email,
  * in order to apply a cute style, but it counted on those fields being required,
  * which isn't the case in this site.
- * Am leaving the code commented out, in order to get back to it and try to make it 
+ * Am leaving the code commented out, in order to get back to it some day
  * @param type $fields
  * @return $fields
  */
@@ -150,6 +150,13 @@ function kamoha_alter_comment_form_fields( $fields ){
 
 add_filter( 'comment_form_default_fields', 'kamoha_alter_comment_form_fields' );
 
+/**
+ * Get the Hebrew date, based on the Gregorian date input
+ * @param int $month Gregorian month
+ * @param int $day Gregorian day
+ * @param int $year Gregorian year
+ * @return string
+ */
 function get_hebrew_date( $month, $day, $year ){
     $jew_date = jdtojewish( gregoriantojd( $month, $day, $year ), true, CAL_JEWISH_ADD_GERESHAYIM );
     $jew_date = iconv( 'WINDOWS-1255', 'UTF-8', $jew_date );

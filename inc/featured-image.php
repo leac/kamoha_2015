@@ -1,7 +1,7 @@
 <?php
 
-/* 
- * Featued image functions
+/*
+ * Featured image functions - if post doesn't have featured image, use the thumb user-field, or the post's first image
  */
 
 /* ----------------------------------------------------------------
@@ -13,7 +13,7 @@
  * or if there isn't a post thumbnail, it gets the first port image, and displays the passed thumbsized version of it
  * @param string $thumb_size - the size of the thumbnail, from a predefines size list
  */
-function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
+function kamoha_show_homepage_thumbnail( $thumb_size = 'kamoha_medium' ){
 
     /* declare vars */
     $post_id = get_the_ID(); // needed to get the correct thumbnail, or correct user field
@@ -36,7 +36,7 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
         endif;
 
         /* If a secondary image exists, show it when the thumbnail size is rectangle */
-        if ( !empty( $second_img ) && $thumb_size == 'medium' ) {
+        if ( !empty( $second_img ) && $thumb_size == 'kamoha_medium' ) {
             echo $second_img;
         } else {
             echo get_the_post_thumbnail( null, $thumb_size );
@@ -65,7 +65,8 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
             if ( is_external_image( $imgsrc ) ) {
 
                 /* check if full size image exists */
-                if ( true === file_get_contents( $orig_imgsrc ) ) {
+                $response = wp_remote_get( 'http://www.example.com/index.html' );
+                if ( is_array( $response ) ) {
                     $attachment_id = handle_sideload_and_get_id( $orig_imgsrc, $post_id, '' ); // try to get the id of the original image
                 } else {
                     $attachment_id = handle_sideload_and_get_id( $imgsrc, $post_id, '' ); // get the id of the image found in the user field or post
@@ -80,7 +81,8 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
                 }
                 if ( !$attachment_id ) {
                     /* check if full size image exists */
-                    if ( true === file_get_contents( $orig_imgsrc ) ) {
+                    $response = wp_remote_get( 'http://www.example.com/index.html' );
+                    if ( is_array( $response ) ) {
                         $attachment_id = handle_sideload_and_get_id( $orig_imgsrc, $post_id, '' ); // try to get the id of the original image
                     } else {
                         $attachment_id = handle_sideload_and_get_id( $imgsrc, $post_id, '' ); // get the id of the image found in the user field or post

@@ -7,7 +7,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <a href="<?php the_permalink(); ?>" rel="bookmark"> 
-        <?php kamoha_show_homepage_thumbnail( 'medium' ); ?>
+	
+        <?php kamoha_show_homepage_thumbnail( 'kamoha_medium' ); ?>
 
         <header class="entry-header">
             <h2 class="entry-title"><?php the_title(); ?></h2>

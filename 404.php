@@ -16,8 +16,7 @@ get_header();
             </header><!-- .page-header -->
 
             <div class="page-content">
-                <!--<p><?php //_e ( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?' , 'kamoha' );   ?></p>-->
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <?php
                     $queried_post = get_post( POST_404_PAGE );
                     $content = $queried_post->post_content;

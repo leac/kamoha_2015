@@ -10,13 +10,6 @@
             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a> |
             <?php
             kamoha_show_post_one_cat();
-            /* translators: used between list items, there is a space after the comma */
-//            $category_list = get_the_category_list(__(', ', 'kamoha'));
-            // get_the_category _list returns a comma separated HTML list of categories. we want to show only one
-//            $category_list = explode('</a>,', $category_list);
-//            if (count($category_list) > 0) {
-//                echo $category_list[0] . '</a>';
-//            }
             ?>
         </h1>
 
@@ -51,6 +44,7 @@
             <?php edit_post_link( __( 'Edit', 'kamoha' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
 
+		<?php //Show Simple share buttons widget: ?>
         <?php echo do_shortcode( '[ssba]' ); ?> 
 
     </footer><!-- .entry-meta -->

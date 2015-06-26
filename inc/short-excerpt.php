@@ -74,12 +74,12 @@ function kamoha_the_short_excerpt( $limit ){
  * There is, of course, a difference between the various blocks, and therefore that parameter is passed by the caller
  * */
 function kamoha_the_short_excerpt_by_len(){
-    global $homepage_part;
+    global $kamoha_homepage_part;
     $the_title = get_the_title();
     $title_len = mb_strlen( $the_title );
     $ret = '';
-    switch ( $homepage_part ) {
-        case HomepagePart::Sticky:
+    switch ( $kamoha_homepage_part ) {
+        case KamohaHomepagePart::Sticky:
             /* case of three title rows */
             if ( $title_len >= STICKY_TITLE_3_ROWS ) {
                 $ret = kamoha_the_short_excerpt( STICKY_EXCERPT_3_ROWS );
@@ -95,7 +95,7 @@ function kamoha_the_short_excerpt_by_len(){
             }
             break;
 
-        case HomepagePart::Newest:
+        case KamohaHomepagePart::Newest:
             /* case of three title rows */
             if ( $title_len >= BLOCK1_TITLE_3_ROWS ) {
                 $ret = kamoha_the_short_excerpt( BLOCK1_EXCERPT_3_ROWS );
@@ -112,7 +112,7 @@ function kamoha_the_short_excerpt_by_len(){
             }
             break;
 
-        case HomepagePart::Categories:
+        case KamohaHomepagePart::Categories:
             /* case of three title rows */
             if ( $title_len >= BLOCK2_TITLE_3_ROWS ) {
                 $ret = kamoha_the_short_excerpt( BLOCK2_EXCERPT_3_ROWS );
@@ -129,9 +129,9 @@ function kamoha_the_short_excerpt_by_len(){
             }
             break;
 
-        case HomepagePart::Blogs:
-        case HomepagePart::Issues:
-            global $blog_post_index;
+        case KamohaHomepagePart::Blogs:
+        case KamohaHomepagePart::Issues:
+            global $kamoha_blog_post_index;
             /* case of three title rows */
             if ( $title_len >= BLOCK1_TITLE_3_ROWS ) {
                 $ret = kamoha_the_short_excerpt( TAB_EXCERPT_3_ROWS );
@@ -149,7 +149,7 @@ function kamoha_the_short_excerpt_by_len(){
 
             break;
 
-        case HomepagePart::Tabs:
+        case KamohaHomepagePart::Tabs:
 
             /* case of three title rows */
             if ( $title_len >= TAB_TITLE_3_ROWS ) {

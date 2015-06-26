@@ -7,7 +7,7 @@
  * 6 newest posts
  * 3 latest posts from categories
  * 3 latest posts from blogs
- * tabs - most commented, most poppular ever, most popular this mont
+ * tabs - most commented, most popular ever, most popular this month
  *
  * @package kamoha
  */
@@ -20,7 +20,7 @@ $do_not_duplicate = array();
     <main id="main" class="site-main clear" role="main">
 
 
-        <?php global $homepage_part; ?>
+        <?php global $kamoha_homepage_part; ?>
 
 
         <?php /*         * *****************First block - one sticky post and 6 latest posts.*************************** */ ?>
@@ -31,37 +31,37 @@ $do_not_duplicate = array();
             <div class="block block-newest-posts clear">
 
                 <?php
-                global $sticky_exists, $latest_post_index;
-                $latest_post_index = 1;
+                global $kamoha_sticky_exists, $kamoha_latest_post_index;
+                $kamoha_latest_post_index = 1;
                 while ( have_posts() ) : the_post();
                     /* we don't want posts that appeared in the newest posts, to appear again under their categories.
                      * but posts that are hidden - we do want to show. So add to array only first 5 */
-                    if ( $latest_post_index <= NEWEST_POSTS_CNT - 2 ) {
+                    if ( $kamoha_latest_post_index <= NEWEST_POSTS_CNT - 2 ) {
                         $do_not_duplicate[] = get_the_ID();
                     }
                     ?>
 
                     <?php
-                    $homepage_part = $sticky_exists || $latest_post_index == 1 ? HomepagePart::Sticky : HomepagePart::Newest; /* indicate what part of homepage we're on */
+                    $kamoha_homepage_part = $kamoha_sticky_exists || $kamoha_latest_post_index == 1 ? KamohaHomepagePart::Sticky : KamohaHomepagePart::Newest; /* indicate what part of homepage we're on */
                     get_template_part( 'content', 'home' );
-                    $latest_post_index++;
+                    $kamoha_latest_post_index++;
                     ?>
 
                 <?php endwhile; ?>
 
                 <?php
-                global $sticky_exists;
-                if ( $sticky_exists ) { // only if there is a sticky post, we need this query, to get 6 latest posts
+                global $kamoha_sticky_exists;
+                if ( $kamoha_sticky_exists ) { // only if there is a sticky post, we need this query, to get 6 latest posts
                     // run a query to get the 6 latest posts. Am using array as args, because that's the only way that post__not_in works
                     $newest_posts = new WP_Query( array('post__not_in' => get_option( 'sticky_posts' ), 'posts_per_page' => 6) );
                     if ( $newest_posts->have_posts() ) {
-                        $homepage_part = HomepagePart::Newest; /* indicate what part of homepage we're on */
+                        $kamoha_homepage_part = KamohaHomepagePart::Newest; /* indicate what part of homepage we're on */
 
                         // display newest posts
                         while ( $newest_posts->have_posts() ) : $newest_posts->the_post();
                             /* we don't want posts that appeared in the newest posts, to appear again under their categories.
                              * but posts that are hidden - we do want to show. So add to array only first 5 */
-                            if ( $latest_post_index <= NEWEST_POSTS_CNT - 2 ) {
+                            if ( $kamoha_latest_post_index <= NEWEST_POSTS_CNT - 2 ) {
                                 $do_not_duplicate[] = get_the_ID();
                             }
                             get_template_part( 'content', 'home' );
@@ -87,15 +87,15 @@ $do_not_duplicate = array();
                 <?php
                 //get an array of blog-category objects that will be displayed om homepage; 
                 $blogs = get_homepage_categories( BLOGS_CAT );
-                $homepage_part = HomepagePart::Blogs; /* indicate what part of homepage we're on */
+                $kamoha_homepage_part = KamohaHomepagePart::Blogs; /* indicate what part of homepage we're on */
                 foreach ( $blogs as $blog ) {
 
                     // loop through the blog-categories, and get the 3 latest posts from each one
                     $blog_posts = new WP_Query( array('category__in' => $blog->term_id, 'posts_per_page' => 3, 'post__not_in' => $do_not_duplicate) );
 
                     if ( $blog_posts->have_posts() ) {
-                        global $blog_post_index;
-                        $blog_post_index = 1;
+                        global $kamoha_blog_post_index;
+                        $kamoha_blog_post_index = 1;
                         // give the block a title 
                         ?>
                         <section class="blog_posts clear">
@@ -109,7 +109,7 @@ $do_not_duplicate = array();
 
                                 get_template_part( 'content', 'home' );
 
-                                $blog_post_index++;
+                                $kamoha_blog_post_index++;
 
                             endwhile; // end of the loop. 
 
@@ -131,7 +131,7 @@ $do_not_duplicate = array();
                 <?php
                 //get an array of blog-category objects that will be displayed om homepage; 
                 $issues = get_homepage_categories( ISSUES_CAT );
-                $homepage_part = HomepagePart::Issues; /* indicate what part of homepage we're on */
+                $kamoha_homepage_part = KamohaHomepagePart::Issues; /* indicate what part of homepage we're on */
                 foreach ( $issues as $issue ) {
 
                     // loop through the blog-categories, and get the 3 latest posts from each one
@@ -175,7 +175,7 @@ $do_not_duplicate = array();
                 <?php
                 //get an array of category objects that will be displayed om homepage; 
                 $cats = get_homepage_categories( 0 );
-                $homepage_part = HomepagePart::Categories; /* indicate what part of homepage we're on */
+                $kamoha_homepage_part = KamohaHomepagePart::Categories; /* indicate what part of homepage we're on */
                 foreach ( $cats as $category ) {
                     ?>
 
@@ -266,7 +266,7 @@ $do_not_duplicate = array();
                     $comment_args = 'orderby=comment_count&posts_per_page=4&no_found_rows=true&ignore_sticky_posts=1';
                     $commented_posts = new WP_Query( $comment_args );
                     if ( $commented_posts->have_posts() ) :
-                        $homepage_part = HomepagePart::Tabs; /* indicate what part of homepage we're on */
+                        $kamoha_homepage_part = KamohaHomepagePart::Tabs; /* indicate what part of homepage we're on */
                         ?>
                         <div class="tab_content tab-bounceInRight">
                             <ul class="cmnt-list">

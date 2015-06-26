@@ -3189,11 +3189,46 @@ object {
 
 @media (min-width : 400px) and (max-width : 420px){
     body{
-        transform: rotate(180deg);
+        transform: rotate(180deg); /* juat to see if anyone is resizing the window... */
     }
 }
-.lea-test,
-.postid-23011 iframe[src*="youtube"]{
-    width: 40rem !important;
-    height: 40rem !important;
+
+/*
+Advanced settings for wordpress related posts: 
+div.wp_rp_content {
+    border-top: 2px solid #e5e5e5;
+    display: block !important;
+    margin-top: 5rem;
+    padding-top: 2.5rem;
 }
+.wp_rp_wrap .related_post_title {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem !important;
+}
+ul.related_post {
+}
+ul.related_post li {
+    margin-right: 4% !important;
+    width: 22% !important;
+}
+ul.related_post li:first-child {
+    margin-right: 0 !important;
+}
+ul.related_post li a {
+    font-size:1.6rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height:1.1 !important;
+}
+ul.related_post li img {
+    height: auto !important;
+    width: 100% !important;
+}
+@media  (max-width: 640px){
+    ul.related_post li:first-child {
+        margin-right: 4% !important;
+    }
+    ul.related_post li {
+        margin-right: 4% !important;
+        width: 44% !important;
+    }
+}*/
