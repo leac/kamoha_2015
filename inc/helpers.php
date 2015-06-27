@@ -372,7 +372,7 @@ function kamoha_register_required_plugins(){
 function kamoha_add_excerpt_meta_box( $post_type ){
     if ( in_array( $post_type, array('post', 'page') ) ) {
         add_meta_box(
-                'contact_details_meta', __( 'Excerpt', 'kamoha' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side
+                'contact_details_meta', __( 'Excerpt', 'kamoha' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side. Probably shouldn't use test, but I already did, and now when I try to change to something else, it doesn't work...
                 'high'
         );
     }
