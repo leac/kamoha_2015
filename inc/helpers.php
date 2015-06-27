@@ -429,7 +429,8 @@ if ( class_exists( 'MultiPostThumbnails' ) ) {
  * ----------------------------------------- */
 
 /*
- * Add a function to run when the gallery shortcode is run 
+ * Add a function to run when the gallery shortcode is run.
+ * I know that adding shortcodes is plugin territory, but am reluctant to create a plugin for only 5 lines of code...
  */
 add_shortcode( 'gallery', 'kamoha_gallery_shortcode' );
 
