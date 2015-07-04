@@ -29,14 +29,9 @@
             <meta property="og:description" content="<?php echo htmlentities( $post_description, ENT_QUOTES, "UTF-8" ); ?>" />
         <?php endif; ?>
         <meta name="description" content="<?php echo htmlentities( $post_description, ENT_QUOTES, "UTF-8" ); ?>">
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <title><?php wp_title( ); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-        <!-- http://www.google.com/fonts#UsePlace:use/Collection:Alef -->
-        <link href='http://fonts.googleapis.com/css?family=Alef:400,700&subset=latin,hebrew' rel='stylesheet' type='text/css'>
-        <style type="text/css">
-            @font-face {font-family: 'icomoon';src:url('<?php echo get_stylesheet_directory_uri(); ?>/fonts/icomoon.eot?-416wh5');src:url('<?php echo get_stylesheet_directory_uri(); ?>/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),url('<?php echo get_stylesheet_directory_uri(); ?>/fonts/icomoon.woff?-416wh5') format('woff'),url('<?php echo get_stylesheet_directory_uri(); ?>/fonts/icomoon.ttf?-416wh5') format('truetype'),url('<?php echo get_stylesheet_directory_uri(); ?>/fonts/icomoon.svg?-416wh5#icomoon') format('svg');font-weight: normal;font-style: normal;}
-        </style>
         <?php wp_head(); ?>
     </head>
 

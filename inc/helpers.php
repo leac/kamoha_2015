@@ -96,6 +96,9 @@ function kamoha_setup_more(){
     add_image_size( 'kamoha_small', SMALL_WIDTH, SMALL_HEIGHT, true );
     add_image_size( 'kamoha_medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT );
     add_image_size( 'kamoha_teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
+
+    // This theme styles the visual editor to resemble the theme style.
+    add_editor_style( array('editor-style.css', kamoha_fonts_url()) );
 }
 
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
@@ -116,11 +119,6 @@ function kamoha_init_theme(){
         'exclude_from_search' => true // Lea 2015/03 - we don't want newsflash posts appearing in search results
             )
     );
-    /* Add admin editor style, but only on post page.
-     * The init hool, however, only works on new post page.
-     * In order to load editor style on edit post page, we need to hook onto pre_get_posts.
-     * As per the explenation here: http://codex.wordpress.org/Function_Reference/add_editor_style  */
-    add_editor_style();
 }
 
 add_action( 'init', 'kamoha_init_theme' );
@@ -463,7 +461,7 @@ function kamoha_customize_register_func( $wp_customize ){
     $wp_customize->add_setting( 'holiday_header', array(
         'default' => '',
         'transport' => 'postMessage',
-		'sanitize_callback' => 'kamoha_sanitize_choices',
+        'sanitize_callback' => 'kamoha_sanitize_choices',
     ) );
 
     $wp_customize->add_control( 'holiday_header', array(
@@ -500,9 +498,9 @@ function kamoha_customize_register_func( $wp_customize ){
  */
 function kamoha_sanitize_choices( $input, $setting ) {
     global $wp_customize;
- 
+
     $control = $wp_customize->get_control( $setting->id );
- 
+
     if ( array_key_exists( $input, $control->choices ) ) {
         return $input;
     } else {
@@ -662,10 +660,6 @@ function kamoha_modify_query( $query ){
             add_filter( 'posts_orderby', 'edit_posts_orderby_asc' );
         }
     }
-// this happens in the admin part - load editor style on edit post page
-    if ( stristr( $_SERVER['REQUEST_URI'], 'post.php' ) !== false ) {
-        add_editor_style();
-    }
 }
 
 /**
@@ -696,7 +690,7 @@ function kamoha_posts_where( $where, &$query ){
             $datedir = '>'; //get future events - in category page or in sidebar
         }
         if ( !empty( $datedir ) ) {
-			$where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
+            $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
         }
     }
     return $where;

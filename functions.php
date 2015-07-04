@@ -103,7 +103,7 @@ function kamoha_scripts(){
     }
     if ( !is_admin() ) {
         //add css and js
-        wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array('jquery'), 1, TRUE );
+        wp_enqueue_script( 'kamoha-script', get_template_directory_uri() . '/js/script.js', array('jquery'), 1, TRUE );
 
         /* remove uneeded scripts from homepage */
         if ( is_home() ) {
@@ -146,7 +146,7 @@ function kamoha_scripts(){
         );
 
         // create inline definitions of these vars, for use in the script.js file
-        wp_localize_script( 'script', 'MyScriptParams', $params );
+        wp_localize_script( 'kamoha-script', 'MyScriptParams', $params );
         /* category page is designed like pinterest, so in those pages enqueue masonry */
         if ( is_archive() && !is_search() ) {
             wp_enqueue_script( 'masonry' );
@@ -154,10 +154,57 @@ function kamoha_scripts(){
 
 // make the ajaxurl var available to the script
         wp_localize_script( 'script', 'the_ajax_script', array('ajaxurl' => admin_url( 'admin-ajax.php' )) );
+
+        wp_enqueue_style( 'kamoha-fonts', kamoha_fonts_url(), array(), null );
+
+        // add icomoon font-family deinition inline, for better performace:
+        $kamoha_custom_css = "
+                        @font-face {
+                            font-family: 'icomoon';
+                            src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?-416wh5');"
+                            . "src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),"
+                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.woff?-416wh5') format('woff'),"
+                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.ttf?-416wh5') format('truetype'),"
+                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.svg?-416wh5#icomoon') format('svg');"
+                            . "font-weight: normal;"
+                            . "font-style: normal;}";
+
+        wp_add_inline_style( 'kamoha-style', $kamoha_custom_css );
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'kamoha_scripts' );
+
+/**
+ * Add Google fonts - Alef
+ * Taken from: http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
+ * @return string
+ */
+function kamoha_fonts_url(){
+    $fonts_url = '';
+
+    /* Translators: If there are characters in your language that are not
+     * supported by Lora, translate this to 'off'. Do not translate
+     * into your own language.
+     */
+    $alef = _x( 'on', 'Alef font: on or off', 'kamoha' );
+
+    if ( 'off' !== $alef ) {
+
+        $font_families = array();
+
+        $font_families[] = 'Alef:400,700';
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,hebrew' ),
+        );
+
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+
+    return esc_url_raw( $fonts_url );
+}
 
 /**
  * Custom template tags for this theme.
