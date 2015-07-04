@@ -465,7 +465,7 @@ function kamoha_customize_register_func( $wp_customize ){
     ) );
 
     $wp_customize->add_control( 'holiday_header', array(
-        'label' => stripslashes( __( 'holiday_header', 'kamoha' ) ),
+        'label' => stripslashes( __( 'choose holiday', 'kamoha' ) ),
         'section' => 'holiday_header_changer',
         'type' => 'radio',
         'choices' => array(
