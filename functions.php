@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( !isset( $content_width ) ) {
-    $content_width = 800; /* pixels */
+    $content_width = 640; /* pixels */
 }
 
 if ( !function_exists( 'kamoha_setup' ) ) :
@@ -129,7 +129,7 @@ function kamoha_scripts(){
 
             remove_action( 'wp_head', 'wp_rp_head_resources' );
         }
-        
+
         // show tffaq css only on ask rabbi page
         if ( !is_page( ASK_RABBI_PAGE ) ) {
             wp_deregister_style( 'tffaq_jquery_custom' );
