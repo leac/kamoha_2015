@@ -59,9 +59,14 @@ get_header();
 
     </main><!-- #main -->
 
-    <?php /* Display navigation to next/previous pages when applicable. Must be outside main, so isn't affected by masonry */ ?>
-    <?php if ( $wp_query->max_num_pages > 1 && function_exists( 'wp_pagenavi' ) ) : ?>
-        <?php wp_pagenavi(); ?>
+    <?php /* Display navigation to next/previous pages when applicable. Must be outside main, so isn't affected by masonry 
+     * Use plugin pagination, or core pagination if plugin doesn't exist  */ ?>
+    <?php if ( $wp_query->max_num_pages > 1 ) : ?>
+        <?php if ( function_exists( 'wp_pagenavi' ) ) : ?>
+            <?php wp_pagenavi(); ?>
+        <?php else: ?>
+            <?php kamoha_paging_nav(); ?>
+        <?php endif; ?>
     <?php endif; ?>
 
 </section><!-- #primary -->
