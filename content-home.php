@@ -38,7 +38,7 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
     <section class="entry-body clear">
 
         <header class="entry-header">
-            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo esc_html( get_the_title() ); ?></a></h2>
+            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title() ; ?></a></h2>
         </header><!-- .entry-header -->
 
 
