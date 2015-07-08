@@ -117,6 +117,17 @@ function kamoha_init_theme(){
         'exclude_from_search' => true // Lea 2015/03 - we don't want newsflash posts appearing in search results
             )
     );
+
+    /* Tal - Create custom post type - blank - for facebook pages */
+    register_post_type( 'blank', array(
+        'labels' => array(
+            'name' => __( 'עמודים ריקים' ),
+            'singular_name' => __( 'עמוד ריק' )
+        ),
+        'public' => true,
+        'has_archive' => true,
+            )
+    );
 }
 
 add_action( 'init', 'kamoha_init_theme' );
@@ -486,7 +497,9 @@ function kamoha_customize_register_func( $wp_customize ){
         ),
     ) );
 }
-/*http://cachingandburning.com/wordpress-theme-customizer-sanitizing-radio-buttons-and-select-lists*/
+
+/* http://cachingandburning.com/wordpress-theme-customizer-sanitizing-radio-buttons-and-select-lists */
+
 /**
  * Sanitize the choice by comparing to the array of radio button options
  * @global type $wp_customize
@@ -494,7 +507,7 @@ function kamoha_customize_register_func( $wp_customize ){
  * @param object $setting
  * @return string
  */
-function kamoha_sanitize_choices( $input, $setting ) {
+function kamoha_sanitize_choices( $input, $setting ){
     global $wp_customize;
 
     $control = $wp_customize->get_control( $setting->id );
@@ -866,7 +879,7 @@ function kamoha_event_list(){
                 ?>
 
                 <div itemscope itemtype="http://data-vocabulary.org/Event">
-                <?php } ?>
+        <?php } ?>
                 <li class="evt">
                     <a class="evt-title" href="<?php echo get_permalink( $event->ID ); ?>"
                     <?php
@@ -912,7 +925,7 @@ function kamoha_event_list(){
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                               ?>
+    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                ?>
     <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
 
     <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
