@@ -14,7 +14,7 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
 
 
 <?php $article_class = 'clear'; ?>
-<article  <?php post_class( $article_class ); ?>><!-- Lea 2014/12 - the id invalidates the html when the same posts appears twice. No need for id on homepage. id="post-<?php //the_ID();    ?>" -->
+<article  <?php post_class( $article_class ); ?>><!-- Lea 2014/12 - the id invalidates the html when the same posts appears twice. No need for id on homepage. id="post-<?php //the_ID();      ?>" -->
     <?php
     if ( $kamoha_homepage_part == KamohaHomepagePart::Sticky || $kamoha_homepage_part == KamohaHomepagePart::Newest ) { //show the film icon only in newest posts
         kamoha_show_movie_icon();
@@ -27,8 +27,8 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
     if ( ($kamoha_homepage_part != KamohaHomepagePart::Blogs && $kamoha_homepage_part != KamohaHomepagePart::Issues) ||
             ($kamoha_homepage_part == KamohaHomepagePart::Blogs && $kamoha_blog_post_index == 1 ) ||
             ($kamoha_homepage_part == KamohaHomepagePart::Issues && $issue_post_index == 1 ) ) {
-        $thumb_size = ($kamoha_homepage_part == KamohaHomepagePart::Tabs) ? 'kamoha_teeny' :
-                ((is_sticky() || (!$kamoha_sticky_exists && $kamoha_latest_post_index == 1)) ? 'kamoha_medium' : 'kamoha_small');
+        $thumb_size = ($kamoha_homepage_part == KamohaHomepagePart::Tabs) ? 'teeny' :
+                ((is_sticky() || (!$kamoha_sticky_exists && $kamoha_latest_post_index == 1)) ? 'medium' : 'small');
         ?>
         <a href="<?php the_permalink(); ?>" rel="bookmark" class="image-wrapper">
             <?php kamoha_show_homepage_thumbnail( $thumb_size ); ?>
@@ -38,7 +38,7 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
     <section class="entry-body clear">
 
         <header class="entry-header">
-            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title() ; ?></a></h2>
+            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
         </header><!-- .entry-header -->
 
 

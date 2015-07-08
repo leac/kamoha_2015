@@ -86,16 +86,14 @@ function kamoha_setup_more(){
     define( 'SMALL_WIDTH', 155 ); /* top posts */
     define( 'SMALL_HEIGHT', 155 );
 
-    define( 'MEDIUM_BIG_WIDTH', 200 ); /* categories posts */
-    define( 'MEDIUM_BIG_HEIGHT', 200 );
 
     define( 'TEENY_WIDTH', 100 ); /* tabs posts */
     define( 'TEENY_HEIGHT', 90 );
 
-    add_image_size( 'kamoha_medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
-    add_image_size( 'kamoha_small', SMALL_WIDTH, SMALL_HEIGHT, true );
-    add_image_size( 'kamoha_medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT );
-    add_image_size( 'kamoha_teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
+    add_image_size( 'medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
+    add_image_size( 'small', SMALL_WIDTH, SMALL_HEIGHT, true );
+    add_image_size( 'medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT ); // TODO: remove if unneeded
+    add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
 
     // This theme styles the visual editor to resemble the theme style.
     add_editor_style( array('editor-style.css', kamoha_fonts_url()) );

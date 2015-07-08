@@ -7,7 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php kamoha_show_movie_icon(); ?>
     <a href="<?php the_permalink(); ?>" rel="bookmark" class="image-wrapper">
-        <?php kamoha_show_homepage_thumbnail( 'kamoha_small' ); ?>
+        <?php kamoha_show_homepage_thumbnail( 'small' ); ?>
     </a>
     <section class="entry-body clear">
         <header class="entry-header">

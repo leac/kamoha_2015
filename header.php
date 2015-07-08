@@ -21,7 +21,7 @@
         ?>
         <?php $post_description = kamoha_get_facebook_page_description(); ?>
         <?php if ( is_single() ) : ?>
-            <?php $post_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'kamoha_medium' ); ?>
+            <?php $post_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
             <meta property="og:url" content="<?php echo post_permalink( $post->ID ); ?>" />
             <meta property="og:title" content="<?php echo str_replace( "\"", "''", html_entity_decode( get_the_title( $post->ID ), ENT_QUOTES, "UTF-8" ) ); /* decode if for hyphen etc. replace is so quotes don't interrupt the content attribute */ ?>" />
             <meta property="og:image" content="<?php echo $post_image_url[0]; ?>" />
@@ -29,13 +29,13 @@
             <meta property="og:description" content="<?php echo htmlentities( $post_description, ENT_QUOTES, "UTF-8" ); ?>" />
         <?php endif; ?>
         <meta name="description" content="<?php echo htmlentities( $post_description, ENT_QUOTES, "UTF-8" ); ?>">
-        <title><?php wp_title( ); ?></title>
+        <title><?php wp_title(); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php wp_head(); ?>
     </head>
 
-    <body <?php body_class( 'clear' );  // clear class is added so the footer and its bottom margin fit into the body.   ?>>
+    <body <?php body_class( 'clear' );  // clear class is added so the footer and its bottom margin fit into the body.    ?>>
         <div id="page" class="hfeed site">
 
             <header id="masthead" class="site-header" role="banner">

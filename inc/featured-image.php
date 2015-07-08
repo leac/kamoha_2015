@@ -13,7 +13,7 @@
  * or if there isn't a post thumbnail, it gets the first port image, and displays the passed thumbsized version of it
  * @param string $thumb_size - the size of the thumbnail, from a predefines size list
  */
-function kamoha_show_homepage_thumbnail( $thumb_size = 'kamoha_medium' ){
+function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
 
     /* declare vars */
     $post_id = get_the_ID(); // needed to get the correct thumbnail, or correct user field
@@ -36,7 +36,7 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'kamoha_medium' ){
         endif;
 
         /* If a secondary image exists, show it when the thumbnail size is rectangle */
-        if ( !empty( $second_img ) && $thumb_size == 'kamoha_medium' ) {
+        if ( !empty( $second_img ) && $thumb_size == 'medium' ) {
             echo $second_img;
         } else {
             echo get_the_post_thumbnail( null, $thumb_size );
