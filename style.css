@@ -1805,7 +1805,7 @@ body.category-francais .site-main,
 
 /* --------->>>  SEARCH RESULTS <<<-----------*/
 
-.search .site-main {
+body.search .site-main {
     line-height: 1.3;
     padding: 0 3rem 0 10rem;
 }
@@ -1859,11 +1859,11 @@ body.category-francais .site-main,
 .error404 .content-area{
     font:  2rem / 1.5 'Alef',Arial,sans-serif;
 }
-.error404 .site-main{
+body.error404 .site-main{
     margin:0;
 }
-.single .site-main,
-.page .site-main{
+body.single .site-main,
+body.page .site-main{
     padding: 0 4rem 7rem;
 }
 .byline,
@@ -2681,7 +2681,7 @@ object {
     .topics-navigation{
         font-size: 1.8rem; /* decrese the font-size of topics menu in lower resolutions, so all the items fit in*/
     }
-    .site-main{
+    body:not(.page-template-page_without-header-and-footer) .site-main{
         margin-left: 0;
         border-left: none;
         padding-right: 2.5rem;
@@ -2775,7 +2775,7 @@ object {
 /* --------->>>  MAX-WIDTH: 640px <<<-----------*/
 
 @media  (max-width: 640px){
-    .site-main{
+    body:not(.page-template-page_without-header-and-footers).site-main{
         padding-bottom: 3.5rem;
     }
     /* in this resolution, let every entry take up the whole width of the window */
@@ -3029,7 +3029,7 @@ object {
         font-size: 1.2rem;
     }
     /* single page - smaller fonts and line-height*/
-    .single .site-main, .page .site-main{
+    body.single .site-main, body.page .site-main{
         padding-right: 2rem;
     }
     .single .entry-title, .page .entry-title {
