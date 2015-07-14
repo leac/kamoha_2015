@@ -1874,6 +1874,9 @@ body.category-francais .site-main,
 .group-blog .byline {
     display: inline;
 }
+.page-template-page_without-header-and-footer .entry-header{
+    display: none; /* hide title in page without header and footer*/
+}
 .single .entry-summary,
 .page-content,
 body:not(.page-id-15263) .entry-content {
