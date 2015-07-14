@@ -92,7 +92,6 @@ function kamoha_setup_more(){
 
     add_image_size( 'medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
     add_image_size( 'small', SMALL_WIDTH, SMALL_HEIGHT, true );
-    add_image_size( 'medium_big', MEDIUM_BIG_WIDTH, MEDIUM_BIG_HEIGHT ); // TODO: remove if unneeded
     add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
 
     // This theme styles the visual editor to resemble the theme style.
@@ -115,17 +114,6 @@ function kamoha_init_theme(){
         'has_archive' => true,
         'supports' => array('title', 'editor', 'post-formats', 'thumbnail'),
         'exclude_from_search' => true // Lea 2015/03 - we don't want newsflash posts appearing in search results
-            )
-    );
-
-    /* Tal - Create custom post type - blank - for facebook pages */
-    register_post_type( 'blank', array(
-        'labels' => array(
-            'name' => __( 'עמודים ריקים' ),
-            'singular_name' => __( 'עמוד ריק' )
-        ),
-        'public' => true,
-        'has_archive' => true,
             )
     );
 }

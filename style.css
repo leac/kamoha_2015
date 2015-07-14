@@ -491,7 +491,7 @@ a:active {
     margin: 0 0 0 -25%;
     width: 100%;
 }
-.site-main {
+body:not(.page-template-page_without-header-and-footer) .site-main {
     border-left: 1px solid #e5e5e5;
     margin: 0 0 0 27%;
     padding: 0 4.5rem 7rem 2.5rem;
@@ -1591,6 +1591,13 @@ aside.kamoha_btn{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#3370b1',GradientType=1 );  /*IE6-9 fallback on horizontal gradient  */
 
 }
+.wp-calendar .daycal,
+.wp-calendar div.event-day{
+    /*width, height & padding-bottom make it square*/
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
 .wp-calendar .jewish_daycal {
     font-size: 1.2rem;
     padding: 0.3rem 0.1rem 0 0;
@@ -1623,13 +1630,13 @@ aside.kamoha_btn{
 .wp-calendar div.event-day div.events a{
     color: #ffffff;
 }
-.events_box .prev_next_links{
+.prev_next_links{
     display: block;
 }
-.events_box .prevmonth{
+.prevmonth{
     float: right;
 }
-.events_box .nextmonth{
+.nextmonth{
     float: left;
 }
 .events_box .to_older_events{

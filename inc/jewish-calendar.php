@@ -455,9 +455,9 @@ function kamoha_display_next_prev_links( $thismonth, $thisyear, $page_url ){
             break;
     }
 
-// Prev/Next month links, with anchor to the events box
-    $prevurl = add_query_arg( 'month', $prevyear . $prevmonth, str_replace( $prevurl, '#events_box', '' ) ) . '#events_box';
-    $nexturl = add_query_arg( 'month', $nextyear . $nextmonth, str_replace( $nexturl, '#events_box', '' ) ) . '#events_box';
+// Prev/Next month links, with anchor to the events box. Don't pass 3rd parameter, because the month parameter is added with a ? i.s.o &
+    $prevurl = add_query_arg( 'month', $prevyear . $prevmonth ) . '#events_box';
+    $nexturl = add_query_arg( 'month', $nextyear . $nextmonth ) . '#events_box';
 
 // Prev/Next month buttons
     echo '<span class="prev_next_links prevmonth"><a href="' . esc_url( $prevurl ) . '" class="ajax-link">&lt; ' . __( 'Previous month', 'kamoha' ) . ' </a></span>';
@@ -499,3 +499,6 @@ add_action( 'wp_ajax_calendar_response', 'kamoha_calendar_ajax_process_request' 
 * This hook allows you to create custom handlers for your own custom AJAX requests for users who aren't logged in
  *  */
 add_action( 'wp_ajax_nopriv_calendar_response', 'kamoha_calendar_ajax_process_request' );
+
+
+add_shortcode( "kamoha_jewish_calendar", 'kamoha_get_event_calendar' );

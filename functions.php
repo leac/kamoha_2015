@@ -31,7 +31,7 @@ if ( !function_exists( 'kamoha_setup' ) ) :
          */
         load_theme_textdomain( 'kamoha', get_template_directory() . '/languages' );
 
-        // Add default posts and comments RSS feed links to head.
+// Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
 
         /*
@@ -41,7 +41,7 @@ if ( !function_exists( 'kamoha_setup' ) ) :
          */
         add_theme_support( 'post-thumbnails' );
 
-        // This theme uses wp_nav_menu() in two locations.
+// This theme uses wp_nav_menu() in two locations.
         register_nav_menus( array(
             'primary' => __( 'Primary Menu', 'kamoha' ),
             'secondary' => __( 'Secondary Navigation', 'kamoha' ), /* Lea - 02/2014 - add another menu */
@@ -56,7 +56,7 @@ if ( !function_exists( 'kamoha_setup' ) ) :
          */
         add_theme_support( 'title-tag' );
 
-        // Enable support for HTML5 markup.
+// Enable support for HTML5 markup.
         add_theme_support( 'html5', array('comment-list', 'search-form', 'comment-form',) );
     }
 
@@ -92,21 +92,25 @@ add_action( 'widgets_init', 'kamoha_widgets_init' );
  */
 function kamoha_scripts(){
 
-    wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.1.2' );
-
-    wp_enqueue_script( 'kamoha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-    wp_enqueue_script( 'kamoha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
-    }
     if ( !is_admin() ) {
-        //add css and js
-        wp_enqueue_script( 'kamoha-script', get_template_directory_uri() . '/js/script.js', array('jquery'), 1, TRUE );
 
-        /* remove uneeded scripts from homepage */
-        if ( is_home() ) {
+        wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.1.2' );
+
+        /* in this page template we don't need anything other than style.css*/
+        if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
+
+            wp_enqueue_script( 'kamoha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+            wp_enqueue_script( 'kamoha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+            if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+                wp_enqueue_script( 'comment-reply' );
+            }
+//add css and js
+            wp_enqueue_script( 'kamoha-script', get_template_directory_uri() . '/js/script.js', array('jquery'), 1, TRUE );
+        }
+        /* remove uneeded scripts from homepage and page template */
+        if ( is_home() || is_page_template( 'page_without-header-and-footer.php' ) ) {
             wp_deregister_script( 'jquery-form' );
             wp_dequeue_script( 'jquery-form' );
             wp_deregister_script( 'contact-form-7' );
@@ -123,14 +127,14 @@ function kamoha_scripts(){
             wp_deregister_style( 'wp-pagenavi' );
             wp_dequeue_style( 'wp-pagenavi' );
 
-            // don't include facebook script on front page
+// don't include facebook script on front page
             remove_action( 'wp_footer', 'fbmlsetup', 100 );
 
 
             remove_action( 'wp_head', 'wp_rp_head_resources' );
         }
 
-        // show tffaq css only on ask rabbi page
+// show tffaq css only on ask rabbi page
         if ( !is_page( ASK_RABBI_PAGE ) ) {
             wp_deregister_style( 'tffaq_jquery_custom' );
             wp_dequeue_style( 'tffaq_jquery_custom' );
@@ -139,13 +143,13 @@ function kamoha_scripts(){
         }
 
 
-        // get strings from language files, adn put them into javascript variables
+// get strings from language files, adn put them into javascript variables
         $params = array(
             'sLoadPosts' => __( "Load more", "kamoha" ),
             'sUnloadPosts' => __( 'Unload more', 'kamoha' ),
         );
 
-        // create inline definitions of these vars, for use in the script.js file
+// create inline definitions of these vars, for use in the script.js file
         wp_localize_script( 'kamoha-script', 'MyScriptParams', $params );
         /* category page is designed like pinterest, so in those pages enqueue masonry */
         if ( is_archive() && !is_search() ) {
@@ -157,17 +161,17 @@ function kamoha_scripts(){
 
         wp_enqueue_style( 'kamoha-fonts', kamoha_fonts_url(), array(), null );
 
-        // add icomoon font-family deinition inline, for better performace:
+// add icomoon font-family deinition inline, for better performace:
         $kamoha_custom_css = "
                         @font-face {
                             font-family: 'icomoon';
                             src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?-416wh5');"
-                            . "src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),"
-                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.woff?-416wh5') format('woff'),"
-                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.ttf?-416wh5') format('truetype'),"
-                            . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.svg?-416wh5#icomoon') format('svg');"
-                            . "font-weight: normal;"
-                            . "font-style: normal;}";
+                . "src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),"
+                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.woff?-416wh5') format('woff'),"
+                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.ttf?-416wh5') format('truetype'),"
+                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.svg?-416wh5#icomoon') format('svg');"
+                . "font-weight: normal;"
+                . "font-style: normal;}";
 
         wp_add_inline_style( 'kamoha-style', $kamoha_custom_css );
     }
