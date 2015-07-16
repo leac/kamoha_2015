@@ -1,5 +1,4 @@
 <?php
-
 /**
  * kamoha functions and definitions
  *
@@ -63,6 +62,17 @@ if ( !function_exists( 'kamoha_setup' ) ) :
 endif; // kamoha_setup
 add_action( 'after_setup_theme', 'kamoha_setup' );
 
+if ( !function_exists( '_wp_render_title_tag' ) ) {
+
+    function kamoha_render_title(){
+        ?>
+        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <?php
+    }
+
+    add_action( 'wp_head', 'kamoha_render_title' );
+}
+
 /**
  * Register widgetized area and update sidebar with default widgets.
  */
@@ -96,7 +106,7 @@ function kamoha_scripts(){
 
         wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.1.4' );
 
-        /* in this page template we don't need anything other than style.css*/
+        /* in this page template we don't need anything other than style.css */
         if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
 
             wp_enqueue_script( 'kamoha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );

@@ -6,13 +6,14 @@
 <!DOCTYPE html>
 <html lang="he-IL" dir="rtl">
     <head>
-        <meta name="generator"
-              content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
-        <meta charset="UTF-8" />
-        <title><?php wp_title(); ?></title>
+        <meta charset="<?php bloginfo( 'charset' ); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/favicon.ico" />
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php wp_head(); ?>
     </head>
-    <body <?php body_class( 'clear' );  // clear class is added so the footer and its bottom margin fit into the body.    ?>>
+    <body <?php body_class( 'clear' );  // clear class is added so the footer and its bottom margin fit into the body.       ?>>
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
 
