@@ -868,7 +868,7 @@ function kamoha_event_list(){
                 ?>
 
                 <div itemscope itemtype="http://data-vocabulary.org/Event">
-        <?php } ?>
+                <?php } ?>
                 <li class="evt">
                     <a class="evt-title" href="<?php echo get_permalink( $event->ID ); ?>"
                     <?php
@@ -1067,6 +1067,10 @@ function kamoha_get_facebook_page_description(){
     }
     return $ret;
 }
+
+/* Disable logging of Akismet debug data when WP_DEBUG_LOG is true 
+  https://wordpress.org/support/topic/akismet-and-wp_debug_log */
+add_filter( 'akismet_debug_log', '__return_false' );
 
 /* * *******************************
  * AUXILIARY FUNCTIONS
