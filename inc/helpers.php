@@ -467,6 +467,7 @@ function kamoha_customize_register_func( $wp_customize ){
         'type' => 'radio',
         'choices' => array(
             'regular' => __( 'regular', 'kamoha' ),
+            'rosh_hashana' => __( 'rosh_hashana', 'kamoha' ),
             'birthday' => __( 'birthday', 'kamoha' ),
             'trip_before_close' => __( 'trip before close', 'kamoha' ),
             'trip_after_close' => __( 'trip after close', 'kamoha' ),
@@ -541,7 +542,7 @@ function kamoha_customizer_live_preview(){
             'kamoha-themecustomizer', //Give the script an ID
             get_template_directory_uri() . '/js/customize-themes.js', //Point to file
             array('jquery', 'customize-preview'), //Define dependencies
-            '0.7.5', //Define a version (optional)
+            '0.7.6', //Define a version (optional)
             true   //Put script in footer?
     );
 }

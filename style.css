@@ -516,6 +516,10 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-repeat: no-repeat;
     background-color: transparent;
 }
+.rosh_hashana .site-header{
+    background-image: url("images/header_rosh_hashana.jpg");
+    background-position: right 0;
+}
 .birthday .site-header {
     /*    background: url("images/header_baloons.jpg") no-repeat 0 0px transparent; */
 }
@@ -862,6 +866,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .special .site-title a{
     height: 11.185em;
     width: 12.9em;
+}
+.rosh_hashana .site-title a{
+    background-image: url(images/logo_rosh_hashana.png);
 }
 .birthday .site-title a{
     background-image: url(images/logo_birthday_h.png);
