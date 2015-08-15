@@ -116,6 +116,7 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
      * Create array of events that happened in this month/year
      * ---------------------------------------------------- */
     $eventArr = array(); // array of all events
+	error_log(count($events->posts));
 //
     // Loop through all posts returned by query, and create an object for each with post title, content, date and link
     foreach ( $events->posts as $event ) {
