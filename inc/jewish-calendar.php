@@ -116,7 +116,6 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
      * Create array of events that happened in this month/year
      * ---------------------------------------------------- */
     $eventArr = array(); // array of all events
-	error_log(count($events->posts));
 //
     // Loop through all posts returned by query, and create an object for each with post title, content, date and link
     foreach ( $events->posts as $event ) {
@@ -131,8 +130,8 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
         foreach ( $days as $day ) {
             $postdata = array(
                 "post_title" => $event->post_title,
-                // "post_content" => strip_tags ( $event->post_content ),
-                "guid" => $event->guid,
+                // Lea 2015/08/15 - don't use guid because it doesn't support https. Use ID and get_permalink
+                "id" => $event->ID,
                 "year" => $year,
                 "month" => $month,
                 "day" => $day
@@ -237,7 +236,7 @@ function kamoha_get_event_calendar( $catID = MEETINGS_CAT, $page_url ){
         if ( count( $event_index ) > 0 ) {
             $calendar_output .='<div class="event-day"><span class="jewish_daycal">' . $hebrew_days_dates[$day] . '</span><span class="gregorian_daycal"> ' . $currGday . '</span><div class="events">';
             for ( $i = 0; $i < sizeof( $event_index ); $i ++ ) {
-                $calendar_output .= '<a href="' . $eventArr[$event_index[$i]]['guid'] . '" ><em class="event-day-title"> ' . $eventArr[$event_index[$i]]['post_title'] . '</em></a>'; // rel="tooltip"
+                $calendar_output .= '<a href="' . get_permalink($eventArr[$event_index[$i]]['id']) . '" ><em class="event-day-title"> ' . $eventArr[$event_index[$i]]['post_title'] . '</em></a>'; // rel="tooltip"
             }
             $calendar_output .='</div></div>';
             $found_event = true;
