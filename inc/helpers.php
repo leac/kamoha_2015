@@ -566,7 +566,7 @@ add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
  * */
 function kamoha_menu_cat_subnav( $items, $menu, $args ){
     // Only do this in the topics menu
-    if ( !is_admin() ) {
+    if ( !is_admin() && !is_customize_preview () ) {
         // loop thru the menu items, and find the ones that are categories
         $menu_order = count( $items ) + 1;
         $is_archive = false;
@@ -581,7 +581,7 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ){
                 if ( !empty( $termchildren ) ) {
                     // if it has child categories, add them to the menu
                     foreach ( $termchildren as $child ) {
-
+//
                         // first check if this item has children
                         $children_array = array_filter( $termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
                             if ( $obj->parent == $child->term_id ) {
@@ -589,7 +589,7 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ){
                             }
                             return false;
                         } );
-
+//
                         // then check if this item has parents in the array
                         $parents_array = array_filter( $termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
                             if ( $obj->term_id == $child->parent ) {
@@ -597,10 +597,10 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ){
                             }
                             return false;
                         } );
-
+//
                         // get the correct id of parent - either existing item, or added item
                         $menu_item_parent = count( $parents_array ) > 0 ? $child->parent : $item->ID;
-
+//
                         $new_item = wp_setup_nav_menu_item( $child );
                         $new_item->menu_item_parent = $menu_item_parent; /* the parent id should be the ID of the item in the menu, not the object_id which is the category id */
                         $new_item->db_id = $child->term_id;
