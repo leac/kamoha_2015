@@ -467,7 +467,9 @@ function kamoha_customize_register_func( $wp_customize ){
         'type' => 'radio',
         'choices' => array(
             'regular' => __( 'regular', 'kamoha' ),
-            'rosh_hashana' => __( 'rosh_hashana', 'kamoha' ),
+            'rosh_hashana' => __( 'rosh hashana', 'kamoha' ),
+            'yom_kipur' => __( 'yom kipur', 'kamoha' ),
+            'sukot' => __( 'sukot', 'kamoha' ),
             'birthday' => __( 'birthday', 'kamoha' ),
             'trip_before_close' => __( 'trip before close', 'kamoha' ),
             'trip_after_close' => __( 'trip after close', 'kamoha' ),
@@ -542,7 +544,7 @@ function kamoha_customizer_live_preview(){
             'kamoha-themecustomizer', //Give the script an ID
             get_template_directory_uri() . '/js/customize-themes.js', //Point to file
             array('jquery', 'customize-preview'), //Define dependencies
-            '0.7.6', //Define a version (optional)
+            '0.7.7', //Define a version (optional)
             true   //Put script in footer?
     );
 }
@@ -566,7 +568,7 @@ add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
  * */
 function kamoha_menu_cat_subnav( $items, $menu, $args ){
     // Only do this in the topics menu
-    if ( !is_admin() & !is_customize_preview ()) { // Lea 2015/08 - don't let this function run in customizer, because it disables the preview
+    if ( !is_admin() ) { 
         // loop thru the menu items, and find the ones that are categories
         $menu_order = count( $items ) + 1;
         $is_archive = false;
@@ -607,6 +609,7 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ){
                         $new_item->url = get_term_link( $child );
                         $new_item->title = $child->name;
                         $new_item->menu_order = $menu_order;
+                        $new_item->status = 'draft';
                         if ( count( $children_array ) > 0 ) {
                             $new_item->classes[] = 'menu-item-has-children';
                         }

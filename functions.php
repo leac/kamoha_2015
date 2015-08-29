@@ -104,7 +104,7 @@ function kamoha_scripts(){
 
     if ( !is_admin() ) {
 
-        wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.1.5' );
+        wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.1.6' );
 
         /* in this page template we don't need anything other than style.css */
         if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
