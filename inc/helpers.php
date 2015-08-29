@@ -566,7 +566,7 @@ add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
  * */
 function kamoha_menu_cat_subnav( $items, $menu, $args ){
     // Only do this in the topics menu
-    if ( !is_admin() ) {
+    if ( !is_admin() & !is_customize_preview ()) { // Lea 2015/08 - don't let this function run in customizer, because it disables the preview
         // loop thru the menu items, and find the ones that are categories
         $menu_order = count( $items ) + 1;
         $is_archive = false;
