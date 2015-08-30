@@ -537,6 +537,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .trip_after_close .site-header {
     background-image: url("images/header_trip_after_close.jpg");
 }
+.trip_during .site-header {
+    background-image: url("images/header_trip_during.jpg");
+}
 .shabbat_early .site-header {
     background-image: url("images/header_shabbat_early.jpg");
 }
@@ -888,7 +891,8 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url(images/logo_birthday_h.png);
 }
 .trip_before_close .site-title a,
-.trip_after_close .site-title a{
+.trip_after_close .site-title a,
+.trip_during .site-title a{
     background-image: url(images/logo_trip.png);
 }
 
@@ -2895,6 +2899,9 @@ object {
     }
     .trip_after_close .site-header {
         background-image: url("images/header_trip_after_close_600.jpg");
+    }	
+    .trip_during .site-header {
+        background-image: url("images/header_trip_during_600.jpg");
     }	
     .shabbat_early .site-header {
         background-image: url("images/header_shabbat_early_600.jpg?1=1");
