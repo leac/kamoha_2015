@@ -802,7 +802,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     font-size: 1.6rem;
     position: absolute;
     top: 4rem;
-    width: 150%;
+    width: 155%;
     z-index: 1;
 }
 .topics-navigation .blogs ul{
