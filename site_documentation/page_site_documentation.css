@@ -1,0 +1,40 @@
+/* 
+ * CSS file for page_site_documentation.php page template
+ */
+body{width: 1250px; margin: 0 auto;background: url('http://www.kamoha.org.il/wp-content/themes/kamoha_2015/images/pattern.png');}
+img{display: block;}
+#explenation{    
+    background-color: #839db9;
+    box-shadow: 0 2px 8px 0 #aaa;
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+#cboxLoadedContent {
+    margin-bottom: 28px;
+    padding: 0 15px;
+}
+
+#cboxClose{
+    bottom: auto;
+    right: auto;
+    top: 0;
+    left: 0;
+}
+
+.modals-section{
+    display: none;
+}
+.section-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3d6998;
+}
+.section img {
+    max-width: 100%;
+}
+.key {
+    font-weight: bold;
+    margin-top: 29px;
+}
+

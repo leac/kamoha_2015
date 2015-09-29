@@ -520,6 +520,14 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_rosh_hashana.jpg");
     background-position: right 0;
 }
+.yom_kipur .site-header{
+    background-image: url("images/header_yom_kipur.jpg");
+    background-position: right 0;
+}
+.sukot .site-header{
+    background-image: url("images/header_sukot.jpg");
+    background-position: right 0;
+}
 .birthday .site-header {
     /*    background: url("images/header_baloons.jpg") no-repeat 0 0px transparent; */
 }
@@ -528,6 +536,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 }
 .trip_after_close .site-header {
     background-image: url("images/header_trip_after_close.jpg");
+}
+.trip_during .site-header {
+    background-image: url("images/header_trip_during.jpg");
 }
 .shabbat_early .site-header {
     background-image: url("images/header_shabbat_early.jpg");
@@ -791,7 +802,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     font-size: 1.6rem;
     position: absolute;
     top: 4rem;
-    width: 150%;
+    width: 155%;
     z-index: 1;
 }
 .topics-navigation .blogs ul{
@@ -870,11 +881,18 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .rosh_hashana .site-title a{
     background-image: url(images/logo_rosh_hashana.png);
 }
+.yom_kipur .site-title a{
+    background-image: url(images/logo_yom_kipur.png);
+}
+.sukot .site-title a{
+    background-image: url(images/logo_sukot.png);
+}
 .birthday .site-title a{
     background-image: url(images/logo_birthday_h.png);
 }
 .trip_before_close .site-title a,
-.trip_after_close .site-title a{
+.trip_after_close .site-title a,
+.trip_during .site-title a{
     background-image: url(images/logo_trip.png);
 }
 
@@ -2882,6 +2900,9 @@ object {
     .trip_after_close .site-header {
         background-image: url("images/header_trip_after_close_600.jpg");
     }	
+    .trip_during .site-header {
+        background-image: url("images/header_trip_during_600.jpg");
+    }	
     .shabbat_early .site-header {
         background-image: url("images/header_shabbat_early_600.jpg?1=1");
     }	
@@ -2893,6 +2914,12 @@ object {
     }
     .shabbat_after_close .site-header {
         background-image: url("images/header_shabbat_after_close_600.jpg?1=1");
+    }
+    .yom_kipur .site-header{
+        background-position: center 0;
+    }
+    .sukot .site-header{
+        background-position: center 0;
     }
     .tishabeav .site-header{
         background-position: center 0;
@@ -2921,6 +2948,12 @@ object {
         height: auto;
         width: 100%;
         padding-bottom: 78%;
+    }
+    .yom_kipur .site-title a{
+        background-image: url("images/logo_yom_kipur_600.png");
+    }
+    .sukot .site-title a{
+        background-image: url("images/logo_sukot_600.png");
     }
     .tishabeav .site-title a{
         background-image: url("images/logo_tishabeav_600.png");
