@@ -245,7 +245,7 @@ function kamoha_register_required_plugins(){
         array(
             'name' => 'Demo Tax meta class',
             'slug' => 'bainternet-Tax-Meta-Class',
-            'source' => 'https://github.com/bainternet/Tax-Meta-Class/zipball/master', // The plugin source.
+            'source' => get_stylesheet_directory() . '/inc/plugins/bainternet-Tax-Meta-Class.zip', // The plugin source.
             'required' => false,
             'force_deactivation' => false,
         ),
