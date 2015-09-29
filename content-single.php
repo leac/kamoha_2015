@@ -32,20 +32,24 @@
         <div class="entry-tags">
             <?php
             /* translators: used between list items, there is a space after the comma */
-            $tag_list = get_the_tag_list( '', __( ', ', 'kamoha' ) );
+            $tag_list = get_the_tag_list('', __(', ', 'kamoha'));
 
-            if ( '' != $tag_list ) {
+            if ('' != $tag_list) {
                 printf(
-                        __( 'This entry was tagged %1$s.', 'kamoha' ), $tag_list
+                        __('This entry was tagged %1$s.', 'kamoha'), $tag_list
                 );
             }
             ?>
 
-            <?php edit_post_link( __( 'Edit', 'kamoha' ), '<span class="edit-link">', '</span>' ); ?>
+            <?php edit_post_link(__('Edit', 'kamoha'), '<span class="edit-link">', '</span>'); ?>
         </div>
 
-		<?php //Show Simple share buttons widget: ?>
-        <?php echo do_shortcode( '[ssba]' ); ?> 
+        <?php
+        //Show Simple share buttons widget: 
+        if (function_exists('ssba_buttons')) { // run the shortcode only if the function associated with it exists
+            echo do_shortcode('[ssba]');
+        }
+        ?> 
 
     </footer><!-- .entry-meta -->
 
@@ -53,7 +57,7 @@
 
 <?php // after post, show related articles ?>
 <?php
-if ( function_exists( 'wp_related_posts' ) ) {
+if (function_exists('wp_related_posts')) {
     wp_related_posts();
 }
 
