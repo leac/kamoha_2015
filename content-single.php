@@ -44,8 +44,12 @@
             <?php edit_post_link( __( 'Edit', 'kamoha' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
 
-		<?php //Show Simple share buttons widget: ?>
-        <?php echo do_shortcode( '[ssba]' ); ?> 
+        <?php
+        //Show Simple share buttons widget: 
+        if (function_exists('ssba_buttons')) { // run the shortcode only if the function associated with it exists
+            echo do_shortcode('[ssba]');
+        }
+        ?> 
 
     </footer><!-- .entry-meta -->
 

@@ -35,7 +35,11 @@ if ( post_password_required() ) {
     <?php } ?>
 
     <?php /* Add facebook commnets box - begin */ ?>
-    <?php echo do_shortcode( '[fbcomments]' ); ?>
+    <?php
+    if (function_exists('fbcommentshortcode')) { // run the shortcode only if the function associated with it exists
+        echo do_shortcode('[fbcomments]');
+    }
+    ?>
     <?php /* Add facebook commnets box - end */ ?>
 
     <div class="comment-form-btn kamoha_btn"> <?php _e( 'Add Comment', 'kamoha' ) ?> </div>
