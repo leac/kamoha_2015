@@ -184,11 +184,11 @@ function kamoha_scripts() {
         $kamoha_custom_css = "
             @font-face {
             font-family: 'icomoon';
-            src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?-416wh5');"
-                . "src:url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),"
-                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.woff?-416wh5') format('woff'),"
-                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.ttf?-416wh5') format('truetype'),"
-                . "url('" . get_stylesheet_directory_uri() . "/fonts/icomoon.svg?-416wh5#icomoon') format('svg');"
+            src:url('" . get_template_directory_uri() . "/fonts/icomoon.eot?-416wh5');"
+                . "src:url('" . get_template_directory_uri() . "/fonts/icomoon.eot?#iefix-416wh5') format('embedded-opentype'),"
+                . "url('" . get_template_directory_uri() . "/fonts/icomoon.woff?-416wh5') format('woff'),"
+                . "url('" . get_template_directory_uri() . "/fonts/icomoon.ttf?-416wh5') format('truetype'),"
+                . "url('" . get_template_directory_uri() . "/fonts/icomoon.svg?-416wh5#icomoon') format('svg');"
                 . "font-weight: normal;"
                 . "font-style: normal;}";
 
