@@ -25,7 +25,7 @@
 wp_head();
 ?>
 <body <?php body_class( 'front-page' );  // clear class is added so the footer and its bottom margin fit into the body         ?>>
-    <img src="<?php echo get_stylesheet_directory_uri() ?>/images/under_construction.jpg" alt="האתר בבנייה. מיד נשוב">
+    <img src="<?php echo get_template_directory_uri() ?>/images/under_construction.jpg" alt="האתר בבנייה. מיד נשוב">
     <?php wp_footer(); ?>
 </body>
 </html>

@@ -218,7 +218,7 @@ if ( !function_exists( 'admin_thumb_column' ) ) {
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require_once get_stylesheet_directory() . '/inc/class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'kamoha_register_required_plugins' );
 
@@ -245,7 +245,7 @@ function kamoha_register_required_plugins(){
         array(
             'name' => 'Demo Tax meta class',
             'slug' => 'bainternet-Tax-Meta-Class',
-            'source' => get_stylesheet_directory() . '/inc/plugins/bainternet-Tax-Meta-Class.zip', // The plugin source.
+            'source' => get_template_directory() . '/inc/plugins/bainternet-Tax-Meta-Class.zip', // The plugin source.
             'required' => false,
             'force_deactivation' => false,
         ),
@@ -292,7 +292,7 @@ function kamoha_register_required_plugins(){
         array(
             'name' => 'TF FAQ',
             'slug' => 'tf-faq',
-            'source' => get_stylesheet_directory() . '/inc/plugins/tf-faq.zip', // The plugin source.
+            'source' => get_template_directory() . '/inc/plugins/tf-faq.zip', // The plugin source.
             'required' => false,
         ),
         array(
