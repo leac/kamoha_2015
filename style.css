@@ -528,8 +528,14 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_sukot.jpg");
     background-position: right 0;
 }
-.birthday .site-header {
-    /*    background: url("images/header_baloons.jpg") no-repeat 0 0px transparent; */
+.birthday_baloons .site-header {
+    background-image: url("images/header_birthday_baloons.jpg") ; 
+}
+.birthday_flowers .site-header {
+    background-image: url("images/header_birthday_flowers.jpg") ; 
+}
+.birthday_ribbons .site-header {
+    background-image: url("images/header_birthday_ribbons.jpg") ; 
 }
 .trip_before_close .site-header {
     background-image: url("images/header_trip_before_close.jpg");
@@ -887,8 +893,8 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .sukot .site-title a{
     background-image: url(images/logo_sukot.png);
 }
-.birthday .site-title a{
-    background-image: url(images/logo_birthday_h.png);
+[class*="birthday_"] .site-title a{
+    background-image: url(images/logo_birthday.png);
 }
 .trip_before_close .site-title a,
 .trip_after_close .site-title a,
