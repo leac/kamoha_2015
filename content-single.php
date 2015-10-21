@@ -18,20 +18,20 @@
         </div><!-- .entry-meta -->
     </header><!-- .entry-header -->
 
-    <div class="entry-summary">
-        <?php
-        /* If there is an excerpt, show it. Don't show auto-generated excerpts. Check if the user has written an excerpt with has_excerpt()  */
-        if (has_excerpt()) {
-            the_excerpt();
-        }
+    <?php
+    /* If there is an excerpt, show it. Don't show auto-generated excerpts. Check if the user has written an excerpt with has_excerpt()  */
+    if (has_excerpt()) {
         ?>
-    </div><!-- .entry-summary -->
+        <div class="entry-summary">
+        <?php the_excerpt(); ?>
+        </div><!-- .entry-summary -->
+<?php } ?>
 
     <div class="entry-content">
-        <?php the_content(); ?>
+<?php the_content(); ?>
     </div><!-- .entry-content -->
 
-    <?php // in the footer, show tags, and share buttons ?>
+<?php // in the footer, show tags, and share buttons   ?>
     <footer class="entry-meta clear">
 
         <div class="entry-tags">
@@ -46,7 +46,7 @@
             }
             ?>
 
-            <?php edit_post_link(__('Edit', 'kamoha'), '<span class="edit-link">', '</span>'); ?>
+<?php edit_post_link(__('Edit', 'kamoha'), '<span class="edit-link">', '</span>'); ?>
         </div>
 
         <?php
@@ -66,3 +66,4 @@ if (function_exists('wp_related_posts')) {
     wp_related_posts();
 }
 
+    
