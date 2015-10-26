@@ -1002,7 +1002,6 @@ input[type="search"]{
     font-weight: bold;
 }
 .home .block .hentry {
-    margin: 0 0 8rem;
     float:right;
     position: relative; /*for icon-film positioning */
 }
@@ -2834,9 +2833,13 @@ object {
     .block .image-wrapper    {
         width: 100%;
         display: block; /* cancel display: table-cell*/
-        margin: 0;
         border-left: none;
     }
+    .block .image-wrapper + .entry-body,
+    .block .image-wrapper    {
+        margin: 0;
+    }
+
     /* cancel the style of the newest posts in wide resolutions*/
 
     .home .block-newest-posts .image-wrapper,
@@ -2857,10 +2860,6 @@ object {
         width: 100%;
         margin: 0;
         border-bottom: none;
-    }
-    .home .block .hentry,
-    .home .block .image-wrapper    {
-        border-left: none;
     }
     .home .block .image-wrapper{
         margin-left: 4%;
