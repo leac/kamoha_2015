@@ -7,6 +7,7 @@
 // define title lengths
 define('STICKY_TITLE_3_ROWS', 150);
 define('STICKY_TITLE_2_ROWS', 110);
+define('BLOCK1_TITLE_4_ROWS', 50); /* 11/2015 - New */
 define('BLOCK1_TITLE_3_ROWS', 40); /* 11/2015 - changed from 75 */
 define('BLOCK1_TITLE_2_ROWS', 25); /* 11/2015 - changed from 53 */
 define('BLOCK2_TITLE_3_ROWS', 75);
@@ -18,6 +19,7 @@ define('TAB_TITLE_2_ROWS', 50);
 define('STICKY_EXCERPT_3_ROWS', 220);
 define('STICKY_EXCERPT_2_ROWS', 200);
 define('STICKY_EXCERPT_1_ROW', 250);
+define('BLOCK1_EXCERPT_4_ROWS', 115); /* 11/2015 - New */
 define('BLOCK1_EXCERPT_3_ROWS', 125); /* 11/2015 - changed from 60 */
 define('BLOCK1_EXCERPT_2_ROWS', 135); /* 11/2015 - changed from 80 */
 define('BLOCK1_EXCERPT_1_ROW', 180);
@@ -97,7 +99,9 @@ function kamoha_the_short_excerpt_by_len() {
 
         case KamohaHomepagePart::Newest:
             /* case of three title rows */
-            if ($title_len >= BLOCK1_TITLE_3_ROWS) {
+            if ($title_len >= BLOCK1_TITLE_4_ROWS) {
+                $ret = kamoha_the_short_excerpt(BLOCK1_EXCERPT_4_ROWS);
+            }elseif ($title_len >= BLOCK1_TITLE_3_ROWS) {
                 $ret = kamoha_the_short_excerpt(BLOCK1_EXCERPT_3_ROWS);
             } elseif ($title_len >= BLOCK1_TITLE_2_ROWS) {
                 /* case of two title rows */
