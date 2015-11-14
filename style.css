@@ -110,6 +110,16 @@ table { /* tables still need 'cellspacing="0"' in the markup */
     border-collapse: separate;
     border-spacing: 0;
 }
+table td, table th {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    vertical-align: top;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+}
+table tr:nth-child(2n) td {
+    background-color:   #efefef;
+}
 caption, th, td {
     font-weight: normal;
     text-align: right;
@@ -1993,11 +2003,6 @@ body:not(.page-id-15263) .entry-content {
     display: block;
     margin: 0 auto;
 }
-.page-content td,
-.entry-content td {
-    border-top: 1px solid #e5e5e5;
-    border-left: 1px solid #e5e5e5;
-}
 .page-content [style*="#0000ff"],
 .entry-content [style*="#0000ff"],
 .entry-content [style*="rgb(0, 0, 255)"],
@@ -2191,6 +2196,10 @@ body:not(.page-id-15263) .entry-content {
 }
 .post-13053 td{
     padding: 0.5rem;
+    text-align: right;
+}
+.post-13053 table tr:nth-child(2n) td{
+    background-color: transparent;
 }
 form .required span{
     color:#c51901;
