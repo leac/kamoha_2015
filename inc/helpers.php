@@ -45,7 +45,7 @@ global $kamoha_homepage_part;
 /**
  * Class as enum, for determiing what part of the homepage is being displayed
  */
-abstract class KamohaHomepagePart{
+abstract class KamohaHomepagePart {
 
     const Sticky = 0;
     const Newest = 1;
@@ -63,52 +63,52 @@ abstract class KamohaHomepagePart{
 /**
  * Define image upload sizes, and length of excerpts on homepage
  */
-function kamoha_setup_more(){
+function kamoha_setup_more() {
 
     /*     * **************  Constants *********************** */
 
-    define( 'BLOGS_CAT', 1303 ); /* 145 */
-    define( 'ISSUES_CAT', 1296 ); /* 1164 */
-    define( 'ASK_RABBI_PAGE', 15263 );
-    define( 'MEETINGS_CAT', 313 ); /* 25 */
-    define( 'LINKS_AND_EMERGECY', 22128 ); /* 20212 */
-    define( 'STICKY_EXISTS', false );
-    define( 'ABOUT_PAGE', 62 );
-    define( 'POST_404_PAGE', 22126 ); /* 26583 */
-    define( 'DOCUMENTATION_PAGE', 23376 ); /* 26583 */
-    define( 'NEWEST_POSTS_CNT', 7 );
-    define( 'FACEBOOK_LINK', 'https://www.facebook.com/kamoha.org.il' );
+    define('BLOGS_CAT', 1303); /* 145 */
+    define('ISSUES_CAT', 1296); /* 1164 */
+    define('ASK_RABBI_PAGE', 15263);
+    define('MEETINGS_CAT', 313); /* 25 */
+    define('LINKS_AND_EMERGECY', 22128); /* 20212 */
+    define('STICKY_EXISTS', false);
+    define('ABOUT_PAGE', 62);
+    define('POST_404_PAGE', 22126); /* 26583 */
+    define('DOCUMENTATION_PAGE', 23376); /* 26583 */
+    define('NEWEST_POSTS_CNT', 7);
+    define('FACEBOOK_LINK', 'https://www.facebook.com/kamoha.org.il');
 
 // define thumbnail sizes
-    define( 'MEDIUM_WIDTH', 345 ); /* sticky post */
-    define( 'MEDIUM_HEIGHT', 220 );
+    define('MEDIUM_WIDTH', 345); /* sticky post */
+    define('MEDIUM_HEIGHT', 220);
 
-    define( 'SMALL_WIDTH', 155 ); /* top posts */
-    define( 'SMALL_HEIGHT', 155 );
+    define('SMALL_WIDTH', 155); /* top posts */
+    define('SMALL_HEIGHT', 155);
 
 
-    define( 'TEENY_WIDTH', 100 ); /* tabs posts */
-    define( 'TEENY_HEIGHT', 90 );
+    define('TEENY_WIDTH', 100); /* tabs posts */
+    define('TEENY_HEIGHT', 90);
 
-    add_image_size( 'medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true );
-    add_image_size( 'small', SMALL_WIDTH, SMALL_HEIGHT, true );
-    add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
+    add_image_size('medium', MEDIUM_WIDTH, MEDIUM_HEIGHT, true);
+    add_image_size('small', SMALL_WIDTH, SMALL_HEIGHT, true);
+    add_image_size('teeny', TEENY_WIDTH, TEENY_HEIGHT, true);
 
     // This theme styles the visual editor to resemble the theme style.
-    add_editor_style( array('editor-style.css', kamoha_fonts_url()) );
+    add_editor_style(array('editor-style.css', kamoha_fonts_url()));
 }
 
-add_action( 'after_setup_theme', 'kamoha_setup_more' );
+add_action('after_setup_theme', 'kamoha_setup_more');
 
 /**
  * Create custom post type for newsflash on sidebar
  */
-function kamoha_init_theme(){
+function kamoha_init_theme() {
     /* Create News Flash post type */
-    register_post_type( 'kamoha_newsflash', array(
+    register_post_type('kamoha_newsflash', array(
         'labels' => array(
-            'name' => __( 'News Flashes', 'kamoha' ),
-            'singular_name' => __( 'News Flash', 'kamoha' )
+            'name' => __('News Flashes', 'kamoha'),
+            'singular_name' => __('News Flash', 'kamoha')
         ),
         'public' => true,
         'has_archive' => true,
@@ -118,7 +118,7 @@ function kamoha_init_theme(){
     );
 }
 
-add_action( 'init', 'kamoha_init_theme' );
+add_action('init', 'kamoha_init_theme');
 
 /**
  * Add to extended_valid_elements for TinyMCE 
@@ -126,13 +126,13 @@ add_action( 'init', 'kamoha_init_theme' );
  * @param $init assoc. array of TinyMCE options 
  * @return $init the changed assoc. array 
  */
-function change_mce_options( $init ){
+function change_mce_options($init) {
     //code that adds additional attributes to the input tag. Needed for join form which has onchange attribute
     $ext = 'input[id|name|class|style|onclick|type|value|onchange|disabled|src]';
 
     //if extended_valid_elements alreay exists, add to it  
     //otherwise, set the extended_valid_elements to $ext  
-    if ( isset( $init['extended_valid_elements'] ) ) {
+    if (isset($init['extended_valid_elements'])) {
         $init['extended_valid_elements'] .= ',' . $ext;
     } else {
         $init['extended_valid_elements'] = $ext;
@@ -145,7 +145,7 @@ function change_mce_options( $init ){
 /*
  * Grants access to the TinyMCE settings array
  *  */
-add_filter( 'tiny_mce_before_init', 'change_mce_options' );
+add_filter('tiny_mce_before_init', 'change_mce_options');
 
 
 /* * *********************************************** */
@@ -157,15 +157,15 @@ add_filter( 'tiny_mce_before_init', 'change_mce_options' );
  * ----------------------------------------- */
 
 /* taken from http://wpengineer.com/1960/display-post-thumbnail-post-page-overview/ */
-if ( !function_exists( 'admin_thumb_column' ) ) {
+if (!function_exists('admin_thumb_column')) {
 
     /**
      * Adds a column in the admin posts list, to show posts thumbnails
      * @param array $cols
      * @return type
      */
-    function admin_thumb_column( $cols ){
-        $cols['thumbnail'] = __( 'Thumbnail', 'kamoha' );
+    function admin_thumb_column($cols) {
+        $cols['thumbnail'] = __('Thumbnail', 'kamoha');
         return $cols;
     }
 
@@ -174,41 +174,41 @@ if ( !function_exists( 'admin_thumb_column' ) ) {
      * @param type $column_name
      * @param type $post_id
      */
-    function admin_thumb_value( $column_name, $post_id ){
+    function admin_thumb_value($column_name, $post_id) {
         $width = (int) 50;
         $height = (int) 50;
 
-        if ( 'thumbnail' == $column_name ) {
+        if ('thumbnail' == $column_name) {
             // thumbnail of WP 2.9
-            $thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
+            $thumbnail_id = get_post_meta($post_id, '_thumbnail_id', true);
             // image from gallery
-            $attachments = get_children( array('post_parent' => $post_id, 'post_type' => 'attachment', 'post_mime_type' => 'image') );
-            if ( $thumbnail_id ) {
-                $thumb = wp_get_attachment_image( $thumbnail_id, array($width, $height), true );
-            } elseif ( $attachments ) {
-                foreach ( $attachments as $attachment_id => $attachment ) {
-                    $thumb = wp_get_attachment_image( $attachment_id, array($width, $height), true );
+            $attachments = get_children(array('post_parent' => $post_id, 'post_type' => 'attachment', 'post_mime_type' => 'image'));
+            if ($thumbnail_id) {
+                $thumb = wp_get_attachment_image($thumbnail_id, array($width, $height), true);
+            } elseif ($attachments) {
+                foreach ($attachments as $attachment_id => $attachment) {
+                    $thumb = wp_get_attachment_image($attachment_id, array($width, $height), true);
                 }
             }
 
 
 
-            if ( isset( $thumb ) && $thumb ) {
+            if (isset($thumb) && $thumb) {
                 echo $thumb;
             } else {
 
-                echo __( 'None', 'kamoha' );
+                echo __('None', 'kamoha');
             }
         }
     }
 
     // for posts
-    add_filter( 'manage_posts_columns', 'admin_thumb_column' );
-    add_action( 'manage_posts_custom_column', 'admin_thumb_value', 10, 2 );
+    add_filter('manage_posts_columns', 'admin_thumb_column');
+    add_action('manage_posts_custom_column', 'admin_thumb_value', 10, 2);
 
     // for pages
-    add_filter( 'manage_pages_columns', 'admin_thumb_column' );
-    add_action( 'manage_pages_custom_column', 'admin_thumb_value', 10, 2 );
+    add_filter('manage_pages_columns', 'admin_thumb_column');
+    add_action('manage_pages_custom_column', 'admin_thumb_value', 10, 2);
 }
 
 /* -----------------------------------------
@@ -220,7 +220,7 @@ if ( !function_exists( 'admin_thumb_column' ) ) {
  */
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'kamoha_register_required_plugins' );
+add_action('tgmpa_register', 'kamoha_register_required_plugins');
 
 /**
  * Register the required plugins for this theme.
@@ -234,7 +234,7 @@ add_action( 'tgmpa_register', 'kamoha_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function kamoha_register_required_plugins(){
+function kamoha_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
@@ -330,28 +330,28 @@ function kamoha_register_required_plugins(){
         'is_automatic' => false, // Automatically activate plugins after installation or not.
         'message' => '', // Message to output right before the plugins table.
         'strings' => array(
-            'page_title' => __( 'Install Required Plugins', 'tgmpa' ),
-            'menu_title' => __( 'Install Plugins', 'tgmpa' ),
-            'installing' => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-            'oops' => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-            'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-            'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-            'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-            'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-            'return' => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-            'plugin_activated' => __( 'Plugin activated successfully.', 'tgmpa' ),
-            'complete' => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
+            'page_title' => __('Install Required Plugins', 'tgmpa'),
+            'menu_title' => __('Install Plugins', 'tgmpa'),
+            'installing' => __('Installing Plugin: %s', 'tgmpa'), // %s = plugin name.
+            'oops' => __('Something went wrong with the plugin API.', 'tgmpa'),
+            'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.'), // %1$s = plugin name(s).
+            'notice_can_install_recommended' => _n_noop('This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.'), // %1$s = plugin name(s).
+            'notice_cannot_install' => _n_noop('Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.'), // %1$s = plugin name(s).
+            'notice_can_activate_required' => _n_noop('The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.'), // %1$s = plugin name(s).
+            'notice_can_activate_recommended' => _n_noop('The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.'), // %1$s = plugin name(s).
+            'notice_cannot_activate' => _n_noop('Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.'), // %1$s = plugin name(s).
+            'notice_ask_to_update' => _n_noop('The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.'), // %1$s = plugin name(s).
+            'notice_cannot_update' => _n_noop('Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.'), // %1$s = plugin name(s).
+            'install_link' => _n_noop('Begin installing plugin', 'Begin installing plugins'),
+            'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins'),
+            'return' => __('Return to Required Plugins Installer', 'tgmpa'),
+            'plugin_activated' => __('Plugin activated successfully.', 'tgmpa'),
+            'complete' => __('All plugins installed and activated successfully. %s', 'tgmpa'), // %s = dashboard link.
             'nag_type' => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
         )
     );
 
-    tgmpa( $plugins, $config );
+    tgmpa($plugins, $config);
 }
 
 /* -----------------------------------------
@@ -364,10 +364,10 @@ function kamoha_register_required_plugins(){
  * Place the excerpt meta_box above the post editor
  * @param type $post_type
  */
-function kamoha_add_excerpt_meta_box( $post_type ){
-    if ( in_array( $post_type, array('post', 'page') ) ) {
+function kamoha_add_excerpt_meta_box($post_type) {
+    if (in_array($post_type, array('post', 'page'))) {
         add_meta_box(
-                'contact_details_meta', __( 'Excerpt', 'kamoha' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side. Probably shouldn't use test, but I already did, and now when I try to change to something else, it doesn't work...
+                'contact_details_meta', __('Excerpt', 'kamoha'), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side. Probably shouldn't use test, but I already did, and now when I try to change to something else, it doesn't work...
                 'high'
         );
     }
@@ -376,43 +376,43 @@ function kamoha_add_excerpt_meta_box( $post_type ){
 /*
  * The hook allows meta box registration for any post type. 
  */
-add_action( 'add_meta_boxes', 'kamoha_add_excerpt_meta_box' );
+add_action('add_meta_boxes', 'kamoha_add_excerpt_meta_box');
 
 /**
  * Place the excerpt meta_box above the post editor
  * @global type $post
  * @global type $wp_meta_boxes
  */
-function kamoha_run_excerpt_meta_box(){
+function kamoha_run_excerpt_meta_box() {
 # Get the globals:
     global $post, $wp_meta_boxes;
 
 # Output the "advanced" meta boxes:
-    do_meta_boxes( get_current_screen(), 'test', $post );
+    do_meta_boxes(get_current_screen(), 'test', $post);
 
 # Remove the initial "advanced" meta boxes:
     //unset( $wp_meta_boxes[ 'post' ][ 'test' ] );
 }
 
-add_action( 'edit_form_after_title', 'kamoha_run_excerpt_meta_box' );
+add_action('edit_form_after_title', 'kamoha_run_excerpt_meta_box');
 
 /**
  * Remove the excerpt meta_box from its original position, under the post editor
  */
-function kamoha_remove_normal_excerpt(){ /* this added on my own */
-    remove_meta_box( 'postexcerpt', 'post', 'normal' );
+function kamoha_remove_normal_excerpt() { /* this added on my own */
+    remove_meta_box('postexcerpt', 'post', 'normal');
 }
 
-add_action( 'admin_menu', 'kamoha_remove_normal_excerpt' );
+add_action('admin_menu', 'kamoha_remove_normal_excerpt');
 
 /* -----------------------------------------
  * Add second featured image box to posts
  * ----------------------------------------- */
 
-if ( class_exists( 'MultiPostThumbnails' ) ) {
+if (class_exists('MultiPostThumbnails')) {
     new MultiPostThumbnails(
             array(
-        'label' => __( 'Secondary Image', 'kamoha' ),
+        'label' => __('Secondary Image', 'kamoha'),
         'id' => 'secondary-image',
         'post_type' => 'post'
             )
@@ -427,16 +427,16 @@ if ( class_exists( 'MultiPostThumbnails' ) ) {
  * Add a function to run when the gallery shortcode is run.
  * I know that adding shortcodes is plugin territory, but am reluctant to create a plugin for only 5 lines of code...
  */
-add_shortcode( 'gallery', 'kamoha_gallery_shortcode' );
+add_shortcode('gallery', 'kamoha_gallery_shortcode');
 
 /**
  * Make all images in the gallery link to the media file
  * @param array $atts
  * @return string
  */
-function kamoha_gallery_shortcode( $atts ){
+function kamoha_gallery_shortcode($atts) {
     $atts['link'] = 'file';
-    return gallery_shortcode( $atts );
+    return gallery_shortcode($atts);
 }
 
 /* -----------------------------------------
@@ -448,48 +448,48 @@ function kamoha_gallery_shortcode( $atts ){
  * Let the admin user change the header background image & logo on special events such as holidays, the site birthday, etc.
  * @param type $wp_customize
  */
-function kamoha_customize_register_func( $wp_customize ){
+function kamoha_customize_register_func($wp_customize) {
     /* Create a section - holiday header */
-    $wp_customize->add_section( 'holiday_header_changer', array(
-        'title' => __( 'Holiday Header', 'kamoha' ),
+    $wp_customize->add_section('holiday_header_changer', array(
+        'title' => __('Holiday Header', 'kamoha'),
         'priority' => 25,
-    ) );
+    ));
 
-    $wp_customize->add_setting( 'holiday_header', array(
+    $wp_customize->add_setting('holiday_header', array(
         'default' => '',
         'transport' => 'postMessage',
         'sanitize_callback' => 'kamoha_sanitize_choices',
-    ) );
+    ));
 
-    $wp_customize->add_control( 'holiday_header', array(
-        'label' => stripslashes( __( 'choose holiday', 'kamoha' ) ),
+    $wp_customize->add_control('holiday_header', array(
+        'label' => stripslashes(__('choose holiday', 'kamoha')),
         'section' => 'holiday_header_changer',
         'type' => 'radio',
         'choices' => array(
-            'regular' => __( 'regular', 'kamoha' ),
-            'rosh_hashana' => __( 'rosh hashana', 'kamoha' ),
-            'yom_kipur' => __( 'yom kipur', 'kamoha' ),
-            'sukot' => __( 'sukot', 'kamoha' ),
-            'birthday_baloons' => __( 'birthday - baloons', 'kamoha' ),
-            'birthday_flowers' => __( 'birthday - flowers', 'kamoha' ),
-            'birthday_ribbons' => __( 'birthday - ribbons', 'kamoha' ),
-            'trip_during' => __( 'trip during registration', 'kamoha' ),
-            'trip_before_close' => __( 'trip before close', 'kamoha' ),
-            'trip_after_close' => __( 'trip after close', 'kamoha' ),
-            'shabbat_early' => __( 'shabbat early', 'kamoha' ),
-            'shabbat_before_close' => __( 'shabbat before close', 'kamoha' ),
-            'shabbat_before_close_urban' => __( 'shabbat before close urban', 'kamoha' ),
-            'shabbat_after_close' => __( 'shabbat after close', 'kamoha' ),
-            'hanuka' => __( 'hanuka', 'kamoha' ),
-            'purim' => __( 'purim', 'kamoha' ),
-            'pesah' => __( 'pesah', 'kamoha' ),
-            'memorial' => __( 'memorial', 'kamoha' ),
-            'independence' => __( 'independence', 'kamoha' ),
-            'jerusalem' => __( 'jerusalem', 'kamoha' ),
-            'shavuot' => __( 'shavuot', 'kamoha' ),
-            'tishabeav' => __( 'tishabeav', 'kamoha' ),
+            'regular' => __('regular', 'kamoha'),
+            'rosh_hashana' => __('rosh hashana', 'kamoha'),
+            'yom_kipur' => __('yom kipur', 'kamoha'),
+            'sukot' => __('sukot', 'kamoha'),
+            'birthday_baloons' => __('birthday - baloons', 'kamoha'),
+            'birthday_flowers' => __('birthday - flowers', 'kamoha'),
+            'birthday_ribbons' => __('birthday - ribbons', 'kamoha'),
+            'trip_during' => __('trip during registration', 'kamoha'),
+            'trip_before_close' => __('trip before close', 'kamoha'),
+            'trip_after_close' => __('trip after close', 'kamoha'),
+            'shabbat_early' => __('shabbat early', 'kamoha'),
+            'shabbat_before_close' => __('shabbat before close', 'kamoha'),
+            'shabbat_before_close_urban' => __('shabbat before close urban', 'kamoha'),
+            'shabbat_after_close' => __('shabbat after close', 'kamoha'),
+            'hanuka' => __('hanuka', 'kamoha'),
+            'purim' => __('purim', 'kamoha'),
+            'pesah' => __('pesah', 'kamoha'),
+            'memorial' => __('memorial', 'kamoha'),
+            'independence' => __('independence', 'kamoha'),
+            'jerusalem' => __('jerusalem', 'kamoha'),
+            'shavuot' => __('shavuot', 'kamoha'),
+            'tishabeav' => __('tishabeav', 'kamoha'),
         ),
-    ) );
+    ));
 }
 
 /* http://cachingandburning.com/wordpress-theme-customizer-sanitizing-radio-buttons-and-select-lists */
@@ -501,12 +501,12 @@ function kamoha_customize_register_func( $wp_customize ){
  * @param object $setting
  * @return string
  */
-function kamoha_sanitize_choices( $input, $setting ){
+function kamoha_sanitize_choices($input, $setting) {
     global $wp_customize;
 
-    $control = $wp_customize->get_control( $setting->id );
+    $control = $wp_customize->get_control($setting->id);
 
-    if ( array_key_exists( $input, $control->choices ) ) {
+    if (array_key_exists($input, $control->choices)) {
         return $input;
     } else {
         return $setting->default;
@@ -516,16 +516,16 @@ function kamoha_sanitize_choices( $input, $setting ){
 /**
  * Used to customize and manipulate the Theme Customization admin screen 
  */
-add_action( 'customize_register', 'kamoha_customize_register_func' );
+add_action('customize_register', 'kamoha_customize_register_func');
 
 /**
  * Add body class based on the theme options which were chosen in the Theme Customizer
  * @param type $classes
  * @return type
  */
-function kamoha_add_body_class( $classes ){
-    $color = strtolower( get_theme_mod( 'holiday_header' ) );
-    if ( $color != 'regular' ) {
+function kamoha_add_body_class($classes) {
+    $color = strtolower(get_theme_mod('holiday_header'));
+    if ($color != 'regular') {
         $classes[] = 'special';
     }
     $classes[] = $color;
@@ -535,14 +535,14 @@ function kamoha_add_body_class( $classes ){
 /**
  * The "body_class" filter is used to filter the classes that are assigned to the body HTML element on the current page. 
  */
-add_filter( 'body_class', 'kamoha_add_body_class' );
+add_filter('body_class', 'kamoha_add_body_class');
 
 /**
  * Enqueue the JS file adds some LIVE to the Theme Customizer live preview
  *
  * @see add_action('customize_preview_init',$func)
  */
-function kamoha_customizer_live_preview(){
+function kamoha_customizer_live_preview() {
     wp_enqueue_script(
             'kamoha-themecustomizer', //Give the script an ID
             get_template_directory_uri() . '/js/customize-themes.js', //Point to file
@@ -555,7 +555,7 @@ function kamoha_customizer_live_preview(){
 /**
  * This action hook allows you to enqueue assets (such as javascript files) directly in the Theme Customizer
  */
-add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
+add_action('customize_preview_init', 'kamoha_customizer_live_preview');
 
 /* * *********************************************** */
 /* * *****  Menu and pre_get_posts functions ******* */
@@ -569,51 +569,51 @@ add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
  * This function adds child categories to the menu items that are categories that have children.
  * Taken from http://teleogistic.net/2013/02/dynamically-add-items-to-a-wp_nav_menu-list/
  * */
-function kamoha_menu_cat_subnav( $items, $menu, $args ){
+function kamoha_menu_cat_subnav($items, $menu, $args) {
     // Only do this in the topics menu
-    if ( !is_admin() ) { 
+    if (!is_admin()) {
         // loop thru the menu items, and find the ones that are categories
-        $menu_order = count( $items ) + 1;
+        $menu_order = count($items) + 1;
         $is_archive = false;
-        foreach ( $items as $item ) {
-            if ( 'category' == $item->object ) {
+        foreach ($items as $item) {
+            if ('category' == $item->object) {
                 // check if item has child categories
                 $args = 'child_of=' . $item->object_id . '&hierarchical=1'; /* the cat_id */
                 $args .= kamoha_order_categories_by();
 
-                $termchildren = get_categories( $args );
+                $termchildren = get_categories($args);
 
-                if ( !empty( $termchildren ) ) {
+                if (!empty($termchildren)) {
                     // if it has child categories, add them to the menu
-                    foreach ( $termchildren as $child ) {
+                    foreach ($termchildren as $child) {
 
                         // first check if this item has children
-                        $children_array = array_filter( $termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
-                            if ( $obj->parent == $child->term_id ) {
+                        $children_array = array_filter($termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
+                            if ($obj->parent == $child->term_id) {
                                 return true;
                             }
                             return false;
-                        } );
+                        });
 
                         // then check if this item has parents in the array
-                        $parents_array = array_filter( $termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
-                            if ( $obj->term_id == $child->parent ) {
+                        $parents_array = array_filter($termchildren, function($obj) use($child) { // pass $child as argument, otherwise it's not known in the context
+                            if ($obj->term_id == $child->parent) {
                                 return true;
                             }
                             return false;
-                        } );
+                        });
 
                         // get the correct id of parent - either existing item, or added item
-                        $menu_item_parent = count( $parents_array ) > 0 ? $child->parent : $item->ID;
+                        $menu_item_parent = count($parents_array) > 0 ? $child->parent : $item->ID;
 
-                        $new_item = wp_setup_nav_menu_item( $child );
+                        $new_item = wp_setup_nav_menu_item($child);
                         $new_item->menu_item_parent = $menu_item_parent; /* the parent id should be the ID of the item in the menu, not the object_id which is the category id */
                         $new_item->db_id = $child->term_id;
-                        $new_item->url = get_term_link( $child );
+                        $new_item->url = get_term_link($child);
                         $new_item->title = $child->name;
                         $new_item->menu_order = $menu_order;
                         $new_item->status = 'draft';
-                        if ( count( $children_array ) > 0 ) {
+                        if (count($children_array) > 0) {
                             $new_item->classes[] = 'menu-item-has-children';
                         }
 
@@ -627,7 +627,7 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ){
     return $items;
 }
 
-add_filter( 'wp_get_nav_menu_items', 'kamoha_menu_cat_subnav', 10, 3 );
+add_filter('wp_get_nav_menu_items', 'kamoha_menu_cat_subnav', 10, 3);
 
 /* -----------------------------------------
  * pre_get_posts function
@@ -640,30 +640,30 @@ add_filter( 'wp_get_nav_menu_items', 'kamoha_menu_cat_subnav', 10, 3 );
  * @param type $query
  * @return type
  */
-function kamoha_modify_query( $query ){
+function kamoha_modify_query($query) {
     /* In homepage, get sticky post, or - if no sticky post exists - get the 7 newest posts */
-    if ( $query->is_home() && $query->is_main_query() ) {
+    if ($query->is_home() && $query->is_main_query()) {
         global $kamoha_sticky_exists;
-        $kamoha_sticky_exists = count( get_option( 'sticky_posts' ) ) > 0 ? true : false;
-        if ( $kamoha_sticky_exists ) {
-            $query->set( 'posts_per_page', 1 );
-            $query->set( 'post__in', array(get_option( 'sticky_posts' ), 'posts') );
-            $query->set( 'ignore_sticky_posts', 0 );
+        $kamoha_sticky_exists = count(get_option('sticky_posts')) > 0 ? true : false;
+        if ($kamoha_sticky_exists) {
+            $query->set('posts_per_page', 1);
+            $query->set('post__in', array(get_option('sticky_posts'), 'posts'));
+            $query->set('ignore_sticky_posts', 0);
         } else { // if no sticky, just get the 7 latest posts
-            $query->set( 'posts_per_page', 7 );
+            $query->set('posts_per_page', 7);
         }
     }
     /* In events category, if the pastposts parameter exists, get only the posts whos date field has a date before today. But only in the main query 
-     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */ elseif ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query() ) {
-        if ( filter_input( INPUT_GET, 'pastposts' ) != NULL || filter_input( INPUT_GET, 'futureposts' ) != NULL ) {
-            $query->set( 'meta_key', 'date' );
+     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */ elseif (is_category(MEETINGS_CAT) && !is_admin() && $query->is_main_query()) {
+        if (filter_input(INPUT_GET, 'pastposts') != NULL || filter_input(INPUT_GET, 'futureposts') != NULL) {
+            $query->set('meta_key', 'date');
             /* order events by the meta field */
-            add_filter( 'posts_orderby', 'edit_posts_orderby_desc' );
+            add_filter('posts_orderby', 'edit_posts_orderby_desc');
         }
-        if ( filter_input( INPUT_GET, 'futureposts' ) != NULL ) {
+        if (filter_input(INPUT_GET, 'futureposts') != NULL) {
             /* in future events, we want to see the closest event first, and then the next. However, this order isn't enough - we also have a posts_orderby filter */
-            $query->set( 'order', 'ASC' );
-            add_filter( 'posts_orderby', 'edit_posts_orderby_asc' );
+            $query->set('order', 'ASC');
+            add_filter('posts_orderby', 'edit_posts_orderby_asc');
         }
     }
 }
@@ -671,7 +671,7 @@ function kamoha_modify_query( $query ){
 /**
  * This hook is called after the query variable object is created, but before the actual query is run
  */
-add_filter( 'pre_get_posts', 'kamoha_modify_query' );
+add_filter('pre_get_posts', 'kamoha_modify_query');
 
 /* -----------------------------------------
  * posts_where function for events category
@@ -684,19 +684,19 @@ add_filter( 'pre_get_posts', 'kamoha_modify_query' );
  * @param type $query
  * @return string
  */
-function kamoha_posts_where( $where, &$query ){
+function kamoha_posts_where($where, &$query) {
     /* Add where clause to query in events category, and to event list in sidebar */
-    if ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query()  // condition for events category
-            || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT && !$query->is_main_query()) // condition for event list in sidebar
+    if (is_category(MEETINGS_CAT) && !is_admin() && $query->is_main_query()  // condition for events category
+            || (isset($query->query_vars["category"]) && $query->query_vars["category"] == MEETINGS_CAT && !$query->is_main_query()) // condition for event list in sidebar
     ) {
         $datedir = '';
-        if ( filter_input( INPUT_GET, 'pastposts' ) != NULL ) {
+        if (filter_input(INPUT_GET, 'pastposts') != NULL) {
             $datedir = '<'; // get past events
-        } elseif ( filter_input( INPUT_GET, 'futureposts' ) != NULL || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT) ) {
+        } elseif (filter_input(INPUT_GET, 'futureposts') != NULL || (isset($query->query_vars["category"]) && $query->query_vars["category"] == MEETINGS_CAT)) {
             $datedir = '>'; //get future events - in category page or in sidebar
         }
-        if ( !empty( $datedir ) ) {
-            $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
+        if (!empty($datedir)) {
+            $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date("Y-m-d") . "'";
         }
     }
     return $where;
@@ -705,16 +705,16 @@ function kamoha_posts_where( $where, &$query ){
 /**
  * This filter applies to the posts where clause and allows you to restrict which posts will show up in various areas of the site.
  */
-add_filter( 'posts_where', 'kamoha_posts_where', 2, 10 );
+add_filter('posts_where', 'kamoha_posts_where', 2, 10);
 
 /**
  * Order posts by value in the meta-field "date", in descending order. Meant for past events
  * @param string $orderby_statement
  * @return string
  */
-function edit_posts_orderby_desc( $orderby_statement ){
+function edit_posts_orderby_desc($orderby_statement) {
     // Disable this filter for future queries!
-    remove_filter( current_filter(), __FUNCTION__ );
+    remove_filter(current_filter(), __FUNCTION__);
 
     $orderby_statement = "CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) DESC";
     return $orderby_statement;
@@ -725,9 +725,9 @@ function edit_posts_orderby_desc( $orderby_statement ){
  * @param string $orderby_statement
  * @return string
  */
-function edit_posts_orderby_asc( $orderby_statement ){
+function edit_posts_orderby_asc($orderby_statement) {
     // Disable this filter for future queries!
-    remove_filter( current_filter(), __FUNCTION__ );
+    remove_filter(current_filter(), __FUNCTION__);
 
     $orderby_statement = "CONCAT(SUBSTR(meta_value,7 + INSTR(meta_value,'-'),4),'-',SUBSTR(meta_value,4 + INSTR(meta_value,'-'),2),'-',SUBSTR(meta_value,1 + INSTR(meta_value,'-'),2))  ASC";
     return $orderby_statement;
@@ -748,44 +748,51 @@ function edit_posts_orderby_asc( $orderby_statement ){
  * 2. if the tag סרטון or שמע was assigned to it.
  * 3. If it has a field of audio or video set to 1
  */
-function kamoha_show_movie_icon(){
+function kamoha_show_movie_icon() {
     $is_film = false;
     $is_audio = false;
     $post_id = get_the_ID();
-    // look in content:
-    $content = get_the_content();
-    $movie_indicators = '/(object)|(youtube\.com\/embed)|(youtube\.com\/watch)/';
-    preg_match( $movie_indicators, $content, $matches );
-    if ( count( $matches ) > 0 && count( $matches[0] ) > 0 ) {
+    // first check user fields - this is the best indicator:
+    if ((get_post_meta($post_id, 'video', true) == '1')) {
         $is_film = true;
+    } elseif ((get_post_meta($post_id, 'audio', true) == '1')) {
+        $is_audio = true;
     }
 
-    if ( !$is_film ) {
+    // if no user fields were defined for this post, check tags
+    if (!$is_film && !$is_audio) {
         // look in tags
-        $posttags = wp_get_post_tags( $post_id );
-        foreach ( $posttags as $thistag ) {
-            if ( $thistag->name == 'סרטון' ) {
+        $posttags = wp_get_post_tags($post_id);
+        foreach ($posttags as $thistag) {
+            if ($thistag->name == 'סרטון') {
                 $is_film = 'true';
-            } elseif ( $thistag->name == 'שמע' ) {
+            } elseif ($thistag->name == 'שמע') {
                 $is_audio = true;
             }
         }
 
-        if ( !$is_film ) {
-            if ( (get_post_meta( $post_id, 'video', true ) == '1' ) ) {
+        // if no tags found either, then check the content
+        if (!$is_film && !$is_audio) {
+            // better solution than regexp: http://wordpress.stackexchange.com/a/175795/373
+            $content = do_shortcode(apply_filters('the_content', get_the_content()));
+            $audio_embeds = get_media_embedded_in_content($content, array('video', 'object', 'embed', 'iframe'));
+            if (count($audio_embeds) > 0) {
                 $is_film = true;
-            } elseif ( (get_post_meta( $post_id, 'audio', true ) == '1' ) ) {
-                $is_audio = true;
+            } else {
+                $film_embeds = get_media_embedded_in_content($content, array('audio'));
+                if (count($film_embeds) > 0) {
+                    $is_audio = true;
+                }
             }
         }
     }
 
     // finally, after all check are done, if a movie was found, print the image
-    if ( $is_film ) {
+    if ($is_film) {
         ?>
         <span aria-hidden="true" class="icon-film"></span>
         <?php
-    } elseif ( $is_audio ) {
+    } elseif ($is_audio) {
         ?>
         <span aria-hidden="true" class="icon-audio"></span>
         <?php
@@ -806,18 +813,18 @@ function kamoha_show_movie_icon(){
  * @param type $post_type
  * @return html - a list of all posts contents (without title)
  */
-function kamoha_get_custom_post_type( $post_type ){
+function kamoha_get_custom_post_type($post_type) {
     $ret = '';
     $args = array('post_type' => $post_type);
-    $posts_secondary = new WP_Query( $args );
-    if ( $posts_secondary->have_posts() ) {
+    $posts_secondary = new WP_Query($args);
+    if ($posts_secondary->have_posts()) {
         $ret .= '<ul>';
-        while ( $posts_secondary->have_posts() ) {
+        while ($posts_secondary->have_posts()) {
             $posts_secondary->the_post();
             $post_format = get_post_type();
             $ret .= '<li class="news_' . $post_format . '">';
             $ret .= '<div class="news_content">';
-            $ret .= wpautop( get_the_content() );
+            $ret .= wpautop(get_the_content());
             $ret .= '</div>';
             $ret .= '</li>';
         }
@@ -837,22 +844,22 @@ function kamoha_get_custom_post_type( $post_type ){
  * Gets posts from events category, and checks the date custom field
  * Shoe only events whos date is after today
  */
-function kamoha_event_list(){
-    add_filter( 'posts_orderby', 'edit_posts_orderby_asc' );
-    $events = get_posts( array('numberposts' => -1, 'category' => MEETINGS_CAT, 'suppress_filters' => false, 'meta_key' => 'date') );
+function kamoha_event_list() {
+    add_filter('posts_orderby', 'edit_posts_orderby_asc');
+    $events = get_posts(array('numberposts' => -1, 'category' => MEETINGS_CAT, 'suppress_filters' => false, 'meta_key' => 'date'));
     $first_event = 1;
     ?>
     <ul class="events_list">
         <?php
-        foreach ( $events as $event ) {
-            $custom_fields = get_post_custom( $event->ID );
-            $full_date = explode( " ", $custom_fields['date'][0] );
-            $date_begin = explode( "/", $full_date[0] );
-            $date_end = explode( "-", $date_begin[0] );
+        foreach ($events as $event) {
+            $custom_fields = get_post_custom($event->ID);
+            $full_date = explode(" ", $custom_fields['date'][0]);
+            $date_begin = explode("/", $full_date[0]);
+            $date_end = explode("-", $date_begin[0]);
             /* only show those events who's end date hasn't passed yet */
             $hebdate = '';
             $gregdate = '';
-            if ( isset( $custom_fields['hebdate'][0] ) ) {
+            if (isset($custom_fields['hebdate'][0])) {
                 $hebdate = $custom_fields['hebdate'][0];
                 $gregdate = $custom_fields['date'][0];
             } else {
@@ -860,56 +867,56 @@ function kamoha_event_list(){
                  * When split by spaces, the first item is the gregorian date,
                  * and the rest is all parts of the hebrew date
                  */
-                $date_arr = explode( ' ', $custom_fields['date'][0] );
+                $date_arr = explode(' ', $custom_fields['date'][0]);
                 $gregdate = $date_arr[0];
-                array_shift( $date_arr );
-                $hebdate = implode( ' ', $date_arr );
+                array_shift($date_arr);
+                $hebdate = implode(' ', $date_arr);
             }
             ?>
             <?php
-            if ( $event->ID != get_the_ID() && $first_event != 2 ) {
+            if ($event->ID != get_the_ID() && $first_event != 2) {
                 $first_event = 0;
             }
-            if ( $first_event == 1 || $first_event == 2 ) {
+            if ($first_event == 1 || $first_event == 2) {
                 ?>
 
                 <div itemscope itemtype="http://data-vocabulary.org/Event">
                 <?php } ?>
                 <li class="evt">
-                    <a class="evt-title" href="<?php echo get_permalink( $event->ID ); ?>"
+                    <a class="evt-title" href="<?php echo get_permalink($event->ID); ?>"
                     <?php
-                    if ( $first_event == 1 || $first_event == 2 ) {
+                    if ($first_event == 1 || $first_event == 2) {
                         echo ' itemprop="url"';
                     }
                     ?> > <?php
-                           if ( $first_event == 1 || $first_event == 2 ) {
+                           if ($first_event == 1 || $first_event == 2) {
                                echo '<span class="evt-date" itemprop="summary">';
                            }
                            ?><?php
                            echo $event->post_title;
-                           if ( $first_event == 1 || $first_event == 2 ) {
+                           if ($first_event == 1 || $first_event == 2) {
                                echo '</span>';
                            }
                            ?>
                         <span><?php
-                            if ( $first_event == 1 || $first_event == 2 ) {
-                                echo '<time itemprop="startDate" datetime="' . date( 'c', mktime( 0, 0, 0, $date_begin[1], $date_end[0], $date_begin[2] ) ) . '">';
+                            if ($first_event == 1 || $first_event == 2) {
+                                echo '<time itemprop="startDate" datetime="' . date('c', mktime(0, 0, 0, $date_begin[1], $date_end[0], $date_begin[2])) . '">';
                             }
                             echo $hebdate . " " . $gregdate;
-                            if ( $first_event == 1 || $first_event == 2 ) {
+                            if ($first_event == 1 || $first_event == 2) {
                                 echo '</time>';
                             }
                             ?></span>
                     </a>
                 </li>
                 <?php
-                if ( $first_event == 2 ) {
+                if ($first_event == 2) {
                     $first_event = 0;
                     ?>
                 </div>
                 <?php
             }
-            if ( $first_event == 1 ) {
+            if ($first_event == 1) {
                 $first_event = 2;
                 ?>
 
@@ -920,10 +927,10 @@ function kamoha_event_list(){
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                ?>
-    <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
+    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                   ?>
+    <div id="moreEvents" class="toOpen showMore"> <?php _e('Load more', 'kamoha') ?> </div>
 
-    <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
+    <a class="to_older_events" href="<?php echo htmlentities(add_query_arg('pastposts', '1', get_category_link(MEETINGS_CAT))); ?>"><?php _e('Go to older events and meetings', 'kamoha') ?> > </a>
     <?php
 }
 
@@ -937,7 +944,7 @@ function kamoha_event_list(){
  * @param array $args - the tag cloud taxonomy arguments
  * @return the $args array
  */
-function kamoha_tag_cloud_widget( $args ){
+function kamoha_tag_cloud_widget($args) {
     $args['number'] = 10; //adding a 0 will display all tags
     return $args;
 }
@@ -945,7 +952,7 @@ function kamoha_tag_cloud_widget( $args ){
 /**
  * Filter the taxonomy used in the Tag Cloud widget.
  */
-add_filter( 'widget_tag_cloud_args', 'kamoha_tag_cloud_widget' );
+add_filter('widget_tag_cloud_args', 'kamoha_tag_cloud_widget');
 
 
 /* * *********************************************** */
@@ -960,20 +967,20 @@ add_filter( 'widget_tag_cloud_args', 'kamoha_tag_cloud_widget' );
  * If there's no meta field, or the name in it doesn't match any of the post's categories - it returns the first category by a-b-c.
  * @return object category
  */
-function kamoha_show_post_one_cat(){
+function kamoha_show_post_one_cat() {
     $curr_cat = '';
     $categories_list = get_the_category();
-    if ( count( $categories_list ) > 1 ) {
-        $category_field = get_post_meta( get_the_ID(), 'category' );
-        if ( count( $category_field ) > 0 ) {
+    if (count($categories_list) > 1) {
+        $category_field = get_post_meta(get_the_ID(), 'category');
+        if (count($category_field) > 0) {
             $curr_cat_name = $category_field[0];
-            $children_array = array_filter( $categories_list, function($obj) use($curr_cat_name) { // pass $child as argument, otherwise it's not known in the context
-                if ( $obj->name == $curr_cat_name ) {
+            $children_array = array_filter($categories_list, function($obj) use($curr_cat_name) { // pass $child as argument, otherwise it's not known in the context
+                if ($obj->name == $curr_cat_name) {
                     return true;
                 }
                 return false;
-            } );
-            if ( count( $children_array ) > 0 ) {
+            });
+            if (count($children_array) > 0) {
                 $curr_cat = $children_array[0];
             } else {
                 $curr_cat = $categories_list[0];
@@ -982,21 +989,21 @@ function kamoha_show_post_one_cat(){
             $curr_cat = $categories_list[0];
         }
     } else {
-        if ( count( $categories_list ) > 0 ) {
+        if (count($categories_list) > 0) {
             $curr_cat = $categories_list[0];
         }
     }
 //	return $curr_cat;
-    if ( $curr_cat && kamoha_categorized_blog() ) {
+    if ($curr_cat && kamoha_categorized_blog()) {
         ?>
         <span class="cat-links <?php
-              if ( $curr_cat->parent == BLOGS_CAT || cat_is_ancestor_of( BLOGS_CAT, $curr_cat->cat_ID ) ) {
+              if ($curr_cat->parent == BLOGS_CAT || cat_is_ancestor_of(BLOGS_CAT, $curr_cat->cat_ID)) {
                   echo 'cat-blogs';
-              } elseif ( $curr_cat->parent == ISSUES_CAT ) {
+              } elseif ($curr_cat->parent == ISSUES_CAT) {
                   echo 'cat-issues';
               }
               ?>">
-            <a href="<?php echo get_category_link( $curr_cat->cat_ID ) ?>"><?php echo $curr_cat->name ?></a>
+            <a href="<?php echo get_category_link($curr_cat->cat_ID) ?>"><?php echo $curr_cat->name ?></a>
         </span>
 
         <?php
@@ -1008,18 +1015,18 @@ function kamoha_show_post_one_cat(){
  * @param type $parent - parent category
  * @return array of category objects
  */
-function get_homepage_categories( $parent = 0 ){
+function get_homepage_categories($parent = 0) {
 
     $cat_list = Array();
     $args = 'parent=' . $parent . kamoha_order_categories_by();
 
-    $categories = get_categories( $args );
-    foreach ( $categories as $category ) {
+    $categories = get_categories($args);
+    foreach ($categories as $category) {
         // use tax-meta plugin. taken from here: http://en.bainternet.info/2012/wordpress-taxonomies-extra-fields-the-easy-way
-        if ( function_exists( 'get_tax_meta' ) ) {
+        if (function_exists('get_tax_meta')) {
             $prefix = 'kamoha_';
-            $saved_data = get_tax_meta( $category->term_id, $prefix . 'checkbox_field_id' ); // get the value of the "show in homepage" checkbox
-            if ( $saved_data === 'on' ) {
+            $saved_data = get_tax_meta($category->term_id, $prefix . 'checkbox_field_id'); // get the value of the "show in homepage" checkbox
+            if ($saved_data === 'on') {
                 $cat_list[] = $category;
             }
         }
@@ -1032,7 +1039,7 @@ function get_homepage_categories( $parent = 0 ){
  * @param $order_by
  * @return the orderby string to add to query
  */
-function kamoha_order_categories_by( $order_by = 'ID' ){
+function kamoha_order_categories_by($order_by = 'ID') {
     $cat_args = '&orderby=ID';
     /* orderby=order dpeneds on the "My category order" plugin. Sometimes even when the plugin is active,
      * the menubar won't show the sub categories, until you actually go to the dashboard and use the plugin,
@@ -1040,8 +1047,8 @@ function kamoha_order_categories_by( $order_by = 'ID' ){
      * plugin creates an addition column- term_order - in the wp_terms table, and doesn't do it until someone has actually
      * ordered at least one category. So add the 'orderby=order' argument, only if such a column exists */
     global $wpdb;
-    $query1 = $wpdb->query( "SHOW COLUMNS FROM {$wpdb->terms} LIKE 'term_order'" );
-    if ( $query1 == 1 ) { // if the colimn exists, then order by it
+    $query1 = $wpdb->query("SHOW COLUMNS FROM {$wpdb->terms} LIKE 'term_order'");
+    if ($query1 == 1) { // if the colimn exists, then order by it
         $cat_args .= '&orderby=order';
     } else {
         $cat_args = '&orderby=' . $order_by;
@@ -1057,26 +1064,26 @@ function kamoha_order_categories_by( $order_by = 'ID' ){
  * Get the excerpt as page description - for homepage and for single page
  * @return string
  */
-function kamoha_get_facebook_page_description(){
+function kamoha_get_facebook_page_description() {
 
     $ret = "";
 
-    if ( is_single() ) {
+    if (is_single()) {
         $desc = get_the_excerpt();
     }
 
-    if ( $_SERVER["REQUEST_URI"] == "/" ) {
-        $ret = __( 'homepage_description', 'kamoha' ); //"כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
+    if ($_SERVER["REQUEST_URI"] == "/") {
+        $ret = __('homepage_description', 'kamoha'); //"כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
         //$ret = "כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
-    } else if ( isset( $desc ) ) {
-        $ret = htmlentities( $desc, ENT_QUOTES, "UTF-8" );
+    } else if (isset($desc)) {
+        $ret = htmlentities($desc, ENT_QUOTES, "UTF-8");
     }
     return $ret;
 }
 
 /* Disable logging of Akismet debug data when WP_DEBUG_LOG is true 
   https://wordpress.org/support/topic/akismet-and-wp_debug_log */
-add_filter( 'akismet_debug_log', '__return_false' );
+add_filter('akismet_debug_log', '__return_false');
 
 /* * *******************************
  * AUXILIARY FUNCTIONS
@@ -1086,11 +1093,11 @@ add_filter( 'akismet_debug_log', '__return_false' );
  * Write any type of object to debug.log
  * @param type $data
  */
-function kamoha_write_to_log( $data ){
+function kamoha_write_to_log($data) {
     // Dump data
     ob_start();
-    var_dump( $data );
+    var_dump($data);
     $contents = ob_get_contents();
     ob_end_clean();
-    error_log( $contents );
+    error_log($contents);
 }
