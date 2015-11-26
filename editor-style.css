@@ -14,7 +14,6 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0;
-    font-family: 'Alef Hebrew',Arial;
     font-size: 100%;
     font-style: inherit;
     font-weight: inherit;
@@ -156,9 +155,16 @@ body#tinymce.wp-editor table {
 body#tinymce.wp-editor th {
     font-weight: bold;
 }
-body#tinymce.wp-editor td{
+body#tinymce.wp-editor table td, 
+body#tinymce.wp-editor table th {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    vertical-align: top;
     border-top: 1px solid #e5e5e5;
     border-left: 1px solid #e5e5e5;
+}
+body#tinymce.wp-editor table tr:nth-child(2n) td {
+    background-color:   #efefef;
 }
 
 body#tinymce.wp-editor p + br,
