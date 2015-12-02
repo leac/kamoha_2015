@@ -124,12 +124,38 @@ caption, th, td {
     font-weight: normal;
     text-align: right;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
+
+/* http://www.webmaster-source.com/2012/04/24/pure-css-blockquote-styling/*/
+blockquote:before,
+q:before{
+    display: block;
+    content: "\201D";
+    font-size: 8rem;
+    position: absolute;
+    right: -2rem;
+    top: -2rem;
+    color: #3370b1;
 }
 blockquote, q {
     quotes: "" "";
+    font-style: italic;
+    width: 80%;
+    margin: 1.25rem auto;
+    padding: 0.25rem 4rem;
+    line-height: 1.45;
+    position: relative;
+}
+blockquote cite,
+q cite{
+    color: #797979;
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+blockquote cite:before,
+q cite:before{
+    content: "\2014 \2009";
 }
 a:focus {
     outline: thin dotted;
