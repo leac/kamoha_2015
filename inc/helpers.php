@@ -775,12 +775,19 @@ function kamoha_show_movie_icon() {
         if ( !$is_film && !$is_audio ) {
             // better solution than regexp: http://wordpress.stackexchange.com/a/175795/373
             $content = do_shortcode( apply_filters( 'the_content', get_the_content() ) );
-            $audio_embeds = get_media_embedded_in_content( $content, array('video', 'object', 'embed', 'iframe') );
-            if ( count( $audio_embeds ) > 0 ) {
-                $is_film = true;
+            $film_embeds = get_media_embedded_in_content( $content, array('video', 'object', 'embed', 'iframe') );
+            if ( count( $film_embeds ) > 0 ) {
+                /* iframe could be something other that video, so make sure only video is shown: 
+                 * taken from: http://wordpress.stackexchange.com/questions/175793/get-first-video-from-the-post-both-embed-and-video-shortcodes/175795#175795
+                 */
+                foreach ( $film_embeds as $embed ) {
+                    if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
+                        $is_film = true;
+                    }
+                }
             } else {
-                $film_embeds = get_media_embedded_in_content( $content, array('audio') );
-                if ( count( $film_embeds ) > 0 ) {
+                $audio_embeds = get_media_embedded_in_content( $content, array('audio') );
+                if ( count( $audio_embeds ) > 0 ) {
                     $is_audio = true;
                 }
             }
