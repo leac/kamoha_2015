@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kamoha_2015 v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-06-30 01:06:13+0000\n"
+"PO-Revision-Date: 2015-11-26 22:57:05+0000\n"
 "Last-Translator: Lea - Ort Israel <leac@mapa.ort.org.il>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,35 +20,30 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: 404.php:15
-#@ kamoha
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "ס-ל-י-ח-ה. מה אתה עושה פה?? <!-- אופס! הדף אינו נמצא -->"
-
 #: archive.php:27
 #@ kamoha
 msgid "Archives"
 msgstr ""
 
-#: comments.php:57
-#: comments.php:75
+#: comments.php:61
+#: comments.php:79
 #@ kamoha
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:58
-#: comments.php:76
+#: comments.php:62
+#: comments.php:80
 #@ kamoha
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:59
-#: comments.php:77
+#: comments.php:63
+#: comments.php:81
 #@ kamoha
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:87
+#: comments.php:91
 #@ kamoha
 msgid "Comments are closed."
 msgstr ""
@@ -58,6 +53,7 @@ msgstr ""
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#: content-page.php:18
 #: content.php:41
 #@ kamoha
 msgid "Pages:"
@@ -67,14 +63,15 @@ msgstr ""
 #. translators: used between list items, there is a space after the comma
 #: content-search.php:34
 #: content-search.php:44
-#: content-single.php:35
+#: content-single.php:40
 #@ kamoha
 msgid ", "
 msgstr ""
 
+#: content-page.php:23
 #: content-search.php:61
-#: content-single.php:44
-#: inc/comments-and-latest-comments.php:99
+#: content-single.php:49
+#: inc/comments-and-latest-comments.php:101
 #@ kamoha
 msgid "Edit"
 msgstr "עריכה"
@@ -118,18 +115,18 @@ msgstr "תגיות:  %1$s"
 msgid "Proudly powered by %s"
 msgstr "האתר הוקם על תשתית %s"
 
-#: functions.php:46
+#: functions.php:45
 #@ kamoha
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:46
 #@ kamoha
 msgid "Secondary Navigation"
 msgstr ""
 
-#: header.php:44
-#: header.php:55
+#: header.php:42
+#: header.php:53
 #@ kamoha
 msgid "Skip to content"
 msgstr ""
@@ -208,12 +205,12 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "&#58883;"
 
-#: inc/helpers.php:178
+#: inc/helpers.php:168
 #@ kamoha
 msgid "Thumbnail"
 msgstr "תמונה מוקטנת"
 
-#: inc/helpers.php:210
+#: inc/helpers.php:200
 #@ kamoha
 msgid "None"
 msgstr "ללא"
@@ -228,12 +225,12 @@ msgstr "בלוג"
 msgid "ask rabbi"
 msgstr "שאל את הרב &gt;"
 
-#: inc/comments-and-latest-comments.php:45
+#: inc/comments-and-latest-comments.php:47
 #@ kamoha
 msgid "anonymous user"
 msgstr "משתמש אנונימי"
 
-#: functions.php:71
+#: functions.php:81
 #@ kamoha
 msgid "Countdown Sidebar"
 msgstr "שעון חול"
@@ -253,60 +250,60 @@ msgstr "החודש הבא"
 msgid "Events and meetings"
 msgstr "אירועים בכמוך"
 
-#: inc/helpers.php:931
+#: inc/helpers.php:933
 #@ kamoha
 msgid "Go to older events and meetings"
 msgstr "לאירועים הקודמים"
 
-#: functions.php:144
+#: functions.php:167
 #: home.php:78
-#: inc/comments-and-latest-comments.php:58
-#: inc/helpers.php:929
+#: inc/comments-and-latest-comments.php:60
+#: inc/helpers.php:931
 #@ kamoha
 msgid "Load more"
 msgstr "טען עוד"
 
-#: functions.php:145
+#: functions.php:168
 #@ kamoha
 msgid "Unload more"
 msgstr "טען פחות"
 
-#: inc/template-tags.php:27
+#: inc/template-tags.php:88
 #, php-format
 #@ kamoha
 msgid "<span class=\"posted-on\">%1$s</span>"
 msgstr ""
 
-#: inc/comments-and-latest-comments.php:88
+#: inc/comments-and-latest-comments.php:90
 #, php-format
 #@ kamoha
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s:"
 
-#: inc/comments-and-latest-comments.php:103
+#: inc/comments-and-latest-comments.php:105
 #@ kamoha
 msgid "Your comment is awaiting moderation."
 msgstr "התגובה ממתינה לאישור."
 
-#: content-single.php:39
+#: content-single.php:44
 #, php-format
 #@ kamoha
 msgid "This entry was tagged %1$s."
 msgstr "תגיות: %1$s."
 
-#: inc/comments-and-latest-comments.php:94
+#: inc/comments-and-latest-comments.php:96
 #, php-format
 #@ kamoha
 msgctxt "1: hewbrewdate, 2: date, 3:time"
 msgid "%1$s, %2$s at %3$s"
 msgstr "%1$s, %2$s ב-%3$s"
 
-#: functions.php:79
+#: functions.php:89
 #@ kamoha
 msgid "Related Posts Sidebar"
 msgstr ""
 
-#: comments.php:41
+#: comments.php:45
 #@ kamoha
 msgid "Add Comment"
 msgstr "כתוב תגובה"
@@ -325,13 +322,13 @@ msgstr[1] "%1$s תגובות"
 msgid "No thoughts"
 msgstr "אין תגובות"
 
-#: comments.php:48
+#: comments.php:52
 #@ kamoha
 msgctxt "noun"
 msgid "Comment"
 msgstr "התגובה שלך"
 
-#: inc/comments-and-latest-comments.php:49
+#: inc/comments-and-latest-comments.php:51
 #@ kamoha
 msgid "about"
 msgstr "על"
@@ -347,19 +344,19 @@ msgid "issue"
 msgstr "סוגיה"
 
 #: inc/class-tgm-plugin-activation.php:161
-#: inc/helpers.php:343
+#: inc/helpers.php:333
 #@ tgmpa
 msgid "Install Required Plugins"
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:162
-#: inc/helpers.php:344
+#: inc/helpers.php:334
 #@ tgmpa
 msgid "Install Plugins"
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:163
-#: inc/helpers.php:345
+#: inc/helpers.php:335
 #, php-format
 #@ tgmpa
 msgid "Installing Plugin: %s"
@@ -371,7 +368,7 @@ msgid "Something went wrong."
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:165
-#: inc/helpers.php:347
+#: inc/helpers.php:337
 #, php-format
 #@ kamoha
 msgid "This theme requires the following plugin: %1$s."
@@ -380,7 +377,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:166
-#: inc/helpers.php:348
+#: inc/helpers.php:338
 #, php-format
 #@ kamoha
 msgid "This theme recommends the following plugin: %1$s."
@@ -389,7 +386,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:167
-#: inc/helpers.php:349
+#: inc/helpers.php:339
 #, php-format
 #@ kamoha
 msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
@@ -398,7 +395,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:168
-#: inc/helpers.php:350
+#: inc/helpers.php:340
 #, php-format
 #@ kamoha
 msgid "The following required plugin is currently inactive: %1$s."
@@ -407,7 +404,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:169
-#: inc/helpers.php:351
+#: inc/helpers.php:341
 #, php-format
 #@ kamoha
 msgid "The following recommended plugin is currently inactive: %1$s."
@@ -416,7 +413,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:170
-#: inc/helpers.php:352
+#: inc/helpers.php:342
 #, php-format
 #@ kamoha
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
@@ -425,7 +422,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:171
-#: inc/helpers.php:353
+#: inc/helpers.php:343
 #, php-format
 #@ kamoha
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
@@ -434,7 +431,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:172
-#: inc/helpers.php:354
+#: inc/helpers.php:344
 #, php-format
 #@ kamoha
 msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
@@ -443,7 +440,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:173
-#: inc/helpers.php:355
+#: inc/helpers.php:345
 #@ kamoha
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
@@ -451,7 +448,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:174
-#: inc/helpers.php:356
+#: inc/helpers.php:346
 #@ kamoha
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
@@ -459,7 +456,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:175
-#: inc/helpers.php:357
+#: inc/helpers.php:347
 #@ tgmpa
 msgid "Return to Required Plugins Installer"
 msgstr ""
@@ -470,8 +467,8 @@ msgid "Return to the dashboard"
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:177
-#: inc/class-tgm-plugin-activation.php:1888
-#: inc/helpers.php:358
+#: inc/class-tgm-plugin-activation.php:1901
+#: inc/helpers.php:348
 #@ tgmpa
 msgid "Plugin activated successfully."
 msgstr ""
@@ -487,87 +484,89 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:523
-#: inc/class-tgm-plugin-activation.php:2101
+#: inc/class-tgm-plugin-activation.php:521
+#: inc/class-tgm-plugin-activation.php:2114
 #@ tgmpa
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1134
+#: inc/class-tgm-plugin-activation.php:1132
+#: inc/class-tgm-plugin-activation.php:1302
 #@ tgmpa
 msgid "Private Repository"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1137
+#: inc/class-tgm-plugin-activation.php:1135
+#: inc/class-tgm-plugin-activation.php:1305
 #@ tgmpa
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1142
+#: inc/class-tgm-plugin-activation.php:1140
 #@ tgmpa
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1145
+#: inc/class-tgm-plugin-activation.php:1143
 #@ tgmpa
 msgid "Required"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1145
+#: inc/class-tgm-plugin-activation.php:1143
 #@ tgmpa
 msgid "Recommended"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1148
+#: inc/class-tgm-plugin-activation.php:1146
 #@ tgmpa
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1150
+#: inc/class-tgm-plugin-activation.php:1148
 #@ tgmpa
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1252
-#: inc/class-tgm-plugin-activation.php:1349
+#: inc/class-tgm-plugin-activation.php:1250
+#: inc/class-tgm-plugin-activation.php:1361
 #@ tgmpa
 msgid "Install"
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:1270
-#: inc/class-tgm-plugin-activation.php:1350
+#: inc/class-tgm-plugin-activation.php:1362
 #@ tgmpa
 msgid "Activate"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1314
+#: inc/class-tgm-plugin-activation.php:1326
 #, php-format
 #@ tgmpa
 msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1329
+#: inc/class-tgm-plugin-activation.php:1341
 #@ tgmpa
 msgid "Plugin"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1330
+#: inc/class-tgm-plugin-activation.php:1342
 #@ tgmpa
 msgid "Source"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1331
+#: inc/class-tgm-plugin-activation.php:1343
 #@ tgmpa
 msgid "Type"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1332
+#: inc/class-tgm-plugin-activation.php:1344
 #@ tgmpa
 msgid "Status"
 msgstr ""
 
 #. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
-#: inc/class-tgm-plugin-activation.php:1583
+#: inc/class-tgm-plugin-activation.php:1592
 #: inc/class-tgm-plugin-activation.php:178
 #@ tgmpa
 msgid "The following plugin was activated successfully:"
@@ -575,132 +574,132 @@ msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:1872
+#: inc/class-tgm-plugin-activation.php:1885
 #@ tgmpa
 msgid "Install package not available."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1873
+#: inc/class-tgm-plugin-activation.php:1886
 #, php-format
 #@ tgmpa
 msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1874
+#: inc/class-tgm-plugin-activation.php:1887
 #@ tgmpa
 msgid "Unpacking the package&#8230;"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1875
+#: inc/class-tgm-plugin-activation.php:1888
 #@ tgmpa
 msgid "Installing the plugin&#8230;"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1876
+#: inc/class-tgm-plugin-activation.php:1889
 #@ tgmpa
 msgid "Plugin install failed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1877
+#: inc/class-tgm-plugin-activation.php:1890
 #@ tgmpa
 msgid "Plugin installed successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1887
+#: inc/class-tgm-plugin-activation.php:1900
 #@ tgmpa
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2000
+#: inc/class-tgm-plugin-activation.php:2013
 #@ tgmpa
 msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2001
+#: inc/class-tgm-plugin-activation.php:2014
 #, php-format
 #@ tgmpa
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2001
-#: inc/class-tgm-plugin-activation.php:2010
+#: inc/class-tgm-plugin-activation.php:2014
+#: inc/class-tgm-plugin-activation.php:2023
 #@ tgmpa
 msgid "Show Details"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2001
-#: inc/class-tgm-plugin-activation.php:2010
+#: inc/class-tgm-plugin-activation.php:2014
+#: inc/class-tgm-plugin-activation.php:2023
 #@ tgmpa
 msgid "Hide Details"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2002
+#: inc/class-tgm-plugin-activation.php:2015
 #@ tgmpa
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2003
+#: inc/class-tgm-plugin-activation.php:2016
 #, php-format
 #@ tgmpa
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2007
+#: inc/class-tgm-plugin-activation.php:2020
 #@ tgmpa
 msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2008
+#: inc/class-tgm-plugin-activation.php:2021
 #, php-format
 #@ tgmpa
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2009
+#: inc/class-tgm-plugin-activation.php:2022
 #, php-format
 #@ tgmpa
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2010
+#: inc/class-tgm-plugin-activation.php:2023
 #, php-format
 #@ tgmpa
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2011
+#: inc/class-tgm-plugin-activation.php:2024
 #@ tgmpa
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2012
+#: inc/class-tgm-plugin-activation.php:2025
 #, php-format
 #@ tgmpa
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/helpers.php:346
+#: inc/helpers.php:336
 #@ tgmpa
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/helpers.php:359
+#: inc/helpers.php:349
 #, php-format
 #@ tgmpa
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: inc/helpers.php:1074
+#: inc/helpers.php:1076
 #@ kamoha
 msgid "homepage_description"
 msgstr "כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה."
 
-#: inc/helpers.php:380
+#: inc/helpers.php:370
 #@ kamoha
 msgid "Excerpt"
 msgstr "תקציר"
 
-#: inc/helpers.php:425
+#: inc/helpers.php:415
 #@ kamoha
 msgid "Secondary Image"
 msgstr "תמונה ראשית נוספת (עמית - אל תגע)"
@@ -710,62 +709,57 @@ msgstr "תמונה ראשית נוספת (עמית - אל תגע)"
 msgid "our facebook"
 msgstr "הפייסבוק שלנו >"
 
-#: inc/helpers.php:464
+#: inc/helpers.php:454
 #@ kamoha
 msgid "Holiday Header"
 msgstr "כותרות לחגים"
 
-#: inc/helpers.php:480
-#@ kamoha
-msgid "birthday"
-msgstr "יומולדת"
-
-#: inc/helpers.php:488
+#: inc/helpers.php:484
 #@ kamoha
 msgid "purim"
 msgstr "פורים"
 
-#: inc/helpers.php:489
+#: inc/helpers.php:485
 #@ kamoha
 msgid "pesah"
 msgstr "פסח"
 
-#: inc/helpers.php:479
+#: inc/helpers.php:469
 #@ kamoha
 msgid "regular"
 msgstr "רגיל"
 
-#: inc/helpers.php:487
+#: inc/helpers.php:483
 #@ kamoha
 msgid "hanuka"
 msgstr "חנוכה"
 
-#: inc/helpers.php:481
+#: inc/helpers.php:477
 #@ kamoha
 msgid "trip before close"
 msgstr "טיול - שבוע אחרון להרשמה"
 
-#: inc/helpers.php:482
+#: inc/helpers.php:478
 #@ kamoha
 msgid "trip after close"
 msgstr "טיול - ההרשמה נסגרה"
 
-#: inc/helpers.php:484
+#: inc/helpers.php:480
 #@ kamoha
 msgid "shabbat before close"
 msgstr "שבת - שבוע אחרון להרשמה (3 התמונות)"
 
-#: inc/helpers.php:483
+#: inc/helpers.php:479
 #@ kamoha
 msgid "shabbat early"
 msgstr "שבת - סיום הרשמה מוזלת"
 
-#: inc/helpers.php:490
+#: inc/helpers.php:486
 #@ kamoha
 msgid "memorial"
 msgstr "יום הזכרון"
 
-#: inc/helpers.php:491
+#: inc/helpers.php:487
 #@ kamoha
 msgid "independence"
 msgstr "יום העצמאות"
@@ -775,39 +769,128 @@ msgstr "יום העצמאות"
 msgid "future"
 msgstr "עתידיים"
 
-#: inc/helpers.php:485
+#: inc/helpers.php:481
 #@ kamoha
 msgid "shabbat before close urban"
 msgstr "שבת - שבוע אחרון להרשמה (נוף אורבני)"
 
-#: inc/helpers.php:486
+#: inc/helpers.php:482
 #@ kamoha
 msgid "shabbat after close"
 msgstr "שבת - לאחר סגירת ההרשמה"
 
-#: inc/helpers.php:492
+#: inc/helpers.php:488
 #@ kamoha
 msgid "jerusalem"
 msgstr "יום ירושלים"
 
-#: inc/helpers.php:493
+#: inc/helpers.php:489
 #@ kamoha
 msgid "shavuot"
 msgstr "שבועות"
 
-#: inc/helpers.php:494
+#: inc/helpers.php:490
 #@ kamoha
 msgid "tishabeav"
 msgstr "תשעה באב"
 
-#: functions.php:190
+#: functions.php:213
 #@ kamoha
 msgctxt "Alef font: on or off"
 msgid "on"
 msgstr ""
 
-#: inc/helpers.php:475
+#: inc/helpers.php:465
 #@ kamoha
 msgid "choose holiday"
 msgstr "בחר חג או אירוע:"
+
+#: inc/helpers.php:470
+#@ kamoha
+msgid "rosh hashana"
+msgstr ""
+
+#: inc/helpers.php:471
+#@ kamoha
+msgid "yom kipur"
+msgstr ""
+
+#: inc/helpers.php:472
+#@ kamoha
+msgid "sukot"
+msgstr ""
+
+#: inc/helpers.php:473
+#@ kamoha
+msgid "birthday - baloons"
+msgstr ""
+
+#: inc/helpers.php:474
+#@ kamoha
+msgid "birthday - flowers"
+msgstr ""
+
+#: inc/helpers.php:475
+#@ kamoha
+msgid "birthday - ribbons"
+msgstr ""
+
+#: inc/helpers.php:476
+#@ kamoha
+msgid "trip during registration"
+msgstr ""
+
+#: inc/template-tags.php:23
+#@ kamoha
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:27
+#@ kamoha
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: inc/template-tags.php:31
+#@ kamoha
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: inc/template-tags.php:58
+#@ kamoha
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:61
+#, php-format
+#@ kamoha
+msgctxt "Previous post link"
+msgid "<span class=\"meta-nav\">&larr;</span> %title"
+msgstr ""
+
+#: inc/template-tags.php:62
+#, php-format
+#@ kamoha
+msgctxt "Next post link"
+msgid "%title <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: 404.php:15
+#@ scientific-2016
+msgid "404"
+msgstr ""
+
+#: 404.php:19
+#@ kamoha
+msgid "That page can&rsquo;t be found. "
+msgstr "לא מצאת את העמוד שרצית?"
+
+#: 404.php:22
+#@ kamoha
+msgid "we&rsquo;re sure you&rsquo;ll find us again on"
+msgstr "צא מאיצטגנינות שלך כי אין מזל לישראל. מחכים לך"
+
+#: 404.php:23
+#@ kamoha
+msgid "home page"
+msgstr "בדף הבית"
 

@@ -124,12 +124,38 @@ caption, th, td {
     font-weight: normal;
     text-align: right;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
+
+/* http://www.webmaster-source.com/2012/04/24/pure-css-blockquote-styling/*/
+blockquote:before,
+q:before{
+    display: block;
+    content: "\201D";
+    font-size: 8rem;
+    position: absolute;
+    right: -2rem;
+    top: -2rem;
+    color: #3370b1;
 }
 blockquote, q {
     quotes: "" "";
+    font-style: italic;
+    width: 80%;
+    margin: 1.25rem auto;
+    padding: 0.25rem 4rem;
+    line-height: 1.45;
+    position: relative;
+}
+blockquote cite,
+q cite{
+    color: #797979;
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+blockquote cite:before,
+q cite:before{
+    content: "\2014 \2009";
 }
 a:focus {
     outline: thin dotted;
@@ -167,9 +193,6 @@ b, strong {
 }
 dfn, cite, em, i {
     font-style: italic;
-}
-blockquote {
-    margin: 0 1.5em;
 }
 address {
     margin: 0 0 1.5em;
@@ -1893,7 +1916,13 @@ body.search .site-main {
 /*--------------------------------------------------------------
     11.5 POSTS AND PAGES
 --------------------------------------------------------------*/
-
+.error404 .site-content {
+    background-image: url("images/404_big.jpg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6rem 0 33rem;
+}
 .single .content-area,
 .page .content-area,
 .error404 .content-area{
@@ -1917,6 +1946,12 @@ body.page .site-main{
 .page-template-page_without-header-and-footer .entry-header{
     display: none; /* hide title in page without header and footer*/
 }
+.error-404 {
+    margin-left: 17%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
 .single .entry-summary,
 .page-content,
 body:not(.page-id-15263) .entry-content {
@@ -1932,6 +1967,10 @@ body:not(.page-id-15263) .entry-content {
 }
 .single .entry-summary p{
     margin:0;
+}
+.error-404 .page-content {
+    color: #fff;
+    font-weight: bold;
 }
 .page-content h1,
 .entry-content h1 {
@@ -2050,6 +2089,13 @@ body:not(.page-id-15263) .entry-content {
 }
 .single .entry-meta a {
     color: #3370b1;
+}
+.error-404-title {
+    color: rgba(211, 233, 255, 0.4);
+    font-size: 14rem;
+    line-height: 1.2;
+    margin: 0;
+    mix-blend-mode: color-dodge;
 }
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
