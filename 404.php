@@ -10,18 +10,21 @@ get_header();
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
-        <section class="error-404 not-found">	  
-            <h1 class="error-404-title">
-                <?php esc_html_e( '404', 'scientific-2016' ); ?>
-            </h1>
+        <section class="error-404 not-found">
+            <header class="page-header">
+                <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'kamoha' ); ?></h1>
+            </header><!-- .page-header -->
+
             <div class="page-content">
-                <p>
-                    <span><?php esc_html_e( 'That page can&rsquo;t be found. ', 'kamoha' ); ?></span>
-                </p>
-                <p>
-                    <?php esc_html_e( 'we&rsquo;re sure you&rsquo;ll find us again on', 'kamoha' ); ?>
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html_e( 'home page', 'kamoha' ); ?></a>
-                </p>
+                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <?php
+                    $queried_post = get_post( POST_404_PAGE );
+                    $content = $queried_post->post_content;
+                    $content = apply_filters( 'the_content', $content );
+                    $content = str_replace( ']]>', ']]&gt;', $content );
+                    echo $content;
+                    ?>
+                </article>
 
             </div><!-- .page-content -->
         </section><!-- .error-404 -->
