@@ -781,7 +781,7 @@ function kamoha_show_movie_icon() {
                  * taken from: http://wordpress.stackexchange.com/questions/175793/get-first-video-from-the-post-both-embed-and-video-shortcodes/175795#175795
                  */
                 foreach ( $film_embeds as $embed ) {
-                    if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
+                    if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) || strpos( $embed, 'download.macromedia.com' ) ) {
                         $is_film = true;
                     }
                 }
