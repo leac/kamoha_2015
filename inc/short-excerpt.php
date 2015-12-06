@@ -20,7 +20,7 @@ define('STICKY_EXCERPT_3_ROWS', 220);
 define('STICKY_EXCERPT_2_ROWS', 280); /* 12/2015 - changed from 200 */
 define('STICKY_EXCERPT_1_ROW', 290);  /* 12/2015 - changed from 250 */
 define('BLOCK1_EXCERPT_4_ROWS', 115); /* 11/2015 - New */
-define('BLOCK1_EXCERPT_3_ROWS', 140); /* 11/2015 - changed from 60, 125, 145 */
+define('BLOCK1_EXCERPT_3_ROWS', 136); /* 11/2015 - changed from 60, 125, 137, 145 */
 define('BLOCK1_EXCERPT_2_ROWS', 135); /* 11/2015 - changed from 80 */
 define('BLOCK1_EXCERPT_1_ROW', 180);
 define('BLOCK2_EXCERPT_3_ROWS', 120);
