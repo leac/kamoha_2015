@@ -1149,7 +1149,7 @@ a:hover .entry-title,
 .block-newest-posts .hentry:not(:first-child){
     margin-bottom: 3rem;
     padding: 4rem 0 0 2%;
-    width: 48%;
+    width: 50%;
 
 }
 .block-newest-posts .hentry:first-child {

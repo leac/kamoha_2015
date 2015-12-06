@@ -6,8 +6,8 @@
 
 // define title lengths
 define('STICKY_TITLE_3_ROWS', 150);
-define('STICKY_TITLE_2_ROWS', 110);
-define('BLOCK1_TITLE_4_ROWS', 50); /* 11/2015 - New */
+define('STICKY_TITLE_2_ROWS', 45); /* 12/2015 - changed from 110 */
+define('BLOCK1_TITLE_4_ROWS', 68); /* 11/2015 - New */
 define('BLOCK1_TITLE_3_ROWS', 40); /* 11/2015 - changed from 75 */
 define('BLOCK1_TITLE_2_ROWS', 25); /* 11/2015 - changed from 53 */
 define('BLOCK2_TITLE_3_ROWS', 75);
@@ -17,10 +17,10 @@ define('TAB_TITLE_2_ROWS', 50);
 
 // define excerpt lengths
 define('STICKY_EXCERPT_3_ROWS', 220);
-define('STICKY_EXCERPT_2_ROWS', 200);
-define('STICKY_EXCERPT_1_ROW', 250);
+define('STICKY_EXCERPT_2_ROWS', 280); /* 12/2015 - changed from 200 */
+define('STICKY_EXCERPT_1_ROW', 290);  /* 12/2015 - changed from 250 */
 define('BLOCK1_EXCERPT_4_ROWS', 115); /* 11/2015 - New */
-define('BLOCK1_EXCERPT_3_ROWS', 125); /* 11/2015 - changed from 60 */
+define('BLOCK1_EXCERPT_3_ROWS', 140); /* 11/2015 - changed from 60, 125, 145 */
 define('BLOCK1_EXCERPT_2_ROWS', 135); /* 11/2015 - changed from 80 */
 define('BLOCK1_EXCERPT_1_ROW', 180);
 define('BLOCK2_EXCERPT_3_ROWS', 120);
@@ -87,10 +87,9 @@ function kamoha_the_short_excerpt_by_len() {
                 $ret = kamoha_the_short_excerpt(STICKY_EXCERPT_3_ROWS);
             } else {
                 /* case of two title rows */
-                if ($title_len >= STICKY_TITLE_2_ROWS) { //echo STICKY_EXCERPT_2_ROWS;
+                if ($title_len >= STICKY_TITLE_2_ROWS) { 
                     $ret = kamoha_the_short_excerpt(STICKY_EXCERPT_2_ROWS);
                 } else {
-
                     /* case of one title row */
                     $ret = kamoha_the_short_excerpt(STICKY_EXCERPT_1_ROW);
                 }
