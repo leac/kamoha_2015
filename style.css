@@ -564,15 +564,6 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_sukot.jpg");
     background-position: right 0;
 }
-.birthday_baloons .site-header {
-    background-image: url("images/header_birthday_baloons.jpg") ; 
-}
-.birthday_flowers .site-header {
-    background-image: url("images/header_birthday_flowers.jpg") ; 
-}
-.birthday_ribbons .site-header {
-    background-image: url("images/header_birthday_ribbons.jpg") ; 
-}
 .trip_before_close .site-header {
     background-image: url("images/header_trip_before_close.jpg");
 }
@@ -619,6 +610,24 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_tishabeav.jpg");
     background-position: right 0;
 }
+.birthday_5_blue .site-header {
+    background-image: url("images/header_birthday_blue.jpg") ; 
+    background-position: center 0;
+}
+.birthday_5_purple .site-header {
+    background-image: url("images/header_birthday_purple.jpg") ; 
+    background-position: center 0;
+}
+.birthday_4_baloons .site-header {
+    background-image: url("images/header_birthday_baloons.jpg") ; 
+}
+.birthday_4_flowers .site-header {
+    background-image: url("images/header_birthday_flowers.jpg") ; 
+}
+.birthday_4_ribbons .site-header {
+    background-image: url("images/header_birthday_ribbons.jpg") ; 
+}
+
 /* ---------->>> TOP SITE MENU  <<<-----------*/
 
 .main-navigation {
@@ -929,9 +938,6 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .sukot .site-title a{
     background-image: url(images/logo_sukot.png);
 }
-[class*="birthday_"] .site-title a{
-    background-image: url(images/logo_birthday.png);
-}
 .trip_before_close .site-title a,
 .trip_after_close .site-title a,
 .trip_during .site-title a{
@@ -944,7 +950,6 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .shabbat_after_close .site-title a{
     background-image: url(images/logo_shabbat.png);
 }
-
 .hanuka .site-title a{
     background-image: url(images/logo_hanuka.png);
 }
@@ -969,6 +974,13 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .tishabeav .site-title a{
     background-image: url(images/logo_tishabeav.png);
 }
+[class*="birthday_5"] .site-title a{
+    background-image: url(images/logo_birthday_5.png);
+}
+[class*="birthday_4"] .site-title a{
+    background-image: url(images/logo_birthday_4.png);
+}
+
 .search-form {
     background-color: #ffffff;
     clear: left;
