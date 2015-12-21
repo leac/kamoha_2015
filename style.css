@@ -3255,12 +3255,6 @@ object {
     }
 }
 
-@media (min-width : 400px) and (max-width : 420px){
-    body{
-        transform: rotate(180deg); /* juat to see if anyone is resizing the window... */
-    }
-}
-
 /*
 Advanced settings for wordpress related posts: 
 div.wp_rp_content {
