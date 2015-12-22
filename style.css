@@ -2077,6 +2077,50 @@ body:not(.page-id-15263) .entry-content {
 .single .entry-meta a {
     color: #3370b1;
 }
+.kamoha_toc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: right;
+    list-style-type: none;
+}
+.kamoha_toc a{
+    color: #404040;
+}
+.kamoha_toc > li{
+    padding-right: 2.5%;
+    width: 50%;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+.kamoha_toc > li:nth-of-type(4n){
+    background-color: #6dcbff;
+}
+.kamoha_toc > li:nth-of-type(4n+1){
+    background-color: #7bd529;
+}
+.kamoha_toc > li:nth-of-type(4n+2){
+    background-color: #fb9338;
+}
+.kamoha_toc > li:nth-of-type(4n+3){
+    background-color: #7fa1dc;
+}
+.kamoha_toc > li ol{
+    margin: 0;
+}
+.kamoha_toc > li li:before{
+    content: "●";
+    display: inline-block;
+
+}
+.kamoha_toc > li li{
+    display: inline;
+    font-weight: normal;
+    font-size: 2.0rem;
+}
+.kamoha_toc > li li li{
+    font-size: 1.6rem;
+}
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
 .tffaq-search {
