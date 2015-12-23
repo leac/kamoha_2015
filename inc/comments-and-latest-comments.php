@@ -43,6 +43,8 @@ function kamoha_comments_widget() {
         _prime_post_caches($post_ids, strpos(get_option('permalink_structure'), '%category%'), false);
 
         foreach ((array) $comments as $comment) {
+            var_dump($comment);
+            die;
             $hellip = mb_strlen(strip_tags($comment->comment_content)) > $max_chars_content ? '&hellip;' : '';
             $comment_author = $comment->comment_author == '' ? __('anonymous user', 'kamoha') : strip_tags($comment->comment_author);
             $output .= '<li class="recentcomments">' .
