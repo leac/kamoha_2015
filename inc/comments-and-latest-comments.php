@@ -43,10 +43,12 @@ function kamoha_comments_widget() {
         _prime_post_caches($post_ids, strpos(get_option('permalink_structure'), '%category%'), false);
 
         foreach ((array) $comments as $comment) {
+            var_dump($comment);
+            die;
             $hellip = mb_strlen(strip_tags($comment->comment_content)) > $max_chars_content ? '&hellip;' : '';
             $comment_author = $comment->comment_author == '' ? __('anonymous user', 'kamoha') : strip_tags($comment->comment_author);
             $output .= '<li class="recentcomments">' .
-                    '<a href="' . get_permalink($comment->ID) . '#comment-' . $comment->comment_ID . '">' .
+                    '<a href="' . get_permalink($comment->comment_post_ID) . '#comment-' . $comment->comment_ID . '">' .
                     '<span class="comment_name">' . $comment_author . ' </span>' .
                     ' ' . __('about', 'kamoha') . ' ' .
                     '<span class="comment_post_name">' . get_the_title($comment->comment_post_ID) . '</span>: ' .
