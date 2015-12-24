@@ -2135,6 +2135,9 @@ body:not(.page-id-15263) .entry-content {
     text-decoration: none;
     display: block;
 }
+.kamoha_toc a:hover{
+    text-decoration: underline;
+}
 .kamoha_toc ol{
     padding-right: 2.5%;    
 }
