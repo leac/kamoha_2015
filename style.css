@@ -2134,12 +2134,11 @@ body:not(.page-id-15263) .entry-content {
     color: #000;
     text-decoration: none;
     display: block;
+    z-index: 1;
 }
 .kamoha_toc a:hover{
-    text-decoration: underline;
-}
-.kamoha_toc ol{
-    padding-right: 2.5%;    
+    color: #e5e5e5;
+    transition: all 0.5s ease 0s;
 }
 .kamoha_toc > li{
     float: right;
@@ -2149,76 +2148,214 @@ body:not(.page-id-15263) .entry-content {
     width:25%;
     margin: 0;
     position: relative;
-    padding: 4.1% 3.5%;
-
+    padding: 4rem 2rem;
+    text-align: center;
     /* verticle align cneter*/
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+    overflow: hidden; /* to prevent the ::before numbers from leaking out...*/
 }
+.kamoha_toc > li::before {
+    top: 0;
+    display: block;
+    font-size: 20rem;
+    font-style: italic;
+    position: absolute;
+    z-index: 0;
+}
+.kamoha_toc > li:nth-of-type(9n+1)::before {
+    color: #8075ab;
+    content: "1";
+}
+.kamoha_toc > li:nth-of-type(9n+2)::before {
+    color: #5693c2;
+    content: "3";
+    font-size: 40rem;
+    top: -11rem;
+}
+.kamoha_toc > li:nth-of-type(9n+3)::before {
+    color: #e47fb2;
+    content: "4";
+}
+.kamoha_toc > li:nth-of-type(9n+4)::before {
+    color: #fbb75c;
+    content: "2";
+}
+.kamoha_toc > li:nth-of-type(9n+5)::before {
+    color: #508b82;
+    content: "5";
+    top: -9rem;
+}
+.kamoha_toc > li:nth-of-type(9n+6)::before {
+    color: #e27a8b;
+    content: "6";
+    left: 0;
+}
+.kamoha_toc > li:nth-of-type(9n+7)::before {
+    color: #b7bf5c;
+    content: "7";
+    top:-7rem;
+}
+.kamoha_toc > li:nth-of-type(9n+8)::before {
+    color: #b36f78;
+    content: "8";
+    left: -1rem;
+    top: -6rem;
+}
+
 .kamoha_toc > li:nth-of-type(9n+1){
     background-color: #70639d;
-    text-align: center;
-    /*height: 10vw;*/
 }
 .kamoha_toc > li:nth-of-type(9n+2){
     background-color: #3b84b7;
     width: 50%;
-    padding: 1.2% 3.5%;
-    /*min-height: 20vw;*/
+    padding: 0.8rem 1rem;
 }
 .kamoha_toc > li:nth-of-type(9n+3){
     background-color: #de5e99;
-    padding: 1.5% 3.5%;
-    /*min-height: 14vw;*/
+    padding: 1rem;
 }
 .kamoha_toc > li:nth-of-type(9n+4){
     background-color: #faa61a;
-    text-align: center;
-    padding: 6.5% 3.5%;
-    /*min-height: 10vw;*/
+    padding: 4.2rem 1rem;
 }
 .kamoha_toc > li:nth-of-type(9n+5){
     background-color: #337a68;
-    padding: 3.7% 3.5%;
-    /*min-height: 6vw;*/    
-    text-align: center;
+    padding: 3rem 1rem;
 }
 .kamoha_toc > li:nth-of-type(9n+6){
-    background-color: #a6b01b;
-    padding: 1.5% 2.5%;
+    background-color: #dc5863;
+    width: 50%;
+    padding: 1rem 1rem 5rem;
 }
 .kamoha_toc > li:nth-of-type(9n+7){
-    background-color: #dc5863;
-    /*min-height: 7vw;*/
-    width: 50%;
-    padding: 1.5% 3.5% 6.7%;
+    background-color: #a6b01b;
+    padding: 1rem;
 }
 .kamoha_toc > li:nth-of-type(9n+8){
     background-color: #a14947;
-    text-align: center;
-    padding: 3.1% 3.5%;
-    /*min-height: 7vw;*/
+    padding: 2.5rem 1rem 5rem;
 }
 .kamoha_toc > li:nth-of-type(9n){
     background-color: #facd1a;
     width: 50%;
-    text-align: center;
-    /*min-height: 3vw;*/
-    padding: 1.5% 1%;
+    padding: 1rem;
 }
 
 .kamoha_toc > li ol{
-    margin: 0;
+    margin: 0.8rem 0.8rem 0;
     list-style-type: none;
     list-style-position: inside;
+    text-align: right;
+    z-index: 1;
+}
+.kamoha_toc > li:nth-of-type(9n+3) ol{
+    margin-right: 0.3rem;
 }
 .kamoha_toc > li li{
-    margin: 0 0 1rem 0;
-    /*line-height: 1.5;*/
+    Margin: 0 0 0.8rem;
     font-weight: normal;
     font-size: 1.6rem;
-    padding-right: 3.5%;
+    padding-right: 0;
+}
+
+@media only screen and (min-width : 1224px) {
+    /* keep same width, so no changes have to be made*/
+    .kamoha_toc{
+        max-width:  100%;
+    }
+    /* side padding bigger */
+    .kamoha_toc > li{
+        padding: 4rem 3rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+2){
+        padding: 0.8rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+3){
+        padding: 1rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+4){
+        padding: 4.2rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+5){
+        padding: 3rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+6){
+        padding: 1rem 2rem 5rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+8){
+        padding: 2.5rem 2rem 5rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n){
+        padding: 1rem 2rem;
+    }
+
+}
+
+@media only screen and (min-width : 801px) and (max-width : 1223px) {
+    /* keep same width, so no changes have to be made*/
+    .kamoha_toc{
+        max-width:  50.4rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+4){
+        padding: 2.1rem 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+6){
+        padding-bottom: 3.7rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+7) {
+        padding: 1.4rem 0.4rem;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 800px) {
+    /* keep same width, so no changes have to be made*/
+    .kamoha_toc{
+        max-width:  70rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+6){
+        padding-bottom: 6.7rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+8) {
+        padding: 2.5rem 1.3rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width : 570px) and (max-width : 767px) {
+    /* keep same width, so no changes have to be made*/
+    .kamoha_toc{
+        max-width:  50.4rem;
+    }
+    .kamoha_toc > li li{
+        margin-bottom: 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+4) {
+        padding: 3rem 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+6){
+        padding-bottom: 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n+7) ol{
+        margin: 0.8rem 0 0;
+    }
+    .kamoha_toc > li:nth-of-type(9n+8) {
+        padding-bottom: 4rem;
+    }
+}
+
+@media only screen and (max-width : 569px) {
+    .kamoha_toc > li,
+    .kamoha_toc > li:nth-of-type(9n+2),
+    .kamoha_toc > li:nth-of-type(9n+6),
+    .kamoha_toc > li:nth-of-type(9n+9){
+        width: 100%;
+    }
+
+    /* don't show numbers */
+    .kamoha_toc > li::before{
+        display: none;
+    }
 }
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 

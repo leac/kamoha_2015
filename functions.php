@@ -106,7 +106,7 @@ function kamoha_scripts() {
         // Style.css belongs everywhere execept in the site documentation page template:
         if ( !is_page_template( 'page_site_documentation.php' ) ) {
 
-            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.2.6' );
+            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.2.7' );
 
             // The following scripts and styles belong on every regular site page, except the 2 page templates
             if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
