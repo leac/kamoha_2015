@@ -171,7 +171,7 @@ function kamoha_scripts() {
         /* Create inline definitions of these vars, for use in the script.js file */
         wp_localize_script( 'kamoha-script', 'MyScriptParams', $params );
         /* category page is designed like pinterest, so in those pages enqueue masonry */
-        if ( is_archive() && !is_search() || is_single( 28413 ) ) {
+        if ( is_archive() && !is_search() ) { 
             wp_enqueue_script( 'masonry' );
         }
 
@@ -263,3 +263,8 @@ require get_template_directory() . '/inc/comments-and-latest-comments.php';
  * Lea -  load Short excerpt functions
  */
 require get_template_directory() . '/inc/short-excerpt.php';
+
+/**
+ * Lea -  load table of contents file 
+ */
+require get_template_directory() . '/inc/toc.php';
