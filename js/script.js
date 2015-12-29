@@ -108,7 +108,7 @@ jQuery(document).ready(function ($) {
      * they all have to be multipliers of the column width set here. 
      * Because they're in percents, we have to set percentPosition 
      * http://www.bloggerever.com/2014/09/understanding-masonry-plugin-for.html */
-    if ($('.kamoha_toc')) {
+    if ($('.kamoha_toc').length > 0) {
         $('.kamoha_toc').masonry({
             itemSelector: '.kamoha_toc > li',
             columnWidth: '.kamoha_toc > li',
