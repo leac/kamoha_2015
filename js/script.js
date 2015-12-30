@@ -72,7 +72,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
     /***********************************************
      * Hide comments form 
      ***********************************************/
@@ -89,16 +88,32 @@ jQuery(document).ready(function ($) {
      ***********************************************/
 
     //set the container that Masonry will be inside of in a var
-    var container = document.querySelector('.site-main');
-    //create empty var msnry
-    var msnry;
-    if (typeof (imagesLoaded) === 'function') {
-        // initialize Masonry after all images have loaded
-        imagesLoaded(container, function () {
-            msnry = new Masonry(container, {
-                // masonry should be rtl except in english and french categories
-                isOriginLeft: ($('.category-lang-en').length === 0 && $('.category-francais').length === 0) ? false : true
+    var container = document.querySelector('.archive .site-main');
+    if (container) {
+        //create empty var msnry
+        var msnry;
+        if (typeof (imagesLoaded) === 'function') {
+            // initialize Masonry after all images have loaded
+            imagesLoaded(container, function () {
+                msnry = new Masonry(container, {
+                    // masonry should be rtl except in english and french categories
+                    isOriginLeft: ($('.category-lang-en').length === 0 && $('.category-francais').length === 0) ? false : true
+                });
             });
+        }
+    }
+
+
+    /* set masonry on table of contents. set the column width because we have different widths.
+     * they all have to be multipliers of the column width set here. 
+     * Because they're in percents, we have to set percentPosition 
+     * http://www.bloggerever.com/2014/09/understanding-masonry-plugin-for.html */
+    if ($('.kamoha_toc').length > 0) {
+        $('.kamoha_toc').masonry({
+            itemSelector: '.kamoha_toc > li',
+            columnWidth: '.kamoha_toc > li',
+            percentPosition: true,
+            isOriginLeft: false
         });
     }
 

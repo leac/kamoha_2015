@@ -1,0 +1,304 @@
+/*
+* Style for tables of content in posts
+*/
+
+.kamoha_toc{
+    background-color: #000;
+    text-align: right;
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+.kamoha_toc a{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    z-index: 1;
+}
+/* some background colors are too dark for black font: */
+/*.kamoha_toc > li:nth-of-type(1) a,
+.kamoha_toc > li:nth-of-type(5) a,
+.kamoha_toc > li:nth-of-type(8) a{
+    color: #e5e5e5;
+}*/
+.kamoha_toc a:hover{
+    color: #e5e5e5;
+    transition: all 0.5s ease 0s;
+}
+/*.kamoha_toc > li:nth-of-type(1) a:hover,
+.kamoha_toc > li:nth-of-type(5) a:hover,
+.kamoha_toc > li:nth-of-type(8) a:hover{
+    color: #000;
+}*/
+.kamoha_toc > li{
+    float: right;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    font-weight: bold;
+    width:25%;
+    margin: 0;
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    /* verticle align cneter*/
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden; /* to prevent the ::before numbers from leaking out...*/
+}
+.kamoha_toc > li::before {
+    top: 0;
+    display: block;
+    font-size: 20rem;
+    font-style: italic;
+    position: absolute;
+    z-index: 0;
+}
+.kamoha_toc > li:nth-of-type(1)::before {
+    color: #8075ab;
+    content: "1";
+    font-size: 24rem;
+    top: -6rem;
+}
+.kamoha_toc > li:nth-of-type(2)::before {
+    color: #5693c2;
+    content: "3";
+    font-size: 40rem;
+    top: -11rem;
+}
+.kamoha_toc > li:nth-of-type(3)::before {
+    color: #e47fb2;
+    content: "4";
+    font-size: 30rem;
+    top: -11rem;
+    left: -2rem;
+}
+.kamoha_toc > li:nth-of-type(4)::before {
+    color: #fbb75c;
+    content: "2";
+    font-size: 30rem;
+    top: -11rem;
+}
+.kamoha_toc > li:nth-of-type(5)::before {
+    color: #508b82;
+    content: "5";
+    top: -9rem;
+}
+.kamoha_toc > li:nth-of-type(6)::before {
+    color: #e27a8b;
+    content: "6";
+    left: 0;
+}
+.kamoha_toc > li:nth-of-type(7)::before {
+    color: #b7bf5c;
+    content: "7";
+    top:-7rem;
+}
+.kamoha_toc > li:nth-of-type(8)::before {
+    color: #b36f78;
+    content: "8";
+    left: -3rem;
+    top: -5rem;
+}
+
+.kamoha_toc > li:nth-of-type(1){
+    background-color: #70639d;
+}
+.kamoha_toc > li:nth-of-type(2){
+    background-color: #3b84b7;
+    width: 50%;
+    padding: 0.8rem 1rem;
+}
+.kamoha_toc > li:nth-of-type(3){
+    background-color: #de5e99;
+    padding: 1rem;
+}
+.kamoha_toc > li:nth-of-type(4){
+    background-color: #faa61a;
+    padding: 4.2rem 1rem;
+}
+.kamoha_toc > li:nth-of-type(5){
+    background-color: #337a68;
+    padding: 3rem 1rem;
+}
+.kamoha_toc > li:nth-of-type(6){
+    background-color: #dc5863;
+    width: 50%;
+    padding: 1rem 1rem 5rem;
+}
+.kamoha_toc > li:nth-of-type(7){
+    background-color: #a6b01b;
+    padding: 1rem;
+}
+.kamoha_toc > li:nth-of-type(8){
+    background-color: #a14947;
+    padding: 2.5rem 1rem 5rem;
+}
+.kamoha_toc > li:nth-of-type(9){
+    background-color: #facd1a;
+    width: 50%;
+    padding: 1rem;
+}
+
+.kamoha_toc > li ol{
+    margin: 0.8rem 0.8rem 0;
+    list-style-type: none;
+    list-style-position: inside;
+    text-align: right;
+    z-index: 1;
+}
+.kamoha_toc > li:nth-of-type(3) ol{
+    margin-right: 0.3rem;
+}
+.kamoha_toc > li li{
+    Margin: 0 0 0.8rem;
+    font-weight: normal;
+    font-size: 1.6rem;
+    padding-right: 0;
+}
+
+@media only screen and (min-width : 1224px) {
+    /* keep same width, so minimal changes have to be made*/
+    .kamoha_toc{
+        max-width:  100%;
+    }
+    /* side padding bigger */
+    .kamoha_toc > li{
+        padding: 4rem 3rem;
+    }
+    .kamoha_toc > li:nth-of-type(2){
+        padding: 0.8rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(3){
+        padding: 1rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(4){
+        padding: 4.2rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(5){
+        padding: 3rem 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(6){
+        padding: 1rem 2rem 5rem;
+    }
+    .kamoha_toc > li:nth-of-type(8){
+        padding: 2.5rem 2rem 5rem;
+    }
+    .kamoha_toc > li:nth-of-type(9n){
+        padding: 1rem 2rem;
+    }
+
+}
+
+@media only screen and (min-width : 801px) and (max-width : 1223px) {
+    /* keep same width, so minimal changes have to be made*/
+    .kamoha_toc{
+        max-width:  50.4rem;
+    }
+    .kamoha_toc > li:nth-of-type(4){
+        padding: 2.1rem 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(6){
+        padding-bottom: 3.7rem;
+    }
+    .kamoha_toc > li:nth-of-type(7) {
+        padding: 1.4rem 0.4rem;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 800px) {
+    /* keep same width, so minimal changes have to be made*/
+    .kamoha_toc{
+        max-width:  70rem;
+    }
+    .kamoha_toc > li:nth-of-type(6){
+        padding-bottom: 6.7rem;
+    }
+    .kamoha_toc > li:nth-of-type(8) {
+        padding: 2.5rem 1.3rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width : 570px) and (max-width : 767px) {
+    /* keep same width, so minimal changes have to be made*/
+    .kamoha_toc{
+        max-width:  50.4rem;
+    }
+    .kamoha_toc > li li{
+        margin-bottom: 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(4) {
+        padding: 3rem 1rem;
+    }
+    .kamoha_toc > li:nth-of-type(5){
+        padding-bottom: 4rem;
+    }
+    .kamoha_toc > li:nth-of-type(6){
+        padding-bottom: 2rem;
+    }
+    .kamoha_toc > li:nth-of-type(7){
+        padding-bottom: 0.5rem;
+    }
+    .kamoha_toc > li:nth-of-type(7) ol{
+        margin: 0.8rem 0 0;
+    }
+    .kamoha_toc > li:nth-of-type(8) {
+        padding-bottom: 4rem;
+    }
+}
+
+@media only screen and (max-width : 569px) {
+    /* make items one under the other*/
+    .kamoha_toc{
+        display: flex;
+        flex-direction: column;
+    }
+    .kamoha_toc > li{
+        width: 100%;
+        float: none;
+        /* cancel masonry effect: */
+        position: relative  !important;
+        right: auto !important;
+        top: auto  !important;
+    }
+    .kamoha_toc > li:nth-of-type(2),
+    .kamoha_toc > li:nth-of-type(6),
+    .kamoha_toc > li:nth-of-type(9){
+        width: 100%;
+
+    }
+    /* when the items are one under the other, return the 4th item to be 2nd and vice versa */
+    .kamoha_toc > li:nth-of-type(1){
+        order: 1;
+    }
+    .kamoha_toc > li:nth-of-type(2){
+        order: 4;
+    }
+    .kamoha_toc > li:nth-of-type(3){
+        order: 3;
+    }
+    .kamoha_toc > li:nth-of-type(4){
+        order: 2;
+    }
+    .kamoha_toc > li:nth-of-type(5){
+        order: 5;
+    }
+    .kamoha_toc > li:nth-of-type(6){
+        order: 6;
+    }
+    .kamoha_toc > li:nth-of-type(7){
+        order: 7;
+    }
+    .kamoha_toc > li:nth-of-type(8){
+        order: 8;
+    }
+    .kamoha_toc > li:nth-of-type(9){
+        order: 9;
+    }
+
+    /* don't show numbers */
+    .kamoha_toc > li::before{
+        display: none;
+    }
+}
+

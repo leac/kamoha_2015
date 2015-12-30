@@ -21,7 +21,7 @@
         <?php $post_description = kamoha_get_facebook_page_description(); ?>
         <?php if ( is_single() ) : ?>
             <?php $post_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
-            <meta property="og:url" content="<?php echo post_permalink( $post->ID ); ?>" />
+            <meta property="og:url" content="<?php echo get_permalink( $post->ID ); ?>" />
             <meta property="og:title" content="<?php echo str_replace( "\"", "''", html_entity_decode( get_the_title( $post->ID ), ENT_QUOTES, "UTF-8" ) ); /* decode if for hyphen etc. replace is so quotes don't interrupt the content attribute */ ?>" />
             <meta property="og:image" content="<?php echo $post_image_url[0]; ?>" />
             <link rel="image_src" href=" <?php echo $post_image_url[0]; ?> ">
