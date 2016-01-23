@@ -106,7 +106,7 @@ function kamoha_scripts() {
         // Style.css belongs everywhere execept in the site documentation page template:
         if ( !is_page_template( 'page_site_documentation.php' ) ) {
 
-            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.2.8' );
+            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.2.9' );
 
             // The following scripts and styles belong on every regular site page, except the 2 page templates
             if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
@@ -268,3 +268,8 @@ require get_template_directory() . '/inc/short-excerpt.php';
  * Lea -  load table of contents file 
  */
 require get_template_directory() . '/inc/toc.php';
+
+/**
+ * Lea -  load editor functions
+ */
+require get_template_directory() . '/inc/editor.php';

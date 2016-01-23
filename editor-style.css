@@ -228,3 +228,9 @@ body#tinymce.wp-editor li + br,
 body#tinymce.wp-editor ol + br{
     display: none;
 }
+
+.letter{
+    background-color: #efefef;
+    border-right: 0.5rem solid #333;
+    padding: 2rem 3rem;
+}
