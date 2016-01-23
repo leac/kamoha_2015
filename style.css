@@ -2089,7 +2089,11 @@ body:not(.page-id-15263) .entry-content {
 .single .entry-meta a {
     color: #3370b1;
 }
-
+.single .letter{
+    background-color: #efefef;
+    border-right: 0.5rem solid #333;
+    padding: 2rem 3rem;
+}
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
 .tffaq-search {
