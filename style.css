@@ -603,8 +603,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .jerusalem .site-header {
     background-image: url("images/header_jerusalem.jpg");
 }
-.shavuot .site-header {
-    background-image: url("images/header_shavuot.jpg?1=1");
+.shavuot .site-header,
+.birthday_5_tubishvat .site-header{
+    background-image: url("images/header_shavuot.jpg");
 }
 .tishabeav .site-header {
     background-image: url("images/header_tishabeav.jpg");

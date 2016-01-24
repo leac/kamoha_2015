@@ -422,6 +422,7 @@ function kamoha_customize_register_func( $wp_customize ) {
             'sukot' => __( 'sukot', 'kamoha' ),
             'birthday_5_blue' => __( 'birthday - blue', 'kamoha' ),
             'birthday_5_purple' => __( 'birthday - purple', 'kamoha' ),
+            'birthday_5_tubishvat' => __( 'birthday - tu bishvat', 'kamoha' ),
             'trip_during' => __( 'trip during registration', 'kamoha' ),
             'trip_before_close' => __( 'trip before close', 'kamoha' ),
             'trip_after_close' => __( 'trip after close', 'kamoha' ),
