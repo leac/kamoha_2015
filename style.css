@@ -2554,6 +2554,23 @@ div.wp-pagenavi span.extend  {
     padding: 1.5rem calc(25% + 2.5rem) 1.5rem 0;
     width: 100%;
 }
+.footor-navigation,
+.footor-navigation .footer-nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.footor-navigation .footer-nav-list{
+    list-style: none;
+    margin: 0;
+}
+.footor-navigation .footer-nav-list .menu-item:not(:first-child):before,
+.logged-out-nav-list:before{
+    content: "|";
+    display: inline-block;
+    padding: 0 0.5rem;
+}
 /*--------------------------------------------------------------
 12.0 Infinite scroll
 --------------------------------------------------------------*/

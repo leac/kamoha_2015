@@ -44,6 +44,8 @@ if ( !function_exists( 'kamoha_setup' ) ) :
         register_nav_menus( array(
             'primary' => __( 'Primary Menu', 'kamoha' ),
             'secondary' => __( 'Secondary Navigation', 'kamoha' ), /* Lea - 02/2014 - add another menu */
+            'footor_logged_out' => __( 'Footer Logged Out', 'kamoha' ), /* Lea - 02/2016 - add another menu */
+            'footor_logged_in' => __( 'Footer Logged In', 'kamoha' ), /* Lea - 02/2016 - add another menu */
         ) );
 
 
