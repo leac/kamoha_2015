@@ -2551,7 +2551,7 @@ div.wp-pagenavi span.extend  {
     background-color: #efefef;
     clear: both;
     margin-bottom: 5rem;
-    padding: 1.5rem calc(25% + 2.5rem) 1.5rem 0;
+    padding: 1.5rem 0;
     width: 100%;
 }
 .footor-navigation,
