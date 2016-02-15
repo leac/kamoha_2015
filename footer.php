@@ -12,9 +12,9 @@
 
 <footer id="colophon" class="site-footer" role="contentinfo">
         <nav id="footor-navigation" class="footor-navigation clear" role="navigation">
-            <?php wp_nav_menu( array('theme_location' => 'footor_logout', 'menu_class' => 'clear logged-in-nav-list footer-nav-list', 'container' => '') ); ?>
+            <?php wp_nav_menu( array('theme_location' => 'footor_logged_out', 'menu_class' => 'clear logged-in-nav-list footer-nav-list', 'container' => '') ); ?>
             <?php if ( is_user_logged_in() ) { ?>
-                <?php wp_nav_menu( array('theme_location' => 'footor_login', 'menu_class' => 'clear logged-out-nav-list footer-nav-list', 'container' => '') ); ?>        <?php } ?>
+                <?php wp_nav_menu( array('theme_location' => 'footor_logged_in', 'menu_class' => 'clear logged-out-nav-list footer-nav-list', 'container' => '') ); ?>        <?php } ?>
         </nav>
 </footer><!-- #colophon -->
 </div><!-- #page -->
