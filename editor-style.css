@@ -50,16 +50,14 @@ blockquote, q {
     line-height: 1.45;
     position: relative;
 }
-blockquote cite,
-q cite{
+cite{
     color: #797979;
     font-size: 1.6rem;
     display: block;
     margin-top: 0.5rem;
 }
 
-blockquote cite:before,
-q cite:before{
+cite:before{
     content: "\2014 \2009";
 }
 .clear:before,
