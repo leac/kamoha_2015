@@ -13,7 +13,7 @@
  * or if there isn't a post thumbnail, it gets the first port image, and displays the passed thumbsized version of it
  * @param string $thumb_size - the size of the thumbnail, from a predefines size list
  */
-function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
+function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ) {
 
     /* declare vars */
     $post_id = get_the_ID(); // needed to get the correct thumbnail, or correct user field
@@ -103,15 +103,15 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ){
  * @param string $imgsrc
  * @return image url without size as part of name
  */
-function kamoha_get_img_src_without_size( $imgsrc ){
+function kamoha_get_img_src_without_size( $imgsrc ) {
     $ret = $imgsrc;
     /* remove the size from end of filename */
-    $last_hyphen = strrpos( $imgsrc, '-' );
-// make sure it's the right hyphen
-    $last_dot = strrpos( $imgsrc, '.' );
-    $file_type = substr( $imgsrc, $last_dot );
-    if ( $last_dot - $last_hyphen > 10 || !strpos( $imgsrc, 'x', $last_hyphen ) ) {
-        $last_hyphen = strlen( $imgsrc ) - strlen( $file_type );
+    $last_hyphen = mb_strrpos( $imgsrc, '-' );
+    // make sure it's the right hyphen
+    $last_dot = mb_strrpos( $imgsrc, '.' );
+    $file_type = mb_substr( $imgsrc, $last_dot );
+    if ( $last_dot - $last_hyphen > 10 || !mb_strpos( $imgsrc, 'x', $last_hyphen ) ) {
+        $last_hyphen = mb_strlen( $imgsrc ) - mb_strlen( $file_type );
     }
     if ( $last_hyphen == -1 ) {
         $last_hyphen = null;
@@ -125,7 +125,7 @@ function kamoha_get_img_src_without_size( $imgsrc ){
  * @param type $url
  * @return true if external, false if local
  */
-function is_external_image( $url ){
+function is_external_image( $url ) {
 
     $dir = wp_upload_dir();
 
@@ -145,7 +145,7 @@ function is_external_image( $url ){
  * @param type $attachment_url
  * @return type
  */
-function kamoha_get_attachment_id_from_url( $attachment_url = '' ){
+function kamoha_get_attachment_id_from_url( $attachment_url = '' ) {
 
     global $wpdb;
     $attachment_id = false;
@@ -180,7 +180,7 @@ function kamoha_get_attachment_id_from_url( $attachment_url = '' ){
  * @param type $description
  * @return type
  */
-function handle_sideload_and_get_id( $url, $post_id, $description ){
+function handle_sideload_and_get_id( $url, $post_id, $description ) {
 
     require_once ( ABSPATH . "wp-admin" . '/includes/file.php' );
     require_once ( ABSPATH . "wp-admin" . '/includes/media.php' );
@@ -219,7 +219,7 @@ function handle_sideload_and_get_id( $url, $post_id, $description ){
  * Display the first image from the post, wherever you want
  *  'catch_that_image' from http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * */
-function kamoha_catch_that_image(){
+function kamoha_catch_that_image() {
     global $post, $posts;
     $first_img = '';
     ob_start();
