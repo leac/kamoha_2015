@@ -941,6 +941,8 @@ function kamoha_show_post_one_cat() {
                 return false;
             } );
             if ( count( $children_array ) > 0 ) {
+      				  // rebase the array, because it only has some of its keyschildren_array
+			        	$children_array = array_values($children_array);
                 $curr_cat = $children_array[0];
             } else {
                 $curr_cat = $categories_list[0];
