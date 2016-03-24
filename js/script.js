@@ -140,6 +140,42 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    /***********************************************
+     * The Read More button in the registration form
+     ***********************************************/
+    var $el, $ps, $up, totalHeight;
+
+    jQuery(".sidebar-box .kamoha_btn").click(function () {
+
+        totalHeight = 0
+
+        $el = jQuery(this);
+        $p = $el.parent();
+        $up = $p.parent();
+        $ps = $up.find("p:not('.read-more')");
+
+        // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+        $ps.each(function () {
+            totalHeight += jQuery(this).outerHeight(true);
+        });
+
+        $up
+                .css({
+                    // Set height to prevent instant jumpdown when max height is removed
+                    "height": $up.outerHeight(true),
+                    "max-height": 9999
+                })
+                .animate({
+                    "height": totalHeight
+                });
+
+        // fade out read-more
+        $p.fadeOut();
+
+        // prevent jump-down
+        return false;
+
+    });
 
     /***********************************************
      * Body class to distinguish IE
