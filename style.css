@@ -2230,7 +2230,7 @@ body:not(.page-id-15263) .entry-content {
     padding: 0.5rem 0;
 }
 
-/* --------->>> SIGNUP PAGE <<<-----------*/
+/* --------->>> REGISTRATION PAGE <<<-----------*/
 
 .post-13053 table,
 .post-13053 td{
@@ -2253,7 +2253,7 @@ form .required +td > input[type="text"]{
     border:1px solid #c51901;
 }
 
-/* --------->>> NEW SIGNUP PAGE <<<-----------*/
+/* --------->>> NEW REGISTRATION PAGE <<<-----------*/
 .fieldset-cf7mls {
     box-shadow: 0 0 2px 0 #b8b8b8;
     padding: 3rem;
@@ -2318,6 +2318,20 @@ span.wpcf7-list-item {
 span.wpcf7-not-valid-tip{
     color: #e328bb;
 }
+
+.wpcf7-form-control-signature-global-wrap{
+    text-align: center;
+    margin: 1rem 0;
+}
+.wpcf7-form-control-signature-wrap,
+wpcf7_your-signature_signature{
+    width: 500px !important;
+    max-width: 100% !important;
+}
+.wpcf7-form-control-signature-wrap{
+    margin: 0 auto;
+}
+
 .cf7mls_next.action-button, 
 .cf7mls_back.action-button,
 .wpcf7-form-control.wpcf7-submit{
