@@ -196,6 +196,12 @@ jQuery(document).ready(function ($) {
     $('#pelepay_submit').click(function () {
         document.pelepayform.amount.value = document.getElementById("amount").value;
     });
+    
+    /***********************************************
+     * Registration form - in rules checkbox, move "required" symbol to appear before validation message
+     ***********************************************/
+    $(".checkbox-806 .required-symbol").insertAfter(".checkbox-806 .wpcf7-list-item");
+
 });
 
 /********* These functions are needed for signing on joining the organization. Copied from old theme ***************/
