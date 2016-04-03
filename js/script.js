@@ -37,8 +37,7 @@ jQuery(document).ready(function ($) {
             if (items.length === 0) { // if the items aren't hidden, then they're highlighted
                 items = $(this).siblings('.highlight');
             }
-        }
-        else {
+        } else {
             if ($(this).parents('#secondary').length) {
                 items = $(this).prev().children('.hide');
                 if (items.length === 0) { // if the items aren't hidden, then they're highlighted
@@ -58,8 +57,7 @@ jQuery(document).ready(function ($) {
                 // change class of morePosts button
                 $(this).removeClass("toOpen").addClass("toClose");
                 $(this).html(MyScriptParams.sUnloadPosts); //change button text
-            }
-            else // these are shown items. The click is meant to hide them.
+            } else // these are shown items. The click is meant to hide them.
             {
                 // slide up the posts
                 items.slideUp("slow");
@@ -196,11 +194,11 @@ jQuery(document).ready(function ($) {
     $('#pelepay_submit').click(function () {
         document.pelepayform.amount.value = document.getElementById("amount").value;
     });
-    
+
     /***********************************************
      * Registration form - in rules checkbox, move "required" symbol to appear before validation message
      ***********************************************/
-    $(".checkbox-806 .required-symbol").insertAfter(".checkbox-806 .wpcf7-list-item");
+    $(".checkbox-806 ~ .required-symbol ").insertAfter(".checkbox-806 .wpcf7-list-item");
 
 });
 
@@ -211,8 +209,7 @@ function colorinput(trigger)
     if (el.value.length == 0)
     {
         el.style.backgroundColor = 'red';
-    }
-    else
+    } else
     {
         el.style.backgroundColor = '';
     }
@@ -260,8 +257,7 @@ function checkInput(trigger)
             {
                 var text = document.getElementById('elem_school_text');
                 text.disabled = false;
-            }
-            else
+            } else
             {
                 var text = document.getElementById('elem_school_text');
                 text.disabled = true;
@@ -273,8 +269,7 @@ function checkInput(trigger)
             {
                 var text = document.getElementById('high_school_text');
                 text.disabled = false;
-            }
-            else
+            } else
             {
                 var text = document.getElementById('high_school_text');
                 text.disabled = true;
@@ -286,8 +281,7 @@ function checkInput(trigger)
             {
                 var text = document.getElementById('after_high_school_text');
                 text.disabled = false;
-            }
-            else
+            } else
             {
                 var text = document.getElementById('after_high_school_text');
                 text.disabled = true;
@@ -302,14 +296,12 @@ function checkInput(trigger)
                 if (text.value != '')
                 {
                     text.style.backgroundColor = '';
-                }
-                else
+                } else
                 {
                     text.style.backgroundColor = 'red';
                 }
                 text.disabled = false;
-            }
-            else
+            } else
             {
                 var text = document.getElementById('job_text');
                 text.disabled = true;
@@ -318,8 +310,7 @@ function checkInput(trigger)
             if (count > 0)
             {
                 document.getElementById('radio-red').style.backgroundColor = '';
-            }
-            else
+            } else
             {
                 document.getElementById('radio-red').style.backgroundColor = 'red';
             }
@@ -347,8 +338,7 @@ function checkInput(trigger)
         submit_form.disabled = false;
         var fillall = document.getElementById('fillall');
         fillall.style.color = 'white';
-    }
-    else
+    } else
     {
         var submit_form = document.getElementById('submit_form');
         submit_form.disabled = true;
@@ -401,8 +391,7 @@ function startDraw(e) {
         for (var i = 1; i <= e.touches.length; i++) {
             cb_lastPoints[i] = getCoords(e.touches[i - 1]); // Get info for finger #1
         }
-    }
-    else {
+    } else {
         // Mouse event
         cb_lastPoints[0] = getCoords(e);
         cb_canvas.onmousemove = drawMouse;
@@ -424,8 +413,7 @@ function drawMouse(e) {
             var p = getCoords(e.touches[i - 1]); // Get info for finger i
             cb_lastPoints[i] = drawLine(cb_lastPoints[i].x, cb_lastPoints[i].y, p.x, p.y);
         }
-    }
-    else {
+    } else {
         // Not touch enabled
         var p = getCoords(e);
         cb_lastPoints[0] = drawLine(cb_lastPoints[0].x, cb_lastPoints[0].y, p.x, p.y);
