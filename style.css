@@ -2264,6 +2264,9 @@ form .required +td > input[type="text"]{
 span.wpcf7-list-item {
     display: block;
 }
+.checkbox-806 span.wpcf7-list-item {
+    display: inline;
+}
 .form-tabs-list{
     list-style: none;
     margin: 0;

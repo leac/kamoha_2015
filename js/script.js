@@ -198,7 +198,7 @@ jQuery(document).ready(function ($) {
     /***********************************************
      * Registration form - in rules checkbox, move "required" symbol to appear before validation message
      ***********************************************/
-    $(".checkbox-806 ~ .required-symbol ").insertAfter(".checkbox-806 .wpcf7-list-item");
+    $(".checkbox-806 .required-symbol ").insertAfter(".checkbox-806 .wpcf7-list-item");
 
 });
 
