@@ -2320,16 +2320,14 @@ span.wpcf7-not-valid-tip{
 }
 
 .wpcf7-form-control-signature-global-wrap{
-    text-align: center;
-    margin: 1rem 0;
-}
-.wpcf7-form-control-signature-wrap,
-wpcf7_your-signature_signature{
-    width: 500px !important;
-    max-width: 100% !important;
+    margin: 1rem 0 4rem;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
 }
 .wpcf7-form-control-signature-wrap{
-    margin: 0 auto;
+    width: 500px !important;
+    margin-left: 1rem;
 }
 
 .cf7mls_next.action-button, 
@@ -2359,10 +2357,11 @@ wpcf7_your-signature_signature{
 }
 canvas.your-signature{
     background-color: #f5f5f5;
-    border: 1px solid;
+    border: 1px solid #aaa;
 }
 #wpcf7_your-signature_clear{
     font-size: 1.8rem;
+    border: 1px solid #e5e5e5;
 }
 /* place submit button near back button*/
 .fieldset-cf7mls:nth-of-type(3) {
@@ -2378,31 +2377,6 @@ canvas.your-signature{
 }
 .part3 .cf7mls_back.action-button{
     order:1;
-}
-
-/* More button */
-.sidebar-box {
-    max-height: 100px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 6rem;
-}
-.sidebar-box .read-more {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    margin: 0; 
-    /* "transparent" only works here because == rgba(0,0,0,0) */
-    background-image: linear-gradient(to bottom, transparent, white);
-}
-.read-more .kamoha_btn{
-    display: inline-block;
-    padding: 1.3rem;
-    border-radius: 3rem;
-    width: auto;
-    text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -3236,6 +3210,10 @@ object {
     .page-template-page-links_and_emergency-php .entry-content .emergency li:nth-child(2n){
         margin-left: 0;
     }
+
+    .wpcf7-form-control-signature-wrap{
+        width: 400px !important;
+    }
 }
 
 /* --------->>>  MAX-WIDTH: 500px <<<-----------*/
@@ -3266,6 +3244,10 @@ object {
     .block-tabs{
         min-height: 60rem;
     }
+
+    .wpcf7-form-control-signature-wrap{
+        width:300px !important;
+    }
 }
 
 /* --------->>>  MAX-WIDTH: 450px <<<-----------*/
@@ -3283,6 +3265,10 @@ object {
     }
     .emergency dt{
         height: 9rem;
+    }
+
+    .fieldset-cf7mls{
+        padding: 3rem 2rem;
     }
 }
 
@@ -3372,6 +3358,11 @@ object {
         float: none;
     }
 }
+
+.fieldset-cf7mls{
+    padding: 3rem 1rem;
+}
+
 
 /* --------->>>  MAX-WIDTH: 380px <<<-----------*/
 
