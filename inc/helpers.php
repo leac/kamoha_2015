@@ -1048,6 +1048,22 @@ function kamoha_get_facebook_page_description() {
 add_filter( 'akismet_debug_log', '__return_false' );
 
 /* * *******************************
+ * Remove image size functions
+ * ******************************* */
+
+/**
+ * Remove the medium_large image size
+ * @param array $sizes
+ * @return array $sizes sans the medium_large image size
+ */
+function kamoha_remove_default_image_sizes( $sizes) {
+    unset( $sizes['medium_large']);
+     
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'kamoha_remove_default_image_sizes');
+
+/* * *******************************
  * AUXILIARY FUNCTIONS
  * ******************************* */
 
