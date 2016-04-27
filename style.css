@@ -2318,7 +2318,8 @@ span.wpcf7-list-item {
     color: #73026e;
 }
 .required-symbol,
-span.wpcf7-not-valid-tip{
+span.wpcf7-not-valid-tip,
+.pelepay_error_msg{
     color: #e328bb;
 }
 

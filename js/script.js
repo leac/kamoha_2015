@@ -190,11 +190,6 @@ jQuery(document).ready(function ($) {
     /* This is so in Ask The Rebbi page, when filling out the form, the first option in the select box won't be automatically selected. Copied from old theme.*/
     $(".tffaq-ask-selector").val([]);
 
-    /* This function needed for paying (copied from old theme):*/
-    $('#pelepay_submit').click(function () {
-        document.pelepayform.amount.value = document.getElementById("amount").value;
-    });
-
     /***********************************************
      * Registration form - in rules checkbox, move "required" symbol to appear before validation message
      ***********************************************/
