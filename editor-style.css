@@ -235,3 +235,8 @@ body#tinymce.wp-editor ol + br{
     margin-bottom: 8rem;
     border-radius: .5rem;
 }
+
+.question{
+    font-weight: bold;
+    color: #3370b1;
+}

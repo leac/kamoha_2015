@@ -2096,6 +2096,10 @@ body:not(.page-id-15263) .entry-content {
     margin-bottom: 8rem;
     border-radius: .5rem;
 }
+.single .question{
+    font-weight: bold;
+    color: #3370b1;
+}
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
 .tffaq-search {
