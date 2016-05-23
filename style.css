@@ -2088,10 +2088,13 @@ body:not(.page-id-15263) .entry-content {
 .single .entry-meta a {
     color: #3370b1;
 }
-.single .letter{
-    background-color: #efefef;
-    border-right: 0.5rem solid #333;
+.single .letter {
+    background-color: #eaf1f8;
+    /* border-right: 0.5rem solid #333; */
     padding: 2rem 3rem;
+    box-shadow: 1px 1px 0px 0 #3370b1;
+    margin-bottom: 8rem;
+    border-radius: .5rem;
 }
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
