@@ -227,13 +227,69 @@ body#tinymce.wp-editor ol + br{
     display: none;
 }
 
-.letter{
-    background-color: #eaf1f8;
-    /* border-right: 0.5rem solid #333; */
+.letter,
+.response{
     padding: 2rem 3rem;
-    box-shadow: 1px 1px 0px 0 #3370b1;
     margin-bottom: 8rem;
     border-radius: .5rem;
+}
+.letter {
+    background-color: #eaf1f8;
+    box-shadow: 1px 1px 0px 0 #3370b1;
+}
+.response{
+    background-color: #f1e5f0;
+    box-shadow: 1px 1px 0 0 #73026e;
+}
+
+/* make response close to letter*/
+.letter ~ .response{
+    margin-top: -4rem;
+}
+
+.letter .feedback-header,
+.response .response-header{
+    font-weight: bold;
+    margin: -2rem -3rem 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.letter .feedback-header{
+    background-color: #3370b1;
+    color: #eaf1f8;
+}
+.response .response-header{
+    background-color: #73026e;
+    color: #f1e5f0;
+    font-weight: bold;
+    padding-right: 3rem;
+}
+.letter .feedback-header p,
+.response .response-header p{
+    margin: 0;
+}
+.letter .shabbat-grade-title:before,
+.letter .activity-grade-title:before{
+    content: "";
+    display: inline-block;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: 1rem;
+    background-repeat: no-repeat;
+    margin:0 2rem 0 1rem;
+    vertical-align: middle;
+}
+.letter .shabbat-grade-title:before{
+    background-image: url('images/candles.png');
+}
+.letter .activity-grade-title:before{
+    background-image: url('images/friends-talking.png');
+}
+.letter .grade-number{
+    background-color: #eaf1f8;
+    color: #3370b1;
+    display: inline-block;
+    padding: 1rem 1.5rem;
 }
 
 .question{
