@@ -94,8 +94,8 @@ function kamoha_setup_more() {
     add_image_size( 'small', SMALL_WIDTH, SMALL_HEIGHT, true );
     add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
 
-    // This theme styles the visual editor to resemble the theme style.
-    add_editor_style( array('editor-style.css', kamoha_fonts_url()) );
+    // This theme styles the visual editor to resemble the theme style. Google fonts areadded via import from css file
+    add_editor_style( );
 }
 
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
