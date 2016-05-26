@@ -92,6 +92,24 @@ body#tinymce.wp-editor img{
     max-width: 98%;
     padding: 0;
 }
+/*--------------------------------------------------------------
+6.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+}
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+}
 .wp-caption-text,
 .wp-caption-dd{
     text-align: center;
