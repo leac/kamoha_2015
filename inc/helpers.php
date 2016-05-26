@@ -1063,6 +1063,17 @@ function kamoha_remove_default_image_sizes( $sizes) {
 }
 add_filter('intermediate_image_sizes_advanced', 'kamoha_remove_default_image_sizes');
 
+// display featured post thumbnails in WordPress feeds
+function wcs_post_thumbnails_in_feeds( $content ) {
+    global $post;
+    if( has_post_thumbnail( $post->ID ) ) {
+        $content = '<p>' . get_the_post_thumbnail( $post->ID, 'small' ) . '</p>' . $content;
+    }
+    return $content;
+}
+add_filter( 'the_excerpt_rss', 'wcs_post_thumbnails_in_feeds' );
+add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
+
 /* * *******************************
  * AUXILIARY FUNCTIONS
  * ******************************* */
