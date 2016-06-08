@@ -195,6 +195,13 @@ jQuery(document).ready(function ($) {
      ***********************************************/
     $(".checkbox-806 .required-symbol ").insertAfter(".checkbox-806 .wpcf7-list-item");
 
+    /***********************************************
+     * For images in blog category page - give class that will indicate that mix-blend-mode CSS will be applied to featured image
+     ***********************************************/
+    if (window.getComputedStyle(document.body).mixBlendMode !== undefined) {
+        $(".category .post").addClass("has-mix-blend-mode");
+    }
+
 });
 
 /********* These functions are needed for signing on joining the organization. Copied from old theme ***************/
