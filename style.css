@@ -1855,7 +1855,8 @@ aside.kamoha_btn{
     box-shadow: 0 0 2px 0 #b8b8b8;
     padding: 1rem;
 }
-.archive:not(.search) .hentry img{
+.archive:not(.search) .hentry img.wp-post-image,
+.archive:not(.search) .hentry img.attachment-post-thumbnail{
     height: auto;
     width: 100%;
     margin-bottom: 1.5rem;
