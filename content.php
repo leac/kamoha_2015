@@ -6,7 +6,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <a href="<?php the_permalink(); ?>" rel="bookmark"> 
+    <a href="<?php the_permalink(); ?>" rel="bookmark" class="image-wrapper"> 
 
         <?php kamoha_show_homepage_thumbnail( 'medium' ); ?>
 
