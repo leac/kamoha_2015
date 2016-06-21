@@ -1151,7 +1151,7 @@ a:hover .entry-title,
 }
 .home .block  a:hover img{
     opacity: 0.8;
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /********* Block 1 - the 6 news posts on home page ********/
@@ -1188,6 +1188,9 @@ a:hover .entry-title,
 }
 .block-newest-posts .image-wrapper{
     margin-left: 4%;
+}
+.block-newest-posts .image-wrapper:hover{
+	overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
 }
 .block-newest-posts .hentry:not(:first-child) .entry-meta{
     float: right;
