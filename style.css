@@ -1189,7 +1189,7 @@ a:hover .entry-title,
 .block-newest-posts .image-wrapper{
     margin-left: 4%;
 }
-.home .block .image-wrapper:hover{
+.home .block .image-wrapper{
 	overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
 }
 .block-newest-posts .hentry:not(:first-child) .entry-meta{
