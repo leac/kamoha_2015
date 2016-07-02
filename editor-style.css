@@ -246,6 +246,90 @@ body#tinymce.wp-editor ol + br{
     display: none;
 }
 
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+    border: 1px solid #c5c5c5;
+    /* margin-bottom: 1.5em; */
+    max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+    border: none;
+    display: block;
+    margin: 1.2% auto 0;
+    max-width: 98%;
+    padding: 0;
+}
+.wp-caption-text {
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-size: 1.6rem;
+}
+.wp-caption .wp-caption-text {
+    margin: 0.8075em 0;
+}
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+    margin-bottom: 1.5em;
+}
+
+.gallery-item {
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+    max-width: 49%; /* reduce 1% so allitems fit on row */
+}
+
+.gallery-columns-3 .gallery-item {
+    max-width: 32.33%; /* reduce 1% so allitems fit on row */
+}
+
+.gallery-columns-4 .gallery-item {
+    max-width: 24%; /* reduce 1% so allitems fit on row */
+}
+
+.gallery-columns-5 .gallery-item {
+    max-width: 19%; /* reduce 1% so allitems fit on row */
+}
+
+.gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+}
+
+.gallery-caption {
+    display: block;
+}
+.gallery img {
+    border: 2px solid #cfcfcf;
+    height: auto;
+    max-width: 90%;
+}
+.gallery dd {
+    margin: 0;
+}
+
+
 .letter,
 .response{
     padding: 2rem 3rem;
