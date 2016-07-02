@@ -2971,6 +2971,10 @@ div.wp-pagenavi span.extend  {
     margin-top: 0;
     padding: 0;
 }
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
 .wp-caption {
     border: 1px solid #c5c5c5;
     /* margin-bottom: 1.5em; */
@@ -2992,23 +2996,65 @@ div.wp-pagenavi span.extend  {
 .wp-caption .wp-caption-text {
     margin: 0.8075em 0;
 }
-.site-main .gallery {
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
     margin-bottom: 1.5em;
 }
+
+.gallery-item {
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+    max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+    max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+    max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+    max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+}
+
 .gallery-caption {
+    display: block;
 }
 .site-main .gallery a img {
-    border: none;
+    border: 2px solid #cfcfcf;
     height: auto;
     max-width: 90%;
 }
 .site-main .gallery dd {
     margin: 0;
 }
-.site-main .gallery-columns-4 .gallery-item {
-}
-.site-main .gallery-columns-4 .gallery-item img {
-}
+
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,

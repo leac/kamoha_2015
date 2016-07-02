@@ -7,11 +7,11 @@
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
-if ( !isset( $content_width ) ) {
+if ( ! isset( $content_width ) ) {
     $content_width = 640; /* pixels */
 }
 
-if ( !function_exists( 'kamoha_setup' ) ) :
+if ( ! function_exists( 'kamoha_setup' ) ) :
 
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -58,13 +58,13 @@ if ( !function_exists( 'kamoha_setup' ) ) :
         add_theme_support( 'title-tag' );
 
 // Enable support for HTML5 markup.
-        add_theme_support( 'html5', array('comment-list', 'search-form', 'comment-form',) );
+        add_theme_support( 'html5', array('comment-list', 'search-form', 'comment-form', 'gallery', 'caption',) );
     }
 
 endif; // kamoha_setup
 add_action( 'after_setup_theme', 'kamoha_setup' );
 
-if ( !function_exists( '_wp_render_title_tag' ) ) {
+if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
     function kamoha_render_title() {
         ?>
@@ -104,14 +104,14 @@ add_action( 'widgets_init', 'kamoha_widgets_init' );
  */
 function kamoha_scripts() {
 
-    if ( !is_admin() ) { // all scripts and styles are front end
+    if ( ! is_admin() ) { // all scripts and styles are front end
         // Style.css belongs everywhere execept in the site documentation page template:
-        if ( !is_page_template( 'page_site_documentation.php' ) ) {
+        if ( ! is_page_template( 'page_site_documentation.php' ) ) {
 
-            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.4.7' );
+            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.4.8' );
 
             // The following scripts and styles belong on every regular site page, except the 2 page templates
-            if ( !is_page_template( 'page_without-header-and-footer.php' ) ) {
+            if ( ! is_page_template( 'page_without-header-and-footer.php' ) ) {
 
                 wp_enqueue_script( 'kamoha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -156,7 +156,7 @@ function kamoha_scripts() {
         }
 
         /* Show tffaq css only on ask rabbi page */
-        if ( !is_page( ASK_RABBI_PAGE ) ) {
+        if ( ! is_page( ASK_RABBI_PAGE ) ) {
             wp_deregister_style( 'tffaq_jquery_custom' );
             wp_dequeue_style( 'tffaq_jquery_custom' );
             wp_deregister_style( 'tffaq_frontend' );
@@ -173,7 +173,7 @@ function kamoha_scripts() {
         /* Create inline definitions of these vars, for use in the script.js file */
         wp_localize_script( 'kamoha-script', 'MyScriptParams', $params );
         /* category page is designed like pinterest, so in those pages enqueue masonry */
-        if ( is_archive() && !is_search() ) {
+        if ( is_archive() && ! is_search() ) {
             wp_enqueue_script( 'masonry' );
         }
 
