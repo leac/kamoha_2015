@@ -595,6 +595,10 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .memorial .site-header {
     background-image: url("images/header_memorial.jpg");
 }
+.shoa .site-header{
+    background-image: url("images/header_shoa.jpg?2=2");
+    background-position: right 0;
+}
 .independence .site-header {
     background-image: url("images/header_independence.jpg");
 }
@@ -957,6 +961,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 }
 .pesah .site-title a{
     background-image: url(images/logo_pesah.png);
+}
+.shoa .site-title a{
+    background-image: url(images/logo_shoa.png);
 }
 .memorial .site-title a{
     background-image: url(images/logo_memorial.png);

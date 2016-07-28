@@ -108,7 +108,7 @@ function kamoha_scripts() {
         // Style.css belongs everywhere execept in the site documentation page template:
         if ( ! is_page_template( 'page_site_documentation.php' ) ) {
 
-            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.4.8' );
+            wp_enqueue_style( 'kamoha-style', get_stylesheet_uri(), array(), '1.6.5.0' );
 
             // The following scripts and styles belong on every regular site page, except the 2 page templates
             if ( ! is_page_template( 'page_without-header-and-footer.php' ) ) {
@@ -117,7 +117,7 @@ function kamoha_scripts() {
 
                 wp_enqueue_script( 'kamoha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-                wp_enqueue_script( 'kamoha-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.3.3', TRUE );
+                wp_enqueue_script( 'kamoha-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.3.4', TRUE );
 
                 if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
                     wp_enqueue_script( 'comment-reply' );

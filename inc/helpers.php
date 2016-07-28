@@ -95,7 +95,7 @@ function kamoha_setup_more() {
     add_image_size( 'teeny', TEENY_WIDTH, TEENY_HEIGHT, true );
 
     // This theme styles the visual editor to resemble the theme style. Google fonts areadded via import from css file
-    add_editor_style( );
+    add_editor_style();
 }
 
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
@@ -157,7 +157,7 @@ add_filter( 'tiny_mce_before_init', 'change_mce_options' );
  * ----------------------------------------- */
 
 /* taken from http://wpengineer.com/1960/display-post-thumbnail-post-page-overview/ */
-if ( !function_exists( 'admin_thumb_column' ) ) {
+if ( ! function_exists( 'admin_thumb_column' ) ) {
 
     /**
      * Adds a column in the admin posts list, to show posts thumbnails
@@ -354,7 +354,6 @@ function kamoha_register_required_plugins() {
     tgmpa( $plugins, $config );
 }
 
-
 /* -----------------------------------------
  * Add second featured image box to posts
  * ----------------------------------------- */
@@ -433,6 +432,7 @@ function kamoha_customize_register_func( $wp_customize ) {
             'hanuka' => __( 'hanuka', 'kamoha' ),
             'purim' => __( 'purim', 'kamoha' ),
             'pesah' => __( 'pesah', 'kamoha' ),
+            'shoa' => __( 'shoa', 'kamoha' ),
             'memorial' => __( 'memorial', 'kamoha' ),
             'independence' => __( 'independence', 'kamoha' ),
             'jerusalem' => __( 'jerusalem', 'kamoha' ),
@@ -524,7 +524,7 @@ add_action( 'customize_preview_init', 'kamoha_customizer_live_preview' );
  * */
 function kamoha_menu_cat_subnav( $items, $menu, $args ) {
     // Only do this in the topics menu
-    if ( !is_admin() ) {
+    if ( ! is_admin() ) {
         // loop thru the menu items, and find the ones that are categories
         $menu_order = count( $items ) + 1;
         $is_archive = false;
@@ -536,7 +536,7 @@ function kamoha_menu_cat_subnav( $items, $menu, $args ) {
 
                 $termchildren = get_categories( $args );
 
-                if ( !empty( $termchildren ) ) {
+                if ( ! empty( $termchildren ) ) {
                     // if it has child categories, add them to the menu
                     foreach ( $termchildren as $child ) {
 
@@ -607,7 +607,7 @@ function kamoha_modify_query( $query ) {
         }
     }
     /* In events category, if the pastposts parameter exists, get only the posts whos date field has a date before today. But only in the main query 
-     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */ elseif ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query() ) {
+     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */ elseif ( is_category( MEETINGS_CAT ) && ! is_admin() && $query->is_main_query() ) {
         if ( filter_input( INPUT_GET, 'pastposts' ) != NULL || filter_input( INPUT_GET, 'futureposts' ) != NULL ) {
             $query->set( 'meta_key', 'date' );
             /* order events by the meta field */
@@ -639,8 +639,8 @@ add_filter( 'pre_get_posts', 'kamoha_modify_query' );
  */
 function kamoha_posts_where( $where, &$query ) {
     /* Add where clause to query in events category, and to event list in sidebar */
-    if ( is_category( MEETINGS_CAT ) && !is_admin() && $query->is_main_query()  // condition for events category
-            || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT && !$query->is_main_query()) // condition for event list in sidebar
+    if ( is_category( MEETINGS_CAT ) && ! is_admin() && $query->is_main_query()  // condition for events category
+            || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT && ! $query->is_main_query()) // condition for event list in sidebar
     ) {
         $datedir = '';
         if ( filter_input( INPUT_GET, 'pastposts' ) != NULL ) {
@@ -648,7 +648,7 @@ function kamoha_posts_where( $where, &$query ) {
         } elseif ( filter_input( INPUT_GET, 'futureposts' ) != NULL || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT) ) {
             $datedir = '>'; //get future events - in category page or in sidebar
         }
-        if ( !empty( $datedir ) ) {
+        if ( ! empty( $datedir ) ) {
             $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
         }
     }
@@ -713,7 +713,7 @@ function kamoha_show_movie_icon() {
     }
 
     // if no user fields were defined for this post, check tags
-    if ( !$is_film && !$is_audio ) {
+    if ( ! $is_film && ! $is_audio ) {
         // look in tags
         $posttags = wp_get_post_tags( $post_id );
         foreach ( $posttags as $thistag ) {
@@ -725,7 +725,7 @@ function kamoha_show_movie_icon() {
         }
 
         // if no tags found either, then check the content
-        if ( !$is_film && !$is_audio ) {
+        if ( ! $is_film && ! $is_audio ) {
             // better solution than regexp: http://wordpress.stackexchange.com/a/175795/373
             $content = do_shortcode( apply_filters( 'the_content', get_the_content() ) );
             $film_embeds = get_media_embedded_in_content( $content, array('video', 'object', 'embed', 'iframe') );
@@ -779,7 +779,7 @@ function kamoha_get_custom_post_type( $post_type ) {
     $posts_secondary = new WP_Query( $args );
     if ( $posts_secondary->have_posts() ) {
         $ret .= '<ul>';
-        while ($posts_secondary->have_posts()) {
+        while ( $posts_secondary->have_posts() ) {
             $posts_secondary->the_post();
             $post_format = get_post_type();
             $ret .= '<li class="news_' . $post_format . '">';
@@ -887,7 +887,7 @@ function kamoha_event_list() {
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                   ?>
+    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                    ?>
     <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
 
     <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
@@ -941,8 +941,8 @@ function kamoha_show_post_one_cat() {
                 return false;
             } );
             if ( count( $children_array ) > 0 ) {
-      				  // rebase the array, because it only has some of its keyschildren_array
-			        	$children_array = array_values($children_array);
+                // rebase the array, because it only has some of its keyschildren_array
+                $children_array = array_values( $children_array );
                 $curr_cat = $children_array[0];
             } else {
                 $curr_cat = $categories_list[0];
@@ -1056,21 +1056,23 @@ add_filter( 'akismet_debug_log', '__return_false' );
  * @param array $sizes
  * @return array $sizes sans the medium_large image size
  */
-function kamoha_remove_default_image_sizes( $sizes) {
-    unset( $sizes['medium_large']);
-     
+function kamoha_remove_default_image_sizes( $sizes ) {
+    unset( $sizes['medium_large'] );
+
     return $sizes;
 }
-add_filter('intermediate_image_sizes_advanced', 'kamoha_remove_default_image_sizes');
+
+add_filter( 'intermediate_image_sizes_advanced', 'kamoha_remove_default_image_sizes' );
 
 // display featured post thumbnails in WordPress feeds
 function wcs_post_thumbnails_in_feeds( $content ) {
     global $post;
-    if( has_post_thumbnail( $post->ID ) ) {
+    if ( has_post_thumbnail( $post->ID ) ) {
         $content = '<p>' . get_the_post_thumbnail( $post->ID, 'small' ) . '</p>' . $content;
     }
     return $content;
 }
+
 add_filter( 'the_excerpt_rss', 'wcs_post_thumbnails_in_feeds' );
 add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
 
