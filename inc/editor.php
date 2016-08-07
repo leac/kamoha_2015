@@ -51,4 +51,19 @@ function kamoha_remove_normal_excerpt() { /* this added on my own */
 
 add_action( 'admin_menu', 'kamoha_remove_normal_excerpt' );
 
+/**
+ * Add post class to edit post screen, so editor style can be added
+ * @global type $post_ID
+ * @param type $classes
+ * @return comma separated list of classes
+ */
+function kamoha_2015_body_class_admin_filter( $init_array ) {
+    global $post;
 
+    if ( is_a( $post, 'WP_Post' ) ) {
+        $init_array['body_class'] .= ' ' . join( ' ', get_post_class( '', $post->ID ) );
+    }
+    return $init_array;
+}
+
+add_filter( 'tiny_mce_before_init', 'kamoha_2015_body_class_admin_filter' );
