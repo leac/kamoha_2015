@@ -252,7 +252,7 @@ hr {
 }
 
 ul, ol{
-    margin: 0 0 3rem 3rem;  
+    margin: 0 0 6rem 3rem;  
 }
 li > ul,
 li > ol {
@@ -262,12 +262,12 @@ li > ol {
 .hentry.category-lang-en ol, 
 .hentry.category-francais ul, 
 .hentry.category-francais ol{
-    margin-left: 3rem;
+    margin-left: 6rem;
     margin-right: 0;
 }
 .rtl ul, 
 .rtl ol {
-    margin-right: 3rem;
+    margin-right: 6rem;
     margin-left: 0;
 }
 
