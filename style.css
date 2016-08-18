@@ -1164,10 +1164,15 @@ a:hover .entry-title,
     margin-left: 1rem;
 }
 .home .block img{
-    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
     width: 100%;
     height: auto;/*match height to width*/
     transition: all .2s ease-in-out; /* for hover */
+}
+.home .block:not(.block-newest-posts) img{
+    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
+}
+.home .block-newest-posts img{
+    vertical-align: middle;
 }
 .home .block  a:hover img{
     opacity: 0.8;
@@ -1208,6 +1213,8 @@ a:hover .entry-title,
 }
 .block-newest-posts .image-wrapper{
     margin-left: 4%;
+    /* put the box shadow on wrapper, because it's exactly the same size as the image, and has overflow hidden */
+    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
 }
 .home .block .image-wrapper{
     overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
