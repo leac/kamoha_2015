@@ -438,7 +438,7 @@ a:active {
 .kamoha_btn{
     font-weight: bold;
     border: 1px solid #e5e5e5;
-    box-shadow: 1px 2px 6px 1px rgba(159, 159, 159, 0.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
     border-radius:3rem;
     background-color: #efefef;
     cursor: pointer;
@@ -1169,7 +1169,7 @@ a:hover .entry-title,
     transition: all .2s ease-in-out; /* for hover */
 }
 .home .block:not(.block-newest-posts) img{
-    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
 }
 .home .block-newest-posts img{
     vertical-align: middle;
@@ -1214,7 +1214,7 @@ a:hover .entry-title,
 .block-newest-posts .image-wrapper{
     margin-left: 4%;
     /* put the box shadow on wrapper, because it's exactly the same size as the image, and has overflow hidden */
-    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
 }
 .home .block .image-wrapper{
     overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
@@ -1553,7 +1553,7 @@ a:hover .entry-title,
     background: #444444;
     border: 4px solid #ffffff;
     border-radius: 1rem;
-    box-shadow: 1px 2px 6px 1px rgba(159, 159, 159, 0.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
 }
 .CountDownTimer .widget-title{
     margin-bottom: 1rem;
@@ -1630,7 +1630,7 @@ aside.kamoha_btn{
     font-weight: bold;
 }
 .calendar_wrap {
-    box-shadow: 1px 2px 6px 1px rgba(159, 159, 159, 0.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
     font-size: 1.5rem;
     line-height: 1;
     margin: 1rem 0;
@@ -1950,7 +1950,7 @@ body.search .site-main {
     margin-left: 2rem;
 }
 .search .image-wrapper img{
-    box-shadow: 1px 2px 6px 1px rgba(159,159,159,.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
 }
 .search .entry-header {
     margin-bottom: 0.5rem;
@@ -2614,7 +2614,7 @@ span.wpcf7-not-valid-tip,
 .cf7mls_back.action-button,
 .wpcf7-form-control.wpcf7-submit{
     background-color: #404040;
-    box-shadow: 1px 2px 6px 1px rgba(159, 159, 159, 0.75);
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
     border-radius: 2rem;
     font-size: 1.8rem;
 }
