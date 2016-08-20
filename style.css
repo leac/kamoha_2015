@@ -1163,21 +1163,27 @@ a:hover .entry-title,
 .hentry:first-child .entry-meta span{
     margin-left: 1rem;
 }
+.home .block .image-wrapper{
+    overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
+}
+.home .block:not(.block-blogs):not(.block-issues) .image-wrapper{
+    /* put the box shadow on wrapper, because it's exactly the same size as the image, and has overflow hidden */
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
+
+}
 .home .block img{
     width: 100%;
     height: auto;/*match height to width*/
     transition: all .2s ease-in-out; /* for hover */
 }
-.home .block:not(.block-newest-posts) img{
-    box-shadow: 1px 2px 6px 1px #b7b7b7;
-}
-.home .block-newest-posts img{
-    vertical-align: middle;
-}
 .home .block  a:hover img{
     opacity: 0.8;
     transform: scale(1.2); /* add hover effect of zoomin in image*/
 }
+.home .block:not(.block-blogs):not(.block-issues) img{
+    vertical-align: middle;
+}
+
 
 /********* Block 1 - the 6 news posts on home page ********/
 .block-newest-posts .hentry:first-child .entry-body{
@@ -1213,11 +1219,6 @@ a:hover .entry-title,
 }
 .block-newest-posts .image-wrapper{
     margin-left: 4%;
-    /* put the box shadow on wrapper, because it's exactly the same size as the image, and has overflow hidden */
-    box-shadow: 1px 2px 6px 1px #b7b7b7;
-}
-.home .block .image-wrapper{
-    overflow: hidden; /* needed so scaling of image doesn't enlarge the whole area */
 }
 .block-newest-posts .hentry:not(:first-child) .entry-meta{
     float: right;
@@ -1373,6 +1374,12 @@ a:hover .entry-title,
     display: table-cell;
     padding-left: 5%;
     width: 50%;
+}
+/* the blogs and issues images should get box-shadow, in contrast to all other images on page, 
+where the wrapper gets the show because blogs and issue's wrapper is much bigger than theimage */
+.home .block-blogs img,
+.home .block-issues img{
+    box-shadow: 1px 2px 6px 1px #b7b7b7;
 }
 .block-blogs .image-wrapper + .entry-body,
 .block-issues .image-wrapper + .entry-body{
