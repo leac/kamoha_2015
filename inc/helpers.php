@@ -646,7 +646,8 @@ function kamoha_posts_where( $where, &$query ) {
         if ( filter_input( INPUT_GET, 'pastposts' ) != NULL ) {
             $datedir = '<'; // get past events
         } elseif ( filter_input( INPUT_GET, 'futureposts' ) != NULL || (isset( $query->query_vars["category"] ) && $query->query_vars["category"] == MEETINGS_CAT) ) {
-            $datedir = '>'; //get future events - in category page or in sidebar
+            /* >= in order to show today's event */
+            $datedir = '>='; //get future events - in category page or in sidebar
         }
         if ( ! empty( $datedir ) ) {
             $where .= " AND CONCAT(SUBSTR(SUBSTRING_INDEX(meta_value,'/',-1),1,4),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',-2),1,2),'-',SUBSTR(SUBSTRING_INDEX(meta_value,'/',1),1,2)) " . $datedir . " '" . date( "Y-m-d" ) . "'";
