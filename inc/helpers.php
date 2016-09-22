@@ -959,7 +959,8 @@ function kamoha_show_post_one_cat() {
     if ( $curr_cat && kamoha_categorized_blog() ) {
         ?>
         <span class="cat-links <?php
-              if ( $curr_cat->parent == BLOGS_CAT || cat_is_ancestor_of( BLOGS_CAT, $curr_cat->cat_ID ) ) {
+        /* Lea 09/16 - add 'cat-blogs' class to blogs category too */
+              if ( $curr_cat->cat_ID == BLOGS_CAT || $curr_cat->parent == BLOGS_CAT || cat_is_ancestor_of( BLOGS_CAT, $curr_cat->cat_ID ) ) {
                   echo 'cat-blogs';
               } elseif ( $curr_cat->parent == ISSUES_CAT ) {
                   echo 'cat-issues';
