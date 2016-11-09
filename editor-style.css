@@ -415,3 +415,28 @@ body#tinymce.wp-editor .response .response-header p{
     font-weight: bold;
     color: #3370b1;
 }
+
+.shabatot-summary strong{
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+.shabatot-summary p:nth-child(1) strong{
+    background-color: #f47e3b;
+}
+.shabatot-summary p:nth-child(2) strong{
+    background-color: #fdb827;
+}
+.shabatot-summary p:nth-child(3) strong{
+    background-color: #457dc0;
+}
+.shabatot-summary p:nth-child(4) strong{
+    background-color: #01b8d9;
+}
+.shabatot-summary p:nth-child(5) strong{
+    background-color: #00ab4e;
+}
+.shabatot-summary p:nth-child(6) strong{
+    background-color: #ee2869;
+}

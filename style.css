@@ -2310,6 +2310,8 @@ body:not(.page-id-15263) .entry-content {
 .single .entry-meta a {
     color: #3370b1;
 }
+
+/* --------->>> EDITOR FORMATS <<<----------- */
 .single .letter,
 .single .response{
     padding: 2rem 3rem;
@@ -2376,6 +2378,32 @@ body:not(.page-id-15263) .entry-content {
     font-weight: bold;
     color: #3370b1;
 }
+
+.single .shabatot-summary strong{
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+.single .shabatot-summary p:nth-child(1) strong{
+    background-color: #f47e3b;
+}
+.single .shabatot-summary p:nth-child(2) strong{
+    background-color: #fdb827;
+}
+.single .shabatot-summary p:nth-child(3) strong{
+    background-color: #457dc0;
+}
+.single .shabatot-summary p:nth-child(4) strong{
+    background-color: #01b8d9;
+}
+.single .shabatot-summary p:nth-child(5) strong{
+    background-color: #00ab4e;
+}
+.single .shabatot-summary p:nth-child(6) strong{
+    background-color: #ee2869;
+}
+
 /* --------->>> ASK RABBI PAGE <<<-----------*/
 
 .tffaq-search {
