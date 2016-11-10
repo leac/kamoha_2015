@@ -416,27 +416,33 @@ body#tinymce.wp-editor .response .response-header p{
     color: #3370b1;
 }
 
-.shabatot-summary strong{
-    padding: 0 1rem;
-    margin-left: 0.5rem;
+.post-30791,
+.post-31937,
+.post-31935,
+.post-31933,
+.post-31929,
+.post-31927,
+.post-31923,
+.post-31919,
+.post-31915,
+.post-31905{
+    background: url('images/crumpled_paper.jpg');
+}
+body#tinymce.wp-editor.post-30791 h3,
+body#tinymce.wp-editor.post-30791 h3,
+body#tinymce.wp-editor.post-31937 h3,
+body#tinymce.wp-editor.post-31935 h3,
+body#tinymce.wp-editor.post-31933 h3,
+body#tinymce.wp-editor.post-31929 h3,
+body#tinymce.wp-editor.post-31927 h3,
+body#tinymce.wp-editor.post-31923 h3,
+body#tinymce.wp-editor.post-31919 h3,
+body#tinymce.wp-editor.post-31915 h3,
+body#tinymce.wp-editor.post-31905 h3{
+    background-color: #3370b1;
+    padding: 0.5rem 3rem;
+    margin-bottom: 1rem;
     border-radius: 1rem;
     color: #fff;
-}
-.shabatot-summary p:nth-child(1) strong{
-    background-color: #f47e3b;
-}
-.shabatot-summary p:nth-child(2) strong{
-    background-color: #fdb827;
-}
-.shabatot-summary p:nth-child(3) strong{
-    background-color: #457dc0;
-}
-.shabatot-summary p:nth-child(4) strong{
-    background-color: #01b8d9;
-}
-.shabatot-summary p:nth-child(5) strong{
-    background-color: #00ab4e;
-}
-.shabatot-summary p:nth-child(6) strong{
-    background-color: #ee2869;
+    display: inline-block;
 }
