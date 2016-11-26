@@ -355,9 +355,13 @@ body#tinymce.wp-editor ol + br{
     background-color: #eaf1f8;
     box-shadow: 1px 1px 0px 0 #3370b1;
 }
-.response{
+.response,
+.response-inline{
     background-color: #f1e5f0;
     box-shadow: 1px 1px 0 0 #73026e;
+}
+.response-inline {
+    box-shadow: none;
 }
 
 /* make response close to letter*/
@@ -376,11 +380,15 @@ body#tinymce.wp-editor ol + br{
     background-color: #3370b1;
     color: #eaf1f8;
 }
-.response .response-header{
+.response .response-header,
+.response-inline .response-header-inline{
     background-color: #73026e;
     color: #f1e5f0;
     font-weight: bold;
     padding-right: 3rem;
+}
+.response-inline .response-header-inline{
+    padding: 0;
 }
 body#tinymce.wp-editor .letter .feedback-header p,
 body#tinymce.wp-editor .response .response-header p{
@@ -438,7 +446,8 @@ body#tinymce.wp-editor.post-31927 h3,
 body#tinymce.wp-editor.post-31923 h3,
 body#tinymce.wp-editor.post-31919 h3,
 body#tinymce.wp-editor.post-31915 h3,
-body#tinymce.wp-editor.post-31905 h3{
+body#tinymce.wp-editor.post-31905 h3,
+body#tinymce.wp-editor.post-30808 h3{
     background-color: #3370b1;
     padding: 0.5rem 3rem;
     margin-bottom: 1rem;
@@ -446,3 +455,57 @@ body#tinymce.wp-editor.post-31905 h3{
     color: #fff;
     display: inline-block;
 }
+body#tinymce.wp-editor .circle-list{
+    counter-reset: list-counter;
+    list-style: none;
+}
+.circle-list li:before{
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: .5rem solid #fff;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1;
+    vertical-align: middle;
+    box-shadow: 1px 1px 1px #000;
+}
+.circle-list li:nth-child(odd):before{
+    background-color: #73026e;
+}
+.circle-list li:nth-child(even):before{
+    background-color: #3370b1;
+}
+/*.circle-list li:nth-child(9n+1):before{
+    background-color: #457dc0;
+}
+.circle-list li:nth-child(9n+2):before{
+    background-color: #00aa9e;
+}
+.circle-list li:nth-child(9n+3):before{
+    background-color: #9a9ece;
+}
+.circle-list li:nth-child(9n+4):before{
+    background-color: #01b8d9;
+}
+.circle-list li:nth-child(9n+5):before{
+    background-color: #c65ea4;
+}
+.circle-list li:nth-child(9n+6):before{
+    background-color: #ee2869;
+}
+.circle-list li:nth-child(9n+7):before{
+    background-color: #f47e3b;
+}
+.circle-list li:nth-child(9n+8):before{
+    background-color: #fdb827;
+}
+.circle-list li:nth-child(9n+9):before{
+    background-color: #00ab4e;
+}*/
