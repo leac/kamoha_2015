@@ -2420,12 +2420,13 @@ body:not(.page-id-15263) .entry-content {
 }
 
 .circle-list{
-    counter-reset: list-counter;
+    /*counter-reset: list-counter;*/
     list-style: none;
 }
 .circle-list li:before{
-    content: counter(list-counter);
-    counter-increment: list-counter;
+    /*    content: counter(list-counter);
+        counter-increment: list-counter;*/
+    content: "";
     width: 3rem;
     height: 3rem;
     border-radius: 50%;

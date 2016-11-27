@@ -456,12 +456,13 @@ body#tinymce.wp-editor.post-30808 h3{
     display: inline-block;
 }
 body#tinymce.wp-editor .circle-list{
-    counter-reset: list-counter;
+    /*counter-reset: list-counter;*/
     list-style: none;
 }
 .circle-list li:before{
-    content: counter(list-counter);
-    counter-increment: list-counter;
+    /*    content: counter(list-counter);
+        counter-increment: list-counter;*/
+    content: "";
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
