@@ -2410,7 +2410,7 @@ body:not(.page-id-15263) .entry-content {
 .postid-31919 .entry-content h3,
 .postid-31915 .entry-content h3,
 .postid-31905 .entry-content h3,
-.postid-30808 .entry-content h3{
+.entry-content .feedback_question{
     background-color: #3370b1;
     padding: 0.5rem 3rem;
     margin-bottom: 1rem;
@@ -2422,6 +2422,9 @@ body:not(.page-id-15263) .entry-content {
 .circle-list{
     /*counter-reset: list-counter;*/
     list-style: none;
+}
+.rtl .circle-list{
+    margin-right: 3rem;
 }
 .circle-list li:before{
     /*    content: counter(list-counter);

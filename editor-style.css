@@ -447,7 +447,7 @@ body#tinymce.wp-editor.post-31923 h3,
 body#tinymce.wp-editor.post-31919 h3,
 body#tinymce.wp-editor.post-31915 h3,
 body#tinymce.wp-editor.post-31905 h3,
-body#tinymce.wp-editor.post-30808 h3{
+body#tinymce.wp-editor .feedback_question{
     background-color: #3370b1;
     padding: 0.5rem 3rem;
     margin-bottom: 1rem;
