@@ -463,8 +463,8 @@ body#tinymce.wp-editor .circle-list{
     /*    content: counter(list-counter);
         counter-increment: list-counter;*/
     content: "";
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     border: .5rem solid #fff;
     background-color: #000;
@@ -476,6 +476,7 @@ body#tinymce.wp-editor .circle-list{
     line-height: 1;
     vertical-align: middle;
     box-shadow: 1px 1px 1px #000;
+    margin-left: 1rem;
 }
 .circle-list li:nth-child(odd):before{
     background-color: #73026e;
