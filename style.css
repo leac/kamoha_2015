@@ -1536,7 +1536,7 @@ where the wrapper gets the show because blogs and issue's wrapper is much bigger
     padding: 1.5rem 1rem;
     font-size: 1.4rem;
 }
-.news_flash li:nth-child(odd) {
+.news_flash .news_content > ul > li:nth-child(odd) {
     background-color: #efefef;
 }
 /*since we run autop on the content, we have to change the deifinitions of p in this context*/
@@ -3215,6 +3215,30 @@ object {
     height: 100%;
 }
 
+/* H5P RTL styles */
+.rtl .h5p-multichoice .h5p-alternative-container{
+	text-align: right;
+	padding: 0.25em 2.1em 0.25em 0.75em;
+}
+.rtl .h5p-multichoice .h5p-answer .h5p-alternative-container::before{
+    left: auto;
+    right: 2.5em;
+}
+.rtl .h5p-alternative-inner{
+	margin: 0 2em 0 1.5em;
+}
+.rtl .h5p-joubelui-score-bar{
+	margin-right:0;
+	margin-left: 0.5em;
+}
+.rtl .h5p-multichoice .h5p-answer-icon{
+	right: auto;
+	left: 0.75em;
+}
+.rtl .h5p-joubelui-button::before{
+    padding-right: 0;
+    padding-left: 0.5em;
+}
 /*--------------------------------------------------------------
 14.0 Media Queries - max-width should be ordered in descending order of width; min-width should be ordered in ascending order
 --------------------------------------------------------------*/
