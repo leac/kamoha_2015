@@ -100,33 +100,6 @@ function kamoha_setup_more() {
 
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
 
-/**
- * Add to extended_valid_elements for TinyMCE 
- * Prevents TinyMCE from stripping some attribute (such as the onclick) from the input element
- * @param $init assoc. array of TinyMCE options 
- * @return $init the changed assoc. array 
- */
-function change_mce_options( $init ) {
-    //code that adds additional attributes to the input tag. Needed for join form which has onchange attribute
-    $ext = 'input[id|name|class|style|onclick|type|value|onchange|disabled|src]';
-
-    //if extended_valid_elements alreay exists, add to it  
-    //otherwise, set the extended_valid_elements to $ext  
-    if ( isset( $init['extended_valid_elements'] ) ) {
-        $init['extended_valid_elements'] .= ',' . $ext;
-    } else {
-        $init['extended_valid_elements'] = $ext;
-    }
-
-    //important: return $init!  
-    return $init;
-}
-
-/*
- * Grants access to the TinyMCE settings array
- *  */
-add_filter( 'tiny_mce_before_init', 'change_mce_options' );
-
 
 /* * *********************************************** */
 /* * **************  Admin functions *************** */
