@@ -771,12 +771,11 @@ function kamoha_show_movie_icon() {
 
 /**
  * Get all posts of type $post_type
- * @param type $post_type
  * @return html - a list of all posts contents (without title)
  */
-function kamoha_get_custom_post_type( $post_type ) {
+function kamoha_get_newsflash() {
     $ret = '';
-    $args = array('post_type' => $post_type);
+    $args = array('post_type' => 'kamoha_newsflash');
     $posts_secondary = new WP_Query( $args );
     if ( $posts_secondary->have_posts() ) {
         $ret .= '<ul>';
@@ -960,7 +959,7 @@ function kamoha_show_post_one_cat() {
     if ( $curr_cat && kamoha_categorized_blog() ) {
         ?>
         <span class="cat-links <?php
-        /* Lea 09/16 - add 'cat-blogs' class to blogs category too */
+              /* Lea 09/16 - add 'cat-blogs' class to blogs category too */
               if ( $curr_cat->cat_ID == BLOGS_CAT || $curr_cat->parent == BLOGS_CAT || cat_is_ancestor_of( BLOGS_CAT, $curr_cat->cat_ID ) ) {
                   echo 'cat-blogs';
               } elseif ( $curr_cat->parent == ISSUES_CAT ) {
