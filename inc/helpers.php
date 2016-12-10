@@ -101,26 +101,6 @@ function kamoha_setup_more() {
 add_action( 'after_setup_theme', 'kamoha_setup_more' );
 
 /**
- * Create custom post type for newsflash on sidebar
- */
-function kamoha_init_theme() {
-    /* Create News Flash post type */
-    register_post_type( 'kamoha_newsflash', array(
-        'labels' => array(
-            'name' => __( 'News Flashes', 'kamoha' ),
-            'singular_name' => __( 'News Flash', 'kamoha' )
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'supports' => array('title', 'editor', 'post-formats', 'thumbnail'),
-        'exclude_from_search' => true // Lea 2015/03 - we don't want newsflash posts appearing in search results
-            )
-    );
-}
-
-add_action( 'init', 'kamoha_init_theme' );
-
-/**
  * Add to extended_valid_elements for TinyMCE 
  * Prevents TinyMCE from stripping some attribute (such as the onclick) from the input element
  * @param $init assoc. array of TinyMCE options 
