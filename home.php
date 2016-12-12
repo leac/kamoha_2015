@@ -75,7 +75,7 @@ $do_not_duplicate = array();
 
 
                 <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them     ?>
-                <div id="morePosts" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
+                <div id="morePosts" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha_2015' ) ?> </div>
             </div>
 
 
@@ -100,7 +100,7 @@ $do_not_duplicate = array();
                         ?>
                         <section class="blog_posts clear">
                             <h3 class="category_title">
-                                <span class="blogs_sub_title"><?php _e( 'blog', 'kamoha' ) ?></span>
+                                <span class="blogs_sub_title"><?php _e( 'blog', 'kamoha_2015' ) ?></span>
                                 <a href="<?php echo get_category_link( $blog->term_id ) ?>"><?php echo $blog->name ?></a>
                             </h3>
                             <?php
@@ -144,7 +144,7 @@ $do_not_duplicate = array();
                         ?>
                         <section class="blog_posts clear">
                             <h3 class="category_title">
-                                <span class="blogs_sub_title"><?php _e( 'issue', 'kamoha' ) ?></span>
+                                <span class="blogs_sub_title"><?php _e( 'issue', 'kamoha_2015' ) ?></span>
                                 <a href="<?php echo get_category_link( $issue->term_id ) ?>"><?php echo $issue->name ?></a>
                             </h3>
                             <?php
@@ -221,7 +221,7 @@ $do_not_duplicate = array();
                     ?>
                     <div class="tab">
                         <input type="radio" id="tab-1" name="tab-group-1" checked>
-                        <label for="tab-1"><?php _e( 'Popular Posts Monthly', 'kamoha' ); ?></label>
+                        <label for="tab-1"><?php _e( 'Popular Posts Monthly', 'kamoha_2015' ); ?></label>
                         <div class="tab_content tab-bounceInRight">
                             <?php
                             /* prepare args for wpp_get_mostpopular:
@@ -247,7 +247,7 @@ $do_not_duplicate = array();
                     <div class="tab">
                         <?php // show most viewed posts in past month          ?>
                         <input type="radio" id="tab-2" name="tab-group-1">
-                        <label for="tab-2"><?php _e( 'Popular Posts Ever', 'kamoha' ); ?></label>
+                        <label for="tab-2"><?php _e( 'Popular Posts Ever', 'kamoha_2015' ); ?></label>
                         <div class="tab_content tab-bounceInRight">
                             <?php
                             // use same args as most popular, just change "all" to "monthly"
@@ -260,7 +260,7 @@ $do_not_duplicate = array();
 
                 <div class="tab">
                     <input type="radio" id="tab-3" name="tab-group-1">
-                    <label for="tab-3"><?php _e( 'Commented Posts', 'kamoha' ) ?></label>
+                    <label for="tab-3"><?php _e( 'Commented Posts', 'kamoha_2015' ) ?></label>
                     <?php
                     // show most commented posts
                     $comment_args = 'orderby=comment_count&posts_per_page=4&no_found_rows=true&ignore_sticky_posts=1';
