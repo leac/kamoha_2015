@@ -15,10 +15,10 @@
         <?php the_content(); ?>
         <?php
         wp_link_pages( array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha' ),
+            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha_2015' ),
             'after' => '</div>',
         ) );
         ?>
     </div><!-- .entry-content -->
-    <?php edit_post_link( __( 'Edit', 'kamoha' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+    <?php edit_post_link( __( 'Edit', 'kamoha_2015' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
 </article><!-- #post-## -->

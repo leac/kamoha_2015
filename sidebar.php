@@ -22,7 +22,7 @@
     <?php /*     * ***************** News & Countdown watch *************************** */ ?>
     <?php if ( ! is_single() && ! is_404() ) { ?>
         <aside class="news_flash">
-            <h3 class="aside_title"><?php _e( 'newsflash', 'kamoha' ) ?></h3>
+            <h3 class="aside_title"><?php _e( 'newsflash', 'kamoha_2015' ) ?></h3>
             <section class="aside_content">
                 <?php echo kamoha_get_newsflash(); ?>
             </section>
@@ -44,7 +44,7 @@
     <?php /*     * ***************** Ask Rabbi Link *************************** */ ?>
     <?php if ( ! is_single() && ! is_404() ) { ?>
         <aside class="ask_rabbi_link kamoha_btn">
-            <a href="<?php echo get_page_link( ASK_RABBI_PAGE ) ?>"><?php _e( 'ask rabbi', 'kamoha' ) ?></a>
+            <a href="<?php echo get_page_link( ASK_RABBI_PAGE ) ?>"><?php _e( 'ask rabbi', 'kamoha_2015' ) ?></a>
         </aside>
     <?php } ?>
 
@@ -52,7 +52,7 @@
     <?php /*     * ***************** Facebook Link *************************** */ ?>
     <?php if ( ! is_single() && ! is_404() ) { ?>
         <aside class="facebook_link kamoha_btn">
-            <a href="<?php echo FACEBOOK_LINK ?>"><?php _e( 'our facebook', 'kamoha' ) ?></a>
+            <a href="<?php echo FACEBOOK_LINK ?>"><?php _e( 'our facebook', 'kamoha_2015' ) ?></a>
         </aside>
     <?php } ?>
 
@@ -60,7 +60,7 @@
     <?php /*     * ***************** Calendar, Next meetings  *************************** */ ?>
 
     <aside class="events_box" id="events_box"> <?php // use id as anchor for next and previous month links   ?>
-        <h3 class="aside_title"><?php _e( 'Events and meetings', 'kamoha' ) ?></h3>
+        <h3 class="aside_title"><?php _e( 'Events and meetings', 'kamoha_2015' ) ?></h3>
 
 
 
@@ -99,7 +99,7 @@
     <?php /*     * ***************** Tags  *************************** */ ?>
     <?php if ( ! is_single() && ! is_404() ) { ?>
         <aside class="widget tags_widget">
-            <h3 class="aside_title"><?php _e( 'chosen tags', 'kamoha' ) ?></h3>
+            <h3 class="aside_title"><?php _e( 'chosen tags', 'kamoha_2015' ) ?></h3>
             <section class="aside_content">
                 <?php
                 $args = array(

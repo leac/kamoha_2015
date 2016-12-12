@@ -31,7 +31,7 @@
         <?php the_content(); ?>
         <?php
         wp_link_pages( array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha' ),
+            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha_2015' ),
             'after' => '</div>',
         ) );
         ?>
@@ -43,16 +43,16 @@
         <div class="entry-tags">
             <?php
             /* translators: used between list items, there is a space after the comma */
-            $tag_list = get_the_tag_list( '', __( ', ', 'kamoha' ) );
+            $tag_list = get_the_tag_list( '', __( ', ', 'kamoha_2015' ) );
 
             if ( '' != $tag_list ) {
                 printf(
-                        __( 'This entry was tagged %1$s.', 'kamoha' ), $tag_list
+                        __( 'This entry was tagged %1$s.', 'kamoha_2015' ), $tag_list
                 );
             }
             ?>
 
-            <?php edit_post_link( __( 'Edit', 'kamoha' ), '<span class="edit-link">', '</span>' ); ?>
+            <?php edit_post_link( __( 'Edit', 'kamoha_2015' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
 
         <?php

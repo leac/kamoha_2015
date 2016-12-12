@@ -25,7 +25,7 @@ function kamoha_comments_widget() {
 
     $output = '';
 
-    $title = __('Recent Comments', 'kamoha');
+    $title = __('Recent Comments', 'kamoha_2015');
     $before_title = '<h3 class="aside_title">';
     $after_title = '</h3>';
     $number = 5;
@@ -44,11 +44,11 @@ function kamoha_comments_widget() {
 
         foreach ((array) $comments as $comment) {
             $hellip = mb_strlen(strip_tags($comment->comment_content)) > $max_chars_content ? '&hellip;' : '';
-            $comment_author = $comment->comment_author == '' ? __('anonymous user', 'kamoha') : strip_tags($comment->comment_author);
+            $comment_author = $comment->comment_author == '' ? __('anonymous user', 'kamoha_2015') : strip_tags($comment->comment_author);
             $output .= '<li class="recentcomments">' .
                     '<a href="' . get_permalink($comment->comment_post_ID) . '#comment-' . $comment->comment_ID . '">' .
                     '<span class="comment_name">' . $comment_author . ' </span>' .
-                    ' ' . __('about', 'kamoha') . ' ' .
+                    ' ' . __('about', 'kamoha_2015') . ' ' .
                     '<span class="comment_post_name">' . get_the_title($comment->comment_post_ID) . '</span>: ' .
                     '<span class="comment_content">' . mb_substr(strip_tags($comment->comment_content), 0, $max_chars_content) . $hellip . '</span>' .
                     '<div class="comment_date">' . get_hebrew_date(get_comment_date('m'), get_comment_date('d'), get_comment_date('Y')) . ', ' . get_comment_date() . '</div>' .
@@ -57,7 +57,7 @@ function kamoha_comments_widget() {
         }
     }
     $output .= '</ul>';
-    $output .= '<div id="moreComments" class="toOpen showMore">' . __('Load more', 'kamoha') . ' </div>';
+    $output .= '<div id="moreComments" class="toOpen showMore">' . __('Load more', 'kamoha_2015') . ' </div>';
     $output .= '</section>';
 
     echo $output;
@@ -87,22 +87,22 @@ function kamoha_comment($comment, $args, $depth) {
         <article id="div-comment-<?php comment_ID(); ?>" class="comment-body clear">
             <footer class="comment-meta">
                 <div class="comment-author vcard">
-                    <?php printf(__('%s <span class="says">says:</span>', 'kamoha'), sprintf('<b class="fn">%s</b>', get_comment_author_link())); ?>
+                    <?php printf(__('%s <span class="says">says:</span>', 'kamoha_2015'), sprintf('<b class="fn">%s</b>', get_comment_author_link())); ?>
                 </div><!-- .comment-author -->
 
                 <div class="comment-metadata">
                     <a href="<?php echo esc_url(get_comment_link($comment->comment_ID, $args)); ?>">
                         <time datetime="<?php comment_time('c'); ?>">
-                            <?php printf(_x('%1$s, %2$s at %3$s', '1: hewbrewdate, 2: date, 3:time', 'kamoha'), get_hebrew_date(get_comment_date('m'), get_comment_date('d'), get_comment_date('Y')), get_comment_date(), get_comment_time()); ?>
+                            <?php printf(_x('%1$s, %2$s at %3$s', '1: hewbrewdate, 2: date, 3:time', 'kamoha_2015'), get_hebrew_date(get_comment_date('m'), get_comment_date('d'), get_comment_date('Y')), get_comment_date(), get_comment_time()); ?>
                         </time>
                     </a>
 
 
-                    <?php edit_comment_link(__('Edit', 'kamoha'), '<span class="edit-link">', '</span>'); ?>
+                    <?php edit_comment_link(__('Edit', 'kamoha_2015'), '<span class="edit-link">', '</span>'); ?>
                 </div><!-- .comment-metadata -->
 
                 <?php if ('0' == $comment->comment_approved) : ?>
-                    <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'kamoha'); ?></p>
+                    <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'kamoha_2015'); ?></p>
                 <?php endif; ?>
             </footer><!-- .comment-meta -->
             <!-- commenter img -->

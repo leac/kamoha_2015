@@ -118,7 +118,7 @@ if ( ! function_exists( 'admin_thumb_column' ) ) {
      * @return type
      */
     function admin_thumb_column( $cols ) {
-        $cols['thumbnail'] = __( 'Thumbnail', 'kamoha' );
+        $cols['thumbnail'] = __( 'Thumbnail', 'kamoha_2015' );
         return $cols;
     }
 
@@ -150,7 +150,7 @@ if ( ! function_exists( 'admin_thumb_column' ) ) {
                 echo $thumb;
             } else {
 
-                echo __( 'None', 'kamoha' );
+                echo __( 'None', 'kamoha_2015' );
             }
         }
     }
@@ -283,23 +283,23 @@ function kamoha_register_required_plugins() {
         'is_automatic' => false, // Automatically activate plugins after installation or not.
         'message' => '', // Message to output right before the plugins table.
         'strings' => array(
-            'page_title' => __( 'Install Required Plugins', 'tgmpa' ),
-            'menu_title' => __( 'Install Plugins', 'tgmpa' ),
-            'installing' => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-            'oops' => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-            'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-            'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-            'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-            'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-            'return' => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-            'plugin_activated' => __( 'Plugin activated successfully.', 'tgmpa' ),
-            'complete' => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
+            'page_title' => __( 'Install Required Plugins', 'kamoha_2015' ),
+            'menu_title' => __( 'Install Plugins', 'kamoha_2015' ),
+            'installing' => __( 'Installing Plugin: %s', 'kamoha_2015' ), // %s = plugin name.
+            'oops' => __( 'Something went wrong with the plugin API.', 'kamoha_2015' ),
+            'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'kamoha_2015' ), // %1$s = plugin name(s).
+            'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'kamoha_2015' ),
+            'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'kamoha_2015' ),
+            'return' => __( 'Return to Required Plugins Installer', 'kamoha_2015' ),
+            'plugin_activated' => __( 'Plugin activated successfully.', 'kamoha_2015' ),
+            'complete' => __( 'All plugins installed and activated successfully. %s', 'kamoha_2015' ), // %s = dashboard link.
             'nag_type' => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
         )
     );
@@ -314,7 +314,7 @@ function kamoha_register_required_plugins() {
 if ( class_exists( 'MultiPostThumbnails' ) ) {
     new MultiPostThumbnails(
             array(
-        'label' => __( 'Secondary Image', 'kamoha' ),
+        'label' => __( 'Secondary Image', 'kamoha_2015' ),
         'id' => 'secondary-image',
         'post_type' => 'post'
             )
@@ -353,7 +353,7 @@ function kamoha_gallery_shortcode( $atts ) {
 function kamoha_customize_register_func( $wp_customize ) {
     /* Create a section - holiday header */
     $wp_customize->add_section( 'holiday_header_changer', array(
-        'title' => __( 'Holiday Header', 'kamoha' ),
+        'title' => __( 'Holiday Header', 'kamoha_2015' ),
         'priority' => 25,
     ) );
 
@@ -364,36 +364,36 @@ function kamoha_customize_register_func( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'holiday_header', array(
-        'label' => stripslashes( __( 'choose holiday', 'kamoha' ) ),
+        'label' => stripslashes( __( 'choose holiday', 'kamoha_2015' ) ),
         'section' => 'holiday_header_changer',
         'type' => 'radio',
         'choices' => array(
-            'regular' => __( 'regular', 'kamoha' ),
-            'rosh_hashana' => __( 'rosh hashana', 'kamoha' ),
-            'yom_kipur' => __( 'yom kipur', 'kamoha' ),
-            'sukot' => __( 'sukot', 'kamoha' ),
-            'birthday_5_blue' => __( 'birthday - blue', 'kamoha' ),
-            'birthday_5_purple' => __( 'birthday - purple', 'kamoha' ),
-            'birthday_5_tubishvat' => __( 'birthday - tu bishvat', 'kamoha' ),
-            'trip_during' => __( 'trip during registration', 'kamoha' ),
-            'trip_before_close' => __( 'trip before close', 'kamoha' ),
-            'trip_after_close' => __( 'trip after close', 'kamoha' ),
-            'shabbat_early' => __( 'shabbat early', 'kamoha' ),
-            'shabbat_before_close' => __( 'shabbat before close', 'kamoha' ),
-            'shabbat_before_close_urban' => __( 'shabbat before close urban', 'kamoha' ),
-            'shabbat_after_close' => __( 'shabbat after close', 'kamoha' ),
-            'hanuka' => __( 'hanuka', 'kamoha' ),
-            'purim' => __( 'purim', 'kamoha' ),
-            'pesah' => __( 'pesah', 'kamoha' ),
-            'shoa' => __( 'shoa', 'kamoha' ),
-            'memorial' => __( 'memorial', 'kamoha' ),
-            'independence' => __( 'independence', 'kamoha' ),
-            'jerusalem' => __( 'jerusalem', 'kamoha' ),
-            'shavuot' => __( 'shavuot', 'kamoha' ),
-            'tishabeav' => __( 'tishabeav', 'kamoha' ),
-            'birthday_4_baloons' => __( 'birthday - baloons', 'kamoha' ),
-            'birthday_4_flowers' => __( 'birthday - flowers', 'kamoha' ),
-            'birthday_4_ribbons' => __( 'birthday - ribbons', 'kamoha' ),
+            'regular' => __( 'regular', 'kamoha_2015' ),
+            'rosh_hashana' => __( 'rosh hashana', 'kamoha_2015' ),
+            'yom_kipur' => __( 'yom kipur', 'kamoha_2015' ),
+            'sukot' => __( 'sukot', 'kamoha_2015' ),
+            'birthday_5_blue' => __( 'birthday - blue', 'kamoha_2015' ),
+            'birthday_5_purple' => __( 'birthday - purple', 'kamoha_2015' ),
+            'birthday_5_tubishvat' => __( 'birthday - tu bishvat', 'kamoha_2015' ),
+            'trip_during' => __( 'trip during registration', 'kamoha_2015' ),
+            'trip_before_close' => __( 'trip before close', 'kamoha_2015' ),
+            'trip_after_close' => __( 'trip after close', 'kamoha_2015' ),
+            'shabbat_early' => __( 'shabbat early', 'kamoha_2015' ),
+            'shabbat_before_close' => __( 'shabbat before close', 'kamoha_2015' ),
+            'shabbat_before_close_urban' => __( 'shabbat before close urban', 'kamoha_2015' ),
+            'shabbat_after_close' => __( 'shabbat after close', 'kamoha_2015' ),
+            'hanuka' => __( 'hanuka', 'kamoha_2015' ),
+            'purim' => __( 'purim', 'kamoha_2015' ),
+            'pesah' => __( 'pesah', 'kamoha_2015' ),
+            'shoa' => __( 'shoa', 'kamoha_2015' ),
+            'memorial' => __( 'memorial', 'kamoha_2015' ),
+            'independence' => __( 'independence', 'kamoha_2015' ),
+            'jerusalem' => __( 'jerusalem', 'kamoha_2015' ),
+            'shavuot' => __( 'shavuot', 'kamoha_2015' ),
+            'tishabeav' => __( 'tishabeav', 'kamoha_2015' ),
+            'birthday_4_baloons' => __( 'birthday - baloons', 'kamoha_2015' ),
+            'birthday_4_flowers' => __( 'birthday - flowers', 'kamoha_2015' ),
+            'birthday_4_ribbons' => __( 'birthday - ribbons', 'kamoha_2015' ),
         ),
     ) );
 }
@@ -841,9 +841,9 @@ function kamoha_event_list() {
     ?>
     </ul>
     <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                    ?>
-    <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha' ) ?> </div>
+    <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha_2015' ) ?> </div>
 
-    <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha' ) ?> > </a>
+    <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha_2015' ) ?> > </a>
     <?php
 }
 
@@ -989,7 +989,7 @@ function kamoha_get_facebook_page_description() {
     }
 
     if ( $_SERVER["REQUEST_URI"] == "/" ) {
-        $ret = __( 'homepage_description', 'kamoha' ); //"כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
+        $ret = __( 'homepage_description', 'kamoha_2015' ); //"כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
         //$ret = "כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה.";
     } else if ( isset( $desc ) ) {
         $ret = htmlentities( $desc, ENT_QUOTES, "UTF-8" );

@@ -24,7 +24,7 @@ get_header();
                         single_tag_title();
 
                     else :
-                        _e( 'Archives', 'kamoha' );
+                        _e( 'Archives', 'kamoha_2015' );
 
                     endif;
                     ?>
