@@ -64,16 +64,19 @@ if ( ! function_exists( 'kamoha_setup' ) ) :
 endif; // kamoha_setup
 add_action( 'after_setup_theme', 'kamoha_setup' );
 
-if ( ! function_exists( '_wp_render_title_tag' ) ) {
+/**
+ * Only site name should appear in title tag, without site desription
+ */
+add_filter( 'pre_get_document_title', function( $title ) {
 
-    function kamoha_render_title() {
-        ?>
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
-        <?php
+    if ( is_home() || is_front_page() ) {
+
+        // Return blog title on front page
+        $title = get_bloginfo( 'name' );
     }
 
-    add_action( 'wp_head', 'kamoha_render_title' );
-}
+    return $title;
+} );
 
 /**
  * Register widgetized area and update sidebar with default widgets.
