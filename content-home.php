@@ -54,8 +54,8 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
                 <?php if ( $kamoha_homepage_part == KamohaHomepagePart::Sticky || $kamoha_homepage_part == KamohaHomepagePart::Newest ) { ?>
                     <?php
                     /* translators: used between list items, there is a space after the comma */
-                    /* $categories_list = get_the_category_list ( __ ( ', ', 'kamoha' ) );
-                      printf ( __ ( '%1$s', 'kamoha' ), $categories_list ); */
+                    /* $categories_list = get_the_category_list ( __ ( ', ', 'kamoha_2015' ) );
+                      printf ( __ ( '%1$s', 'kamoha_2015' ), $categories_list ); */
                     kamoha_show_post_one_cat();
                     ?>
 
@@ -74,7 +74,7 @@ $kamoha_blog_post_index, $issue_post_index, $kamoha_sticky_exists, $kamoha_lates
 
             <?php endif; // End if 'post' == get_post_type()     ?>
 
-            <?php //edit_post_link( __( 'Edit', 'kamoha' ), '<span class="edit-link">', '</span>' );          ?>
+            <?php //edit_post_link( __( 'Edit', 'kamoha_2015' ), '<span class="edit-link">', '</span>' );          ?>
         </footer><!-- .entry-meta -->
     </section>
 </article><!-- #post-## -->

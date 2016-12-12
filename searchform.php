@@ -4,18 +4,18 @@ if ( 'html5' == $format ) {
     ?>
     <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ) ?>">
         <label>
-            <span class="screen-reader-text"><?php _x( 'Search for:', 'label', 'kamoha' ) ?> </span>
-            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'kamoha' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php esc_attr_x( 'Search for:', 'label', 'kamoha' ) ?>" />
+            <span class="screen-reader-text"><?php _x( 'Search for:', 'label', 'kamoha_2015' ) ?> </span>
+            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'kamoha_2015' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php esc_attr_x( 'Search for:', 'label', 'kamoha_2015' ) ?>" />
         </label>
-        <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'kamoha' ) ?>" />
+        <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'kamoha_2015' ) ?>" />
         <!-- &#58883; -->
     </form>
 <?php } else { ?>
     <form role="search" method="get" id="searchform" class="searchform" action="<?php esc_url( home_url( '/' ) ) ?>">
         <div>
-            <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label', 'kamoha' ) ?></label>
+            <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label', 'kamoha_2015' ) ?></label>
             <input type="text" value="<?php get_search_query() ?>" name="s" id="s" />
-            <input type="submit" id="searchsubmit" value="<?php esc_attr_x( 'Search', 'submit button' ) ?>" />
+            <input type="submit" id="searchsubmit" value="<?php esc_attr_x( 'Search', 'submit button', 'kamoha_2015' ) ?>" />
         </div>
     </form>
 <?php } ?>

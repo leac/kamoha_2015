@@ -26,9 +26,9 @@ if ( ! function_exists( 'kamoha_setup' ) ) :
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
          * If you're building a theme based on kamoha, use a find and replace
-         * to change 'kamoha' to the name of your theme in all the template files
+         * to change 'kamoha_2015' to the name of your theme in all the template files
          */
-        load_theme_textdomain( 'kamoha', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'kamoha_2015', get_template_directory() . '/languages' );
 
 // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -42,10 +42,10 @@ if ( ! function_exists( 'kamoha_setup' ) ) :
 
 // This theme uses wp_nav_menu() in two locations.
         register_nav_menus( array(
-            'primary' => __( 'Primary Menu', 'kamoha' ),
-            'secondary' => __( 'Secondary Navigation', 'kamoha' ), /* Lea - 02/2014 - add another menu */
-            'footor_logged_out' => __( 'Footer Logged Out', 'kamoha' ), /* Lea - 02/2016 - add another menu */
-            'footor_logged_in' => __( 'Footer Logged In', 'kamoha' ), /* Lea - 02/2016 - add another menu */
+            'primary' => __( 'Primary Menu', 'kamoha_2015' ),
+            'secondary' => __( 'Secondary Navigation', 'kamoha_2015' ), /* Lea - 02/2014 - add another menu */
+            'footor_logged_out' => __( 'Footer Logged Out', 'kamoha_2015' ), /* Lea - 02/2016 - add another menu */
+            'footor_logged_in' => __( 'Footer Logged In', 'kamoha_2015' ), /* Lea - 02/2016 - add another menu */
         ) );
 
 
@@ -83,7 +83,7 @@ add_filter( 'pre_get_document_title', function( $title ) {
  */
 function kamoha_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Countdown Sidebar', 'kamoha' ), /* (Lea 2014/05) - change sidebar name */
+        'name' => __( 'Countdown Sidebar', 'kamoha_2015' ), /* (Lea 2014/05) - change sidebar name */
         'id' => 'sidebar-countdown',
         'before_widget' => '<section id="%1$s" class="aside_content %2$s">',
         'after_widget' => '</section>',
@@ -91,7 +91,7 @@ function kamoha_widgets_init() {
         'after_title' => '</h4>',
     ) );
     register_sidebar( array(
-        'name' => __( 'Related Posts Sidebar', 'kamoha' ), /* (Lea 2014/07) - add sidebar for single page */
+        'name' => __( 'Related Posts Sidebar', 'kamoha_2015' ), /* (Lea 2014/07) - add sidebar for single page */
         'id' => 'sidebar-related-posts',
         'before_widget' => '<section id="%1$s" class="aside_content %2$s">',
         'after_widget' => '</section>',
@@ -169,8 +169,8 @@ function kamoha_scripts() {
 
         /* get strings from language files, adn put them into javascript variables */
         $params = array(
-            'sLoadPosts' => __( "Load more", "kamoha" ),
-            'sUnloadPosts' => __( 'Unload more', 'kamoha' ),
+            'sLoadPosts' => __( "Load more", "kamoha_2015" ),
+            'sUnloadPosts' => __( 'Unload more', 'kamoha_2015' ),
         );
 
         /* Create inline definitions of these vars, for use in the script.js file */
@@ -215,7 +215,7 @@ function kamoha_fonts_url() {
      * supported by Lora, translate this to 'off'. Do not translate
      * into your own language.
      */
-    $alef = _x( 'on', 'Alef font: on or off', 'kamoha' );
+    $alef = _x( 'on', 'Alef font: on or off', 'kamoha_2015' );
 
     if ( 'off' !== $alef ) {
 

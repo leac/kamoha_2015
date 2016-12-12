@@ -39,7 +39,7 @@
             <header id="masthead" class="site-header" role="banner">
                 <?php // nav is before site-branding, so that in lower resolutions it will get a row of its own above the logo  ?>
                 <nav id="site-navigation" class="main-navigation clear" role="navigation">
-                    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kamoha' ); ?></a>
+                    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kamoha_2015' ); ?></a>
 
                     <?php wp_nav_menu( array('theme_location' => 'primary', 'menu_class' => 'clear') ); ?>
                 </nav><!-- #site-navigation -->
@@ -50,7 +50,7 @@
                 <?php get_search_form(); ?>
 
                 <nav id="topics-navigation" class="topics-navigation" role="navigation">
-                    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kamoha' ); ?></a>
+                    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kamoha_2015' ); ?></a>
 
                     <?php wp_nav_menu( array('theme_location' => 'secondary', 'menu_class' => 'clear site_nav') ); ?>
                 </nav><!-- #site-navigation -->

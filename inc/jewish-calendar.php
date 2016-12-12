@@ -460,8 +460,8 @@ function kamoha_display_next_prev_links( $thismonth, $thisyear, $page_url ){
     $nexturl = add_query_arg( 'month', $nextyear . $nextmonth ) . '#events_box';
 
 // Prev/Next month buttons
-    echo '<span class="prev_next_links prevmonth"><a href="' . esc_url( $prevurl ) . '" class="ajax-link">&lt; ' . __( 'Previous month', 'kamoha' ) . ' </a></span>';
-    echo '<span class="prev_next_links nextmonth"><a href="' . esc_url( $nexturl ) . '" class="ajax-link">' . __( 'Next month', 'kamoha' ) . ' &gt; </a></span>';
+    echo '<span class="prev_next_links prevmonth"><a href="' . esc_url( $prevurl ) . '" class="ajax-link">&lt; ' . __( 'Previous month', 'kamoha_2015' ) . ' </a></span>';
+    echo '<span class="prev_next_links nextmonth"><a href="' . esc_url( $nexturl ) . '" class="ajax-link">' . __( 'Next month', 'kamoha_2015' ) . ' &gt; </a></span>';
 }
 
 function is_jewish_leap_year( $year ){

@@ -20,15 +20,15 @@ if ( !function_exists( 'kamoha_paging_nav' ) ) :
         }
         ?>
         <nav class="navigation paging-navigation" role="navigation">
-            <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kamoha' ); ?></h1>
+            <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kamoha_2015' ); ?></h1>
             <div class="nav-links">
 
                 <?php if ( get_next_posts_link() ) : ?>
-                    <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kamoha' ) ); ?></div>
+                    <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kamoha_2015' ) ); ?></div>
                 <?php endif; ?>
 
                 <?php if ( get_previous_posts_link() ) : ?>
-                    <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kamoha' ) ); ?></div>
+                    <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kamoha_2015' ) ); ?></div>
                 <?php endif; ?>
 
             </div><!-- .nav-links -->
@@ -55,11 +55,11 @@ if ( !function_exists( 'kamoha_post_nav' ) ) :
         }
         ?>
         <nav class="navigation post-navigation" role="navigation">
-            <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kamoha' ); ?></h1>
+            <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kamoha_2015' ); ?></h1>
             <div class="nav-links">
                 <?php
-                previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'kamoha' ) );
-                next_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'kamoha' ) );
+                previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'kamoha_2015' ) );
+                next_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'kamoha_2015' ) );
                 ?>
             </div><!-- .nav-links -->
         </nav><!-- .navigation -->
@@ -85,7 +85,7 @@ if ( !function_exists( 'kamoha_posted_on' ) ) :
 
         $time_string = sprintf( $time_string, esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() ), esc_attr( get_the_modified_date( 'c' ) ), esc_html( get_the_modified_date() ), $jew_date );
 
-        printf( __( '<span class="posted-on">%1$s</span>', 'kamoha' ), $time_string
+        printf( __( '<span class="posted-on">%1$s</span>', 'kamoha_2015' ), $time_string
         );
         /* (Lea 2014/06) - we don't need the author info */
     }
