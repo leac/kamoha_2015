@@ -6,7 +6,6 @@
  * - Init and setup functions
  * --   Define Constants
  * - Admin functions
- * --   Thumbnail column in the admin posts list
  * --   TGM_Plugin_Activation function
  * --   Put excerpt meta-box before editor
  * --   Add second featured image box to posts
@@ -102,65 +101,6 @@ add_action( 'after_setup_theme', 'kamoha_setup_more' );
 /* * *********************************************** */
 /* * **************  Admin functions *************** */
 /* * *********************************************** */
-
-/* -----------------------------------------
- * Thumb column
- * ----------------------------------------- */
-
-/* taken from http://wpengineer.com/1960/display-post-thumbnail-post-page-overview/ */
-if ( ! function_exists( 'admin_thumb_column' ) ) {
-
-    /**
-     * Adds a column in the admin posts list, to show posts thumbnails
-     * @param array $cols
-     * @return type
-     */
-    function admin_thumb_column( $cols ) {
-        $cols['thumbnail'] = __( 'Thumbnail', 'kamoha_2015' );
-        return $cols;
-    }
-
-    /**
-     * Shows the posts thumbnails in the thumbnail column added above
-     * @param type $column_name
-     * @param type $post_id
-     */
-    function admin_thumb_value( $column_name, $post_id ) {
-        $width = (int) 50;
-        $height = (int) 50;
-
-        if ( 'thumbnail' == $column_name ) {
-            // thumbnail of WP 2.9
-            $thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
-            // image from gallery
-            $attachments = get_children( array('post_parent' => $post_id, 'post_type' => 'attachment', 'post_mime_type' => 'image') );
-            if ( $thumbnail_id ) {
-                $thumb = wp_get_attachment_image( $thumbnail_id, array($width, $height), true );
-            } elseif ( $attachments ) {
-                foreach ( $attachments as $attachment_id => $attachment ) {
-                    $thumb = wp_get_attachment_image( $attachment_id, array($width, $height), true );
-                }
-            }
-
-
-
-            if ( isset( $thumb ) && $thumb ) {
-                echo $thumb;
-            } else {
-
-                echo __( 'None', 'kamoha_2015' );
-            }
-        }
-    }
-
-    // for posts
-    add_filter( 'manage_posts_columns', 'admin_thumb_column' );
-    add_action( 'manage_posts_custom_column', 'admin_thumb_value', 10, 2 );
-
-    // for pages
-    add_filter( 'manage_pages_columns', 'admin_thumb_column' );
-    add_action( 'manage_pages_custom_column', 'admin_thumb_value', 10, 2 );
-}
 
 /* -----------------------------------------
  * TGM_Plugin_Activation function
