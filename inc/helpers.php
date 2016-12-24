@@ -5,8 +5,6 @@
  * - Define Globals
  * - Init and setup functions
  * --   Define Constants
- * --   Create custom post type for newsflashe on sidebar
- * --   Add to extended_valid_elements for TinyMCE 
  * - Admin functions
  * --   Thumbnail column in the admin posts list
  * --   TGM_Plugin_Activation function
