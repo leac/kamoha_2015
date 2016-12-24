@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * The Sidebar.
  * It contains:
@@ -37,10 +37,6 @@
     <?php } ?>
 
 
-
-
-
-
     <?php /*     * ***************** Ask Rabbi Link *************************** */ ?>
     <?php if ( ! is_single() && ! is_404() ) { ?>
         <aside class="ask_rabbi_link kamoha_btn">
@@ -59,10 +55,8 @@
 
     <?php /*     * ***************** Calendar, Next meetings  *************************** */ ?>
 
-    <aside class="events_box" id="events_box"> <?php // use id as anchor for next and previous month links   ?>
+    <aside class="events_box" id="events_box"> <?php // use id as anchor for next and previous month links    ?>
         <h3 class="aside_title"><?php _e( 'Events and meetings', 'kamoha_2015' ) ?></h3>
-
-
 
 
         <?php // calendar ?>
@@ -71,16 +65,11 @@
         </section>
 
 
-
         <?php // events ?>
         <section class="aside_content events_block">
             <?php kamoha_event_list(); ?>
         </section><!-- events block -->
     </aside>
-
-
-
-
 
 
     <?php /*     * ***************** Latest comments  *************************** */ ?>
@@ -92,8 +81,6 @@
             ?>
         </aside>
     <?php } ?>
-
-
 
 
     <?php /*     * ***************** Tags  *************************** */ ?>
