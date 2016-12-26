@@ -2313,54 +2313,71 @@ body:not(.page-id-15263) .entry-content {
 
 /* --------->>> EDITOR FORMATS <<<----------- */
 .single .letter,
-.single .response{
+.single .response,
+.page .letter,
+.page .response{
     padding: 2rem 3rem;
     margin-bottom: 8rem;
     border-radius: .5rem;
 }
-.single .letter {
+.single .letter,
+.page .letter{
     background-color: #eaf1f8;
     box-shadow: 1px 1px 0px 0 #3370b1;
 }
 .single .response,
-.single .response-inline{
+.single .response-inline,
+.page .response,
+.page .response-inline{
     background-color: #f1e5f0;
     box-shadow: 1px 1px 0 0 #73026e;
 }
 /* make response close to letter*/
-.single .letter ~ .response{
+.single .letter ~ .response,
+.page .letter ~ .response{
     margin-top: -4rem;
 }
 .single .letter .feedback-header,
-.single .response .response-header{
+.single .response .response-header,
+.page .letter .feedback-header,
+.page .response .response-header{
     font-weight: bold;
     margin: -2rem -3rem 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
-.single .response-inline {
+.single .response-inline,
+.page .response-inline{
     box-shadow: none;
 }
-.single .letter .feedback-header{
+.single .letter .feedback-header,
+.page .letter .feedback-header{
     background-color: #3370b1;
     color: #eaf1f8;
 }
 .single .response .response-header,
-.single .response-inline .response-header-inline{
+.single .response-inline .response-header-inline,
+.page .response .response-header,
+.page .response-inline .response-header-inline{
     background-color: #73026e;
     color: #f1e5f0;
     font-weight: bold;
     padding-right: 3rem;
 }
-.single .response-inline .response-header-inline{
+.single .response-inline .response-header-inline,
+.page .response-inline .response-header-inline{
     padding: 0;
 }
 .single .letter .feedback-header p,
-.single .response .response-header p{
+.single .response .response-header p,
+.page .letter .feedback-header p,
+.page .response .response-header p{
     margin: 0;
 }
 .single .letter .shabbat-grade-title:before,
-.single .letter .activity-grade-title:before{
+.single .letter .activity-grade-title:before,
+.page .letter .shabbat-grade-title:before,
+.page .letter .activity-grade-title:before{
     content: "";
     display: inline-block;
     width: 3.5rem;
@@ -2370,19 +2387,23 @@ body:not(.page-id-15263) .entry-content {
     margin:0 2rem 0 1rem;
     vertical-align: middle;
 }
-.single .letter .shabbat-grade-title:before{
+.single .letter .shabbat-grade-title:before,
+.page .letter .shabbat-grade-title:before{
     background-image: url('images/candles.png');
 }
-.single .letter .activity-grade-title:before{
+.single .letter .activity-grade-title:before,
+.page .letter .activity-grade-title:before{
     background-image: url('images/friends-talking.png');
 }
-.single .letter .grade-number{
+.single .letter .grade-number,
+.page .letter .grade-number{
     background-color: #eaf1f8;
     color: #3370b1;
     display: inline-block;
     padding: 1rem 1.5rem;
 }
-.single .question{
+.single .question,
+.page .question{
     font-weight: bold;
     color: #3370b1;
 }
