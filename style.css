@@ -2154,7 +2154,7 @@ body.search .site-main {
 --------------------------------------------------------------*/
 
 .single .content-area,
-.page .content-area,
+.page:not(.home) .content-area,
 .error404 .content-area{
     font:  2rem / 1.5 'Alef',Arial,sans-serif;
 }
@@ -2162,7 +2162,7 @@ body.error404 .site-main{
     margin:0;
 }
 body.single .site-main,
-body.page .site-main{
+body.page:not(.home) .site-main{
     padding: 0 4rem 7rem;
 }
 .byline,
@@ -2288,7 +2288,8 @@ body:not(.page-id-15263) .entry-content {
     clear: both;
     margin: 0 0 1.5em;
 }
-.single .entry-title, .page .entry-title{
+.single .entry-title, 
+.page:not(.home) .entry-title{
     font-size: 3rem;
 }
 .single .entry-title .cat-links a{
@@ -2312,72 +2313,55 @@ body:not(.page-id-15263) .entry-content {
 }
 
 /* --------->>> EDITOR FORMATS <<<----------- */
-.single .letter,
-.single .response,
-.page .letter,
-.page .response{
+.entry-content .letter,
+.entry-content .response{
     padding: 2rem 3rem;
     margin-bottom: 8rem;
     border-radius: .5rem;
 }
-.single .letter,
-.page .letter{
+.entry-content .letter{
     background-color: #eaf1f8;
     box-shadow: 1px 1px 0px 0 #3370b1;
 }
-.single .response,
-.single .response-inline,
-.page .response,
-.page .response-inline{
+.entry-content .response,
+.entry-content .response-inline{
     background-color: #f1e5f0;
     box-shadow: 1px 1px 0 0 #73026e;
 }
 /* make response close to letter*/
-.single .letter ~ .response,
-.page .letter ~ .response{
+.entry-content .letter ~ .response{
     margin-top: -4rem;
 }
-.single .letter .feedback-header,
-.single .response .response-header,
-.page .letter .feedback-header,
-.page .response .response-header{
+.entry-content .letter .feedback-header,
+.entry-content .response .response-header{
     font-weight: bold;
     margin: -2rem -3rem 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
-.single .response-inline,
-.page .response-inline{
+.entry-content .response-inline{
     box-shadow: none;
 }
-.single .letter .feedback-header,
-.page .letter .feedback-header{
+.entry-content .letter .feedback-header{
     background-color: #3370b1;
     color: #eaf1f8;
 }
-.single .response .response-header,
-.single .response-inline .response-header-inline,
-.page .response .response-header,
-.page .response-inline .response-header-inline{
+.entry-content .response .response-header,
+.entry-content .response-inline .response-header-inline{
     background-color: #73026e;
     color: #f1e5f0;
     font-weight: bold;
     padding-right: 3rem;
 }
-.single .response-inline .response-header-inline,
-.page .response-inline .response-header-inline{
+.entry-content .response-inline .response-header-inline{
     padding: 0;
 }
-.single .letter .feedback-header p,
-.single .response .response-header p,
-.page .letter .feedback-header p,
-.page .response .response-header p{
+.entry-content .letter .feedback-header p,
+.entry-content .response .response-header p{
     margin: 0;
 }
-.single .letter .shabbat-grade-title:before,
-.single .letter .activity-grade-title:before,
-.page .letter .shabbat-grade-title:before,
-.page .letter .activity-grade-title:before{
+.entry-content .letter .shabbat-grade-title:before,
+.entry-content .letter .activity-grade-title:before{
     content: "";
     display: inline-block;
     width: 3.5rem;
@@ -2387,23 +2371,19 @@ body:not(.page-id-15263) .entry-content {
     margin:0 2rem 0 1rem;
     vertical-align: middle;
 }
-.single .letter .shabbat-grade-title:before,
-.page .letter .shabbat-grade-title:before{
+.entry-content .letter .shabbat-grade-title:before{
     background-image: url('images/candles.png');
 }
-.single .letter .activity-grade-title:before,
-.page .letter .activity-grade-title:before{
+.entry-content .letter .activity-grade-title:before{
     background-image: url('images/friends-talking.png');
 }
-.single .letter .grade-number,
-.page .letter .grade-number{
+.entry-content .letter .grade-number{
     background-color: #eaf1f8;
     color: #3370b1;
     display: inline-block;
     padding: 1rem 1.5rem;
 }
-.single .question,
-.page .question{
+.entry-content .question{
     font-weight: bold;
     color: #3370b1;
 }
@@ -3419,7 +3399,7 @@ object {
     .block-tabs {
         display: none;
     }
-    .single .entry-title, .page .entry-title{
+    .single .entry-title, .page:not(.home).entry-title{
         font-size: 2.8rem;
     }
     .site-footer{
@@ -3760,13 +3740,13 @@ object {
         font-size: 1.2rem;
     }
     /* single page - smaller fonts and line-height*/
-    body.single .site-main, body.page .site-main{
+    body.single .site-main, body.page:not(.home).site-main{
         padding-right: 2rem;
     }
-    .single .entry-title, .page .entry-title {
+    .single .entry-title, .page:not(.home).entry-title {
         font-size: 2.5rem;
     }
-    .single .content-area, .page .content-area, .error404 .content-area {
+    .single .content-area, .page:not(.home).content-area, .error404 .content-area {
         font: 1.5rem/1.2 'Alef',Arial,sans-serif;
     }
     /* comments - less padding and smaller font-size*/
