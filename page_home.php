@@ -1,15 +1,6 @@
 <?php
-/**
- * The homepage template file.
- *
- * This file shows the components of the homepage:
- * sticky post, 
- * 6 newest posts
- * 3 latest posts from categories
- * 3 latest posts from blogs
- * tabs - most commented, most popular ever, most popular this month
- *
- * @package kamoha
+/*
+  Template Name: עמוד ראשי
  */
 get_header();
 
@@ -31,9 +22,11 @@ $do_not_duplicate = array();
             <div class="block block-newest-posts clear">
 
                 <?php
+                /* In homepage, get sticky post, or - if no sticky post exists - get the 7 newest posts */
+                $home_page_query = kamoha_homepage_main_query();
                 global $kamoha_sticky_exists, $kamoha_latest_post_index;
                 $kamoha_latest_post_index = 1;
-                while ( have_posts() ) : the_post();
+                while ( $home_page_query->have_posts() ) : $home_page_query->the_post();
                     /* we don't want posts that appeared in the newest posts, to appear again under their categories.
                      * but posts that are hidden - we do want to show. So add to array only first 5 */
                     if ( $kamoha_latest_post_index <= NEWEST_POSTS_CNT - 2 ) {
@@ -44,7 +37,7 @@ $do_not_duplicate = array();
                     <?php
                     $kamoha_homepage_part = $kamoha_sticky_exists || $kamoha_latest_post_index == 1 ? KamohaHomepagePart::Sticky : KamohaHomepagePart::Newest; /* indicate what part of homepage we're on */
                     get_template_part( 'content', 'home' );
-                    $kamoha_latest_post_index++;
+                    $kamoha_latest_post_index ++;
                     ?>
 
                 <?php endwhile; ?>
@@ -109,7 +102,7 @@ $do_not_duplicate = array();
 
                                 get_template_part( 'content', 'home' );
 
-                                $kamoha_blog_post_index++;
+                                $kamoha_blog_post_index ++;
 
                             endwhile; // end of the loop. 
 
@@ -153,7 +146,7 @@ $do_not_duplicate = array();
 
                                 get_template_part( 'content', 'home' );
 
-                                $issue_post_index++;
+                                $issue_post_index ++;
 
                             endwhile; // end of the loop. 
 

@@ -485,20 +485,9 @@ add_filter( 'wp_get_nav_menu_items', 'kamoha_menu_cat_subnav', 10, 3 );
  * @return type
  */
 function kamoha_modify_query( $query ) {
-    /* In homepage, get sticky post, or - if no sticky post exists - get the 7 newest posts */
-    if ( $query->is_home() && $query->is_main_query() ) {
-        global $kamoha_sticky_exists;
-        $kamoha_sticky_exists = count( get_option( 'sticky_posts' ) ) > 0 ? true : false;
-        if ( $kamoha_sticky_exists ) {
-            $query->set( 'posts_per_page', 1 );
-            $query->set( 'post__in', array(get_option( 'sticky_posts' ), 'posts') );
-            $query->set( 'ignore_sticky_posts', 0 );
-        } else { // if no sticky, just get the 7 latest posts
-            $query->set( 'posts_per_page', 7 );
-        }
-    }
     /* In events category, if the pastposts parameter exists, get only the posts whos date field has a date before today. But only in the main query 
-     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */ elseif ( is_category( MEETINGS_CAT ) && ! is_admin() && $query->is_main_query() ) {
+     *    if the futureposts parameter exists, get only the posts whos date field has a date after today  */
+    if ( is_category( MEETINGS_CAT ) && ! is_admin() && $query->is_main_query() ) {
         if ( filter_input( INPUT_GET, 'pastposts' ) != NULL || filter_input( INPUT_GET, 'futureposts' ) != NULL ) {
             $query->set( 'meta_key', 'date' );
             /* order events by the meta field */
@@ -510,6 +499,22 @@ function kamoha_modify_query( $query ) {
             add_filter( 'posts_orderby', 'edit_posts_orderby_asc' );
         }
     }
+}
+
+function kamoha_homepage_main_query() {
+    $args = array();
+    global $kamoha_sticky_exists;
+    $kamoha_sticky_exists = count( get_option( 'sticky_posts' ) ) > 0 ? true : false;
+    if ( $kamoha_sticky_exists ) {
+        $args = array(
+            'posts_per_page' => 1,
+            'post__in' => array(get_option( 'sticky_posts' ), 'posts'),
+            'ignore_sticky_posts' => 0);
+    } else { // if no sticky, just get the 7 latest posts
+        $args = array('posts_per_page' => 7);
+    }
+    $home_page_query = new WP_Query( $args );
+    return $home_page_query;
 }
 
 /**
@@ -778,7 +783,7 @@ function kamoha_event_list() {
     //remove_filter( 'posts_orderby', 'edit_posts_orderby' ); // Lea 2015/04 - moved the remove_filter to the function called by add_filter
     ?>
     </ul>
-    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                    ?>
+    <?php // add a button for loading more posts. JS will hide the 2 last posts, and this button will toggle show/hide them                                      ?>
     <div id="moreEvents" class="toOpen showMore"> <?php _e( 'Load more', 'kamoha_2015' ) ?> </div>
 
     <a class="to_older_events" href="<?php echo htmlentities( add_query_arg( 'pastposts', '1', get_category_link( MEETINGS_CAT ) ) ); ?>"><?php _e( 'Go to older events and meetings', 'kamoha_2015' ) ?> > </a>
