@@ -1508,11 +1508,11 @@ where the wrapper gets the show because blogs and issue's wrapper is much bigger
 .site-content .aside_content{
     padding-right: 0;
 }
-.site-content .aside_content ul{
+.site-content .aside_content > ul{
     margin: 0;
     list-style-type: none;
 }
-.site-content .aside_content li{
+.site-content .aside_content > ul > li{
     margin: 0 0 2rem;
 }
 
@@ -1523,16 +1523,9 @@ where the wrapper gets the show because blogs and issue's wrapper is much bigger
     margin-bottom: 3rem;
 }
 .news_flash .aside_content{
-    /*    padding-right: 3rem;*/
-}
-.news_flash ul{
     line-height: 2rem;
-    /*    list-style-type: disc;*/
 }
-.news_flash li{ /* .news_aside:first-child. not relevant: the first item of type news_aside should get special design*/
-    /*    margin-right: -2rem;should be aligned with the bullets*/
-    /*    list-style-type: none;*/
-    margin-bottom: 0;
+.news_flash .aside_content > ul > li{ 
     padding: 1.5rem 1rem;
     font-size: 1.4rem;
 }
@@ -1546,6 +1539,10 @@ where the wrapper gets the show because blogs and issue's wrapper is much bigger
 /*since we don't have a speciel style for links in news flash, underline them*/
 .news_flash .news_content a{
     text-decoration: underline;
+}
+.news_flash .news_content ul{
+    margin: 0 2rem 0 0;
+    line-height: 2.2rem;
 }
 
 /*********** CountdownTimer  ****************/
@@ -3218,23 +3215,23 @@ object {
 
 /* H5P RTL styles */
 .rtl .h5p-multichoice .h5p-alternative-container{
-	text-align: right;
-	padding: 0.25em 2.1em 0.25em 0.75em;
+    text-align: right;
+    padding: 0.25em 2.1em 0.25em 0.75em;
 }
 .rtl .h5p-multichoice .h5p-answer .h5p-alternative-container::before{
     left: auto;
     right: 2.5em;
 }
 .rtl .h5p-alternative-inner{
-	margin: 0 2em 0 1.5em;
+    margin: 0 2em 0 1.5em;
 }
 .rtl .h5p-joubelui-score-bar{
-	margin-right:0;
-	margin-left: 0.5em;
+    margin-right:0;
+    margin-left: 0.5em;
 }
 .rtl .h5p-multichoice .h5p-answer-icon{
-	right: auto;
-	left: 0.75em;
+    right: auto;
+    left: 0.75em;
 }
 .rtl .h5p-joubelui-button::before{
     padding-right: 0;
