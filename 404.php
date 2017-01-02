@@ -15,7 +15,7 @@ get_header();
                 <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'kamoha_2015' ); ?></h1>
             </header><!-- .page-header -->
 
-            <div class="page-content">
+            <div class="entry-content">
                  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <?php
                     $queried_post = get_post( POST_404_PAGE );
@@ -26,7 +26,7 @@ get_header();
                     ?>
                 </article>
 
-            </div><!-- .page-content -->
+            </div><!-- .entry-content -->
         </section><!-- .error-404 -->
 
     </main><!-- #main -->

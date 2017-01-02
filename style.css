@@ -2174,7 +2174,6 @@ body.page:not(.home) .site-main{
     display: none; /* hide title in page without header and footer*/
 }
 .single .entry-summary,
-.page-content,
 body:not(.page-id-15263) .entry-content {
     margin: 1.5em 0 0;
     text-align: justify;
@@ -2189,20 +2188,16 @@ body:not(.page-id-15263) .entry-content {
 .single .entry-summary p{
     margin:0;
 }
-.page-content h1,
 .entry-content h1 {
     font-size: 2.8rem;
     font-weight: bold;
     line-height: 2.7rem;
     margin-bottom: 1rem;
 }
-.page-content h2,
 .entry-content h2 {
     font-size: 2.5rem;
 }
-.page-content h3,
 .entry-content h3,
-.page-content h4,
 .entry-content h4{
     color: #3370b1;
     font-size: 2.2rem;
@@ -2214,38 +2209,27 @@ body:not(.page-id-15263) .entry-content {
     margin-top: 5rem;
     border-top: 1px solid #c5c5c5;
 }
-.page-content h4,
 .entry-content h4{
     color: #404040;
 }
-.page-content h5,
 .entry-content h5{
     font-size: 1.8rem;
 }
-.page-content h6,
 .entry-content h65{
     font-size: 1.6rem;
 }
-.page-content h1
 .entry-content h1,
-.page-content h2,
 .entry-content h2,
-.page-content h3,
 .entry-content h3,
-.page-content h4,
 .entry-content h4,
-.page-content h5,
 .entry-content h5,
-.page-content h6,
 .entry-content h6{
     clear: none;
 }
-.page-content a,
 .entry-content a{
     color: #797979;
     text-decoration: underline;
 }
-.page-content img,
 .entry-content img{
     border: 1px solid #c5c5c5;
     box-sizing: content-box;
@@ -2254,26 +2238,17 @@ body:not(.page-id-15263) .entry-content {
     max-width: 100%;
     padding: 0.6%;
 }
-.page-content .alignnone.size-full,
 .entry-content .alignnone.size-full {
     display: block;
     margin: 0 auto;
 }
-.page-content [style*="#0000ff"],
 .entry-content [style*="#0000ff"],
-.entry-content [style*="rgb(0, 0, 255)"],
-.page-content [style*="rgb(0, 0, 255)"]{
+.entry-content [style*="rgb(0, 0, 255)"]{
     color:#3370b1 !important;
 }
-.page-content li,
 .entry-content li{
     margin-bottom: 1rem;
 }
-.page-content p + br,
-.page-content li br:first-child,
-.page-content ol br:first-child,
-.page-content li + br,
-.page-content ol + br,
 .entry-content p + br,
 .entry-content li br:first-child,
 .entry-content ol br:first-child,
@@ -3098,7 +3073,6 @@ div.wp-pagenavi span.extend  {
 /*--------------------------------------------------------------
 13.0 Media
 --------------------------------------------------------------*/
-.page-content img.wp-smiley,
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
     border: none;
