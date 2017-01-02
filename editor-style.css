@@ -155,8 +155,7 @@ body#tinymce.wp-editor h1{
 body#tinymce.wp-editor h2{
     font-size: 2.5rem;
 }
-body#tinymce.wp-editor h3,
-body#tinymce.wp-editor h4{
+body#tinymce.wp-editor h3{
     color: #3370b1;
     font-size: 2.2rem;
     font-weight: bold;
@@ -168,7 +167,8 @@ body#tinymce.wp-editor .page-id-68 h3{ /* titles in Kmoha in Media page*/
     border-top: 1px solid #c5c5c5;
 }
 body#tinymce.wp-editor h4{
-    color: #404040;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 body#tinymce.wp-editor h5{
     font-size: 1.8rem
@@ -183,6 +183,7 @@ body#tinymce.wp-editor h4,
 body#tinymce.wp-editor h5,
 body#tinymce.wp-editor h6{
     clear: none;
+    font-weight: bold;
 }
 body#tinymce.wp-editor .alignnone.size-full{
     display: block;
