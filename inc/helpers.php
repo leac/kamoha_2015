@@ -310,9 +310,9 @@ function kamoha_customize_register_func( $wp_customize ) {
             'rosh_hashana' => __( 'rosh hashana', 'kamoha_2015' ),
             'yom_kipur' => __( 'yom kipur', 'kamoha_2015' ),
             'sukot' => __( 'sukot', 'kamoha_2015' ),
-            'birthday_5_blue' => __( 'birthday - blue', 'kamoha_2015' ),
-            'birthday_5_purple' => __( 'birthday - purple', 'kamoha_2015' ),
-            'birthday_5_tubishvat' => __( 'birthday - tu bishvat', 'kamoha_2015' ),
+            'birthday_6_blue_conff' => __( 'birthday - blue confetti', 'kamoha_2015' ),
+            'birthday_6_black_conff' => __( 'birthday - black confetti', 'kamoha_2015' ),
+            'birthday_6_baloons_conff' => __( 'birthday - baloons confetti', 'kamoha_2015' ),
             'trip_during' => __( 'trip during registration', 'kamoha_2015' ),
             'trip_before_close' => __( 'trip before close', 'kamoha_2015' ),
             'trip_after_close' => __( 'trip after close', 'kamoha_2015' ),
@@ -332,6 +332,9 @@ function kamoha_customize_register_func( $wp_customize ) {
             'birthday_4_baloons' => __( 'birthday - baloons', 'kamoha_2015' ),
             'birthday_4_flowers' => __( 'birthday - flowers', 'kamoha_2015' ),
             'birthday_4_ribbons' => __( 'birthday - ribbons', 'kamoha_2015' ),
+            'birthday_5_blue' => __( 'birthday - blue', 'kamoha_2015' ),
+            'birthday_5_purple' => __( 'birthday - purple', 'kamoha_2015' ),
+            'birthday_5_tubishvat' => __( 'birthday - tu bishvat', 'kamoha_2015' ),
         ),
     ) );
 }
@@ -391,7 +394,7 @@ function kamoha_customizer_live_preview() {
             'kamoha-themecustomizer', //Give the script an ID
             get_template_directory_uri() . '/js/customize-themes.js', //Point to file
             array('jquery', 'customize-preview'), //Define dependencies
-            '0.8.0', //Define a version (optional)
+            '0.8.1', //Define a version (optional)
             true   //Put script in footer?
     );
 }

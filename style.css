@@ -588,7 +588,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_shabbat_early.jpg");
 }
 .shabbat_before_close .site-header {
-    background-image: url("images/header_shabbat_before_close.jpg?1=1");
+    background-image: url("images/header_shabbat_before_close.jpg");
 }
 .shabbat_before_close_urban .site-header {
     background-image: url("images/header_shabbat_before_close_urban.jpg");
@@ -609,7 +609,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url("images/header_memorial.jpg");
 }
 .shoa .site-header{
-    background-image: url("images/header_shoa.jpg?2=2");
+    background-image: url("images/header_shoa.jpg");
     background-position: right 0;
 }
 .independence .site-header {
@@ -625,6 +625,18 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .tishabeav .site-header {
     background-image: url("images/header_tishabeav.jpg");
     background-position: right 0;
+}
+.birthday_6_blue_conff .site-header {
+    background-image: url("images/header_birthday_blue_conff.jpg") ; 
+    background-position: center 0;
+}
+.birthday_6_black_conff .site-header {
+    background-image: url("images/header_birthday_black_conff.jpg") ; 
+    background-position: center 0;
+}
+.birthday_6_baloons_conff .site-header {
+    background-image: url("images/header_birthday_baloons_conff.jpg") ; 
+    background-position: center 0;
 }
 .birthday_5_blue .site-header {
     background-image: url("images/header_birthday_blue.jpg") ; 
@@ -998,6 +1010,9 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 }
 [class*="birthday_4"] .site-title a{
     background-image: url(images/logo_birthday_4.png);
+}
+[class*="birthday_6"] .site-title a{
+    background-image: url(images/logo_birthday_6.png);
 }
 
 .search-form {
