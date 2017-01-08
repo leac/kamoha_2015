@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kamoha_2015 v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 12:37+0200\n"
-"PO-Revision-Date: 2017-01-08 12:38+0200\n"
+"POT-Creation-Date: 2017-01-08 13:10+0200\n"
+"PO-Revision-Date: 2017-01-08 13:11+0200\n"
 "Last-Translator: Lea - Ort Israel <leac@mapa.ort.org.il>\n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -12,9 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.8.11\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"esc_attr_x:1,2c\n"
 "X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -842,10 +843,23 @@ msgid "Search Results for: %s"
 msgstr "תוצאות חיפוש: %s"
 
 # @ kamoha
-#: searchform.php:7 searchform.php:16
+#: searchform.php:7 searchform.php:8 searchform.php:16
 msgctxt "label"
 msgid "Search for:"
 msgstr "חפש:"
+
+# @ kamoha
+#: searchform.php:8
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "חיפוש &hellip;"
+
+# @ kamoha
+# @ default
+#: searchform.php:10 searchform.php:18
+msgctxt "submit button"
+msgid "Search"
+msgstr "&#58883;"
 
 # @ kamoha
 #: sidebar.php:25
@@ -872,6 +886,15 @@ msgstr "אירועים בכמוך"
 msgid "chosen tags"
 msgstr "תגיות נבחרות"
 
+#~ msgid "Search &hellip;"
+#~ msgstr "חיפוש &hellip;"
+
+#~ msgid "Search for:"
+#~ msgstr "חיפוש:"
+
+#~ msgid "Search"
+#~ msgstr "&#58883;"
+
 # @ kamoha
 #~ msgid "News Flash"
 #~ msgstr "עדכון"
@@ -879,17 +902,6 @@ msgstr "תגיות נבחרות"
 # @ kamoha
 #~ msgid "News Flashes"
 #~ msgstr "עדכונים"
-
-# @ kamoha
-#~ msgctxt "placeholder"
-#~ msgid "Search &hellip;"
-#~ msgstr "חיפוש &hellip;"
-
-# @ kamoha
-# @ default
-#~ msgctxt "submit button"
-#~ msgid "Search"
-#~ msgstr "&#58883;"
 
 # @ kamoha
 #~ msgid "Thumbnail"
