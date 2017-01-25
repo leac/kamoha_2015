@@ -833,7 +833,8 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 /* Blogs and special need to be separated to the right.
    The size of the separation depends on the number of items before them*/
 .topics-navigation .menu-item:nth-child(6) + .blogs,
-.topics-navigation .menu-item:nth-child(7) + .blogs {
+.topics-navigation .menu-item:nth-child(7) + .blogs,
+.topics-navigation .menu-item:nth-child(8) + .blogs {
     margin-right: 9%;
 }
 .topics-navigation .menu-item:nth-child(5) + .blogs {
