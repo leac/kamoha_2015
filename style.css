@@ -3275,6 +3275,9 @@ object {
 /* --------->>>  MAX-WIDTH: 959px <<<-----------*/
 
 @media  (max-width: 959px){
+	.topics-navigation .menu-item:nth-child(8) + .blogs {
+        margin-right: 0;
+    }
     .block-newest-posts img,
     .block-categories img,
     .block-blogs img,
