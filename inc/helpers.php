@@ -379,6 +379,7 @@ function kamoha_add_body_class( $classes ) {
     $classes[] = $color;
 
     // Add category id to class in single page, so can style posts of specific categories
+    // Taken from CSS tricks: https://css-tricks.com/snippets/wordpress/add-category-name-body_class/
     if ( is_single() ) {
         global $post;
         foreach ( (get_the_category( $post->ID ) ) as $category ) {
