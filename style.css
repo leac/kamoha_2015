@@ -843,7 +843,8 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .topics-navigation .blogs:hover {
     background-color: #73026e;
 }
-.topics-navigation .special:hover{
+.topics-navigation .special:hover,
+.topics-navigation .blue-bkg{
     background-color: #3370b1;
 }
 .topics-navigation .blogs:before,
