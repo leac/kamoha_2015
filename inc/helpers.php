@@ -371,11 +371,21 @@ add_action( 'customize_register', 'kamoha_customize_register_func' );
  * @return type
  */
 function kamoha_add_body_class( $classes ) {
+    // Add the 'special' class whenever the holiday header is set
     $color = strtolower( get_theme_mod( 'holiday_header' ) );
     if ( $color != 'regular' ) {
         $classes[] = 'special';
     }
     $classes[] = $color;
+
+    // Add category id to class in single page, so can style posts of specific categories
+    if ( is_single() ) {
+        global $post;
+        foreach ( (get_the_category( $post->ID ) ) as $category ) {
+            // add category slug to the $classes array
+            $classes[] = 'cat-'.$category->cat_ID;
+        }
+    }
     return $classes;
 }
 
