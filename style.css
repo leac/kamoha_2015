@@ -843,8 +843,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .topics-navigation .blogs:hover {
     background-color: #73026e;
 }
-.topics-navigation .special:hover,
-.topics-navigation .blue-bkg{
+.topics-navigation .special:hover{
     background-color: #3370b1;
 }
 .topics-navigation .blogs:before,
@@ -869,6 +868,20 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
 .topics-navigation .special:before{
     content: "\e60f";
     color: #3370b1;
+}
+.topics-navigation .new:before{
+    content: "חדש";
+    display: block;
+    font-size: 1.2rem;
+    color: #73026e;
+    background-color: #fff;
+    border: 1px solid;
+    padding: 0 0.5rem;
+    position: absolute;
+    right: 30%;
+    top: -0.5rem;
+    border-radius: 0.5rem;
+    
 }
 .topics-navigation .menu-item-has-children{
     position: relative;
