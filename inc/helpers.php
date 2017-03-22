@@ -141,11 +141,6 @@ function kamoha_register_required_plugins() {
             'force_deactivation' => false,
         ),
         array(
-            'name' => 'CodeStyling Localization',
-            'slug' => 'codestyling-localization',
-            'required' => false,
-        ),
-        array(
             'name' => 'Intuitive Custom Post Order',
             'slug' => 'intuitive-custom-post-order',
             'required' => false,
