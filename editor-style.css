@@ -485,30 +485,71 @@ body#tinymce.wp-editor .circle-list{
 .circle-list li:nth-child(even):before{
     background-color: #3370b1;
 }
-/*.circle-list li:nth-child(9n+1):before{
-    background-color: #457dc0;
+/********************* Email Quote ***************************/
+.email_quote,
+.email_amit_open,
+.email_lea_open,
+.email_racheli_open{
+	background-color: #f5f5f5;
+	border: 1px solid #d8d8d8;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #000;
 }
-.circle-list li:nth-child(9n+2):before{
-    background-color: #00aa9e;
+.email_quote p,
+.email_amit_open p,
+.email_lea_open p,
+.email_racheli_open p{
+        margin: 0;
 }
-.circle-list li:nth-child(9n+3):before{
-    background-color: #9a9ece;
+.email_amit_closed,
+.email_lea_closed,
+.email_racheli_closed{
+        padding: 10px 60px 10px 10px;
+	position: relative;
+        border-bottom: 1px solid #d8d8d8;
 }
-.circle-list li:nth-child(9n+4):before{
-    background-color: #01b8d9;
+.email_amit_closed::before,
+.email_lea_closed::before,
+.email_racheli_closed::before,
+.email_amit_open::before,
+.email_lea_open::before,
+.email_racheli_open::before{
+	display: block;
+	content: "";
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: 10px;
 }
-.circle-list li:nth-child(9n+5):before{
-    background-color: #c65ea4;
+.email_amit_closed::before,
+.email_amit_open::before{
+	background-color: #aaa;
+	background-image: url('images/profile_mask21.png'); 
 }
-.circle-list li:nth-child(9n+6):before{
-    background-color: #ee2869;
+.email_author{
+        font-weight:bold;
 }
-.circle-list li:nth-child(9n+7):before{
-    background-color: #f47e3b;
+.email_header{
+        display: flex;
+        justify-content: space-between;
 }
-.circle-list li:nth-child(9n+8):before{
-    background-color: #fdb827;
+.email_amit_open .email_header,
+.email_lea_open .email_header,
+.email_racheli_open .email_header{
+       margin-bottom: 15px;
 }
-.circle-list li:nth-child(9n+9):before{
-    background-color: #00ab4e;
-}*/
+.email_lea_closed::before,
+.email_lea_open::before{
+	background-image: url('images/small_duck.jpg'); 
+}
+.email_racheli_closed::before,
+.email_racheli_open::before{
+	background-image: url('images/profile_rachel1.png'); 
+}
+.email_amit_open,
+.email_lea_open,
+.email_racheli_open{
+       padding: 10px 60px 10px 10px;
+       position: relative;
+}

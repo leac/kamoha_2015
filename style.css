@@ -2025,6 +2025,77 @@ body.search .site-main {
     width: calc(100% - 20px);
     padding-bottom: 60%;
 }
+
+
+/********************* Email Quote ***************************/
+.email_quote,
+.email_amit_open,
+.email_lea_open,
+.email_racheli_open{
+	background-color: #f5f5f5;
+	border: 1px solid #d8d8d8;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #000;
+}
+.email_quote p,
+.email_amit_open p,
+.email_lea_open p,
+.email_racheli_open p{
+        margin: 0;
+}
+.email_amit_closed,
+.email_lea_closed,
+.email_racheli_closed{
+        padding: 10px 60px 10px 10px;
+	position: relative;
+        border-bottom: 1px solid #d8d8d8;
+}
+.email_amit_closed::before,
+.email_lea_closed::before,
+.email_racheli_closed::before,
+.email_amit_open::before,
+.email_lea_open::before,
+.email_racheli_open::before{
+	display: block;
+	content: "";
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: 10px;
+}
+.email_amit_closed::before,
+.email_amit_open::before{
+	background-color: #aaa;
+	background-image: url('images/profile_mask21.png'); 
+}
+.email_author{
+        font-weight:bold;
+}
+.email_header{
+        display: flex;
+        justify-content: space-between;
+}
+.email_amit_open .email_header,
+.email_lea_open .email_header,
+.email_racheli_open .email_header{
+       margin-bottom: 15px;
+}
+.email_lea_closed::before,
+.email_lea_open::before{
+	background-image: url('images/small_duck.jpg'); 
+}
+.email_racheli_closed::before,
+.email_racheli_open::before{
+	background-image: url('images/profile_rachel1.png'); 
+}
+.email_amit_open,
+.email_lea_open,
+.email_racheli_open{
+       padding: 10px 60px 10px 10px;
+       position: relative;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0){
     .category-1287 .post.has-mix-blend-mode:before,
     .category-1294 .post.has-mix-blend-mode:before,
