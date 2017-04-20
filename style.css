@@ -719,7 +719,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/* in main navigation, the before belongs to the a, so that it's clickable */
 .main-navigation li a:before{
     color: #ffffff;
     display: inline-block;
@@ -730,7 +730,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     font-variant: normal;
     margin-left: 0.5rem;
     text-transform: none;
-    line-height: 1;
+    line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     font-size: 1.6rem;
     content: "\e600";
@@ -738,21 +738,20 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     border-radius:50%;
     position: relative;
     transition: all 0.5s ease;
-    /*padding: 0.5rem;*/
     /* all icons have to be the same width and height. It's easier to control that via width, height, line-height and text-align properties, than via padding*/
     height: 2.6rem;
     width: 2.6rem;
-    line-height: 2.6rem;
     text-align: center;
+    vertical-align: middle;
 }
 .main-navigation li.contact a:before {
     content: "\e600";
 }
 .main-navigation li.who_we_are a:before {
-    /*content: "\e607";*/
     content: "i";
     font-family: Georgia;
     font-size: 2rem;
+    line-height: 1.3;
     font-weight: bold;
 }
 .main-navigation li.kamoha_media a:before {
