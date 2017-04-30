@@ -192,12 +192,6 @@ function kamoha_register_required_plugins() {
             'slug' => 'wordpress-popular-posts',
             'required' => false,
         ),
-        array(
-            'name' => 'Regenerate Thumbnails',
-            'slug' => 'regenerate-thumbnails',
-            'required' => false,
-            'force_deactivation' => false,
-        ),
     );
 
     /**
