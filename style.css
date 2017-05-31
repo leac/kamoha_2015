@@ -2031,24 +2031,24 @@ body.search .site-main {
 .email_amit_open,
 .email_lea_open,
 .email_racheli_open{
-	background-color: #f5f5f5;
-	border: 1px solid #d8d8d8;
-	margin-bottom: 20px;
-	font-size: 1.8rem;
-	color: #000;
+    background-color: #f5f5f5;
+    border: 1px solid #d8d8d8;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #000;
 }
 .email_quote p,
 .email_amit_open p,
 .email_lea_open p,
 .email_racheli_open p{
-        margin: 0;
+    margin: 0;
 }
 .email_amit_closed,
 .email_lea_closed,
 .email_racheli_closed{
-        padding: 10px 60px 10px 10px;
-	position: relative;
-        border-bottom: 1px solid #d8d8d8;
+    padding: 10px 60px 10px 10px;
+    position: relative;
+    border-bottom: 1px solid #d8d8d8;
 }
 .email_amit_closed::before,
 .email_lea_closed::before,
@@ -2056,43 +2056,43 @@ body.search .site-main {
 .email_amit_open::before,
 .email_lea_open::before,
 .email_racheli_open::before{
-	display: block;
-	content: "";
-	width: 32px;
-	height: 32px;
-	position: absolute;
-	right: 10px;
+    display: block;
+    content: "";
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 10px;
 }
 .email_amit_closed::before,
 .email_amit_open::before{
-	background-color: #aaa;
-	background-image: url('images/profile_mask21.png'); 
+    background-color: #aaa;
+    background-image: url('images/profile_mask21.png'); 
 }
 .email_author{
-        font-weight:bold;
+    font-weight:bold;
 }
 .email_header{
-        display: flex;
-        justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .email_amit_open .email_header,
 .email_lea_open .email_header,
 .email_racheli_open .email_header{
-       margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 .email_lea_closed::before,
 .email_lea_open::before{
-	background-image: url('images/small_duck.jpg'); 
+    background-image: url('images/small_duck.jpg'); 
 }
 .email_racheli_closed::before,
 .email_racheli_open::before{
-	background-image: url('images/profile_rachel1.png'); 
+    background-image: url('images/profile_rachel1.png'); 
 }
 .email_amit_open,
 .email_lea_open,
 .email_racheli_open{
-       padding: 10px 60px 10px 10px;
-       position: relative;
+    padding: 10px 60px 10px 10px;
+    position: relative;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0){
@@ -3529,6 +3529,17 @@ object {
     .search .entry-summary{
         width: auto;
     }
+        .gallery-columns-2 .gallery-item,
+    .gallery-columns-3 .gallery-item,
+    .gallery-columns-4 .gallery-item,
+    .gallery-columns-5 .gallery-item,
+    .gallery-columns-6 .gallery-item,
+    .gallery-columns-7 .gallery-item,
+    .gallery-columns-8 .gallery-item,
+    .gallery-columns-9 .gallery-item{
+        max-width: 48%;
+    }
+
 }
 
 /* --------->>>  MAX-WIDTH: 640px <<<-----------*/
@@ -3806,6 +3817,17 @@ object {
     .fieldset-cf7mls{
         padding: 3rem 2rem;
     }
+    .gallery-columns-2 .gallery-item,
+    .gallery-columns-3 .gallery-item,
+    .gallery-columns-4 .gallery-item,
+    .gallery-columns-5 .gallery-item,
+    .gallery-columns-6 .gallery-item,
+    .gallery-columns-7 .gallery-item,
+    .gallery-columns-8 .gallery-item,
+    .gallery-columns-9 .gallery-item{
+        max-width: 90%;
+    }
+
 }
 
 /* --------->>>  MAX-WIDTH: 400px <<<-----------*/
