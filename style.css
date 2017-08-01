@@ -2920,9 +2920,10 @@ canvas.your-signature{
 .comment-content a {
     word-wrap: break-word;
 }
+/* Lea 2017/8 - I don't remeber why I canceled the bottom margin in the comments. Canceling the cancellation 
 .comment-content p {
     margin: 0;
-}
+} */
 .bypostauthor {
 }
 ol.children {
