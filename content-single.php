@@ -31,8 +31,7 @@
         <?php the_content(); ?>
         <?php
         wp_link_pages( array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha_2015' ),
-            'after' => '</div>',
+            'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha_2015' ), 'after' => '</div>',
         ) );
         ?>
     </div><!-- .entry-content -->

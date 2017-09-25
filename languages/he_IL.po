@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kamoha_2015 v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-08 13:10+0200\n"
-"PO-Revision-Date: 2017-01-08 13:11+0200\n"
+"PO-Revision-Date: 2017-09-25 23:08+0300\n"
 "Last-Translator: Lea - Ort Israel <leac@mapa.ort.org.il>\n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
@@ -104,7 +104,7 @@ msgstr ""
 # @ kamoha
 #: content-page.php:18 content-single.php:34 content.php:41
 msgid "Pages:"
-msgstr ""
+msgstr "דפדוף:"
 
 # @ kamoha
 #: content-page.php:23 content-search.php:61 content-single.php:55
