@@ -960,7 +960,7 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     margin-right: 5%;
 }
 .site-title a{
-    background: url(images/logo.jpg) no-repeat 0 0 transparent;
+    background: url(images/logo.png) no-repeat 0 0 transparent; /* Lea 2017/9 - Chabged to png so will look nice on nostalgia pages */
     display: block;
     width: 8.5em;
     height: 6.875em;
