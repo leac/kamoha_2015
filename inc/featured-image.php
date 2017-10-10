@@ -65,7 +65,7 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ) {
             if ( is_external_image( $imgsrc ) ) {
 
                 /* check if full size image exists */
-                $response = wp_remote_get( 'http://www.example.com/index.html' );
+                $response = wp_remote_get( $orig_imgsrc );
                 if ( is_array( $response ) ) {
                     $attachment_id = handle_sideload_and_get_id( $orig_imgsrc, $post_id, '' ); // try to get the id of the original image
                 } else {
@@ -81,7 +81,7 @@ function kamoha_show_homepage_thumbnail( $thumb_size = 'medium' ) {
                 }
                 if ( !$attachment_id ) {
                     /* check if full size image exists */
-                    $response = wp_remote_get( 'http://www.example.com/index.html' );
+                    $response = wp_remote_get( $orig_imgsrc );
                     if ( is_array( $response ) ) {
                         $attachment_id = handle_sideload_and_get_id( $orig_imgsrc, $post_id, '' ); // try to get the id of the original image
                     } else {
@@ -107,7 +107,9 @@ function kamoha_get_img_src_without_size( $imgsrc ) {
     $ret = $imgsrc;
     /* remove the size from end of filename */
     $last_hyphen = mb_strrpos( $imgsrc, '-' );
-    // make sure it's the right hyphen
+/* make sure it's the right hyphen - 
+     * if it's furhter than 10 characters away from the dot then it's not.
+     * and the letter x has to appear there, because that's part of the syntax wordpress uses to add the sizes  */
     $last_dot = mb_strrpos( $imgsrc, '.' );
     $file_type = mb_substr( $imgsrc, $last_dot );
     if ( $last_dot - $last_hyphen > 10 || !mb_strpos( $imgsrc, 'x', $last_hyphen ) ) {
