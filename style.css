@@ -1925,12 +1925,14 @@ where the wrapper gets the show because blogs and issue's wrapper is much bigger
 .archive .hentry .image-wrapper:hover img.attachment-post-thumbnail{
     opacity: 0.8;
     transform: scale(1.2); /* add hover effect of zoomin in image*/
+	transition: all 0.3s;
 }
 .archive:not(.search) .hentry a:hover{
     text-decoration: none;
 }
 .archive .hentry .image-wrapper{
     overflow: hidden; /* to keep image size the same even in hover */
+	display: block;
 }
 .archive:not(.search) .entry-header {
     margin-bottom: 0.5rem;
