@@ -1029,6 +1029,11 @@ body:not(.page-template-page_without-header-and-footer) .site-main {
     background-image: url(images/logo_birthday_6.png);
 }
 
+body.acp-contrast-dark   #acp-body-wrap .site-title a,
+body.acp-contrast-bright #acp-body-wrap .site-title a{
+    background: url(images/logo.png) no-repeat 0 0 #fff; /* Lea 2018/6 - Return the logo on color contrast accessibility */
+}
+
 .search-form {
     background-color: #ffffff;
     clear: left;
