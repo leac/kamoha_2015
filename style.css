@@ -3861,13 +3861,9 @@ object {
     .single .entry-title, .page:not(.home).entry-title {
         font-size: 2.5rem;
     }
-    .single .content-area, .page:not(.home).content-area, .error404 .content-area {
-        font: 1.5rem/1.2 'Alef',Arial,sans-serif;
-    }
     /* comments - less padding and smaller font-size*/
     .comment-respond{
         padding: 3rem 1rem;
-        font-size: 1.5rem;
     }
     .comment-form-btn{
         width: 90%;
