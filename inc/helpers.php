@@ -983,8 +983,8 @@ function kamoha_the_post_navigation(){
 	if ( ! empty( $postcat ) ) {
 		if ($postcat[0]->cat_ID == 1567){
 			the_post_navigation(array(
-				'prev_text'=>__('%title'),
-				'next_text'=>__('%title'),
+				'prev_text'=>__('Previous episode: %title'),
+				'next_text'=>__('Next episode: %title'),
 				'in_same_term' => true,
 			));
 		}

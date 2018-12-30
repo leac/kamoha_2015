@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kamoha_2015 v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 13:10+0200\n"
-"PO-Revision-Date: 2017-09-25 23:08+0300\n"
+"POT-Creation-Date: 2018-12-30 20:06+0200\n"
+"PO-Revision-Date: 2018-12-30 20:06+0200\n"
 "Last-Translator: Lea - Ort Israel <leac@mapa.ort.org.il>\n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
@@ -107,13 +107,13 @@ msgid "Pages:"
 msgstr "דפדוף:"
 
 # @ kamoha
-#: content-page.php:23 content-search.php:61 content-single.php:55
+#: content-page.php:23 content-search.php:61 content-single.php:56
 #: inc/comments-and-latest-comments.php:101
 msgid "Edit"
 msgstr "עריכה"
 
 # @ kamoha
-#: content-search.php:34 content-search.php:44 content-single.php:46
+#: content-search.php:34 content-search.php:44 content-single.php:47
 msgid ", "
 msgstr ""
 
@@ -130,7 +130,7 @@ msgid "Tagged %1$s"
 msgstr "תגיות:  %1$s"
 
 # @ kamoha
-#: content-single.php:50
+#: content-single.php:51
 #, php-format
 msgid "This entry was tagged %1$s."
 msgstr "תגיות: %1$s."
@@ -193,17 +193,17 @@ msgid "Skip to content"
 msgstr ""
 
 # @ tgmpa
-#: inc/class-tgm-plugin-activation.php:161 inc/helpers.php:224
+#: inc/class-tgm-plugin-activation.php:161 inc/helpers.php:213
 msgid "Install Required Plugins"
 msgstr ""
 
 # @ tgmpa
-#: inc/class-tgm-plugin-activation.php:162 inc/helpers.php:225
+#: inc/class-tgm-plugin-activation.php:162 inc/helpers.php:214
 msgid "Install Plugins"
 msgstr ""
 
 # @ tgmpa
-#: inc/class-tgm-plugin-activation.php:163 inc/helpers.php:226
+#: inc/class-tgm-plugin-activation.php:163 inc/helpers.php:215
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
@@ -214,7 +214,7 @@ msgid "Something went wrong."
 msgstr ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:165 inc/helpers.php:228
+#: inc/class-tgm-plugin-activation.php:165 inc/helpers.php:217
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
@@ -222,7 +222,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:166 inc/helpers.php:229
+#: inc/class-tgm-plugin-activation.php:166 inc/helpers.php:218
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
@@ -230,7 +230,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:167 inc/helpers.php:230
+#: inc/class-tgm-plugin-activation.php:167 inc/helpers.php:219
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -244,7 +244,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:168 inc/helpers.php:231
+#: inc/class-tgm-plugin-activation.php:168 inc/helpers.php:220
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
@@ -252,7 +252,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:169 inc/helpers.php:232
+#: inc/class-tgm-plugin-activation.php:169 inc/helpers.php:221
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
@@ -260,7 +260,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:170 inc/helpers.php:233
+#: inc/class-tgm-plugin-activation.php:170 inc/helpers.php:222
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
@@ -274,7 +274,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:171 inc/helpers.php:234
+#: inc/class-tgm-plugin-activation.php:171 inc/helpers.php:223
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -286,7 +286,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:172 inc/helpers.php:235
+#: inc/class-tgm-plugin-activation.php:172 inc/helpers.php:224
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -300,21 +300,21 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:173 inc/helpers.php:236
+#: inc/class-tgm-plugin-activation.php:173 inc/helpers.php:225
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 # @ kamoha
-#: inc/class-tgm-plugin-activation.php:174 inc/helpers.php:237
+#: inc/class-tgm-plugin-activation.php:174 inc/helpers.php:226
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 # @ tgmpa
-#: inc/class-tgm-plugin-activation.php:175 inc/helpers.php:238
+#: inc/class-tgm-plugin-activation.php:175 inc/helpers.php:227
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 
 # @ tgmpa
 #: inc/class-tgm-plugin-activation.php:177
-#: inc/class-tgm-plugin-activation.php:1901 inc/helpers.php:239
+#: inc/class-tgm-plugin-activation.php:1901 inc/helpers.php:228
 msgid "Plugin activated successfully."
 msgstr ""
 
@@ -584,170 +584,170 @@ msgid "Page %s"
 msgstr ""
 
 # @ tgmpa
-#: inc/helpers.php:227
+#: inc/helpers.php:216
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
 # @ tgmpa
-#: inc/helpers.php:240
+#: inc/helpers.php:229
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
 # @ kamoha
-#: inc/helpers.php:255
+#: inc/helpers.php:244
 msgid "Secondary Image"
 msgstr "תמונה ראשית נוספת (עמית - אל תגע)"
 
 # @ kamoha
-#: inc/helpers.php:294
+#: inc/helpers.php:283
 msgid "Holiday Header"
 msgstr "כותרות לחגים"
 
 # @ kamoha
-#: inc/helpers.php:305
+#: inc/helpers.php:294
 msgid "choose holiday"
 msgstr "בחר חג או אירוע:"
 
 # @ kamoha
-#: inc/helpers.php:309
+#: inc/helpers.php:298
 msgid "regular"
 msgstr "רגיל"
 
 # @ kamoha
-#: inc/helpers.php:310
+#: inc/helpers.php:299
 msgid "rosh hashana"
 msgstr "ראש השנה"
 
 # @ kamoha
-#: inc/helpers.php:311
+#: inc/helpers.php:300
 msgid "yom kipur"
 msgstr "יום כיפור"
 
 # @ kamoha
-#: inc/helpers.php:312
+#: inc/helpers.php:301
 msgid "sukot"
 msgstr "סוכות"
 
-#: inc/helpers.php:313
+#: inc/helpers.php:302
 msgid "birthday - blue confetti"
 msgstr "יומולדת 6 - פתיתונים על רקע כחול"
 
-#: inc/helpers.php:314
+#: inc/helpers.php:303
 msgid "birthday - black confetti"
 msgstr "יומולדת 6 - פתיתונים על רקע שחור"
 
-#: inc/helpers.php:315
+#: inc/helpers.php:304
 msgid "birthday - baloons confetti"
 msgstr "יומולדת 6 - בלונים עם פתיתונים"
 
 # @ kamoha
-#: inc/helpers.php:316
+#: inc/helpers.php:305
 msgid "trip during registration"
 msgstr "טיול - ההרשמה בעיצומה"
 
 # @ kamoha
-#: inc/helpers.php:317
+#: inc/helpers.php:306
 msgid "trip before close"
 msgstr "טיול - שבוע אחרון להרשמה"
 
 # @ kamoha
-#: inc/helpers.php:318
+#: inc/helpers.php:307
 msgid "trip after close"
 msgstr "טיול - ההרשמה נסגרה"
 
 # @ kamoha
-#: inc/helpers.php:319
+#: inc/helpers.php:308
 msgid "shabbat early"
 msgstr "שבת - סיום הרשמה מוזלת"
 
 # @ kamoha
-#: inc/helpers.php:320
+#: inc/helpers.php:309
 msgid "shabbat before close"
 msgstr "שבת - שבוע אחרון להרשמה (3 התמונות)"
 
 # @ kamoha
-#: inc/helpers.php:321
+#: inc/helpers.php:310
 msgid "shabbat before close urban"
 msgstr "שבת - שבוע אחרון להרשמה (נוף אורבני)"
 
 # @ kamoha
-#: inc/helpers.php:322
+#: inc/helpers.php:311
 msgid "shabbat after close"
 msgstr "שבת - לאחר סגירת ההרשמה"
 
 # @ kamoha
-#: inc/helpers.php:323
+#: inc/helpers.php:312
 msgid "hanuka"
 msgstr "חנוכה"
 
 # @ kamoha
-#: inc/helpers.php:324
+#: inc/helpers.php:313
 msgid "purim"
 msgstr "פורים"
 
 # @ kamoha
-#: inc/helpers.php:325
+#: inc/helpers.php:314
 msgid "pesah"
 msgstr "פסח"
 
 # @ kamoha
-#: inc/helpers.php:326
+#: inc/helpers.php:315
 msgid "shoa"
 msgstr "עשרה בטבת / יום הזכרון לשואה ולגבורה"
 
 # @ kamoha
-#: inc/helpers.php:327
+#: inc/helpers.php:316
 msgid "memorial"
 msgstr "יום הזכרון"
 
 # @ kamoha
-#: inc/helpers.php:328
+#: inc/helpers.php:317
 msgid "independence"
 msgstr "יום העצמאות"
 
 # @ kamoha
-#: inc/helpers.php:329
+#: inc/helpers.php:318
 msgid "jerusalem"
 msgstr "יום ירושלים"
 
 # @ kamoha
-#: inc/helpers.php:330
+#: inc/helpers.php:319
 msgid "shavuot"
 msgstr "שבועות"
 
 # @ kamoha
-#: inc/helpers.php:331
+#: inc/helpers.php:320
 msgid "tishabeav"
 msgstr "תשעה באב"
 
 # @ kamoha
-#: inc/helpers.php:332
+#: inc/helpers.php:321
 msgid "birthday - baloons"
 msgstr "יומולדת 4 - בלונים"
 
 # @ kamoha
-#: inc/helpers.php:333
+#: inc/helpers.php:322
 msgid "birthday - flowers"
 msgstr "יומולדת 4 - פרחים"
 
 # @ kamoha
-#: inc/helpers.php:334
+#: inc/helpers.php:323
 msgid "birthday - ribbons"
 msgstr "יומולדת 4 - סרטים"
 
 # @ kamoha
-#: inc/helpers.php:335
+#: inc/helpers.php:324
 msgid "birthday - blue"
 msgstr "יומולדת 5 - כחול"
 
 # @ kamoha
-#: inc/helpers.php:336
+#: inc/helpers.php:325
 msgid "birthday - purple"
 msgstr "יומולדת 5 - סגול"
 
 # @ kamoha
-#: inc/helpers.php:337
+#: inc/helpers.php:326
 msgid "birthday - tu bishvat"
 msgstr "יומולדת 5 - ט''ו בשבט"
 
@@ -762,6 +762,14 @@ msgid "homepage_description"
 msgstr ""
 "כמוך היא קבוצה של הנמשכים לבני מינם, הפועלת לאור ההלכה האורתודוקסית. כמוך קם "
 "כדי לשמש בית להומוסקסואלים דתיים המשתדלים להקפיד על קלה כבחמורה."
+
+#: inc/helpers.php:986
+msgid "Previous episode: %title"
+msgstr "הפרק הקודם: %title"
+
+#: inc/helpers.php:987
+msgid "Next episode: %title"
+msgstr "הפרק הבא: %title"
 
 # @ kamoha
 #: inc/jewish-calendar.php:463
