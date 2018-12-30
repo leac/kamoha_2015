@@ -976,6 +976,22 @@ function wcs_post_thumbnails_in_feeds( $content ) {
 add_filter( 'the_excerpt_rss', 'wcs_post_thumbnails_in_feeds' );
 add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
 
+function kamoha_the_post_navigation(){
+	global $post;
+	$postcat = get_the_category( $post->ID );
+
+	if ( ! empty( $postcat ) ) {
+		if ($postcat[0]->cat_ID == 1567){
+			the_post_navigation(array(
+				'prev_text'=>__('%title'),
+				'next_text'=>__('%title'),
+				'in_same_term' => true,
+			));
+		}
+	}				
+}		
+
+
 /* * *******************************
  * AUXILIARY FUNCTIONS
  * ******************************* */

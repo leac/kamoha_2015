@@ -34,6 +34,8 @@
             'before' => '<div class="page-links">' . __( 'Pages:', 'kamoha_2015' ), 'after' => '</div>',
         ) );
         ?>
+		
+		<?php kamoha_the_post_navigation(); ?>
     </div><!-- .entry-content -->
 
     <?php // in the footer, show tags, and share buttons   ?>
