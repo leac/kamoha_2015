@@ -2347,7 +2347,7 @@ body:not(.page-id-15263) .entry-content {
     color: #797979;
     text-decoration: underline;
 }
-.entry-content img{
+.entry-content img:not(.ssba-img){
     border: 1px solid #c5c5c5;
     box-sizing: content-box;
     display: inline-block;
