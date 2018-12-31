@@ -3108,11 +3108,18 @@ ol.children {
     margin: 0 0 1.5em;
     overflow: hidden;
 }
+.site-main .post-navigation {
+    background: rgba(128, 128, 128, 0.05);
+	padding: 1.5em;
+}
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
 .post-navigation .nav-previous {
     float: left;
     width: 50%;
+}
+.rtl .post-navigation .nav-previous {
+    text-align: left;
 }
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
@@ -3120,6 +3127,9 @@ ol.children {
     float: right;
     text-align: right;
     width: 50%;
+}
+.post-navigation .nav-next {
+    border-left: 4px double rgba(128, 73, 16, 0.2);
 }
 /************* the response form ***************/
 .comment-respond {
