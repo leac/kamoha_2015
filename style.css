@@ -2983,6 +2983,9 @@ ol.children {
     float: right;
     width: 32%;
 }
+.comment-form-comment-subscribe{
+    clear: both;
+}
 .comment-form-author {
     margin-left: 4%;
 
