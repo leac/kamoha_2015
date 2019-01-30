@@ -42,8 +42,6 @@ if ( post_password_required() ) {
     ?>
     <?php /* Add facebook commnets box - end */ ?>
 
-    <div class="comment-form-btn kamoha_btn"> <?php _e( 'Add Comment', 'kamoha_2015' ) ?> </div>
-
     <?php
     comment_form( array(
         'comment_notes_after' => '',
