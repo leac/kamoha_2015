@@ -2972,8 +2972,11 @@ ol.children {
     padding: 0.8rem 3.3rem;
 }
 .comment-form label:not([for="comment_mail_notify"]),
-.comment-form input:not(#comment_mail_notify){
+.comment-form input:not(#comment_mail_notify):not(#cren_subscribe_to_comment){
     display: block;
+}
+.comment-form input#cren_subscribe_to_comment{
+    margin-left: 0.5rem;
 }
 .comment-form-author,
 .comment-form-email{

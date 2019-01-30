@@ -71,16 +71,6 @@ jQuery(document).ready(function ($) {
     });
 
     /***********************************************
-     * Hide comments form 
-     ***********************************************/
-/*    $('#respond').addClass('hide');
-    $(".comment-form-btn, .comment-reply-link").click(function () {
-        $('#respond').removeClass('hide');
-    });*/
-
-
-
-    /***********************************************
      * Masonry  
      ***********************************************/
 
