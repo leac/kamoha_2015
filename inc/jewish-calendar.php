@@ -389,7 +389,11 @@ function kamoha_get_heb_month_name( $hebDate ){
     if ( count( $hebDate ) == 3 ) {
         $ret = $hebDate[1];
     } else {
-        $ret = substr( $hebDate[1], 1 ) . ' ' . $hebDate[2] . '\''; //
+        if ( mb_strpos( $jew_date[ 1 ], '\'' ) === 0 ) {             
+             $hebDate[ 1 ] = mb_substr( $hebDate[ 1 ], 1 );             
+             $hebDate[ 2 ] .= '\'';        
+        }
+        $ret =  $hebDate[1] . ' ' . $hebDate[2]; //
     }
     switch ( $ret ) {
         case 'חשון':
